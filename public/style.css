@@ -296,3 +296,17 @@ html,body{min-height:0}
 .exile-editor .exile-footer{flex:0 1 auto;min-height:80px}
 
 .exile-voters:not(.exile-choices) button.ballot-other{background:#263041;border-color:#546073}
+
+/* Compact target dropdown; control containers have no background panel. */
+.vote-dialog .vote-footer,.exile-editor .exile-footer{background:transparent;border:0;box-shadow:none}
+.vote-navigation,.exile-navigation{background:transparent;border:0;box-shadow:none}
+.exile-target-section{padding:0;border:0;background:transparent}
+.exile-target-picker{margin:6px 0 0;padding:0;border:0;background:transparent}
+.exile-target-picker>summary{display:flex;align-items:center;gap:12px;min-height:48px;padding:10px 14px;list-style:none;border:1px solid #a99ac790;border-radius:8px;background:#263248;color:var(--ink);font-size:.9375rem;cursor:pointer}
+.exile-target-picker>summary::-webkit-details-marker{display:none}
+.exile-target-picker>summary::after{content:'';width:7px;height:7px;border-right:2px solid #c3cbdb;border-bottom:2px solid #c3cbdb;transform:rotate(45deg);margin-left:auto;margin-right:3px}
+.exile-target-picker[open]>summary::after{transform:rotate(225deg)}
+.exile-target-picker>summary small{font-size:.75rem;color:var(--muted)}
+.exile-target-picker .exile-candidates{display:flex;flex-direction:column;gap:0;margin-top:4px;padding:3px;max-height:clamp(64px,26dvh,224px);border:1px solid #61728f;border-radius:8px;background:#182638}
+.exile-target-picker .exile-candidates button{display:flex;flex-direction:row;justify-content:space-between;flex:none;min-height:44px;padding:10px 12px;border:0;border-bottom:1px solid #60718b50;border-radius:5px;background:transparent}
+.exile-target-picker .exile-candidates button:last-child{border-bottom:0}
