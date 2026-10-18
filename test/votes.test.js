@@ -17,8 +17,8 @@ test('UI56 eligibility retains dead, inactive and revealed idiot exclusions',()=
 test('UI56-04 drafts and discarded edits never mutate or persist formal game',()=>{
  const s=ready(),before=structuredClone(s),d=createVoteDraft(s);setBallot(d,5,5);assert.deepEqual(s,before);assert.deepEqual(createVoteDraft(s).ballots,{});selectSeat(s,9);next(s);assert.equal(Object.hasOwn(s.dayEvents[0],'voteRounds'),false);
 });
-test('UI56-05 partial tally selects highest, locks, waits for next and blocks tampering',()=>{
- const s=ready();submit(s,[[1,8],[2,5],[3,8],[4,5],[6,10]]);assert.deepEqual(s.action,[5,8]);assert.equal(s.choice,'tie');assert.equal(s.step,'exileVote');assert.equal(s.players.every(p=>p.alive),true);assert.equal(voteLocked(s),true);assert.equal(selectSeat(s,10),false);assert.equal(choose(s,'tie'),false);assert.equal(canNext(s),true);s.action=[10];assert.equal(canNext(s),false);
+test('VOTE62 ordinary tally preselects without advancing and permits manual override',()=>{
+ const s=ready();submit(s,[[1,8],[2,5],[3,8],[4,5],[6,10]]);assert.deepEqual(s.action,[5,8]);assert.equal(s.choice,'tie');assert.equal(s.step,'exileVote');assert.equal(s.players.every(p=>p.alive),true);assert.equal(voteLocked(s),false);assert.equal(canNext(s),true);assert.equal(choose(s,'tie'),true);assert.equal(selectSeat(s,10),true);assert.deepEqual(s.action,[10]);assert.equal(canNext(s),true);
 });
 test('UI56-06 reedit clones prior submission, cancellation preserves lock, resubmit updates it',()=>{
  const s=ready();submit(s,[[1,8]]);const before=structuredClone(s),edit=createVoteDraft(s);setBallot(edit,1,5);assert.deepEqual(s,before);assert.equal(submitVote(s,edit).ok,true);assert.deepEqual(s.action,[5]);assert.equal(voteRound(s).ballots[1],5);
@@ -26,8 +26,9 @@ test('UI56-06 reedit clones prior submission, cancellation preserves lock, resub
 test('UI56-06 abandoning only current round preserves historical rounds and restores manual',()=>{
  const s=ready();submit(s,[[1,8]]);s.votePatterns.push({...structuredClone(voteRound(s)),key:'0:exileVote',day:0});abandonVote(s);assert.equal(s.votePatterns.length,1);assert.equal(voteLocked(s),false);assert.equal(selectSeat(s,9),true);assert.deepEqual(s.action,[9]);next(s);assert.equal(Object.hasOwn(s.dayEvents[0],'voteRounds'),false);
 });
-test('UI56-08 zero votes or abstentions never submit or choose a zero-vote target',()=>{
- const s=ready(),before=structuredClone(s),d=createVoteDraft(s);assert.equal(submitVote(s,d).reason,'empty');setBallot(d,1,'abstain');assert.equal(submitVote(s,d).reason,'empty');assert.deepEqual(s,before);
+test('VOTE62 ordinary all abstain submits without inventing an outcome; legacy editors still reject empty',()=>{
+ const s=ready(),d=createVoteDraft(s);assert.equal(submitVote(s,d).ok,true);assert.deepEqual(s.action,[]);assert.equal(s.choice,null);assert.equal(canNext(s),false);assert.deepEqual(tallyVotes(voteRound(s)).abstainers,s.players.map(p=>p.id));
+ for(const step of ['sheriffVote','sheriffRevote','exileRevote']){const old=ready('12',step),before=structuredClone(old),draft=createVoteDraft(old);setBallot(draft,1,'abstain');assert.equal(submitVote(old,draft).reason,'empty');assert.deepEqual(old,before);}
 });
 test('UI56 single ballot replacement, self vote, abstain, missing and toggle semantics',()=>{
  const d=createVoteDraft(ready());setBallot(d,5,5);setBallot(d,5,6);assert.equal(tallyVotes(d).groups[0].target,6);setBallot(d,5,'abstain');assert.deepEqual(tallyVotes(d).abstainers,[5]);setBallot(d,5,null);assert.equal(tallyVotes(d).recorded,0);setBallot(d,5,5,true);setBallot(d,5,5,true);assert.equal(tallyVotes(d).recorded,0);assert.equal(setBallot(d,99,5),false);assert.equal(setBallot(d,5,99),false);
@@ -36,7 +37,7 @@ test('UI56 rejects stale eligibility, sanitizes extra ballots and snapshots sher
  const s=ready();s.sheriff=6;const d=createVoteDraft(s);setBallot(d,6,5);setBallot(d,1,5);d.ballots[99]=9;s.sheriff=2;assert.equal(submitVote(s,d).reason,'eligibility');s.sheriff=6;assert.equal(submitVote(s,d).ok,true);assert.equal(tallyVotes(voteRound(s)).groups[0].votes,2.5);assert.equal(voteRound(s).ballots[99],undefined);
 });
 test('UI56-07 first vote and PK independent, previous and reload restore result and lock together',()=>{
- const s=ready();submit(s,[[1,5],[2,9]]);next(s);next(s);next(s);assert.equal(s.step,'exileRevote');assert.deepEqual(createVoteDraft(s).ballots,{});assert.deepEqual(createVoteDraft(s).voters,[1,2,3,4,6,7,8,10,11,12]);submit(s,[[1,9]]);next(s);const e=s.dayEvents.find(e=>e.type==='exile');assert.deepEqual(e.voteRounds.map(r=>r.ballots[1]),[5,9]);previous(s);assert.equal(s.step,'exileRevote');assert.deepEqual(s.action,[9]);assert.equal(voteLocked(s),true);assert.equal(voteRound(s).confirmed,false);assert.deepEqual(upgradeGame(JSON.parse(JSON.stringify(s))),s);previous(s);previous(s);previous(s);assert.equal(s.step,'exileVote');assert.deepEqual(s.action,[5,9]);assert.equal(voteLocked(s),true);assert.equal(s.votePatterns.length,1);
+ const s=ready();submit(s,[[1,5],[2,9]]);next(s);next(s);next(s);assert.equal(s.step,'exileRevote');assert.deepEqual(createVoteDraft(s).ballots,{});assert.deepEqual(createVoteDraft(s).voters,[1,2,3,4,6,7,8,10,11,12]);submit(s,[[1,9]]);next(s);const e=s.dayEvents.find(e=>e.type==='exile');assert.deepEqual(e.voteRounds.map(r=>r.ballots[1]),[5,9]);previous(s);assert.equal(s.step,'exileRevote');assert.deepEqual(s.action,[9]);assert.equal(voteLocked(s),true);assert.equal(voteRound(s).confirmed,false);assert.deepEqual(upgradeGame(JSON.parse(JSON.stringify(s))),s);previous(s);previous(s);previous(s);assert.equal(s.step,'exileVote');assert.deepEqual(s.action,[5,9]);assert.equal(voteLocked(s),false);assert.equal(s.votePatterns.length,1);
 });
 test('UI56 sheriff first tie and PK use original next-stage election settlement',()=>{
  const s=ready('12','sheriffVote');submit(s,[[1,7],[2,8]]);next(s);next(s);assert.equal(s.step,'sheriffRevote');submit(s,[[4,8],[9,8]]);assert.equal(s.sheriff,null);next(s);assert.equal(s.sheriff,8);assert.deepEqual(s.dayEvents[0].voteRounds.map(r=>r.ballots),[{1:7,2:8},{4:8,9:8}]);

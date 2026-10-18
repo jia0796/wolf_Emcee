@@ -191,7 +191,7 @@ function render(){
  if(['antidote','poison'].includes(s)){const blocked=!!potionBlocked(game,s);action(s==='antidote'?'不使用解藥':'不用毒藥','skip',blocked);action(s==='antidote'?'使用解藥':'使用毒藥','use',blocked);}
  if(s==='candidates'){action('全員上警','all');action('無人上警','none');}if(['draw','dayDraw'].includes(s))action(game.draw?.revealed?'查看抽籤結果':'抽籤','draw');
  if(s==='badgeTransfer')action('撕掉／不移交','skip');
- if(['sheriffVote','sheriffRevote','exileVote','exileRevote'].includes(s)){action(game.choice==='tie'?'取消平票':'平票','tie');$('actions').lastElementChild.disabled=voteLocked(game);const button=document.createElement('button');button.textContent='紀錄票型（選用）';button.className='quiet';button.id='voteNotesOpen';button.onclick=()=>voteDialog.open();$('actions').append(button);}
+ if(['sheriffVote','sheriffRevote','exileVote','exileRevote'].includes(s)){action(game.choice==='tie'?'取消平票':'平票','tie');$('actions').lastElementChild.disabled=voteLocked(game);const button=document.createElement('button');button.textContent=s==='exileVote'?'紀錄票型':'紀錄票型（選用）';button.className='quiet';button.id='voteNotesOpen';button.onclick=()=>voteDialog.open();$('actions').append(button);}
  }
  for(const [container,offset] of [['left',0],['right',6]]){
   $(container).replaceChildren();for(const p of game.players.slice(offset,offset+6)){
@@ -207,7 +207,7 @@ function render(){
    b.onclick=()=>{selectSeat(game,p.id);render();};$(container).append(b);
   }
  }
- $('next').disabled=!canNext(game);$('back').disabled=game.history.length===0;$('explodeOpen').disabled=!canSelfDestruct(game);
+ voteDialog.renderHost();$('next').disabled=!canNext(game);$('back').disabled=game.history.length===0;$('explodeOpen').disabled=!canSelfDestruct(game);
  $('saveStatus').textContent=storageOK?'':'無法保存本局，關閉頁面後資料可能遺失';
 }
 let drawTimeout=null,drawAnimating=false;
