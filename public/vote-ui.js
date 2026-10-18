@@ -103,6 +103,17 @@ export function createVoteDialog({getGame,save,render}){
 function createExileVoteEditor({getGame,save,render}){
  const $=id=>document.getElementById(id),dialog=$('exileVoteDialog'),list=$('exileVoters'),candidates=$('exileCandidateGrid'),picker=$('exileTargetPicker');
  let owner=null,key=null,draft=null,mode='batch',target=null,voter=null,scrolls={batch:0,individual:0,candidates:0},painting=false,scrollTimer=null,clearStep=0,toastTimer=null,expansion=true,resultOwner=null,resultKey=null;
+ // Fit the inner list to the header's actual visible space, not just the viewport.
+ // Otherwise the header clips its last rows even after the list is scrolled to the end.
+ const header=dialog.querySelector('.exile-header');
+ function fitCandidateList(){
+  if(!dialog.open||!picker.open)return;
+  candidates.style.removeProperty('max-height');
+  const visible=header.clientHeight-(candidates.getBoundingClientRect().top-header.getBoundingClientRect().top+header.scrollTop);
+  candidates.style.maxHeight=Math.max(44,Math.min(candidates.getBoundingClientRect().height,visible))+'px';
+ }
+ picker.addEventListener('toggle',()=>{if(picker.open){header.scrollTop=0;fitCandidateList();}});
+ const listResize=new ResizeObserver(fitCandidateList);listResize.observe(header);listResize.observe(dialog);
  const current=()=>draft&&getGame()===owner&&getGame().step==='exileVote'&&createVoteDraft(getGame())?.key===key;
  const ui=()=>({mode,target,voter,scrolls:{...scrolls}});
  const capture=()=>{scrolls[mode]=list.scrollTop;scrolls.candidates=candidates.scrollTop;};
