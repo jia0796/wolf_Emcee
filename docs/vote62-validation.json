@@ -2651,5 +2651,1232 @@
     },
     "testWorkflow": "https://github.com/jia0796/wolf_Emcee/actions/runs/39138317920",
     "deployWorkflow": "https://github.com/jia0796/wolf_Emcee/actions/runs/39138317965"
+  },
+  "uxFollowup": {
+    "date": "2026-10-19",
+    "baseline": "8e065ffe2df2c539a65c05d098455f5d0c9ed726",
+    "backup": "backup/vote-ux-before-20261019",
+    "implementationCommit": "0b5fb4f50123bec6485bcb0a2ffda2a8e3086bc5",
+    "ordinaryUI": {
+      "base": "http://127.0.0.1:5368/",
+      "results": [
+        {
+          "case": "batch: initial choice, eligibility order, badges, live 1.5, reassignment and cancellation",
+          "pass": true
+        },
+        {
+          "case": "shared draft, immediate abstentions on next, mode positioning, close/reload/escape restoration and noncycling navigation",
+          "pass": true
+        },
+        {
+          "case": "formal result card, missing abstainers, tie highlights, collapse, edit preservation and resubmit toast",
+          "pass": true
+        },
+        {
+          "case": "manual override warning, raw history retained, undo and change-back recap qualification",
+          "pass": true
+        },
+        {
+          "case": "unsubmitted manual exile never generates vote recap",
+          "pass": true
+        },
+        {
+          "case": "all-abstain formal card; no invented outcome, target or PK",
+          "pass": true
+        },
+        {
+          "case": "clear requires two confirmations; formal data isolated; original abandon preserved",
+          "pass": true
+        },
+        {
+          "case": "real Storage quota failure rolls back submission and permits retry",
+          "pass": true
+        },
+        {
+          "case": "normal tie to original PK editor, independent rounds, undo and confirmed two-round recap",
+          "pass": true
+        },
+        {
+          "case": "sheriff and sheriff PK original editors; zero-vote summary presentation",
+          "pass": true
+        },
+        {
+          "case": "pagehide simulation and refresh preserve draft; new game never inherits it",
+          "pass": true
+        },
+        {
+          "case": "individual revision: distinct framed voter, moderate font reduction, no abstain button, explicit next only, back/correct/cancel",
+          "pass": true
+        },
+        {
+          "case": "individual revision: both layouts, close/reload preserve skipped ballots; correction replaces abstention without duplication",
+          "pass": true
+        },
+        {
+          "case": "individual revision: sheriff 1.5, progress, next/back snapshot and edit-resubmit isolation",
+          "pass": true
+        },
+        {
+          "case": "individual revision: 10/12 final voter and all-abstain completion, no invented exile/PK",
+          "pass": true
+        },
+        {
+          "case": "60 browser vote/reassign/cancel operations match independent draft oracle",
+          "pass": true
+        },
+        {
+          "case": "result components: weighted sorting, badge, hidden zero targets, collapsed sheriff zero summary",
+          "pass": true
+        },
+        {
+          "case": "responsive batch and individual modal",
+          "pass": true,
+          "width": 320,
+          "height": 568,
+          "font": 100,
+          "safe": 34,
+          "voters": 60,
+          "button": 60,
+          "bottom": 479,
+          "viewport": 568,
+          "horizontal": false,
+          "columns": 3,
+          "listTop": 366.9375,
+          "candidateTop": 184.984375,
+          "individual": {
+            "voters": 110,
+            "doneTop": 435,
+            "doneBottom": 479,
+            "dialogBottom": 530,
+            "horizontal": false,
+            "order": true
+          }
+        },
+        {
+          "case": "responsive batch and individual modal",
+          "pass": true,
+          "width": 375,
+          "height": 667,
+          "font": 100,
+          "safe": 0,
+          "voters": 118,
+          "button": 60,
+          "bottom": 600,
+          "viewport": 667,
+          "horizontal": false,
+          "columns": 4,
+          "listTop": 429.859375,
+          "candidateTop": 184.984375,
+          "individual": {
+            "voters": 231,
+            "doneTop": 556,
+            "doneBottom": 600,
+            "dialogBottom": 651,
+            "horizontal": false,
+            "order": true
+          }
+        },
+        {
+          "case": "responsive batch and individual modal",
+          "pass": true,
+          "width": 390,
+          "height": 844,
+          "font": 100,
+          "safe": 34,
+          "voters": 179,
+          "button": 60,
+          "bottom": 730,
+          "viewport": 844,
+          "horizontal": false,
+          "columns": 4,
+          "listTop": 499.171875,
+          "candidateTop": 209.984375,
+          "individual": {
+            "voters": 336,
+            "doneTop": 686,
+            "doneBottom": 730,
+            "dialogBottom": 781,
+            "horizontal": false,
+            "order": true
+          }
+        },
+        {
+          "case": "responsive batch and individual modal",
+          "pass": true,
+          "width": 430,
+          "height": 932,
+          "font": 100,
+          "safe": 34,
+          "voters": 179,
+          "button": 60,
+          "bottom": 774,
+          "viewport": 932,
+          "horizontal": false,
+          "columns": 4,
+          "listTop": 543.171875,
+          "candidateTop": 253.984375,
+          "individual": {
+            "voters": 336,
+            "doneTop": 730,
+            "doneBottom": 774,
+            "dialogBottom": 825,
+            "horizontal": false,
+            "order": true
+          }
+        },
+        {
+          "case": "responsive batch and individual modal",
+          "pass": true,
+          "width": 568,
+          "height": 320,
+          "font": 100,
+          "safe": 0,
+          "voters": 44,
+          "button": 60,
+          "bottom": 255,
+          "viewport": 320,
+          "horizontal": false,
+          "columns": 4,
+          "listTop": 159,
+          "candidateTop": 184.984375,
+          "individual": {
+            "voters": 44,
+            "doneTop": 247,
+            "doneBottom": 291,
+            "dialogBottom": 304,
+            "horizontal": false,
+            "order": true
+          }
+        },
+        {
+          "case": "responsive batch and individual modal",
+          "pass": true,
+          "width": 568,
+          "height": 320,
+          "font": 200,
+          "safe": 0,
+          "voters": 44,
+          "button": 60,
+          "bottom": 271,
+          "viewport": 320,
+          "horizontal": false,
+          "columns": 3,
+          "listTop": 159,
+          "candidateTop": 240.984375,
+          "individual": {
+            "voters": 44,
+            "doneTop": 231,
+            "doneBottom": 291,
+            "dialogBottom": 304,
+            "horizontal": false,
+            "order": true
+          }
+        },
+        {
+          "case": "responsive batch and individual modal",
+          "pass": true,
+          "width": 390,
+          "height": 844,
+          "font": 200,
+          "safe": 34,
+          "voters": 88,
+          "button": 60,
+          "bottom": 719,
+          "viewport": 844,
+          "horizontal": false,
+          "columns": 3,
+          "listTop": 563.046875,
+          "candidateTop": 265.984375,
+          "individual": {
+            "voters": 206,
+            "doneTop": 659,
+            "doneBottom": 719,
+            "dialogBottom": 781,
+            "horizontal": false,
+            "order": true
+          }
+        },
+        {
+          "case": "responsive batch and individual modal",
+          "pass": true,
+          "width": 768,
+          "height": 1024,
+          "font": 200,
+          "safe": 34,
+          "voters": 88,
+          "button": 60,
+          "bottom": 809,
+          "viewport": 1024,
+          "horizontal": false,
+          "columns": 3,
+          "listTop": 653.046875,
+          "candidateTop": 355.984375,
+          "individual": {
+            "voters": 206,
+            "doneTop": 749,
+            "doneBottom": 809,
+            "dialogBottom": 871,
+            "horizontal": false,
+            "order": true
+          }
+        },
+        {
+          "case": "responsive batch and individual modal",
+          "pass": true,
+          "width": 390,
+          "height": 844,
+          "font": 100,
+          "safe": 150,
+          "voters": 137,
+          "button": 60,
+          "bottom": 639,
+          "viewport": 844,
+          "horizontal": false,
+          "columns": 4,
+          "listTop": 450.140625,
+          "candidateTop": 184.984375,
+          "individual": {
+            "voters": 270,
+            "doneTop": 595,
+            "doneBottom": 639,
+            "dialogBottom": 690,
+            "horizontal": false,
+            "order": true
+          }
+        },
+        {
+          "case": "fixed candidate/footer; same candidate preserves scroll; different candidate resets; refresh restores scroll",
+          "pass": true
+        },
+        {
+          "case": "invalid saved UI positions fall back to first legal candidate and top",
+          "pass": true
+        },
+        {
+          "case": "reduced motion result toggle is immediate",
+          "pass": true
+        },
+        {
+          "case": "existing Service Worker serves new editor offline; draft refresh and tally remain usable",
+          "pass": true
+        }
+      ],
+      "errors": [],
+      "realDevice": "未驗收"
+    },
+    "legacyUI": {
+      "results": [
+        {
+          "case": "UI56-01/02/03",
+          "pass": true
+        },
+        {
+          "case": "sheriffVote unchanged editor, mode switch, cancel, lock, empty reject, clear, abandon and reload",
+          "pass": true
+        },
+        {
+          "case": "sheriffRevote unchanged editor, mode switch, cancel, lock, empty reject, clear, abandon and reload",
+          "pass": true
+        },
+        {
+          "case": "exileRevote unchanged editor, mode switch, cancel, lock, empty reject, clear, abandon and reload",
+          "pass": true
+        },
+        {
+          "case": "bottom navigation and reduced number",
+          "width": 320,
+          "height": 568,
+          "font": 100,
+          "safe": 34,
+          "bottom": 507,
+          "dialogBottom": 556,
+          "horizontal": false,
+          "numberPx": 22,
+          "numberSpanPx": 22,
+          "footerOrder": true,
+          "pass": true
+        },
+        {
+          "case": "bottom navigation and reduced number",
+          "width": 375,
+          "height": 667,
+          "font": 100,
+          "safe": 0,
+          "bottom": 640,
+          "dialogBottom": 655,
+          "horizontal": false,
+          "numberPx": 22,
+          "numberSpanPx": 22,
+          "footerOrder": true,
+          "pass": true
+        },
+        {
+          "case": "bottom navigation and reduced number",
+          "width": 390,
+          "height": 844,
+          "font": 100,
+          "safe": 34,
+          "bottom": 713,
+          "dialogBottom": 762,
+          "horizontal": false,
+          "numberPx": 22,
+          "numberSpanPx": 22,
+          "footerOrder": true,
+          "pass": true
+        },
+        {
+          "case": "bottom navigation and reduced number",
+          "width": 430,
+          "height": 932,
+          "font": 100,
+          "safe": 34,
+          "bottom": 757,
+          "dialogBottom": 806,
+          "horizontal": false,
+          "numberPx": 22,
+          "numberSpanPx": 22,
+          "footerOrder": true,
+          "pass": true
+        },
+        {
+          "case": "bottom navigation and reduced number",
+          "width": 568,
+          "height": 320,
+          "font": 100,
+          "safe": 0,
+          "bottom": 298,
+          "dialogBottom": 308,
+          "horizontal": false,
+          "numberPx": 21,
+          "numberSpanPx": 21,
+          "footerOrder": true,
+          "pass": true
+        },
+        {
+          "case": "bottom navigation and reduced number",
+          "width": 568,
+          "height": 320,
+          "font": 200,
+          "safe": 0,
+          "bottom": 297.921875,
+          "dialogBottom": 308,
+          "horizontal": false,
+          "numberPx": 21,
+          "numberSpanPx": 21,
+          "footerOrder": true,
+          "pass": true
+        },
+        {
+          "case": "bottom navigation and reduced number",
+          "width": 390,
+          "height": 844,
+          "font": 200,
+          "safe": 34,
+          "bottom": 713,
+          "dialogBottom": 762,
+          "horizontal": false,
+          "numberPx": 22,
+          "numberSpanPx": 22,
+          "footerOrder": true,
+          "pass": true
+        },
+        {
+          "case": "bottom navigation and reduced number",
+          "width": 768,
+          "height": 1024,
+          "font": 200,
+          "safe": 34,
+          "bottom": 803,
+          "dialogBottom": 852,
+          "horizontal": false,
+          "numberPx": 22,
+          "numberSpanPx": 22,
+          "footerOrder": true,
+          "pass": true
+        },
+        {
+          "case": "bottom navigation and reduced number",
+          "width": 390,
+          "height": 844,
+          "font": 100,
+          "safe": 150,
+          "bottom": 597,
+          "dialogBottom": 762,
+          "horizontal": false,
+          "numberPx": 22,
+          "numberSpanPx": 22,
+          "footerOrder": true,
+          "pass": true
+        }
+      ],
+      "errors": []
+    },
+    "fontChange": {
+      "normalNumber": {
+        "before": 26,
+        "after": 22
+      },
+      "shortScreenNumber": {
+        "before": 21,
+        "after": 19
+      }
+    },
+    "unchanged": [
+      "counting",
+      "eligibility",
+      "weights",
+      "gameStages",
+      "skills",
+      "saveVersion22",
+      "history",
+      "cacheStrategy"
+    ],
+    "deployment": {
+      "status": "success",
+      "site": "https://jia0796.github.io/wolf_Emcee/",
+      "workflow": "https://github.com/jia0796/wolf_Emcee/actions/runs/39148571246",
+      "testWorkflow": "https://github.com/jia0796/wolf_Emcee/actions/runs/39148571252",
+      "ordinaryUI": {
+        "base": "https://jia0796.github.io/wolf_Emcee/",
+        "results": [
+          {
+            "case": "batch: initial choice, eligibility order, badges, live 1.5, reassignment and cancellation",
+            "pass": true
+          },
+          {
+            "case": "shared draft, immediate abstentions on next, mode positioning, close/reload/escape restoration and noncycling navigation",
+            "pass": true
+          },
+          {
+            "case": "formal result card, missing abstainers, tie highlights, collapse, edit preservation and resubmit toast",
+            "pass": true
+          },
+          {
+            "case": "manual override warning, raw history retained, undo and change-back recap qualification",
+            "pass": true
+          },
+          {
+            "case": "unsubmitted manual exile never generates vote recap",
+            "pass": true
+          },
+          {
+            "case": "all-abstain formal card; no invented outcome, target or PK",
+            "pass": true
+          },
+          {
+            "case": "clear requires two confirmations; formal data isolated; original abandon preserved",
+            "pass": true
+          },
+          {
+            "case": "real Storage quota failure rolls back submission and permits retry",
+            "pass": true
+          },
+          {
+            "case": "normal tie to original PK editor, independent rounds, undo and confirmed two-round recap",
+            "pass": true
+          },
+          {
+            "case": "sheriff and sheriff PK original editors; zero-vote summary presentation",
+            "pass": true
+          },
+          {
+            "case": "pagehide simulation and refresh preserve draft; new game never inherits it",
+            "pass": true
+          },
+          {
+            "case": "individual revision: distinct framed voter, moderate font reduction, no abstain button, explicit next only, back/correct/cancel",
+            "pass": true
+          },
+          {
+            "case": "individual revision: both layouts, close/reload preserve skipped ballots; correction replaces abstention without duplication",
+            "pass": true
+          },
+          {
+            "case": "individual revision: sheriff 1.5, progress, next/back snapshot and edit-resubmit isolation",
+            "pass": true
+          },
+          {
+            "case": "individual revision: 10/12 final voter and all-abstain completion, no invented exile/PK",
+            "pass": true
+          },
+          {
+            "case": "60 browser vote/reassign/cancel operations match independent draft oracle",
+            "pass": true
+          },
+          {
+            "case": "result components: weighted sorting, badge, hidden zero targets, collapsed sheriff zero summary",
+            "pass": true
+          },
+          {
+            "case": "responsive batch and individual modal",
+            "pass": true,
+            "width": 320,
+            "height": 568,
+            "font": 100,
+            "safe": 34,
+            "voters": 60,
+            "button": 60,
+            "bottom": 479,
+            "viewport": 568,
+            "horizontal": false,
+            "columns": 3,
+            "listTop": 366.9375,
+            "candidateTop": 184.984375,
+            "individual": {
+              "voters": 110,
+              "doneTop": 435,
+              "doneBottom": 479,
+              "dialogBottom": 530,
+              "horizontal": false,
+              "order": true
+            }
+          },
+          {
+            "case": "responsive batch and individual modal",
+            "pass": true,
+            "width": 375,
+            "height": 667,
+            "font": 100,
+            "safe": 0,
+            "voters": 118,
+            "button": 60,
+            "bottom": 600,
+            "viewport": 667,
+            "horizontal": false,
+            "columns": 4,
+            "listTop": 429.859375,
+            "candidateTop": 184.984375,
+            "individual": {
+              "voters": 231,
+              "doneTop": 556,
+              "doneBottom": 600,
+              "dialogBottom": 651,
+              "horizontal": false,
+              "order": true
+            }
+          },
+          {
+            "case": "responsive batch and individual modal",
+            "pass": true,
+            "width": 390,
+            "height": 844,
+            "font": 100,
+            "safe": 34,
+            "voters": 179,
+            "button": 60,
+            "bottom": 730,
+            "viewport": 844,
+            "horizontal": false,
+            "columns": 4,
+            "listTop": 499.171875,
+            "candidateTop": 209.984375,
+            "individual": {
+              "voters": 336,
+              "doneTop": 686,
+              "doneBottom": 730,
+              "dialogBottom": 781,
+              "horizontal": false,
+              "order": true
+            }
+          },
+          {
+            "case": "responsive batch and individual modal",
+            "pass": true,
+            "width": 430,
+            "height": 932,
+            "font": 100,
+            "safe": 34,
+            "voters": 179,
+            "button": 60,
+            "bottom": 774,
+            "viewport": 932,
+            "horizontal": false,
+            "columns": 4,
+            "listTop": 543.171875,
+            "candidateTop": 253.984375,
+            "individual": {
+              "voters": 336,
+              "doneTop": 730,
+              "doneBottom": 774,
+              "dialogBottom": 825,
+              "horizontal": false,
+              "order": true
+            }
+          },
+          {
+            "case": "responsive batch and individual modal",
+            "pass": true,
+            "width": 568,
+            "height": 320,
+            "font": 100,
+            "safe": 0,
+            "voters": 44,
+            "button": 60,
+            "bottom": 255,
+            "viewport": 320,
+            "horizontal": false,
+            "columns": 4,
+            "listTop": 159,
+            "candidateTop": 184.984375,
+            "individual": {
+              "voters": 44,
+              "doneTop": 247,
+              "doneBottom": 291,
+              "dialogBottom": 304,
+              "horizontal": false,
+              "order": true
+            }
+          },
+          {
+            "case": "responsive batch and individual modal",
+            "pass": true,
+            "width": 568,
+            "height": 320,
+            "font": 200,
+            "safe": 0,
+            "voters": 44,
+            "button": 60,
+            "bottom": 271,
+            "viewport": 320,
+            "horizontal": false,
+            "columns": 3,
+            "listTop": 159,
+            "candidateTop": 240.984375,
+            "individual": {
+              "voters": 44,
+              "doneTop": 231,
+              "doneBottom": 291,
+              "dialogBottom": 304,
+              "horizontal": false,
+              "order": true
+            }
+          },
+          {
+            "case": "responsive batch and individual modal",
+            "pass": true,
+            "width": 390,
+            "height": 844,
+            "font": 200,
+            "safe": 34,
+            "voters": 88,
+            "button": 60,
+            "bottom": 719,
+            "viewport": 844,
+            "horizontal": false,
+            "columns": 3,
+            "listTop": 563.046875,
+            "candidateTop": 265.984375,
+            "individual": {
+              "voters": 206,
+              "doneTop": 659,
+              "doneBottom": 719,
+              "dialogBottom": 781,
+              "horizontal": false,
+              "order": true
+            }
+          },
+          {
+            "case": "responsive batch and individual modal",
+            "pass": true,
+            "width": 768,
+            "height": 1024,
+            "font": 200,
+            "safe": 34,
+            "voters": 88,
+            "button": 60,
+            "bottom": 809,
+            "viewport": 1024,
+            "horizontal": false,
+            "columns": 3,
+            "listTop": 653.046875,
+            "candidateTop": 355.984375,
+            "individual": {
+              "voters": 206,
+              "doneTop": 749,
+              "doneBottom": 809,
+              "dialogBottom": 871,
+              "horizontal": false,
+              "order": true
+            }
+          },
+          {
+            "case": "responsive batch and individual modal",
+            "pass": true,
+            "width": 390,
+            "height": 844,
+            "font": 100,
+            "safe": 150,
+            "voters": 137,
+            "button": 60,
+            "bottom": 639,
+            "viewport": 844,
+            "horizontal": false,
+            "columns": 4,
+            "listTop": 450.140625,
+            "candidateTop": 184.984375,
+            "individual": {
+              "voters": 270,
+              "doneTop": 595,
+              "doneBottom": 639,
+              "dialogBottom": 690,
+              "horizontal": false,
+              "order": true
+            }
+          },
+          {
+            "case": "fixed candidate/footer; same candidate preserves scroll; different candidate resets; refresh restores scroll",
+            "pass": true
+          },
+          {
+            "case": "invalid saved UI positions fall back to first legal candidate and top",
+            "pass": true
+          },
+          {
+            "case": "reduced motion result toggle is immediate",
+            "pass": true
+          },
+          {
+            "case": "existing Service Worker serves new editor offline; draft refresh and tally remain usable",
+            "pass": true
+          }
+        ],
+        "errors": [],
+        "realDevice": "未驗收"
+      },
+      "legacyUI": {
+        "results": [
+          {
+            "case": "UI56-01/02/03",
+            "pass": true
+          },
+          {
+            "case": "sheriffVote unchanged editor, mode switch, cancel, lock, empty reject, clear, abandon and reload",
+            "pass": true
+          },
+          {
+            "case": "sheriffRevote unchanged editor, mode switch, cancel, lock, empty reject, clear, abandon and reload",
+            "pass": true
+          },
+          {
+            "case": "exileRevote unchanged editor, mode switch, cancel, lock, empty reject, clear, abandon and reload",
+            "pass": true
+          },
+          {
+            "case": "bottom navigation and reduced number",
+            "width": 320,
+            "height": 568,
+            "font": 100,
+            "safe": 34,
+            "bottom": 507,
+            "dialogBottom": 556,
+            "horizontal": false,
+            "numberPx": 22,
+            "numberSpanPx": 22,
+            "footerOrder": true,
+            "pass": true
+          },
+          {
+            "case": "bottom navigation and reduced number",
+            "width": 375,
+            "height": 667,
+            "font": 100,
+            "safe": 0,
+            "bottom": 640,
+            "dialogBottom": 655,
+            "horizontal": false,
+            "numberPx": 22,
+            "numberSpanPx": 22,
+            "footerOrder": true,
+            "pass": true
+          },
+          {
+            "case": "bottom navigation and reduced number",
+            "width": 390,
+            "height": 844,
+            "font": 100,
+            "safe": 34,
+            "bottom": 713,
+            "dialogBottom": 762,
+            "horizontal": false,
+            "numberPx": 22,
+            "numberSpanPx": 22,
+            "footerOrder": true,
+            "pass": true
+          },
+          {
+            "case": "bottom navigation and reduced number",
+            "width": 430,
+            "height": 932,
+            "font": 100,
+            "safe": 34,
+            "bottom": 757,
+            "dialogBottom": 806,
+            "horizontal": false,
+            "numberPx": 22,
+            "numberSpanPx": 22,
+            "footerOrder": true,
+            "pass": true
+          },
+          {
+            "case": "bottom navigation and reduced number",
+            "width": 568,
+            "height": 320,
+            "font": 100,
+            "safe": 0,
+            "bottom": 298,
+            "dialogBottom": 308,
+            "horizontal": false,
+            "numberPx": 21,
+            "numberSpanPx": 21,
+            "footerOrder": true,
+            "pass": true
+          },
+          {
+            "case": "bottom navigation and reduced number",
+            "width": 568,
+            "height": 320,
+            "font": 200,
+            "safe": 0,
+            "bottom": 297.921875,
+            "dialogBottom": 308,
+            "horizontal": false,
+            "numberPx": 21,
+            "numberSpanPx": 21,
+            "footerOrder": true,
+            "pass": true
+          },
+          {
+            "case": "bottom navigation and reduced number",
+            "width": 390,
+            "height": 844,
+            "font": 200,
+            "safe": 34,
+            "bottom": 713,
+            "dialogBottom": 762,
+            "horizontal": false,
+            "numberPx": 22,
+            "numberSpanPx": 22,
+            "footerOrder": true,
+            "pass": true
+          },
+          {
+            "case": "bottom navigation and reduced number",
+            "width": 768,
+            "height": 1024,
+            "font": 200,
+            "safe": 34,
+            "bottom": 803,
+            "dialogBottom": 852,
+            "horizontal": false,
+            "numberPx": 22,
+            "numberSpanPx": 22,
+            "footerOrder": true,
+            "pass": true
+          },
+          {
+            "case": "bottom navigation and reduced number",
+            "width": 390,
+            "height": 844,
+            "font": 100,
+            "safe": 150,
+            "bottom": 597,
+            "dialogBottom": 762,
+            "horizontal": false,
+            "numberPx": 22,
+            "numberSpanPx": 22,
+            "footerOrder": true,
+            "pass": true
+          }
+        ],
+        "errors": []
+      },
+      "hashes": {
+        "commit": "0b5fb4f50123bec6485bcb0a2ffda2a8e3086bc5",
+        "files": [
+          {
+            "file": "index.html",
+            "sha256": "e019736c45f8967cb5320bac6050fdf8a44af78899618f1f8add50dd5432dde9",
+            "matchesCommit": true
+          },
+          {
+            "file": "style.css",
+            "sha256": "27dfe4633b4f5e358853d251a99720f9fbb70d83aa5ffe530407d14156e711f6",
+            "matchesCommit": true
+          },
+          {
+            "file": "vote-ui.js",
+            "sha256": "3075e30759389edb093277991f4788ea1b6317be1c0caa04fba9d0fba63e95a1",
+            "matchesCommit": true
+          },
+          {
+            "file": "votes.js",
+            "sha256": "69bcb0c6bef91f9b4c7e3ec22b6d4db15ba1cfca312227792eea1898ef833ed3",
+            "matchesCommit": true
+          },
+          {
+            "file": "app.js",
+            "sha256": "1ee219184382606476e1faf9890ada749334f432d6e302335f8cc5911cb788b2",
+            "matchesCommit": true
+          },
+          {
+            "file": "engine.js",
+            "sha256": "7734f9d17f0126fd9ef1244ae3158546b20e024fb32089d689b1de0b34dae5e6",
+            "matchesCommit": true
+          },
+          {
+            "file": "night.js",
+            "sha256": "cd24fcc8692cd7402b991d51c1ca3440fb4c90d44f6c2191a030ee7dadc78c4b",
+            "matchesCommit": true
+          },
+          {
+            "file": "data.js",
+            "sha256": "26622b7e21c38789c70b1e43ada9093274f5ac66f92324b1734e16f1ba506125",
+            "matchesCommit": true
+          },
+          {
+            "file": "records.js",
+            "sha256": "cf8b38dd110511f61b60e9143be85060632c85310e1a231b33ae763803611983",
+            "matchesCommit": true
+          },
+          {
+            "file": "recap.js",
+            "sha256": "8407314e7e11322765d579b3c5f2ee0b6ab871b901c227c834433e6d28aade7c",
+            "matchesCommit": true
+          },
+          {
+            "file": "timer.js",
+            "sha256": "4e74514905cf4d2f75b9990086d443aa45aad0416fd0cfb097eafb8a1b376556",
+            "matchesCommit": true
+          },
+          {
+            "file": "takeover.js",
+            "sha256": "753fef7411566186b1dec905ef8b6efafc1d43b36032dd01c3c2c903dadd05f5",
+            "matchesCommit": true
+          },
+          {
+            "file": "fragrance.js",
+            "sha256": "3bd8b6a105d8850218d33610785bc5903a19b1040408f9d537dd52ee5a6e0565",
+            "matchesCommit": true
+          },
+          {
+            "file": "masquerade.js",
+            "sha256": "8832b68e7bd94ffd49dd2a1ef2f67e5030b640002e9b0bdff74791bad8b746ec",
+            "matchesCommit": true
+          },
+          {
+            "file": "sw.js",
+            "sha256": "fe8f9c3ed761142d9db97628304491c4af7aa6b13579b8256927ed6bd73c6d74",
+            "matchesCommit": true
+          },
+          {
+            "file": "cache-manifest.js",
+            "sha256": "7d57433360d919a0998d9bb3c83d263549524a6db67fadd2e5e1e9f5ad83d7f6",
+            "matchesCommit": true
+          },
+          {
+            "file": "manifest.webmanifest",
+            "sha256": "dbabe30dbe0748dfbcfe0b44b5e30a8297d2ac7e4834163622cccc8dd0d6bdad",
+            "matchesCommit": true
+          }
+        ]
+      }
+    },
+    "realDevices": "未驗收",
+    "primaryCommit": "b0e528a9be169a7aa90f99b41d127ce432d6282e",
+    "unit": {
+      "pass": 804,
+      "fail": 0,
+      "skipped": 0,
+      "durationMs": 233388.7522
+    },
+    "testWorkflow": "https://github.com/jia0796/wolf_Emcee/actions/runs/39148571252",
+    "deployWorkflow": "https://github.com/jia0796/wolf_Emcee/actions/runs/39148571246",
+    "stress": {
+      "completeGames": 468,
+      "boards": [
+        {
+          "board": "10",
+          "seeds": 18,
+          "finished": 18,
+          "actions": 1354,
+          "maxSaveBytes": 2013107
+        },
+        {
+          "board": "12",
+          "seeds": 18,
+          "finished": 18,
+          "actions": 1989,
+          "maxSaveBytes": 2033032
+        },
+        {
+          "board": "mechanical10",
+          "seeds": 18,
+          "finished": 18,
+          "actions": 1761,
+          "maxSaveBytes": 1730882
+        },
+        {
+          "board": "mechanical12",
+          "seeds": 18,
+          "finished": 18,
+          "actions": 2334,
+          "maxSaveBytes": 3191769
+        },
+        {
+          "board": "brothers12",
+          "seeds": 18,
+          "finished": 18,
+          "actions": 2510,
+          "maxSaveBytes": 2588372
+        },
+        {
+          "board": "nightmare10",
+          "seeds": 18,
+          "finished": 18,
+          "actions": 1679,
+          "maxSaveBytes": 2104817
+        },
+        {
+          "board": "nightmare12",
+          "seeds": 18,
+          "finished": 18,
+          "actions": 2613,
+          "maxSaveBytes": 2850000
+        },
+        {
+          "board": "classic12",
+          "seeds": 18,
+          "finished": 18,
+          "actions": 2080,
+          "maxSaveBytes": 2399587
+        },
+        {
+          "board": "classicMixed12",
+          "seeds": 18,
+          "finished": 18,
+          "actions": 2090,
+          "maxSaveBytes": 2160664
+        },
+        {
+          "board": "blood10",
+          "seeds": 18,
+          "finished": 18,
+          "actions": 1366,
+          "maxSaveBytes": 1465913
+        },
+        {
+          "board": "kingGuard10",
+          "seeds": 18,
+          "finished": 18,
+          "actions": 1496,
+          "maxSaveBytes": 1452024
+        },
+        {
+          "board": "kingDream10",
+          "seeds": 18,
+          "finished": 18,
+          "actions": 1395,
+          "maxSaveBytes": 1436449
+        },
+        {
+          "board": "blood12",
+          "seeds": 18,
+          "finished": 18,
+          "actions": 1711,
+          "maxSaveBytes": 2102741
+        },
+        {
+          "board": "kingGuard12",
+          "seeds": 18,
+          "finished": 18,
+          "actions": 2096,
+          "maxSaveBytes": 2648989
+        },
+        {
+          "board": "kingDream12",
+          "seeds": 18,
+          "finished": 18,
+          "actions": 2053,
+          "maxSaveBytes": 2389423
+        },
+        {
+          "board": "gargoyle10",
+          "seeds": 18,
+          "finished": 18,
+          "actions": 2134,
+          "maxSaveBytes": 2704791
+        },
+        {
+          "board": "gargoyle12",
+          "seeds": 18,
+          "finished": 18,
+          "actions": 2604,
+          "maxSaveBytes": 3070401
+        },
+        {
+          "board": "evilKnight10",
+          "seeds": 18,
+          "finished": 18,
+          "actions": 1621,
+          "maxSaveBytes": 1649143
+        },
+        {
+          "board": "evilKnight12",
+          "seeds": 18,
+          "finished": 18,
+          "actions": 2228,
+          "maxSaveBytes": 2512319
+        },
+        {
+          "board": "seedHidden10",
+          "seeds": 18,
+          "finished": 18,
+          "actions": 1532,
+          "maxSaveBytes": 2141528
+        },
+        {
+          "board": "seedHidden12",
+          "seeds": 18,
+          "finished": 18,
+          "actions": 2402,
+          "maxSaveBytes": 2730952
+        },
+        {
+          "board": "beauty10",
+          "seeds": 18,
+          "finished": 18,
+          "actions": 1506,
+          "maxSaveBytes": 1540172
+        },
+        {
+          "board": "beauty12",
+          "seeds": 18,
+          "finished": 18,
+          "actions": 2224,
+          "maxSaveBytes": 3103758
+        },
+        {
+          "board": "masquerade12",
+          "seeds": 18,
+          "finished": 18,
+          "actions": 2507,
+          "maxSaveBytes": 3237559
+        },
+        {
+          "board": "fragrance10",
+          "seeds": 18,
+          "finished": 18,
+          "actions": 1631,
+          "maxSaveBytes": 1950696
+        },
+        {
+          "board": "fragrance12",
+          "seeds": 18,
+          "finished": 18,
+          "actions": 2244,
+          "maxSaveBytes": 3128814
+        }
+      ]
+    }
   }
 }
