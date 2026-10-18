@@ -117,7 +117,9 @@ function createExileVoteEditor({getGame,save,render}){
   if(!current())return;painting=true;if(!reset&&captureScroll)capture();else if(reset)scrolls[mode]=0;
   const focused=document.activeElement?.dataset,focus=focused?.voter?['voter',focused.voter]:focused?.choice?['choice',focused.choice]:null;
   dialog.dataset.mode=mode;$('exileBatch').setAttribute('aria-pressed',String(mode==='batch'));$('exileIndividual').setAttribute('aria-pressed',String(mode==='individual'));
-  candidates.hidden=mode!=='batch';$('exileIndividualStep').hidden=mode!=='individual';$('exileIndividualNavigation').hidden=mode!=='individual';candidates.replaceChildren();
+  candidates.hidden=mode!=='batch';$('exileTargetSection').hidden=mode!=='batch';$('exileIndividualStep').hidden=mode!=='individual';
+  $('exileVotersTitle').textContent=mode==='batch'?'② 勾選投票者':'選擇投票對象';
+  $('exileTargetHint').textContent=mode==='batch'?(target===null?'先在上方選擇得票對象，再勾選投票者。':'勾選投給 '+target+' 號的人，可複選；再次點選可取消。'):'點選要投給的玩家；未選票按下一位記為棄票。';$('exileIndividualNavigation').hidden=mode!=='individual';candidates.replaceChildren();
   const tally=tallyVotes(draft),counts=new Map(tally.groups.map(g=>[g.target,g.votes]));
   for(const id of draft.targets){const button=document.createElement('button'),name=document.createElement('span'),count=document.createElement('small');button.type='button';button.dataset.candidate=String(id);name.textContent=id+'號';badge(name,id);count.textContent=(counts.get(id)||0)+'票';button.append(name,count);button.setAttribute('aria-pressed',String(id===target));button.setAttribute('aria-label',id+'號候選人，'+count.textContent);button.onclick=()=>{if(target===id)return;capture();target=id;paint({reset:true});store();};candidates.append(button);}
   list.replaceChildren();list.className=mode==='batch'?'exile-voters':'exile-voters exile-choices';list.setAttribute('aria-label',mode==='batch'?'投票者列表':'投票對象');
