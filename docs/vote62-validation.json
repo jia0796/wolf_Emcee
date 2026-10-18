@@ -4053,5 +4053,235 @@
       "pass": 13,
       "errors": []
     }
+  },
+  "bottomClickFollowup": {
+    "date": "2026-10-19",
+    "baseline": "71ff517e692343e877a8eb5fa881f4f1f24e440f",
+    "backup": "backup/vote-bottom-before-20261019",
+    "implementationCommit": "1a1214d074872c7d5c162278cfcce759da8862ad",
+    "cause": "Dropdown viewport exceeded clipped header; automated locator scroll had hidden the failure.",
+    "localUI": {
+      "ordinaryPassed": 32,
+      "legacyPassed": 13,
+      "errors": []
+    },
+    "directTouchRegression": {
+      "case": "touch regression: last dropdown and voter rows fully visible and directly tappable without auto-scroll",
+      "pass": true,
+      "viewports": [
+        {
+          "width": 320,
+          "height": 568,
+          "board": "12",
+          "target": {
+            "x": 160.3984375,
+            "y": 267.984375,
+            "fullyVisible": true,
+            "receives": true
+          },
+          "bottom": {
+            "x": 252.6640625,
+            "y": 417.171875,
+            "fullyVisible": true,
+            "receives": true
+          }
+        },
+        {
+          "width": 375,
+          "height": 667,
+          "board": "12",
+          "target": {
+            "x": 187.5,
+            "y": 319.984375,
+            "fullyVisible": true,
+            "receives": true
+          },
+          "bottom": {
+            "x": 310.6875,
+            "y": 472.171875,
+            "fullyVisible": true,
+            "receives": true
+          }
+        },
+        {
+          "width": 390,
+          "height": 844,
+          "board": "12",
+          "target": {
+            "x": 195,
+            "y": 409.984375,
+            "fullyVisible": true,
+            "receives": true
+          },
+          "bottom": {
+            "x": 323.46875,
+            "y": 508.171875,
+            "fullyVisible": true,
+            "receives": true
+          }
+        },
+        {
+          "width": 430,
+          "height": 932,
+          "board": "12",
+          "target": {
+            "x": 215,
+            "y": 453.984375,
+            "fullyVisible": true,
+            "receives": true
+          },
+          "bottom": {
+            "x": 357.5703125,
+            "y": 552.171875,
+            "fullyVisible": true,
+            "receives": true
+          }
+        },
+        {
+          "width": 390,
+          "height": 844,
+          "board": "10",
+          "target": {
+            "x": 195,
+            "y": 409.984375,
+            "fullyVisible": true,
+            "receives": true
+          },
+          "bottom": {
+            "x": 152.171875,
+            "y": 508.171875,
+            "fullyVisible": true,
+            "receives": true
+          }
+        }
+      ]
+    },
+    "saveVersion": 22,
+    "cacheVersion": "council-v22-3",
+    "realDevices": "未驗收",
+    "deployment": "success",
+    "unitTests": {
+      "pass": 804,
+      "fail": 0,
+      "skipped": 0,
+      "durationMs": 245175.3241,
+      "boards": 26,
+      "seedsPerBoard": 18,
+      "completeStressGames": 468
+    },
+    "deploymentRun": "https://github.com/jia0796/wolf_Emcee/actions/runs/39150873631",
+    "testRun": "https://github.com/jia0796/wolf_Emcee/actions/runs/39150873608",
+    "liveOrdinary": {
+      "pass": 32,
+      "errors": []
+    },
+    "liveLegacy": {
+      "pass": 13,
+      "errors": []
+    },
+    "liveHashes": [
+      {
+        "file": "index.html",
+        "expected": "1c7e4555a1157bf68066002a525470bf21a005ea160c8c28615a75e64a916e9f",
+        "actual": "1c7e4555a1157bf68066002a525470bf21a005ea160c8c28615a75e64a916e9f",
+        "matches": true
+      },
+      {
+        "file": "style.css",
+        "expected": "19ba6af5d122927c03b2c0bb971062e5283f65e95bc0a1d52d5216c96811925e",
+        "actual": "19ba6af5d122927c03b2c0bb971062e5283f65e95bc0a1d52d5216c96811925e",
+        "matches": true
+      },
+      {
+        "file": "vote-ui.js",
+        "expected": "90bce70d0badf982d7b9678f9912f266219b4235ebb6c8f75d8d303c9a5168eb",
+        "actual": "90bce70d0badf982d7b9678f9912f266219b4235ebb6c8f75d8d303c9a5168eb",
+        "matches": true
+      },
+      {
+        "file": "votes.js",
+        "expected": "69bcb0c6bef91f9b4c7e3ec22b6d4db15ba1cfca312227792eea1898ef833ed3",
+        "actual": "69bcb0c6bef91f9b4c7e3ec22b6d4db15ba1cfca312227792eea1898ef833ed3",
+        "matches": true
+      },
+      {
+        "file": "app.js",
+        "expected": "1ee219184382606476e1faf9890ada749334f432d6e302335f8cc5911cb788b2",
+        "actual": "1ee219184382606476e1faf9890ada749334f432d6e302335f8cc5911cb788b2",
+        "matches": true
+      },
+      {
+        "file": "engine.js",
+        "expected": "7734f9d17f0126fd9ef1244ae3158546b20e024fb32089d689b1de0b34dae5e6",
+        "actual": "7734f9d17f0126fd9ef1244ae3158546b20e024fb32089d689b1de0b34dae5e6",
+        "matches": true
+      },
+      {
+        "file": "night.js",
+        "expected": "cd24fcc8692cd7402b991d51c1ca3440fb4c90d44f6c2191a030ee7dadc78c4b",
+        "actual": "cd24fcc8692cd7402b991d51c1ca3440fb4c90d44f6c2191a030ee7dadc78c4b",
+        "matches": true
+      },
+      {
+        "file": "data.js",
+        "expected": "26622b7e21c38789c70b1e43ada9093274f5ac66f92324b1734e16f1ba506125",
+        "actual": "26622b7e21c38789c70b1e43ada9093274f5ac66f92324b1734e16f1ba506125",
+        "matches": true
+      },
+      {
+        "file": "records.js",
+        "expected": "cf8b38dd110511f61b60e9143be85060632c85310e1a231b33ae763803611983",
+        "actual": "cf8b38dd110511f61b60e9143be85060632c85310e1a231b33ae763803611983",
+        "matches": true
+      },
+      {
+        "file": "recap.js",
+        "expected": "8407314e7e11322765d579b3c5f2ee0b6ab871b901c227c834433e6d28aade7c",
+        "actual": "8407314e7e11322765d579b3c5f2ee0b6ab871b901c227c834433e6d28aade7c",
+        "matches": true
+      },
+      {
+        "file": "timer.js",
+        "expected": "4e74514905cf4d2f75b9990086d443aa45aad0416fd0cfb097eafb8a1b376556",
+        "actual": "4e74514905cf4d2f75b9990086d443aa45aad0416fd0cfb097eafb8a1b376556",
+        "matches": true
+      },
+      {
+        "file": "takeover.js",
+        "expected": "753fef7411566186b1dec905ef8b6efafc1d43b36032dd01c3c2c903dadd05f5",
+        "actual": "753fef7411566186b1dec905ef8b6efafc1d43b36032dd01c3c2c903dadd05f5",
+        "matches": true
+      },
+      {
+        "file": "fragrance.js",
+        "expected": "3bd8b6a105d8850218d33610785bc5903a19b1040408f9d537dd52ee5a6e0565",
+        "actual": "3bd8b6a105d8850218d33610785bc5903a19b1040408f9d537dd52ee5a6e0565",
+        "matches": true
+      },
+      {
+        "file": "masquerade.js",
+        "expected": "8832b68e7bd94ffd49dd2a1ef2f67e5030b640002e9b0bdff74791bad8b746ec",
+        "actual": "8832b68e7bd94ffd49dd2a1ef2f67e5030b640002e9b0bdff74791bad8b746ec",
+        "matches": true
+      },
+      {
+        "file": "sw.js",
+        "expected": "fe8f9c3ed761142d9db97628304491c4af7aa6b13579b8256927ed6bd73c6d74",
+        "actual": "fe8f9c3ed761142d9db97628304491c4af7aa6b13579b8256927ed6bd73c6d74",
+        "matches": true
+      },
+      {
+        "file": "cache-manifest.js",
+        "expected": "7d57433360d919a0998d9bb3c83d263549524a6db67fadd2e5e1e9f5ad83d7f6",
+        "actual": "7d57433360d919a0998d9bb3c83d263549524a6db67fadd2e5e1e9f5ad83d7f6",
+        "matches": true
+      },
+      {
+        "file": "manifest.webmanifest",
+        "expected": "dbabe30dbe0748dfbcfe0b44b5e30a8297d2ac7e4834163622cccc8dd0d6bdad",
+        "actual": "dbabe30dbe0748dfbcfe0b44b5e30a8297d2ac7e4834163622cccc8dd0d6bdad",
+        "matches": true
+      }
+    ]
   }
 }
