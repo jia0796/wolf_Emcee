@@ -117,12 +117,12 @@ function createExileVoteEditor({getGame,save,render}){
   if(!current())return;painting=true;if(!reset&&captureScroll)capture();else if(reset)scrolls[mode]=0;
   const focused=document.activeElement?.dataset,focus=focused?.voter?['voter',focused.voter]:focused?.choice?['choice',focused.choice]:null;
   dialog.dataset.mode=mode;$('exileBatch').setAttribute('aria-pressed',String(mode==='batch'));$('exileIndividual').setAttribute('aria-pressed',String(mode==='individual'));
-  candidates.hidden=mode!=='batch';$('exileIndividualStep').hidden=mode!=='individual';candidates.replaceChildren();
+  candidates.hidden=mode!=='batch';$('exileIndividualStep').hidden=mode!=='individual';$('exileIndividualNavigation').hidden=mode!=='individual';candidates.replaceChildren();
   const tally=tallyVotes(draft),counts=new Map(tally.groups.map(g=>[g.target,g.votes]));
   for(const id of draft.targets){const button=document.createElement('button'),name=document.createElement('span'),count=document.createElement('small');button.type='button';button.dataset.candidate=String(id);name.textContent=id+'號';badge(name,id);count.textContent=(counts.get(id)||0)+'票';button.append(name,count);button.setAttribute('aria-pressed',String(id===target));button.setAttribute('aria-label',id+'號候選人，'+count.textContent);button.onclick=()=>{if(target===id)return;capture();target=id;paint({reset:true});store();};candidates.append(button);}
   list.replaceChildren();list.className=mode==='batch'?'exile-voters':'exile-voters exile-choices';list.setAttribute('aria-label',mode==='batch'?'投票者列表':'投票對象');
   if(mode==='batch')for(const id of draft.voters){const button=document.createElement('button'),name=document.createElement('span'),status=document.createElement('small'),ballot=draft.ballots[id];button.type='button';button.dataset.voter=String(id);name.textContent=id+'號';badge(name,id);status.textContent=draft.targets.includes(ballot)?'投'+ballot+'號':ballot==='abstain'?'棄票':'未紀錄';button.append(name,status);button.classList.toggle('ballot-selected',ballot===target&&target!==null);button.classList.toggle('ballot-other',draft.targets.includes(ballot)&&ballot!==target);button.setAttribute('aria-label',id+'號投票者，'+status.textContent);button.setAttribute('aria-pressed',String(ballot===target&&target!==null));button.disabled=target===null;button.onclick=()=>{setBallot(draft,id,target,true);paint();store();animate(id);};list.append(button);}
-  else for(const id of [...draft.targets,'abstain']){const button=document.createElement('button');button.type='button';button.dataset.choice=String(id);button.textContent=id==='abstain'?'棄票':id+'號';button.setAttribute('aria-pressed',String(draft.ballots[voter]===id));button.classList.toggle('ballot-selected',draft.ballots[voter]===id);button.disabled=voter===null;button.onclick=()=>{setBallot(draft,voter,id,true);paint();store();animate(null,id);};list.append(button);}
+  else for(const id of draft.targets){const button=document.createElement('button');button.type='button';button.dataset.choice=String(id);button.textContent=id==='abstain'?'棄票':id+'號';button.setAttribute('aria-pressed',String(draft.ballots[voter]===id));button.classList.toggle('ballot-selected',draft.ballots[voter]===id);button.disabled=voter===null;button.onclick=()=>{setBallot(draft,voter,id,true);paint();store();animate(null,id);};list.append(button);}
   const index=draft.voters.indexOf(voter);$('exileCurrentVoter').replaceChildren(document.createTextNode(voter===null?'無合法投票者':voter+'號'));badge($('exileCurrentVoter'),voter);$('exilePrevious').disabled=index<=0;$('exileNext').disabled=index<0||index>=draft.voters.length-1;
   $('exileProgress').textContent='已紀錄 '+validVoteCount(draft)+'/'+draft.voters.length+' 人';$('exileAbandon').hidden=!voteRound(owner)?.submitted;
   if(focus)list.querySelector('[data-'+focus[0]+'="'+focus[1]+'"]')?.focus({preventScroll:true});
@@ -131,7 +131,14 @@ function createExileVoteEditor({getGame,save,render}){
  function animate(id,choice){if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;const button=id?list.querySelector('[data-voter="'+id+'"]'):list.querySelector('[data-choice="'+choice+'"]');button?.animate([{opacity:.65},{opacity:1}],{duration:180});}
  function switchMode(next){if(next===mode)return;capture();mode=next;if(mode==='individual'){voter=draft.voters.find(id=>!Object.hasOwn(draft.ballots,id))??draft.voters[0]??null;scrolls.individual=0;}else if(!draft.targets.includes(target))target=draft.targets[0]??null;paint({reset:mode==='individual',captureScroll:false});store();}
  $('exileBatch').onclick=()=>switchMode('batch');$('exileIndividual').onclick=()=>switchMode('individual');
- for(const [id,delta]of [['exilePrevious',-1],['exileNext',1]])$(id).onclick=()=>{capture();const index=draft.voters.indexOf(voter);voter=draft.voters[Math.max(0,Math.min(draft.voters.length-1,index+delta))]??null;paint({reset:true});store();};
+ for(const [id,delta]of [['exilePrevious',-1],['exileNext',1]])$(id).onclick=()=>{
+  if(!current()||mode!=='individual')return;
+  const index=draft.voters.indexOf(voter),nextIndex=index+delta;if(index<0||nextIndex<0||nextIndex>=draft.voters.length)return;
+  // Only an explicit forward navigation records a missing ballot as abstention.
+  // The common draft/submit path still owns eligibility, weighting and snapshots.
+  if(delta>0&&!draft.targets.includes(draft.ballots[voter]))setBallot(draft,voter,'abstain');
+  capture();voter=draft.voters[nextIndex];paint({reset:true});store();
+ };
  function close(){if(!store())return;dialog.close();render();}
  $('exileVoteClose').onclick=close;dialog.addEventListener('cancel',e=>{e.preventDefault();close();});dialog.addEventListener('close',()=>{draft=null;clearTimeout(scrollTimer);});
  for(const scroller of [list,candidates])scroller.addEventListener('scroll',()=>{if(painting||!dialog.open)return;capture();clearTimeout(scrollTimer);scrollTimer=setTimeout(store,100);},{passive:true});
