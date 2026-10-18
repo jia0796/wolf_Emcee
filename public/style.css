@@ -294,3 +294,5 @@ html,body{min-height:0}
 .exile-voters:not(.exile-choices) button{border-radius:24px;background:#17313e;border-color:#607f8f}
 .exile-voter-section .exile-voters{min-height:44px;flex:1}
 .exile-editor .exile-footer{flex:0 1 auto;min-height:80px}
+
+.exile-voters:not(.exile-choices) button.ballot-other{background:#263041;border-color:#546073}
