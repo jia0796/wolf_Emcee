@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import {spawn} from 'node:child_process';
-import {mkdir,writeFile} from 'node:fs/promises';
+import {mkdir,writeFile,readFile} from 'node:fs/promises';
 import {BOARDS,ROLE_DATA,CATALOG_ART} from '../public/data.js';
 const {chromium}=await import(process.env.COUNCIL_PLAYWRIGHT_MODULE||'playwright');
 const output=new URL(process.env.UI_OUTPUT||'../../qa-artifacts/',import.meta.url);await mkdir(output,{recursive:true});
@@ -11,7 +11,8 @@ const browser=await chromium.launch({channel:'msedge',headless:true});
 const results=[],errors=[];
 const promo=new URL('../output/promo/screens/',import.meta.url);
 async function promoShot(page,name){if(process.env.UI_PROMO){await mkdir(promo,{recursive:true});await page.screenshot({path:new URL(name+'.png',promo).pathname.slice(1)});}}
-async function waitCached(page,paths){const until=Date.now()+60000;while(Date.now()<until){if(await page.evaluate(async paths=>{const cache=await caches.open('council-v22-2');return (await Promise.all(paths.map(p=>cache.match(new URL(p,location.href).href)))).every(Boolean);},paths))return;await page.waitForTimeout(100);}throw Error('Cache did not finish');}
+const cacheName=(await readFile(new URL('../public/sw.js',import.meta.url),'utf8')).match(/const CACHE='([^']+)'/)[1];
+async function waitCached(page,paths){const until=Date.now()+60000;while(Date.now()<until){if(await page.evaluate(async ({paths,cacheName})=>{const cache=await caches.open(cacheName);return (await Promise.all(paths.map(p=>cache.match(new URL(p,location.href).href)))).every(Boolean);},{paths,cacheName}))return;await page.waitForTimeout(100);}throw Error('Cache did not finish');}
 
 async function begin(board,viewport={width:390,height:844},sheriff=false,immuneNightGun=false){
  const context=await browser.newContext({viewport}),page=await context.newPage();page.on('pageerror',e=>errors.push(String(e)));
