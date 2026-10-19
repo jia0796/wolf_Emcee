@@ -1,7 +1,7 @@
 ---
 version: alpha
 name: Moonlit Council — B3 Arctic Frost
-description: "月下議會狼人殺法官 PWA 北極冰霜視覺規格；僅 B3-C01～C19 已定案，尚未實作。"
+description: "月下議會狼人殺法官 PWA 北極冰霜視覺規格；B3-C01～C30 全部設計定案，尚待實作與驗收。"
 colors:
   primary: "#B2DBE5"
   on-primary: "#13212D"
@@ -102,13 +102,49 @@ components:
     textColor: "{colors.villager-semantic}"
     rounded: "{rounded.sm}"
     padding: 8px
+  setup-wolf-glass:
+    backgroundColor: "{colors.panel}"
+    textColor: "{colors.wolf-semantic}"
+    rounded: "{rounded.lg}"
+    padding: 16px
+  setup-good-glass:
+    backgroundColor: "{colors.panel}"
+    textColor: "{colors.god-semantic}"
+    rounded: "{rounded.lg}"
+    padding: 16px
+  library-role-card:
+    backgroundColor: "{colors.panel}"
+    textColor: "{colors.text-primary}"
+    rounded: "{rounded.lg}"
+    padding: 8px
+  preview-glass-face:
+    backgroundColor: "{colors.panel-deep}"
+    textColor: "{colors.text-primary}"
+    rounded: "{rounded.lg}"
+    padding: 16px
+  recap-event-glass:
+    backgroundColor: "{colors.panel-deep}"
+    textColor: "{colors.text-primary}"
+    rounded: "{rounded.lg}"
+    padding: 12px
+  recap-identity-glass:
+    backgroundColor: "{colors.panel-deep}"
+    textColor: "{colors.text-primary}"
+    rounded: "{rounded.lg}"
+    padding: 8px
+  dialog-focused:
+    backgroundColor: "{colors.panel-deep}"
+    textColor: "{colors.text-primary}"
+    rounded: "{rounded.xl}"
+    padding: 16px
+
 ---
 
 # 月下議會｜B3 北極冰霜設計系統
 
 > 文件日期：2026-10-19。來源格式：google-labs-code/design.md（https://github.com/google-labs-code/design.md）。
 >
-> **狀態：B3-C01～C19 設計定案，尚未套入 App；B3-C20 遊戲設定頁細節仍待使用者選擇。**
+> **狀態：B3-C01～C30 全部設計定案，尚未套入 App；程式實作、回歸測試與真機驗收仍待進行。**
 > 本文件只新增設計規範，不代表任何 UI、遊戲邏輯或快取代碼已改動。
 >
 > 詳細施工規格與驗收：Google Drive／月下議會／App介面／README.md（上半部分）。
@@ -151,8 +187,19 @@ components:
 | B3-C17 | A 冰霧字現 | 原暗／曉台詞由微模糊透明漸變為清晰 |
 | B3-C18 | C 依頁面智慧遮罩 | 首頁輕、選項中、資訊密集頁面加深內容層 |
 | B3-C19 | B 極光雙層浮卡 | 人數與板子列表玻璃浮卡，既有行為不變 |
+| B3-C20 | B 極光陣營雙卡 | 設定頁狼人淡玫紅、好人淡金冰藍雙欄；房規與夜序中性玻璃 |
+| B3-C21 | A 冰霧簡約卡 | 圖鑑列表深藍透明玻璃、細冰藍框及原插畫 |
+| B3-C22 | A 冰霧雙面卡 | 圖鑑正反面冰霧玻璃、原 3D 翻卡及完整文字 |
+| B3-C23 | B 極光勝負舞台 | 遊戲結束最上方，勝利陣營柔和極光 |
+| B3-C24 | A 冰霧對稱融合 | 人物原畫融於事件卡左右，不用獨立小框 |
+| B3-C25 | A 冰霧雙欄身分卡 | 狼人先、神職在平民前；插畫左融合、資訊右顯 |
+| B3-C26 | B 月光垂直時間軸 | 左側日夜節點，右側原事件與順序 |
+| B3-C27 | A 冰霧並排按鈕 | 復盤左重新一局、右回首頁，前者冰藍邊框 |
+| B3-C28 | B 深霧聚焦玻璃 | 一般彈窗深藍玻璃與背景遮罩，內部不變 |
+| B3-C29 | B 極光微動回饋 | 0.15 秒按壓冰光，不延後功能 |
+| B3-C30 | B 冰霧漸層邊界 | 尚可捲動時淡冰霧提示，到底隱藏 |
 
-**B3-C20 尚未定案。** 即使先前曾推薦某方案，也不可把推薦當設計定案。
+**B3-C20～C30 亦已全部定案**，具體規格詳見本文件新增章節及 Google Drive README.md 第 11～16 章。舊推薦示意不代表已選方案。
 
 ## Colors
 
@@ -247,7 +294,7 @@ B3-C02 的玻璃面板以約 68% 不透明度、backdrop-filter: blur(20px) 為�
 
 ### B3-C19 count and board option cards
 
-counts 的大卡及 boards 的垂直滾動清單使用極光雙層浮卡、冷色內亮與冰邊，右側保留導航箭頭。人數及板子資料、排序、一般／特殊分類切換、單擊進入下一頁、返回功能及最後列表項可點選性保持完全一致。**B3-C20 設定頁的整體內部風格不得自行定案。**
+counts 的大卡及 boards 的垂直滾動清單使用極光雙層浮卡、冷色內亮與冰邊，右側保留導航箭頭。人數及板子資料、排序、一般／特殊分類切換、單擊進入下一頁、返回功能及最後列表項可點選性保持完全一致。**B3-C20 B「極光陣營雙卡」已定案**，細節見新增章節。
 
 ### B3-C11～C17 host day-night animation
 
@@ -269,7 +316,7 @@ counts 的大卡及 boards 的垂直滾動清單使用極光雙層浮卡、冷�
 ### Do
 
 1. 先讀現有 public/index.html、app.js、data.js、engine.js、style.css、sw.js、cache-manifest.js，再依最小差異實作；先保存可以還原的 Git commit 歷史。
-2. 僅實作 B3-C01～C19 已定案內容，C20 保留待選，不猜測後續投票／圖鑑／復盤細節設計。
+2. B3-C01～C30 全部設計定案；只套用已選方案，不改動既有投票、計時器、圖鑑翻卡、復盤資料、遊戲規則。
 3. 維持原字幕、場次／頁面、票權、計時器、可回退存檔、網頁捲動、人物及 26 技能 SVG。
 4. 測試 320／375／390／430px、低高度、橫向、字級放大、觸控、焦點、亮夜對比、動畫連點、離線降級與 PWA 回復。
 5. 把未經 iPhone Safari／iOS PWA／Android／低階設備真機驗收的項目標為待驗收；不能把桌面模擬算成真機通過。
@@ -282,8 +329,53 @@ counts 的大卡及 boards 的垂直滾動清單使用極光雙層浮卡、冷�
 - 不要新增要求使用者下載圖片的對話框、等待計時或進度 UI。
 - 不要刪除 shared.png、舊背景、回退歷史或舊存檔。
 - 不要宣稱現有日夜兩張 PNG 精確對位；要在實作轉場時驗收。
-- 不要把 B3-C20 推薦方案當定案，也不要把本文件當成已部署的證明。
+- 不要把 B3-C20～C30 的未選方案當成定案，也不要把本文件當成已部署的證明。
 
 ### Verification gate
 
 正式實作後必須跑現有 npm test、全 26 板回歸與原票型／PK／復盤／計時器驗收；檢查所有頁面、瀏覽器尺寸、裝置方向、點擊穿透、背景載入失敗、重新整理、回退和離線。真機測試與是否已部署請逐一紀錄事實，**此 DESIGN.md 產出當下不代表任何檢查已通過**。
+
+
+## B3-C20～C30 正式新增設計規格
+
+> 本節是 2026-10-19 的正式選定方案。詳盡施工規格、排版例外及逐項驗收見 Google Drive／月下議會／App介面／README.md 第 11～16 章。**所有效果只改 UI，不變更遊戲規則、原始字幕、票型、投票資格、回退、計時器或存檔。尚未修改 App 或執行回歸。**
+
+### C20 B — 極光陣營雙卡（設定頁）
+狼人陣營卡以深冰藍玻璃疊局部淡玫紅 (#F0A3B0) 極光，好人陣營卡以淡金 (#E8D09B) 與冰藍 (#C8DBE6) 局部漸層；維持原雙欄、角色列表與數量。特殊房規、夜間順序採中性冰霧玻璃；details/summary 折疊、select 預設與隱藏條件、夜間文字、開始主持及上一頁功能不動。短螢幕需可讀及可捲。
+
+### C21 A — 冰霧簡約卡（角色圖鑑列表）
+使用深藍半透明底、細冰藍邊框，不加 B 方案陣營漸層大底；保留原角色插畫、圖片比例、名稱及語意色、狼人／好人切換、神職先平民後、主持限定角色篩選、點卡進入預覽、捲動及回來源。
+
+### C22 A — 冰霧雙面卡（圖鑑預覽）
+正反面使用一致的深藍冰霧玻璃與邊框；正面完整原角色畫、背面原［陣營］［技能］［目標］全文及長文字捲動。保持 3D 翻卡約 0.45 秒、關閉、焦點、aria/inert、主持／首頁返回。reduced motion 時可即時翻面。
+
+### C23 B — 極光勝負舞台（復盤最上方）
+遊戲結束卡維持復盤頂端，依真實狼勝／好人勝使用柔和語意色極光，保留實際 winnerTitle、winnerReason 原文字；不補造勝負、不新增確認／鎖定動畫。下方原順序為完整復盤及最終身分回顧。
+
+### C24 A — 冰霧對稱融合（復盤事件卡）
+左右原人物插畫**直接融入整張事件卡背景**，以相近柔化強度左右對稱，中央技能 SVG、結果與發動者／目標關係清晰；**不得加左右獨立人物小框**。維持原 26 SVG、票型、雙目標、單人事件、空過、無目標、實際目標映射、舊存檔快照 fallback，依當時記錄不倒推資料。
+
+### C25 A — 冰霧雙欄身分卡
+維持原雙欄、人物融入卡片左側、右側原座號／最終職業／存活與出局／感染及轉化原職。狼人陣營在前，好人神職在前平民在後；保留原排序、資料、末項完整可捲與 Safari/PWA。
+
+### C26 B — 月光垂直時間軸
+日夜段落左側用細線串聯冰藍月亮夜節點、淡金太陽日節點，右側保留原事件卡。依現有日／夜段落，不插事件或更改順序，不破壞原展開收合、長文字與捲動。節點層 pointer-events: none，低效能和窄螢幕優先可讀性。
+
+### C27 A — 冰霧並排按鈕（復盤下方）
+「重新一局」左、「回首頁」右，兩個深藍半透明冰霧玻璃按鈕並排，重新一局的冰藍細邊稍突出；保留確認流程、觸控範圍、固定底部安全區與最末復盤可捲到。
+
+### C28 B — 深霧聚焦玻璃（一般彈窗）
+一般對話框只改深色玻璃外框和暗化背景遮罩，原投票／警長／PK／計時器／技能／決鬥／自爆等內部操作、開關、按鈕、焦點、ESC/close、選項與捲動均不變。角色圖鑑預覽優先依 C22 雙面卡，不能覆蓋其功能；無 blur 時用較深實色降級。
+
+### C29 B — 極光微動回饋（全站按鈕）
+可按鈕下壓與冰藍內光約 0.15 秒，**功能立即執行**，沒有額外 delay、lock、debounce。selected/aria-pressed、disabled 與 focus-visible 清楚，reduced motion 改靜態即時回饋。保留一般放逐、警長、所有 PK、技能和危險操作按鈕既有語意，不全面換色。
+
+### C30 B — 冰霧漸層邊界（捲動提示）
+每個可捲動內容區只有下方仍有內容時才出現淡冰霧邊界，到底／無溢出時消失。漸層 pointer-events: none，絕不遮蓋末列／票型觸控；保留原生慣性、縮放、鍵盤焦點、safe area、固定操作列和 Safari/PWA 滾動回復。避免持續動畫與高頻重排。
+
+### 驗收及施工界限
+
+- 舊 26 板、角色圖、26 技能 SVG、一般放逐／警長／PK、計時器、技能、復盤、舊存檔與回退全部需回歸。不得藉主題修改 engine、record snapshots 或投票資格。
+- 查驗 320／375／390／430px，短橫向、系統大字、Safari 地址列、雙指捏合、長文字最後一列、iOS Safari／安裝 PWA／Android／低階裝置真機。桌面 viewport 模擬不能冒稱真機通過。
+- 實作前保留可回退 Git commit，按背景與快取 → 共用 Token 與主持 → 一般頁／圖鑑／對話框 → 復盤 → 回歸測試分批提交；不 force push，不覆蓋舊背景。
+- **本次僅更新 DESIGN.md 與 Google Drive README.md。** 未修改 public、GitHub 原 README.md、Google Drive 背景圖，也沒有聲稱程式已完成或測試通過。
