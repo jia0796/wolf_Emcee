@@ -1,0 +1,5759 @@
+{
+  "date": "2026-10-19",
+  "brand": "狼序 WolfCue",
+  "shortName": "狼序",
+  "branch": "feat/b3-arctic-ui-20261019",
+  "baseline": "409ec893a9466992583d30f004a7dc546c5b9a35",
+  "source": "add4a55328d349e30baaeb8bb53776841256751f",
+  "backups": {
+    "backup/pre-b3-r01-r09-docs-20261019": "8610b96e110061006da1f47d44698933a1fa4e26",
+    "backup/pre-b3-r01-r09-implementation-20261019": "409ec893a9466992583d30f004a7dc546c5b9a35"
+  },
+  "deployment": {
+    "run": 39252743867,
+    "source": "add4a55328d349e30baaeb8bb53776841256751f",
+    "success": true,
+    "originalPoliciesRestored": [
+      {
+        "id": 63147482,
+        "node_id": "MDE2OkdhdGVCcmFuY2hQb2xpY3k2MzE0NzQ4Mg==",
+        "name": "codex/design-md-ui-polish",
+        "type": "branch"
+      },
+      {
+        "id": 62345760,
+        "node_id": "MDE2OkdhdGVCcmFuY2hQb2xpY3k2MjM0NTc2MA==",
+        "name": "feat/eclipse-host-app",
+        "type": "branch"
+      },
+      {
+        "id": 63117250,
+        "node_id": "MDE2OkdhdGVCcmFuY2hQb2xpY3k2MzExNzI1MA==",
+        "name": "feat/ui-01-33-redesign",
+        "type": "branch"
+      },
+      {
+        "id": 62345508,
+        "node_id": "MDE2OkdhdGVCcmFuY2hQb2xpY3k2MjM0NTUwOA==",
+        "name": "main",
+        "type": "branch"
+      }
+    ]
+  },
+  "scope": {
+    "baseline": "409ec893a9466992583d30f004a7dc546c5b9a35",
+    "unchangedFiles": 13,
+    "allUnchanged": true,
+    "dataChange": "BRANDING.name only",
+    "swChange": "cache revision and three new logo resource entries only",
+    "engineRecapTimerVotesUnchanged": true,
+    "skillSVG": 26,
+    "saveVersion": 22,
+    "cache": "council-v22-8",
+    "artAndSkillsTrackedFiles": 113,
+    "artAndSkillsGitDiffEmpty": true,
+    "skillSha256Exact": true,
+    "release": "add4a55328d349e30baaeb8bb53776841256751f"
+  },
+  "unitTests": [
+    {
+      "stage": "主UI；最後Logo接入前",
+      "tests": 810,
+      "passed": 810,
+      "failed": 0,
+      "seeds": 18,
+      "games": 468
+    },
+    {
+      "stage": "最終備援修正後",
+      "tests": 810,
+      "passed": 810,
+      "failed": 0,
+      "seeds": 2,
+      "games": 52
+    }
+  ],
+  "matrix": [
+    {
+      "id": "R01",
+      "status": "已實作",
+      "detail": "提示／原SVG／技能名與小按鈕同區、同列優先及換行；座位維持雙欄"
+    },
+    {
+      "id": "R02",
+      "status": "已實作",
+      "detail": "警上、退水、投票已選為1px冰晶框及文字；資格與狀態優先順序保留"
+    },
+    {
+      "id": "R03",
+      "status": "已實作",
+      "detail": "僅一般放逐：得票大橫列＋下拉、獨立投票方格、冰藍勾選；原逐人棄票與底部導航不改"
+    },
+    {
+      "id": "R04",
+      "status": "已實作",
+      "detail": "透明冰霧時間滾輪、冰藍刻線、月白數字與開始鍵；原模式／時鐘／動畫不改"
+    },
+    {
+      "id": "R05",
+      "status": "已實作",
+      "detail": "底色alpha：首頁20%、座位48%、資訊68%、復盤65%；不把內容一起淡化"
+    },
+    {
+      "id": "R06",
+      "status": "已實作",
+      "detail": "事件及最終身分中性65%玻璃；原畫無獨立小框融合、職業／技能資料分區"
+    },
+    {
+      "id": "R07",
+      "status": "已實作；待真機驗收",
+      "detail": "manipulation與pan-y pinch-zoom；保留原生滾動、縮放、焦點"
+    },
+    {
+      "id": "R08",
+      "status": "顯示校正已實作；6項素材例外",
+      "detail": "30原畫完整contain、去額外藍框、逐角色位置；不可獨立移動點陣圖中的人物與框"
+    },
+    {
+      "id": "R09",
+      "status": "已實作並修復實際備援層",
+      "detail": "confirm日景與準備標籤；dark才夜景；回退、重整、冷啟與失敗均檢查真實CSS"
+    }
+  ],
+  "suites": [
+    {
+      "name": "R01–R09最終專項",
+      "command": "node scripts/b3-r01-r09-ui.mjs",
+      "source": "local/add4a55",
+      "groups": 22,
+      "result": {
+        "results": [
+          {
+            "test": "R05/R07: 20% home paint, centered report link and nonblocking touch",
+            "pass": true,
+            "display": "flex",
+            "align": "center",
+            "justify": "center",
+            "height": 44,
+            "color": "rgba(27, 49, 66, 0.2)",
+            "opacity": "1",
+            "href": "https://docs.google.com/forms/d/e/1FAIpQLSe2idVT9QZON5Dlgu4YlB1xiNnzmo5mk1-MFi9UUuUovTjz3w/viewform?usp=publish-editor",
+            "touch": "manipulation"
+          },
+          {
+            "test": "WolfCue home: readable long brand, ice primary and directly reachable last link",
+            "pass": true,
+            "width": 320,
+            "height": 568,
+            "font": 100
+          },
+          {
+            "test": "WolfCue home: readable long brand, ice primary and directly reachable last link",
+            "pass": true,
+            "width": 320,
+            "height": 480,
+            "font": 100
+          },
+          {
+            "test": "WolfCue home: readable long brand, ice primary and directly reachable last link",
+            "pass": true,
+            "width": 390,
+            "height": 844,
+            "font": 200
+          },
+          {
+            "test": "WolfCue home: readable long brand, ice primary and directly reachable last link",
+            "pass": true,
+            "width": 430,
+            "height": 932,
+            "font": 100
+          },
+          {
+            "test": "R09: actual new game, dark, undo, refresh, no save/engine phase mutation",
+            "pass": true
+          },
+          {
+            "test": "R09: uncached/failed initial day never flashes night and remains interactive",
+            "pass": true,
+            "samples": [
+              {
+                "source": null,
+                "fallback": "url('art/backgrounds/host-day.png')",
+                "actualFallback": "url(\"http://127.0.0.1:5383/art/backgrounds/host-day.png\")",
+                "phase": "第1天・準備階段"
+              },
+              {
+                "source": null,
+                "fallback": "url('art/backgrounds/host-day.png')",
+                "actualFallback": "url(\"http://127.0.0.1:5383/art/backgrounds/host-day.png\")",
+                "phase": "第1天・準備階段"
+              },
+              {
+                "source": null,
+                "fallback": "url('art/backgrounds/host-day.png')",
+                "actualFallback": "url(\"http://127.0.0.1:5383/art/backgrounds/host-day.png\")",
+                "phase": "第1天・準備階段"
+              },
+              {
+                "source": null,
+                "fallback": "url('art/backgrounds/host-day.png')",
+                "actualFallback": "url(\"http://127.0.0.1:5383/art/backgrounds/host-day.png\")",
+                "phase": "第1天・準備階段"
+              },
+              {
+                "source": null,
+                "fallback": "url('art/backgrounds/host-day.png')",
+                "actualFallback": "url(\"http://127.0.0.1:5383/art/backgrounds/host-day.png\")",
+                "phase": "第1天・準備階段"
+              },
+              {
+                "source": null,
+                "fallback": "url('art/backgrounds/host-day.png')",
+                "actualFallback": "url(\"http://127.0.0.1:5383/art/backgrounds/host-day.png\")",
+                "phase": "第1天・準備階段"
+              },
+              {
+                "source": null,
+                "fallback": "url('art/backgrounds/host-day.png')",
+                "actualFallback": "url(\"http://127.0.0.1:5383/art/backgrounds/host-day.png\")",
+                "phase": "第1天・準備階段"
+              },
+              {
+                "source": null,
+                "fallback": "url('art/backgrounds/host-day.png')",
+                "actualFallback": "url(\"http://127.0.0.1:5383/art/backgrounds/host-day.png\")",
+                "phase": "第1天・準備階段"
+              }
+            ]
+          },
+          {
+            "test": "R01/R05: inline legal guard action and original dual seats",
+            "pass": true,
+            "width": 320,
+            "height": 568,
+            "font": 100,
+            "safe": 34,
+            "layout": {
+              "cols": [
+                6,
+                6
+              ],
+              "button": {
+                "x": 81,
+                "y": 130.140625,
+                "right": 125,
+                "bottom": 174.140625,
+                "width": 44,
+                "height": 44
+              },
+              "label": {
+                "x": 51,
+                "y": 144.640625,
+                "right": 75,
+                "bottom": 159.640625,
+                "width": 24,
+                "height": 15
+              },
+              "next": {
+                "x": 202,
+                "y": 512,
+                "right": 310,
+                "bottom": 556,
+                "width": 108,
+                "height": 44
+              },
+              "overflow": false,
+              "seat": "rgba(27, 49, 66, 0.48)",
+              "info": "rgba(19, 36, 52, 0.68)",
+              "buttonDisplay": "contents",
+              "judge": "0px"
+            }
+          },
+          {
+            "test": "R01/R05: inline legal guard action and original dual seats",
+            "pass": true,
+            "width": 375,
+            "height": 667,
+            "font": 100,
+            "safe": 34,
+            "layout": {
+              "cols": [
+                6,
+                6
+              ],
+              "button": {
+                "x": 81,
+                "y": 142.140625,
+                "right": 125,
+                "bottom": 186.140625,
+                "width": 44,
+                "height": 44
+              },
+              "label": {
+                "x": 51,
+                "y": 156.640625,
+                "right": 75,
+                "bottom": 171.640625,
+                "width": 24,
+                "height": 15
+              },
+              "next": {
+                "x": 257,
+                "y": 611,
+                "right": 365,
+                "bottom": 655,
+                "width": 108,
+                "height": 44
+              },
+              "overflow": false,
+              "seat": "rgba(27, 49, 66, 0.48)",
+              "info": "rgba(19, 36, 52, 0.68)",
+              "buttonDisplay": "contents",
+              "judge": "0px"
+            }
+          },
+          {
+            "test": "R01/R05: inline legal guard action and original dual seats",
+            "pass": true,
+            "width": 390,
+            "height": 844,
+            "font": 100,
+            "safe": 34,
+            "layout": {
+              "cols": [
+                6,
+                6
+              ],
+              "button": {
+                "x": 81,
+                "y": 142.140625,
+                "right": 125,
+                "bottom": 186.140625,
+                "width": 44,
+                "height": 44
+              },
+              "label": {
+                "x": 51,
+                "y": 156.640625,
+                "right": 75,
+                "bottom": 171.640625,
+                "width": 24,
+                "height": 15
+              },
+              "next": {
+                "x": 272,
+                "y": 788,
+                "right": 380,
+                "bottom": 832,
+                "width": 108,
+                "height": 44
+              },
+              "overflow": false,
+              "seat": "rgba(27, 49, 66, 0.48)",
+              "info": "rgba(19, 36, 52, 0.68)",
+              "buttonDisplay": "contents",
+              "judge": "0px"
+            }
+          },
+          {
+            "test": "R01/R05: inline legal guard action and original dual seats",
+            "pass": true,
+            "width": 430,
+            "height": 932,
+            "font": 100,
+            "safe": 34,
+            "layout": {
+              "cols": [
+                6,
+                6
+              ],
+              "button": {
+                "x": 81,
+                "y": 143.765625,
+                "right": 125,
+                "bottom": 187.765625,
+                "width": 44,
+                "height": 44
+              },
+              "label": {
+                "x": 51,
+                "y": 158.265625,
+                "right": 75,
+                "bottom": 173.265625,
+                "width": 24,
+                "height": 15
+              },
+              "next": {
+                "x": 312,
+                "y": 876,
+                "right": 420,
+                "bottom": 920,
+                "width": 108,
+                "height": 44
+              },
+              "overflow": false,
+              "seat": "rgba(27, 49, 66, 0.48)",
+              "info": "rgba(19, 36, 52, 0.68)",
+              "buttonDisplay": "contents",
+              "judge": "0px"
+            }
+          },
+          {
+            "test": "R01/R05: inline legal guard action and original dual seats",
+            "pass": true,
+            "width": 320,
+            "height": 480,
+            "font": 100,
+            "safe": 34,
+            "layout": {
+              "cols": [
+                6,
+                6
+              ],
+              "button": {
+                "x": 81,
+                "y": 130.140625,
+                "right": 125,
+                "bottom": 174.140625,
+                "width": 44,
+                "height": 44
+              },
+              "label": {
+                "x": 51,
+                "y": 144.640625,
+                "right": 75,
+                "bottom": 159.640625,
+                "width": 24,
+                "height": 15
+              },
+              "next": {
+                "x": 202,
+                "y": 424,
+                "right": 310,
+                "bottom": 468,
+                "width": 108,
+                "height": 44
+              },
+              "overflow": false,
+              "seat": "rgba(27, 49, 66, 0.48)",
+              "info": "rgba(19, 36, 52, 0.68)",
+              "buttonDisplay": "contents",
+              "judge": "0px"
+            }
+          },
+          {
+            "test": "R01/R05: inline legal guard action and original dual seats",
+            "pass": true,
+            "width": 844,
+            "height": 390,
+            "font": 100,
+            "safe": 0,
+            "layout": {
+              "cols": [
+                6,
+                6
+              ],
+              "button": {
+                "x": 98,
+                "y": 139.140625,
+                "right": 142,
+                "bottom": 183.140625,
+                "width": 44,
+                "height": 44
+              },
+              "label": {
+                "x": 68,
+                "y": 153.640625,
+                "right": 92,
+                "bottom": 168.640625,
+                "width": 24,
+                "height": 15
+              },
+              "next": {
+                "x": 699,
+                "y": 332,
+                "right": 824,
+                "bottom": 376,
+                "width": 125,
+                "height": 44
+              },
+              "overflow": false,
+              "seat": "rgba(27, 49, 66, 0.48)",
+              "info": "rgba(19, 36, 52, 0.68)",
+              "buttonDisplay": "contents",
+              "judge": "0px"
+            }
+          },
+          {
+            "test": "R01/R05: inline legal guard action and original dual seats",
+            "pass": true,
+            "width": 768,
+            "height": 1024,
+            "font": 150,
+            "safe": 34,
+            "layout": {
+              "cols": [
+                6,
+                6
+              ],
+              "button": {
+                "x": 98,
+                "y": 176.21875,
+                "right": 142,
+                "bottom": 220.21875,
+                "width": 44,
+                "height": 44
+              },
+              "label": {
+                "x": 68,
+                "y": 190.71875,
+                "right": 92,
+                "bottom": 205.71875,
+                "width": 24,
+                "height": 15
+              },
+              "next": {
+                "x": 623,
+                "y": 958,
+                "right": 748,
+                "bottom": 1010,
+                "width": 125,
+                "height": 52
+              },
+              "overflow": false,
+              "seat": "rgba(27, 49, 66, 0.48)",
+              "info": "rgba(19, 36, 52, 0.68)",
+              "buttonDisplay": "contents",
+              "judge": "0px"
+            }
+          },
+          {
+            "test": "R01/R05: inline legal guard action and original dual seats",
+            "pass": true,
+            "width": 390,
+            "height": 844,
+            "font": 200,
+            "safe": 34,
+            "layout": {
+              "cols": [
+                6,
+                6
+              ],
+              "button": {
+                "x": 81,
+                "y": 179.15625,
+                "right": 125,
+                "bottom": 223.15625,
+                "width": 44,
+                "height": 44
+              },
+              "label": {
+                "x": 51,
+                "y": 193.65625,
+                "right": 75,
+                "bottom": 208.65625,
+                "width": 24,
+                "height": 15
+              },
+              "next": {
+                "x": 250,
+                "y": 769,
+                "right": 380,
+                "bottom": 832,
+                "width": 130,
+                "height": 63
+              },
+              "overflow": false,
+              "seat": "rgba(27, 49, 66, 0.48)",
+              "info": "rgba(19, 36, 52, 0.68)",
+              "buttonDisplay": "contents",
+              "judge": "0px"
+            }
+          },
+          {
+            "test": "R02: 警上 label and 1px frame survive refresh",
+            "pass": true,
+            "top": "1px",
+            "left": "1px",
+            "right": "1px",
+            "outline": "3px",
+            "touch": "manipulation"
+          },
+          {
+            "test": "R02: 退水 label and 1px frame survive refresh",
+            "pass": true,
+            "top": "1px",
+            "left": "1px",
+            "right": "1px",
+            "outline": "3px",
+            "touch": "manipulation"
+          },
+          {
+            "test": "R02: 投票已選 label and 1px frame survive refresh",
+            "pass": true,
+            "top": "1px",
+            "left": "1px",
+            "right": "1px",
+            "outline": "0px",
+            "touch": "manipulation"
+          },
+          {
+            "test": "R03: separate target dropdown/voter grid, ice selection, existing automatic abstention",
+            "pass": true
+          },
+          {
+            "test": "R04/R07: transparent wheels, ice scales and retained pinch zoom",
+            "pass": true,
+            "paint": "rgba(27, 49, 66, 0.28)",
+            "line": "rgb(178, 219, 229)",
+            "touch": "pan-y pinch-zoom"
+          },
+          {
+            "test": "R08: all 30 original portraits, full image contain, no additional blue frame, flip and return",
+            "pass": true,
+            "reviewed": 30
+          },
+          {
+            "test": "R05/R06: original identity model, 65% glass paint and full-opacity card contents",
+            "pass": true
+          }
+        ],
+        "errors": [],
+        "realDevices": "待真機驗收"
+      }
+    },
+    {
+      "name": "B3及離線／復盤",
+      "command": "B3_STAGE=final node scripts/b3-ui.mjs",
+      "source": "local/add4a55",
+      "groups": 32,
+      "result": {
+        "base": "http://127.0.0.1:5379/",
+        "results": [
+          {
+            "case": "C12/C18: official lobby and original menu across home, counts, boards and setup",
+            "pass": true
+          },
+          {
+            "case": "C14: restored host renders correct night immediately; same-night role steps do not transition",
+            "pass": true
+          },
+          {
+            "case": "C11/C14/C17: forward/undo/rapid day-night transitions and timer remain non-blocking",
+            "pass": true,
+            "durations": []
+          },
+          {
+            "case": "C14: day refresh restores exact scene without replay",
+            "pass": true
+          },
+          {
+            "case": "C11/C17: reduced motion switches directly, no residual blur",
+            "pass": true
+          },
+          {
+            "case": "C15: wide central contain with same-image blurred extension and click-through layers",
+            "pass": true,
+            "main": "contain",
+            "sides": "blur(20px)",
+            "pointer": "none"
+          },
+          {
+            "case": "C16: all three background requests fail; legacy shell and host actions remain usable",
+            "pass": true
+          },
+          {
+            "case": "C16: optional originals and presentation module work after offline reload",
+            "pass": true
+          },
+          {
+            "case": "C01-C09: approved tokens, readable primary CTA, centered subtitle, original seats and 24px swap marks",
+            "pass": true,
+            "--b3-primary": "#B2DBE5",
+            "--b3-text": "#F4F8F9",
+            "--wolf": "#F0A3B0",
+            "--god": "#E8D09B",
+            "--civil": "#C8DBE6"
+          },
+          {
+            "case": "host responsive surface without moving skills or controls",
+            "pass": true,
+            "width": 320,
+            "height": 568,
+            "font": 100,
+            "layout": {
+              "host": {
+                "x": 8,
+                "y": 10,
+                "right": 312,
+                "bottom": 438,
+                "height": 428
+              },
+              "next": {
+                "x": 202,
+                "y": 512,
+                "right": 310,
+                "bottom": 556,
+                "height": 44
+              },
+              "back": {
+                "x": 10,
+                "y": 512,
+                "right": 118,
+                "bottom": 556,
+                "height": 44
+              },
+              "last": {
+                "x": 163,
+                "y": 395,
+                "right": 312,
+                "bottom": 438,
+                "height": 43
+              },
+              "bodyOverflow": false,
+              "stage": {
+                "x": 8,
+                "y": 44,
+                "right": 312,
+                "bottom": 154,
+                "height": 110
+              }
+            }
+          },
+          {
+            "case": "host responsive surface without moving skills or controls",
+            "pass": true,
+            "width": 375,
+            "height": 667,
+            "font": 100,
+            "layout": {
+              "host": {
+                "x": 8,
+                "y": 10,
+                "right": 367,
+                "bottom": 537,
+                "height": 527
+              },
+              "next": {
+                "x": 257,
+                "y": 611,
+                "right": 365,
+                "bottom": 655,
+                "height": 44
+              },
+              "back": {
+                "x": 10,
+                "y": 611,
+                "right": 118,
+                "bottom": 655,
+                "height": 44
+              },
+              "last": {
+                "x": 190.5,
+                "y": 486.171875,
+                "right": 367,
+                "bottom": 537,
+                "height": 50.828125
+              },
+              "bodyOverflow": false,
+              "stage": {
+                "x": 8,
+                "y": 46,
+                "right": 367,
+                "bottom": 206.078125,
+                "height": 160.078125
+              }
+            }
+          },
+          {
+            "case": "host responsive surface without moving skills or controls",
+            "pass": true,
+            "width": 390,
+            "height": 844,
+            "font": 100,
+            "layout": {
+              "host": {
+                "x": 8,
+                "y": 10,
+                "right": 382,
+                "bottom": 714,
+                "height": 704
+              },
+              "next": {
+                "x": 272,
+                "y": 788,
+                "right": 380,
+                "bottom": 832,
+                "height": 44
+              },
+              "back": {
+                "x": 10,
+                "y": 788,
+                "right": 118,
+                "bottom": 832,
+                "height": 44
+              },
+              "last": {
+                "x": 198,
+                "y": 634.5,
+                "right": 382,
+                "bottom": 714,
+                "height": 79.5
+              },
+              "bodyOverflow": false,
+              "stage": {
+                "x": 8,
+                "y": 46,
+                "right": 382,
+                "bottom": 211,
+                "height": 165
+              }
+            }
+          },
+          {
+            "case": "host responsive surface without moving skills or controls",
+            "pass": true,
+            "width": 430,
+            "height": 932,
+            "font": 100,
+            "layout": {
+              "host": {
+                "x": 8,
+                "y": 10,
+                "right": 422,
+                "bottom": 802,
+                "height": 792
+              },
+              "next": {
+                "x": 312,
+                "y": 876,
+                "right": 420,
+                "bottom": 920,
+                "height": 44
+              },
+              "back": {
+                "x": 10,
+                "y": 876,
+                "right": 118,
+                "bottom": 920,
+                "height": 44
+              },
+              "last": {
+                "x": 218,
+                "y": 707.828125,
+                "right": 422,
+                "bottom": 801.984375,
+                "height": 94.15625
+              },
+              "bodyOverflow": false,
+              "stage": {
+                "x": 8,
+                "y": 46,
+                "right": 422,
+                "bottom": 211,
+                "height": 165
+              }
+            }
+          },
+          {
+            "case": "host responsive surface without moving skills or controls",
+            "pass": true,
+            "width": 844,
+            "height": 390,
+            "font": 100,
+            "layout": {
+              "host": {
+                "x": 20,
+                "y": 10,
+                "right": 824,
+                "bottom": 260,
+                "height": 250
+              },
+              "next": {
+                "x": 699,
+                "y": 332,
+                "right": 824,
+                "bottom": 376,
+                "height": 44
+              },
+              "back": {
+                "x": 20,
+                "y": 332,
+                "right": 145,
+                "bottom": 376,
+                "height": 44
+              },
+              "last": {
+                "x": 427,
+                "y": 252.328125,
+                "right": 824,
+                "bottom": 263.328125,
+                "height": 11
+              },
+              "bodyOverflow": false,
+              "stage": {
+                "x": 20,
+                "y": 46,
+                "right": 824,
+                "bottom": 176,
+                "height": 130
+              }
+            }
+          },
+          {
+            "case": "host responsive surface without moving skills or controls",
+            "pass": true,
+            "width": 768,
+            "height": 1024,
+            "font": 100,
+            "layout": {
+              "host": {
+                "x": 20,
+                "y": 10,
+                "right": 748,
+                "bottom": 894,
+                "height": 884
+              },
+              "next": {
+                "x": 623,
+                "y": 966,
+                "right": 748,
+                "bottom": 1010,
+                "height": 44
+              },
+              "back": {
+                "x": 20,
+                "y": 966,
+                "right": 145,
+                "bottom": 1010,
+                "height": 44
+              },
+              "last": {
+                "x": 389,
+                "y": 790.5,
+                "right": 748,
+                "bottom": 894,
+                "height": 103.5
+              },
+              "bodyOverflow": false,
+              "stage": {
+                "x": 20,
+                "y": 50,
+                "right": 748,
+                "bottom": 235,
+                "height": 185
+              }
+            }
+          },
+          {
+            "case": "host responsive surface without moving skills or controls",
+            "pass": true,
+            "width": 1280,
+            "height": 800,
+            "font": 100,
+            "layout": {
+              "host": {
+                "x": 70,
+                "y": 10,
+                "right": 1210,
+                "bottom": 670,
+                "height": 660
+              },
+              "next": {
+                "x": 1085,
+                "y": 742,
+                "right": 1210,
+                "bottom": 786,
+                "height": 44
+              },
+              "back": {
+                "x": 70,
+                "y": 742,
+                "right": 195,
+                "bottom": 786,
+                "height": 44
+              },
+              "last": {
+                "x": 645,
+                "y": 603.828125,
+                "right": 1210,
+                "bottom": 669.984375,
+                "height": 66.15625
+              },
+              "bodyOverflow": false,
+              "stage": {
+                "x": 70,
+                "y": 50,
+                "right": 1210,
+                "bottom": 235,
+                "height": 185
+              }
+            }
+          },
+          {
+            "case": "host responsive surface without moving skills or controls",
+            "pass": true,
+            "width": 390,
+            "height": 844,
+            "font": 200,
+            "layout": {
+              "host": {
+                "x": 8,
+                "y": 10,
+                "right": 382,
+                "bottom": 714,
+                "height": 704
+              },
+              "next": {
+                "x": 250,
+                "y": 769,
+                "right": 380,
+                "bottom": 832,
+                "height": 63
+              },
+              "back": {
+                "x": 10,
+                "y": 769,
+                "right": 140,
+                "bottom": 832,
+                "height": 63
+              },
+              "last": {
+                "x": 198,
+                "y": 634.5,
+                "right": 382,
+                "bottom": 714,
+                "height": 79.5
+              },
+              "bodyOverflow": false,
+              "stage": {
+                "x": 8,
+                "y": 46,
+                "right": 382,
+                "bottom": 211,
+                "height": 165
+              }
+            }
+          },
+          {
+            "case": "C19/C30: original count choices, independent list hint disappears at bottom; last board directly clickable",
+            "pass": true
+          },
+          {
+            "case": "C20: 10/12 normal and special settings preserve role counts, rules and both details controls",
+            "pass": true,
+            "boards": [
+              {
+                "board": "10",
+                "count": 10,
+                "expected": [
+                  "黑狼王 ×1",
+                  "狼人 ×2",
+                  "預言家 ×1",
+                  "女巫 ×1",
+                  "魔術師 ×1",
+                  "平民 ×4"
+                ],
+                "actual": [
+                  "黑狼王 ×1",
+                  "狼人 ×2",
+                  "預言家 ×1",
+                  "女巫 ×1",
+                  "魔術師 ×1",
+                  "平民 ×4"
+                ],
+                "sheriff": "true",
+                "expectedSheriff": "true",
+                "rescue": "false",
+                "expectedRescue": "false"
+              },
+              {
+                "board": "12",
+                "count": 12,
+                "expected": [
+                  "黑狼王 ×1",
+                  "狼人 ×3",
+                  "預言家 ×1",
+                  "女巫 ×1",
+                  "魔術師 ×1",
+                  "獵人 ×1",
+                  "平民 ×4"
+                ],
+                "actual": [
+                  "黑狼王 ×1",
+                  "狼人 ×3",
+                  "預言家 ×1",
+                  "女巫 ×1",
+                  "魔術師 ×1",
+                  "獵人 ×1",
+                  "平民 ×4"
+                ],
+                "sheriff": "true",
+                "expectedSheriff": "true",
+                "rescue": "false",
+                "expectedRescue": "false"
+              },
+              {
+                "board": "mechanical12",
+                "count": 12,
+                "expected": [
+                  "機械狼 ×1",
+                  "狼人 ×3",
+                  "通靈師 ×1",
+                  "女巫 ×1",
+                  "獵人 ×1",
+                  "守衛 ×1",
+                  "平民 ×4"
+                ],
+                "actual": [
+                  "機械狼 ×1",
+                  "狼人 ×3",
+                  "通靈師 ×1",
+                  "女巫 ×1",
+                  "獵人 ×1",
+                  "守衛 ×1",
+                  "平民 ×4"
+                ],
+                "sheriff": "true",
+                "expectedSheriff": "true",
+                "rescue": "false",
+                "expectedRescue": "false"
+              },
+              {
+                "board": "masquerade12",
+                "count": 12,
+                "expected": [
+                  "狼人 ×3",
+                  "假面 ×1",
+                  "舞者 ×1",
+                  "預言家 ×1",
+                  "女巫 ×1",
+                  "白痴 ×1",
+                  "平民 ×4"
+                ],
+                "actual": [
+                  "狼人 ×3",
+                  "假面 ×1",
+                  "舞者 ×1",
+                  "預言家 ×1",
+                  "女巫 ×1",
+                  "白痴 ×1",
+                  "平民 ×4"
+                ],
+                "sheriff": "true",
+                "expectedSheriff": "true",
+                "rescue": "false",
+                "expectedRescue": "false"
+              }
+            ]
+          },
+          {
+            "case": "C21/C22: last library card, approved front art, back text, inert/aria, Escape and original return",
+            "pass": true,
+            "image": "art/catalog/villager.png"
+          },
+          {
+            "case": "C28: host library/rules shells keep return route, Escape and exact saved game",
+            "pass": true
+          },
+          {
+            "case": "pages and flip card responsive without hiding rules or actions",
+            "pass": true,
+            "width": 320,
+            "height": 480,
+            "font": 100
+          },
+          {
+            "case": "pages and flip card responsive without hiding rules or actions",
+            "pass": true,
+            "width": 375,
+            "height": 620,
+            "font": 100
+          },
+          {
+            "case": "pages and flip card responsive without hiding rules or actions",
+            "pass": true,
+            "width": 390,
+            "height": 650,
+            "font": 100
+          },
+          {
+            "case": "pages and flip card responsive without hiding rules or actions",
+            "pass": true,
+            "width": 430,
+            "height": 932,
+            "font": 100
+          },
+          {
+            "case": "pages and flip card responsive without hiding rules or actions",
+            "pass": true,
+            "width": 844,
+            "height": 390,
+            "font": 100
+          },
+          {
+            "case": "pages and flip card responsive without hiding rules or actions",
+            "pass": true,
+            "width": 768,
+            "height": 1024,
+            "font": 100
+          },
+          {
+            "case": "pages and flip card responsive without hiding rules or actions",
+            "pass": true,
+            "width": 1280,
+            "height": 800,
+            "font": 100
+          },
+          {
+            "case": "pages and flip card responsive without hiding rules or actions",
+            "pass": true,
+            "width": 390,
+            "height": 844,
+            "font": 200
+          },
+          {
+            "case": "C23-C26: real fixture winner above complete recap, original segment order and separate art/roles",
+            "pass": true,
+            "winner": "狼人陣營",
+            "timeline": {
+              "model": [
+                "night",
+                "day",
+                "night",
+                "day"
+              ],
+              "dom": [
+                "night",
+                "day",
+                "night",
+                "day"
+              ],
+              "pointer": "none",
+              "art": "static"
+            }
+          },
+          {
+            "case": "C23-C26: real fixture winner above complete recap, original segment order and separate art/roles",
+            "pass": true,
+            "winner": "好人陣營",
+            "timeline": {
+              "model": [
+                "night",
+                "day",
+                "night",
+                "day"
+              ],
+              "dom": [
+                "night",
+                "day",
+                "night",
+                "day"
+              ],
+              "pointer": "none",
+              "art": "static"
+            }
+          },
+          {
+            "case": "C27: original cancel/restart rules, cleared histories, second finish heading and confirmed home route",
+            "pass": true
+          }
+        ],
+        "errors": [],
+        "realDevices": "未驗收"
+      }
+    },
+    {
+      "name": "26板完整瀏覽器對局",
+      "command": "UI_PORT=5394 node scripts/ui-regression.mjs",
+      "source": "local/59ba4a2",
+      "groups": 36,
+      "result": {
+        "results": [
+          {
+            "library": 30,
+            "originalFrame": true,
+            "descriptionGrid": true,
+            "touchOutline": true
+          },
+          {
+            "hostLibrary": true,
+            "preserved": true
+          },
+          {
+            "candidateBlue": true,
+            "cancel": true,
+            "refresh": true,
+            "rollback": true,
+            "electionClear": true
+          },
+          {
+            "classificationScrollReset": true,
+            "fastSwitches": 12,
+            "exactOrder": true,
+            "fixedBackground": {
+              "position": "fixed",
+              "pointer": "none",
+              "overflow": "hidden",
+              "outer": 0,
+              "background": "cover"
+            },
+            "boardFontScale": 1.5
+          },
+          {
+            "board": "10",
+            "reflect": null,
+            "nightGun": false,
+            "immuneNightGun": false,
+            "passed": true,
+            "actions": 65,
+            "refresh": true,
+            "rollback": true,
+            "restart": true,
+            "measures": {
+              "width": 390,
+              "scrollWidth": 390,
+              "buttons": 767,
+              "recap": 764
+            }
+          },
+          {
+            "board": "12",
+            "reflect": null,
+            "nightGun": false,
+            "immuneNightGun": false,
+            "passed": true,
+            "actions": 99,
+            "refresh": true,
+            "rollback": true,
+            "restart": true,
+            "measures": {
+              "width": 390,
+              "scrollWidth": 390,
+              "buttons": 767,
+              "recap": 764
+            }
+          },
+          {
+            "board": "mechanical10",
+            "reflect": null,
+            "nightGun": false,
+            "immuneNightGun": false,
+            "passed": true,
+            "actions": 80,
+            "refresh": true,
+            "rollback": true,
+            "restart": true,
+            "measures": {
+              "width": 390,
+              "scrollWidth": 390,
+              "buttons": 767,
+              "recap": 764
+            }
+          },
+          {
+            "board": "mechanical12",
+            "reflect": null,
+            "nightGun": false,
+            "immuneNightGun": false,
+            "passed": true,
+            "actions": 119,
+            "refresh": true,
+            "rollback": true,
+            "restart": true,
+            "measures": {
+              "width": 390,
+              "scrollWidth": 390,
+              "buttons": 767,
+              "recap": 764
+            }
+          },
+          {
+            "board": "brothers12",
+            "reflect": null,
+            "nightGun": false,
+            "immuneNightGun": false,
+            "passed": true,
+            "actions": 121,
+            "refresh": true,
+            "rollback": true,
+            "restart": true,
+            "measures": {
+              "width": 390,
+              "scrollWidth": 390,
+              "buttons": 767,
+              "recap": 764
+            }
+          },
+          {
+            "board": "nightmare10",
+            "reflect": null,
+            "nightGun": false,
+            "immuneNightGun": false,
+            "passed": true,
+            "actions": 74,
+            "refresh": true,
+            "rollback": true,
+            "restart": true,
+            "measures": {
+              "width": 390,
+              "scrollWidth": 390,
+              "buttons": 767,
+              "recap": 764
+            }
+          },
+          {
+            "board": "nightmare12",
+            "reflect": null,
+            "nightGun": false,
+            "immuneNightGun": false,
+            "passed": true,
+            "actions": 111,
+            "refresh": true,
+            "rollback": true,
+            "restart": true,
+            "measures": {
+              "width": 390,
+              "scrollWidth": 390,
+              "buttons": 767,
+              "recap": 764
+            }
+          },
+          {
+            "board": "classic12",
+            "reflect": null,
+            "nightGun": false,
+            "immuneNightGun": false,
+            "passed": true,
+            "actions": 89,
+            "refresh": true,
+            "rollback": true,
+            "restart": true,
+            "measures": {
+              "width": 390,
+              "scrollWidth": 390,
+              "buttons": 767,
+              "recap": 764
+            }
+          },
+          {
+            "board": "classicMixed12",
+            "reflect": null,
+            "nightGun": false,
+            "immuneNightGun": false,
+            "passed": true,
+            "actions": 115,
+            "refresh": true,
+            "rollback": true,
+            "restart": true,
+            "measures": {
+              "width": 390,
+              "scrollWidth": 390,
+              "buttons": 767,
+              "recap": 764
+            }
+          },
+          {
+            "board": "blood10",
+            "reflect": null,
+            "nightGun": false,
+            "immuneNightGun": false,
+            "passed": true,
+            "actions": 66,
+            "refresh": true,
+            "rollback": true,
+            "restart": true,
+            "measures": {
+              "width": 390,
+              "scrollWidth": 390,
+              "buttons": 767,
+              "recap": 764
+            }
+          },
+          {
+            "board": "kingGuard10",
+            "reflect": null,
+            "nightGun": false,
+            "immuneNightGun": false,
+            "passed": true,
+            "actions": 65,
+            "refresh": true,
+            "rollback": true,
+            "restart": true,
+            "measures": {
+              "width": 390,
+              "scrollWidth": 390,
+              "buttons": 767,
+              "recap": 764
+            }
+          },
+          {
+            "board": "kingDream10",
+            "reflect": null,
+            "nightGun": false,
+            "immuneNightGun": false,
+            "passed": true,
+            "actions": 65,
+            "refresh": true,
+            "rollback": true,
+            "restart": true,
+            "measures": {
+              "width": 390,
+              "scrollWidth": 390,
+              "buttons": 767,
+              "recap": 764
+            }
+          },
+          {
+            "board": "blood12",
+            "reflect": null,
+            "nightGun": false,
+            "immuneNightGun": false,
+            "passed": true,
+            "actions": 90,
+            "refresh": true,
+            "rollback": true,
+            "restart": true,
+            "measures": {
+              "width": 390,
+              "scrollWidth": 390,
+              "buttons": 767,
+              "recap": 764
+            }
+          },
+          {
+            "board": "kingGuard12",
+            "reflect": null,
+            "nightGun": false,
+            "immuneNightGun": false,
+            "passed": true,
+            "actions": 99,
+            "refresh": true,
+            "rollback": true,
+            "restart": true,
+            "measures": {
+              "width": 390,
+              "scrollWidth": 390,
+              "buttons": 767,
+              "recap": 764
+            }
+          },
+          {
+            "board": "kingDream12",
+            "reflect": null,
+            "nightGun": false,
+            "immuneNightGun": false,
+            "passed": true,
+            "actions": 99,
+            "refresh": true,
+            "rollback": true,
+            "restart": true,
+            "measures": {
+              "width": 390,
+              "scrollWidth": 390,
+              "buttons": 767,
+              "recap": 764
+            }
+          },
+          {
+            "board": "gargoyle10",
+            "reflect": null,
+            "nightGun": false,
+            "immuneNightGun": false,
+            "passed": true,
+            "actions": 84,
+            "refresh": true,
+            "rollback": true,
+            "restart": true,
+            "measures": {
+              "width": 390,
+              "scrollWidth": 390,
+              "buttons": 767,
+              "recap": 764
+            }
+          },
+          {
+            "board": "gargoyle12",
+            "reflect": null,
+            "nightGun": false,
+            "immuneNightGun": false,
+            "passed": true,
+            "actions": 124,
+            "refresh": true,
+            "rollback": true,
+            "restart": true,
+            "measures": {
+              "width": 390,
+              "scrollWidth": 390,
+              "buttons": 767,
+              "recap": 764
+            }
+          },
+          {
+            "board": "evilKnight10",
+            "reflect": null,
+            "nightGun": false,
+            "immuneNightGun": false,
+            "passed": true,
+            "actions": 65,
+            "refresh": true,
+            "rollback": true,
+            "restart": true,
+            "measures": {
+              "width": 390,
+              "scrollWidth": 390,
+              "buttons": 767,
+              "recap": 764
+            }
+          },
+          {
+            "board": "evilKnight12",
+            "reflect": null,
+            "nightGun": false,
+            "immuneNightGun": false,
+            "passed": true,
+            "actions": 99,
+            "refresh": true,
+            "rollback": true,
+            "restart": true,
+            "measures": {
+              "width": 390,
+              "scrollWidth": 390,
+              "buttons": 767,
+              "recap": 764
+            }
+          },
+          {
+            "board": "seedHidden10",
+            "reflect": null,
+            "nightGun": false,
+            "immuneNightGun": false,
+            "passed": true,
+            "actions": 48,
+            "refresh": true,
+            "rollback": true,
+            "restart": true,
+            "measures": {
+              "width": 390,
+              "scrollWidth": 390,
+              "buttons": 767,
+              "recap": 764
+            }
+          },
+          {
+            "board": "seedHidden12",
+            "reflect": null,
+            "nightGun": false,
+            "immuneNightGun": false,
+            "passed": true,
+            "actions": 82,
+            "refresh": true,
+            "rollback": true,
+            "restart": true,
+            "measures": {
+              "width": 390,
+              "scrollWidth": 390,
+              "buttons": 767,
+              "recap": 764
+            }
+          },
+          {
+            "board": "beauty10",
+            "reflect": null,
+            "nightGun": false,
+            "immuneNightGun": false,
+            "passed": true,
+            "actions": 67,
+            "refresh": true,
+            "rollback": true,
+            "restart": true,
+            "measures": {
+              "width": 390,
+              "scrollWidth": 390,
+              "buttons": 767,
+              "recap": 764
+            }
+          },
+          {
+            "board": "beauty12",
+            "reflect": null,
+            "nightGun": false,
+            "immuneNightGun": false,
+            "passed": true,
+            "actions": 101,
+            "refresh": true,
+            "rollback": true,
+            "restart": true,
+            "measures": {
+              "width": 390,
+              "scrollWidth": 390,
+              "buttons": 767,
+              "recap": 764
+            }
+          },
+          {
+            "board": "masquerade12",
+            "reflect": null,
+            "nightGun": false,
+            "immuneNightGun": false,
+            "passed": true,
+            "actions": 108,
+            "refresh": true,
+            "rollback": true,
+            "restart": true,
+            "measures": {
+              "width": 390,
+              "scrollWidth": 390,
+              "buttons": 767,
+              "recap": 764
+            }
+          },
+          {
+            "board": "fragrance10",
+            "reflect": null,
+            "nightGun": false,
+            "immuneNightGun": false,
+            "passed": true,
+            "actions": 77,
+            "refresh": true,
+            "rollback": true,
+            "restart": true,
+            "measures": {
+              "width": 390,
+              "scrollWidth": 390,
+              "buttons": 767,
+              "recap": 764
+            }
+          },
+          {
+            "board": "fragrance12",
+            "reflect": null,
+            "nightGun": false,
+            "immuneNightGun": false,
+            "passed": true,
+            "actions": 115,
+            "refresh": true,
+            "rollback": true,
+            "restart": true,
+            "measures": {
+              "width": 390,
+              "scrollWidth": 390,
+              "buttons": 767,
+              "recap": 764
+            }
+          },
+          {
+            "responsive": {
+              "width": 320,
+              "height": 568
+            },
+            "medicine": true,
+            "cancel": true,
+            "geometry": {
+              "viewport": [
+                320,
+                568
+              ],
+              "pageWidth": 320,
+              "footer": 456,
+              "seats": [
+                203,
+                250,
+                297,
+                344,
+                391,
+                438,
+                203,
+                250,
+                297,
+                344,
+                391,
+                438
+              ],
+              "portraits": 0
+            }
+          },
+          {
+            "responsive": {
+              "width": 768,
+              "height": 1024
+            },
+            "medicine": true,
+            "cancel": true,
+            "geometry": {
+              "viewport": [
+                768,
+                1024
+              ],
+              "pageWidth": 768,
+              "footer": 907,
+              "seats": [
+                346.5,
+                456,
+                565.5,
+                675,
+                784.5,
+                894,
+                346.5,
+                456,
+                565.5,
+                675,
+                784.5,
+                894
+              ],
+              "portraits": 0
+            }
+          },
+          {
+            "responsive": {
+              "width": 1024,
+              "height": 768
+            },
+            "medicine": true,
+            "cancel": true,
+            "geometry": {
+              "viewport": [
+                1024,
+                768
+              ],
+              "pageWidth": 1024,
+              "footer": 651,
+              "seats": [
+                303.828125,
+                370.65625,
+                437.484375,
+                504.328125,
+                571.15625,
+                637.984375,
+                303.828125,
+                370.65625,
+                437.484375,
+                504.328125,
+                571.15625,
+                637.984375
+              ],
+              "portraits": 0
+            }
+          },
+          {
+            "responsive": {
+              "width": 1180,
+              "height": 600
+            },
+            "medicine": true,
+            "cancel": true,
+            "geometry": {
+              "viewport": [
+                1180,
+                600
+              ],
+              "pageWidth": 1180,
+              "footer": 483,
+              "seats": [
+                226.65625,
+                275.328125,
+                324,
+                372.65625,
+                421.328125,
+                470,
+                226.65625,
+                275.328125,
+                324,
+                372.65625,
+                421.328125,
+                470
+              ],
+              "portraits": 0
+            }
+          },
+          {
+            "assets": 24,
+            "loaded": true
+          },
+          {
+            "offline": true,
+            "assets": 55
+          }
+        ],
+        "errors": []
+      }
+    },
+    {
+      "name": "一般放逐",
+      "command": "node scripts/vote62-ui.mjs",
+      "source": "local",
+      "groups": 32,
+      "result": {
+        "base": "http://127.0.0.1:5368/",
+        "results": [
+          {
+            "case": "dropdown: closed initially, ordered options, escape/outside close, badge, no automatic vote, background-free controls",
+            "pass": true
+          },
+          {
+            "case": "batch: initial choice, eligibility order, badges, live 1.5, reassignment and cancellation",
+            "pass": true
+          },
+          {
+            "case": "shared draft, immediate abstentions on next, mode positioning, close/reload/escape restoration and noncycling navigation",
+            "pass": true
+          },
+          {
+            "case": "formal result card, missing abstainers, tie highlights, collapse, edit preservation and resubmit toast",
+            "pass": true
+          },
+          {
+            "case": "manual override warning, raw history retained, undo and change-back recap qualification",
+            "pass": true
+          },
+          {
+            "case": "unsubmitted manual exile never generates vote recap",
+            "pass": true
+          },
+          {
+            "case": "all-abstain formal card; no invented outcome, target or PK",
+            "pass": true
+          },
+          {
+            "case": "clear requires two confirmations; formal data isolated; original abandon preserved",
+            "pass": true
+          },
+          {
+            "case": "real Storage quota failure rolls back submission and permits retry",
+            "pass": true
+          },
+          {
+            "case": "normal tie to original PK editor, independent rounds, undo and confirmed two-round recap",
+            "pass": true
+          },
+          {
+            "case": "sheriff and sheriff PK original editors; zero-vote summary presentation",
+            "pass": true
+          },
+          {
+            "case": "pagehide simulation and refresh preserve draft; new game never inherits it",
+            "pass": true
+          },
+          {
+            "case": "individual revision: distinct framed voter, moderate font reduction, no abstain button, explicit next only, back/correct/cancel",
+            "pass": true
+          },
+          {
+            "case": "individual revision: both layouts, close/reload preserve skipped ballots; correction replaces abstention without duplication",
+            "pass": true
+          },
+          {
+            "case": "individual revision: sheriff 1.5, progress, next/back snapshot and edit-resubmit isolation",
+            "pass": true
+          },
+          {
+            "case": "individual revision: 10/12 final voter and all-abstain completion, no invented exile/PK",
+            "pass": true
+          },
+          {
+            "case": "60 browser vote/reassign/cancel operations match independent draft oracle",
+            "pass": true
+          },
+          {
+            "case": "result components: weighted sorting, badge, hidden zero targets, collapsed sheriff zero summary",
+            "pass": true
+          },
+          {
+            "case": "touch regression: last dropdown and voter rows fully visible and directly tappable without auto-scroll",
+            "pass": true,
+            "viewports": [
+              {
+                "width": 320,
+                "height": 568,
+                "board": "12",
+                "target": {
+                  "x": 160.3984375,
+                  "y": 267.984375,
+                  "fullyVisible": true,
+                  "receives": true
+                },
+                "bottom": {
+                  "x": 252.6640625,
+                  "y": 417.171875,
+                  "fullyVisible": true,
+                  "receives": true
+                }
+              },
+              {
+                "width": 375,
+                "height": 667,
+                "board": "12",
+                "target": {
+                  "x": 187.5,
+                  "y": 319.984375,
+                  "fullyVisible": true,
+                  "receives": true
+                },
+                "bottom": {
+                  "x": 310.6875,
+                  "y": 480.171875,
+                  "fullyVisible": true,
+                  "receives": true
+                }
+              },
+              {
+                "width": 390,
+                "height": 844,
+                "board": "12",
+                "target": {
+                  "x": 195,
+                  "y": 409.984375,
+                  "fullyVisible": true,
+                  "receives": true
+                },
+                "bottom": {
+                  "x": 323.46875,
+                  "y": 516.171875,
+                  "fullyVisible": true,
+                  "receives": true
+                }
+              },
+              {
+                "width": 430,
+                "height": 932,
+                "board": "12",
+                "target": {
+                  "x": 215,
+                  "y": 453.984375,
+                  "fullyVisible": true,
+                  "receives": true
+                },
+                "bottom": {
+                  "x": 357.5703125,
+                  "y": 560.171875,
+                  "fullyVisible": true,
+                  "receives": true
+                }
+              },
+              {
+                "width": 390,
+                "height": 844,
+                "board": "10",
+                "target": {
+                  "x": 195,
+                  "y": 409.984375,
+                  "fullyVisible": true,
+                  "receives": true
+                },
+                "bottom": {
+                  "x": 152.171875,
+                  "y": 516.171875,
+                  "fullyVisible": true,
+                  "receives": true
+                }
+              }
+            ]
+          },
+          {
+            "case": "responsive batch and individual modal",
+            "pass": true,
+            "width": 320,
+            "height": 568,
+            "font": 100,
+            "safe": 34,
+            "voters": 111,
+            "button": 60,
+            "bottom": 479,
+            "viewport": 568,
+            "horizontal": false,
+            "dropdownClosed": true,
+            "listTop": 316.171875,
+            "candidateTop": 175.984375,
+            "individual": {
+              "voters": 110,
+              "doneTop": 435,
+              "doneBottom": 479,
+              "dialogBottom": 530,
+              "horizontal": false,
+              "order": true
+            }
+          },
+          {
+            "case": "responsive batch and individual modal",
+            "pass": true,
+            "width": 375,
+            "height": 667,
+            "font": 100,
+            "safe": 0,
+            "voters": 232,
+            "button": 60,
+            "bottom": 600,
+            "viewport": 667,
+            "horizontal": false,
+            "dropdownClosed": true,
+            "listTop": 316.171875,
+            "candidateTop": 175.984375,
+            "individual": {
+              "voters": 231,
+              "doneTop": 556,
+              "doneBottom": 600,
+              "dialogBottom": 651,
+              "horizontal": false,
+              "order": true
+            }
+          },
+          {
+            "case": "responsive batch and individual modal",
+            "pass": true,
+            "width": 390,
+            "height": 844,
+            "font": 100,
+            "safe": 34,
+            "voters": 337,
+            "button": 60,
+            "bottom": 730,
+            "viewport": 844,
+            "horizontal": false,
+            "dropdownClosed": true,
+            "listTop": 341.171875,
+            "candidateTop": 200.984375,
+            "individual": {
+              "voters": 336,
+              "doneTop": 686,
+              "doneBottom": 730,
+              "dialogBottom": 781,
+              "horizontal": false,
+              "order": true
+            }
+          },
+          {
+            "case": "responsive batch and individual modal",
+            "pass": true,
+            "width": 430,
+            "height": 932,
+            "font": 100,
+            "safe": 34,
+            "voters": 337,
+            "button": 60,
+            "bottom": 774,
+            "viewport": 932,
+            "horizontal": false,
+            "dropdownClosed": true,
+            "listTop": 385.171875,
+            "candidateTop": 244.984375,
+            "individual": {
+              "voters": 336,
+              "doneTop": 730,
+              "doneBottom": 774,
+              "dialogBottom": 825,
+              "horizontal": false,
+              "order": true
+            }
+          },
+          {
+            "case": "responsive batch and individual modal",
+            "pass": true,
+            "width": 568,
+            "height": 320,
+            "font": 100,
+            "safe": 0,
+            "voters": 44,
+            "button": 60,
+            "bottom": 255,
+            "viewport": 320,
+            "horizontal": false,
+            "dropdownClosed": true,
+            "listTop": 159,
+            "candidateTop": 175.984375,
+            "individual": {
+              "voters": 44,
+              "doneTop": 247,
+              "doneBottom": 291,
+              "dialogBottom": 304,
+              "horizontal": false,
+              "order": true
+            }
+          },
+          {
+            "case": "responsive batch and individual modal",
+            "pass": true,
+            "width": 568,
+            "height": 320,
+            "font": 200,
+            "safe": 0,
+            "voters": 44,
+            "button": 60,
+            "bottom": 271,
+            "viewport": 320,
+            "horizontal": false,
+            "dropdownClosed": true,
+            "listTop": 159,
+            "candidateTop": 231.984375,
+            "individual": {
+              "voters": 44,
+              "doneTop": 231,
+              "doneBottom": 291,
+              "dialogBottom": 304,
+              "horizontal": false,
+              "order": true
+            }
+          },
+          {
+            "case": "responsive batch and individual modal",
+            "pass": true,
+            "width": 390,
+            "height": 844,
+            "font": 200,
+            "safe": 34,
+            "voters": 161,
+            "button": 60,
+            "bottom": 719,
+            "viewport": 844,
+            "horizontal": false,
+            "dropdownClosed": true,
+            "listTop": 489.5625,
+            "candidateTop": 291.78125,
+            "individual": {
+              "voters": 206,
+              "doneTop": 659,
+              "doneBottom": 719,
+              "dialogBottom": 781,
+              "horizontal": false,
+              "order": true
+            }
+          },
+          {
+            "case": "responsive batch and individual modal",
+            "pass": true,
+            "width": 768,
+            "height": 1024,
+            "font": 200,
+            "safe": 34,
+            "voters": 196,
+            "button": 60,
+            "bottom": 809,
+            "viewport": 1024,
+            "horizontal": false,
+            "dropdownClosed": true,
+            "listTop": 544.765625,
+            "candidateTop": 346.984375,
+            "individual": {
+              "voters": 206,
+              "doneTop": 749,
+              "doneBottom": 809,
+              "dialogBottom": 871,
+              "horizontal": false,
+              "order": true
+            }
+          },
+          {
+            "case": "responsive batch and individual modal",
+            "pass": true,
+            "width": 390,
+            "height": 844,
+            "font": 100,
+            "safe": 150,
+            "voters": 271,
+            "button": 60,
+            "bottom": 639,
+            "viewport": 844,
+            "horizontal": false,
+            "dropdownClosed": true,
+            "listTop": 316.171875,
+            "candidateTop": 175.984375,
+            "individual": {
+              "voters": 270,
+              "doneTop": 595,
+              "doneBottom": 639,
+              "dialogBottom": 690,
+              "horizontal": false,
+              "order": true
+            }
+          },
+          {
+            "case": "fixed candidate/footer; same candidate preserves scroll; different candidate resets; refresh restores scroll",
+            "pass": true
+          },
+          {
+            "case": "invalid saved UI positions fall back to first legal candidate and top",
+            "pass": true
+          },
+          {
+            "case": "reduced motion result toggle is immediate",
+            "pass": true
+          },
+          {
+            "case": "existing Service Worker serves new editor offline; draft refresh and tally remain usable",
+            "pass": true
+          }
+        ],
+        "errors": [],
+        "realDevice": "未驗收"
+      }
+    },
+    {
+      "name": "警長及全部PK",
+      "command": "node scripts/ui56-ui.mjs",
+      "source": "local",
+      "groups": 13,
+      "result": {
+        "results": [
+          {
+            "case": "UI56-01/02/03",
+            "pass": true
+          },
+          {
+            "case": "sheriffVote unchanged editor, mode switch, cancel, lock, empty reject, clear, abandon and reload",
+            "pass": true
+          },
+          {
+            "case": "sheriffRevote unchanged editor, mode switch, cancel, lock, empty reject, clear, abandon and reload",
+            "pass": true
+          },
+          {
+            "case": "exileRevote unchanged editor, mode switch, cancel, lock, empty reject, clear, abandon and reload",
+            "pass": true
+          },
+          {
+            "case": "bottom navigation and reduced number",
+            "width": 320,
+            "height": 568,
+            "font": 100,
+            "safe": 34,
+            "bottom": 507,
+            "dialogBottom": 556,
+            "horizontal": false,
+            "numberPx": 22,
+            "numberSpanPx": 22,
+            "footerOrder": true,
+            "pass": true
+          },
+          {
+            "case": "bottom navigation and reduced number",
+            "width": 375,
+            "height": 667,
+            "font": 100,
+            "safe": 0,
+            "bottom": 640,
+            "dialogBottom": 655,
+            "horizontal": false,
+            "numberPx": 22,
+            "numberSpanPx": 22,
+            "footerOrder": true,
+            "pass": true
+          },
+          {
+            "case": "bottom navigation and reduced number",
+            "width": 390,
+            "height": 844,
+            "font": 100,
+            "safe": 34,
+            "bottom": 713,
+            "dialogBottom": 762,
+            "horizontal": false,
+            "numberPx": 22,
+            "numberSpanPx": 22,
+            "footerOrder": true,
+            "pass": true
+          },
+          {
+            "case": "bottom navigation and reduced number",
+            "width": 430,
+            "height": 932,
+            "font": 100,
+            "safe": 34,
+            "bottom": 757,
+            "dialogBottom": 806,
+            "horizontal": false,
+            "numberPx": 22,
+            "numberSpanPx": 22,
+            "footerOrder": true,
+            "pass": true
+          },
+          {
+            "case": "bottom navigation and reduced number",
+            "width": 568,
+            "height": 320,
+            "font": 100,
+            "safe": 0,
+            "bottom": 298,
+            "dialogBottom": 308,
+            "horizontal": false,
+            "numberPx": 21,
+            "numberSpanPx": 21,
+            "footerOrder": true,
+            "pass": true
+          },
+          {
+            "case": "bottom navigation and reduced number",
+            "width": 568,
+            "height": 320,
+            "font": 200,
+            "safe": 0,
+            "bottom": 297.921875,
+            "dialogBottom": 308,
+            "horizontal": false,
+            "numberPx": 21,
+            "numberSpanPx": 21,
+            "footerOrder": true,
+            "pass": true
+          },
+          {
+            "case": "bottom navigation and reduced number",
+            "width": 390,
+            "height": 844,
+            "font": 200,
+            "safe": 34,
+            "bottom": 713,
+            "dialogBottom": 762,
+            "horizontal": false,
+            "numberPx": 22,
+            "numberSpanPx": 22,
+            "footerOrder": true,
+            "pass": true
+          },
+          {
+            "case": "bottom navigation and reduced number",
+            "width": 768,
+            "height": 1024,
+            "font": 200,
+            "safe": 34,
+            "bottom": 803,
+            "dialogBottom": 852,
+            "horizontal": false,
+            "numberPx": 22,
+            "numberSpanPx": 22,
+            "footerOrder": true,
+            "pass": true
+          },
+          {
+            "case": "bottom navigation and reduced number",
+            "width": 390,
+            "height": 844,
+            "font": 100,
+            "safe": 150,
+            "bottom": 597,
+            "dialogBottom": 762,
+            "horizontal": false,
+            "numberPx": 22,
+            "numberSpanPx": 22,
+            "footerOrder": true,
+            "pass": true
+          }
+        ],
+        "errors": []
+      }
+    },
+    {
+      "name": "四角色接刀",
+      "command": "node scripts/takeover-ui.mjs",
+      "source": "local",
+      "groups": 15,
+      "result": {
+        "results": [
+          {
+            "board": "mechanical10",
+            "firstAndSecondCaptions": true,
+            "togglePreservesCaption": true,
+            "closeCommit": true,
+            "selfKnife": true,
+            "refreshBack": true,
+            "emptyWolfPhase": true,
+            "deadFixedStage": true
+          },
+          {
+            "board": "mechanical12",
+            "firstAndSecondCaptions": true,
+            "togglePreservesCaption": true,
+            "closeCommit": true,
+            "selfKnife": true,
+            "refreshBack": true,
+            "emptyWolfPhase": true,
+            "deadFixedStage": true
+          },
+          {
+            "board": "gargoyle10",
+            "firstAndSecondCaptions": true,
+            "togglePreservesCaption": true,
+            "closeCommit": true,
+            "selfKnife": true,
+            "refreshBack": true,
+            "emptyWolfPhase": true,
+            "deadFixedStage": true
+          },
+          {
+            "board": "gargoyle12",
+            "firstAndSecondCaptions": true,
+            "togglePreservesCaption": true,
+            "closeCommit": true,
+            "selfKnife": true,
+            "refreshBack": true,
+            "emptyWolfPhase": true,
+            "deadFixedStage": true
+          },
+          {
+            "board": "masquerade12",
+            "firstAndSecondCaptions": true,
+            "togglePreservesCaption": true,
+            "closeCommit": true,
+            "selfKnife": true,
+            "refreshBack": true,
+            "emptyWolfPhase": true,
+            "deadFixedStage": true
+          },
+          {
+            "board": "fragrance10",
+            "firstAndSecondCaptions": true,
+            "togglePreservesCaption": true,
+            "closeCommit": true,
+            "selfKnife": true,
+            "refreshBack": true,
+            "emptyWolfPhase": true,
+            "deadFixedStage": true
+          },
+          {
+            "board": "fragrance12",
+            "firstAndSecondCaptions": true,
+            "togglePreservesCaption": true,
+            "closeCommit": true,
+            "selfKnife": true,
+            "refreshBack": true,
+            "emptyWolfPhase": true,
+            "deadFixedStage": true
+          },
+          {
+            "board": "mechanical10",
+            "extraOnlyInSkill": true,
+            "noBasicRequired": true,
+            "selfAndEmpty": true,
+            "closeConsumes": true,
+            "refreshBack": true
+          },
+          {
+            "board": "mechanical12",
+            "extraOnlyInSkill": true,
+            "noBasicRequired": true,
+            "selfAndEmpty": true,
+            "closeConsumes": true,
+            "refreshBack": true
+          },
+          {
+            "layout": {
+              "width": 320,
+              "height": 568
+            },
+            "overflow": false,
+            "columns": [
+              6,
+              6
+            ],
+            "next": 556,
+            "marks": [
+              [
+                22,
+                22
+              ],
+              [
+                22,
+                22
+              ]
+            ]
+          },
+          {
+            "layout": {
+              "width": 390,
+              "height": 844
+            },
+            "overflow": false,
+            "columns": [
+              6,
+              6
+            ],
+            "next": 832,
+            "marks": [
+              [
+                24,
+                24
+              ],
+              [
+                24,
+                24
+              ]
+            ]
+          },
+          {
+            "layout": {
+              "width": 768,
+              "height": 1024
+            },
+            "overflow": false,
+            "columns": [
+              6,
+              6
+            ],
+            "next": 1010,
+            "marks": [
+              [
+                24,
+                24
+              ],
+              [
+                24,
+                24
+              ]
+            ]
+          },
+          {
+            "layout": {
+              "width": 1024,
+              "height": 768
+            },
+            "overflow": false,
+            "columns": [
+              6,
+              6
+            ],
+            "next": 754,
+            "marks": [
+              [
+                24,
+                24
+              ],
+              [
+                24,
+                24
+              ]
+            ]
+          },
+          {
+            "dualMarkers": true,
+            "cureOnlyOneHit": true,
+            "basicBeforeExtra": true,
+            "extraLabelOnly": true
+          },
+          {
+            "offlineTakeoverModule": true
+          }
+        ],
+        "errors": []
+      }
+    },
+    {
+      "name": "FV57完整對局",
+      "command": "node scripts/fv57-ui.mjs",
+      "source": "local",
+      "groups": 7,
+      "result": {
+        "results": [
+          {
+            "count": 10,
+            "completeGame": true,
+            "actions": 79,
+            "known": 7,
+            "storedVersion": 22,
+            "inspectUndo": true,
+            "bondUndo": true,
+            "deathUndo": true,
+            "winner": "好人陣營",
+            "recapCards": true
+          },
+          {
+            "count": 12,
+            "completeGame": true,
+            "actions": 101,
+            "known": 7,
+            "storedVersion": 22,
+            "inspectUndo": true,
+            "bondUndo": true,
+            "deathUndo": true,
+            "winner": "狼人陣營",
+            "recapCards": true
+          },
+          {
+            "layout": {
+              "width": 320,
+              "height": 568,
+              "font": 100,
+              "safe": 34
+            },
+            "overflow": false,
+            "columns": [
+              6,
+              6
+            ],
+            "next": 556,
+            "viewport": 568
+          },
+          {
+            "layout": {
+              "width": 390,
+              "height": 844,
+              "font": 150,
+              "safe": 34
+            },
+            "overflow": false,
+            "columns": [
+              6,
+              6
+            ],
+            "next": 832,
+            "viewport": 844
+          },
+          {
+            "layout": {
+              "width": 768,
+              "height": 1024,
+              "font": 200,
+              "safe": 34
+            },
+            "overflow": false,
+            "columns": [
+              6,
+              6
+            ],
+            "next": 1010,
+            "viewport": 1024
+          },
+          {
+            "layout": {
+              "width": 1024,
+              "height": 768,
+              "font": 100,
+              "safe": 0
+            },
+            "overflow": false,
+            "columns": [
+              6,
+              6
+            ],
+            "next": 754,
+            "viewport": 768
+          },
+          {
+            "approvedCopy": true,
+            "offlineNewAssets": true
+          }
+        ],
+        "errors": []
+      }
+    },
+    {
+      "name": "長局復盤",
+      "command": "node scripts/complete-recap-ui.mjs",
+      "source": "local",
+      "groups": 5,
+      "result": {
+        "backgrounds": [
+          {
+            "screen": "home",
+            "image": "url(\"http://127.0.0.1:5317/art/backgrounds/shared.png\")",
+            "position": "fixed",
+            "mask": ".15",
+            "outer": 0
+          },
+          {
+            "screen": "encyclopedia",
+            "image": "art/backgrounds/lobby-shared.png",
+            "position": "fixed",
+            "mask": ".55",
+            "outer": 0
+          },
+          {
+            "screen": "counts",
+            "image": "art/backgrounds/lobby-shared.png",
+            "position": "fixed",
+            "mask": ".25",
+            "outer": 0
+          },
+          {
+            "screen": "boards",
+            "image": "art/backgrounds/lobby-shared.png",
+            "position": "fixed",
+            "mask": ".35",
+            "outer": 0
+          },
+          {
+            "screen": "setup",
+            "image": "art/backgrounds/lobby-shared.png",
+            "position": "fixed",
+            "mask": ".45",
+            "outer": 0
+          },
+          {
+            "screen": "host",
+            "image": "art/backgrounds/host-day.png",
+            "position": "fixed",
+            "mask": ".6",
+            "outer": 0
+          },
+          {
+            "screen": "finished",
+            "image": "art/backgrounds/lobby-shared.png",
+            "position": "fixed",
+            "mask": ".55",
+            "outer": 0
+          }
+        ],
+        "results": [
+          {
+            "viewport": {
+              "width": 320,
+              "height": 568
+            },
+            "metrics": {
+              "width": 320,
+              "scrollWidth": 320,
+              "paneWidth": 304,
+              "paneScroll": 304,
+              "scrollHeight": 17573,
+              "clientHeight": 482,
+              "columns": "145px 145px",
+              "card": {
+                "x": 26,
+                "y": 245.03125,
+                "width": 283,
+                "height": 100,
+                "top": 245.03125,
+                "right": 309,
+                "bottom": 345.03125,
+                "left": 26
+              }
+            },
+            "fixedFooter": true
+          },
+          {
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "metrics": {
+              "width": 390,
+              "scrollWidth": 390,
+              "paneWidth": 374,
+              "paneScroll": 374,
+              "scrollHeight": 17821,
+              "clientHeight": 758,
+              "columns": "180px 180px",
+              "card": {
+                "x": 31,
+                "y": 256.03125,
+                "width": 348,
+                "height": 100,
+                "top": 256.03125,
+                "right": 379,
+                "bottom": 356.03125,
+                "left": 31
+              }
+            },
+            "fixedFooter": true
+          },
+          {
+            "viewport": {
+              "width": 844,
+              "height": 390
+            },
+            "metrics": {
+              "width": 844,
+              "scrollWidth": 844,
+              "paneWidth": 816,
+              "paneScroll": 816,
+              "scrollHeight": 25935,
+              "clientHeight": 300,
+              "columns": "401px 401px",
+              "card": {
+                "x": 37,
+                "y": 249.03125,
+                "width": 790,
+                "height": 210,
+                "top": 249.03125,
+                "right": 827,
+                "bottom": 459.03125,
+                "left": 37
+              }
+            },
+            "fixedFooter": true
+          },
+          {
+            "viewport": {
+              "width": 768,
+              "height": 1024
+            },
+            "metrics": {
+              "width": 768,
+              "scrollWidth": 768,
+              "paneWidth": 740,
+              "paneScroll": 740,
+              "scrollHeight": 24857,
+              "clientHeight": 934,
+              "columns": "363px 363px",
+              "card": {
+                "x": 37,
+                "y": 267.03125,
+                "width": 714,
+                "height": 189.921875,
+                "top": 267.03125,
+                "right": 751,
+                "bottom": 456.953125,
+                "left": 37
+              }
+            },
+            "fixedFooter": true
+          },
+          {
+            "viewport": {
+              "width": 1024,
+              "height": 768
+            },
+            "metrics": {
+              "width": 1024,
+              "scrollWidth": 1024,
+              "paneWidth": 850,
+              "paneScroll": 850,
+              "scrollHeight": 26449,
+              "clientHeight": 678,
+              "columns": "418px 418px",
+              "card": {
+                "x": 110,
+                "y": 267.03125,
+                "width": 824,
+                "height": 218.984375,
+                "top": 267.03125,
+                "right": 934,
+                "bottom": 486.015625,
+                "left": 110
+              }
+            },
+            "fixedFooter": true
+          }
+        ],
+        "zoom": {
+          "pane": 304,
+          "width": 304
+        },
+        "oldRequests": [],
+        "errors": [],
+        "fixture": true,
+        "learning": [
+          {
+            "role": "evilKnight",
+            "labels": 0,
+            "icon": "skills/icon-learn.svg",
+            "target": "惡靈騎士",
+            "expected": "惡靈騎士"
+          },
+          {
+            "role": "gargoyle",
+            "labels": 0,
+            "icon": "skills/icon-learn.svg",
+            "target": "覺醒石像鬼",
+            "expected": "覺醒石像鬼"
+          },
+          {
+            "role": "gravekeeper",
+            "labels": 0,
+            "icon": "skills/icon-learn.svg",
+            "target": "守墓人",
+            "expected": "守墓人"
+          },
+          {
+            "role": "blood",
+            "labels": 0,
+            "icon": "skills/icon-learn.svg",
+            "target": "血月使者",
+            "expected": "血月使者"
+          },
+          {
+            "role": "demon",
+            "labels": 0,
+            "icon": "skills/icon-learn.svg",
+            "target": "獵魔人",
+            "expected": "獵魔人"
+          },
+          {
+            "role": "idiot",
+            "labels": 0,
+            "icon": "skills/icon-learn.svg",
+            "target": "白痴",
+            "expected": "白痴"
+          },
+          {
+            "role": "mixed",
+            "labels": 0,
+            "icon": "skills/icon-learn.svg",
+            "target": "混血兒",
+            "expected": "混血兒"
+          },
+          {
+            "role": "nightmare",
+            "labels": 0,
+            "icon": "skills/icon-learn.svg",
+            "target": "夢魘",
+            "expected": "夢魘"
+          },
+          {
+            "role": "dream",
+            "labels": 0,
+            "icon": "skills/icon-learn.svg",
+            "target": "攝夢人",
+            "expected": "攝夢人"
+          },
+          {
+            "role": "elder",
+            "labels": 0,
+            "icon": "skills/icon-learn.svg",
+            "target": "狼兄",
+            "expected": "狼兄"
+          },
+          {
+            "role": "younger",
+            "labels": 0,
+            "icon": "skills/icon-learn.svg",
+            "target": "狼弟",
+            "expected": "狼弟"
+          },
+          {
+            "role": "merchant",
+            "labels": 0,
+            "icon": "skills/icon-learn.svg",
+            "target": "黑市商人",
+            "expected": "黑市商人"
+          },
+          {
+            "role": "king",
+            "labels": 0,
+            "icon": "skills/icon-learn.svg",
+            "target": "黑狼王",
+            "expected": "黑狼王"
+          },
+          {
+            "role": "wolf",
+            "labels": 0,
+            "icon": "skills/icon-learn.svg",
+            "target": "狼人",
+            "expected": "狼人"
+          },
+          {
+            "role": "seer",
+            "labels": 0,
+            "icon": "skills/icon-learn.svg",
+            "target": "預言家",
+            "expected": "預言家"
+          },
+          {
+            "role": "witch",
+            "labels": 0,
+            "icon": "skills/icon-learn.svg",
+            "target": "女巫",
+            "expected": "女巫"
+          },
+          {
+            "role": "hunter",
+            "labels": 0,
+            "icon": "skills/icon-learn.svg",
+            "target": "獵人",
+            "expected": "獵人"
+          },
+          {
+            "role": "magician",
+            "labels": 0,
+            "icon": "skills/icon-learn.svg",
+            "target": "魔術師",
+            "expected": "魔術師"
+          },
+          {
+            "role": "villager",
+            "labels": 0,
+            "icon": "skills/icon-learn.svg",
+            "target": "平民",
+            "expected": "平民"
+          },
+          {
+            "role": "mechanical",
+            "labels": 0,
+            "icon": "skills/icon-learn.svg",
+            "target": "機械狼",
+            "expected": "機械狼"
+          },
+          {
+            "role": "medium",
+            "labels": 0,
+            "icon": "skills/icon-learn.svg",
+            "target": "通靈師",
+            "expected": "通靈師"
+          },
+          {
+            "role": "guard",
+            "labels": 0,
+            "icon": "skills/icon-learn.svg",
+            "target": "守衛",
+            "expected": "守衛"
+          },
+          {
+            "role": "seedWolf",
+            "labels": 0,
+            "icon": "skills/icon-learn.svg",
+            "target": "種狼",
+            "expected": "種狼"
+          },
+          {
+            "role": "hiddenWolf",
+            "labels": 0,
+            "icon": "skills/icon-learn.svg",
+            "target": "隱狼",
+            "expected": "隱狼"
+          },
+          {
+            "role": "beauty",
+            "labels": 0,
+            "icon": "skills/icon-learn.svg",
+            "target": "狼美人",
+            "expected": "狼美人"
+          },
+          {
+            "role": "duelist",
+            "labels": 0,
+            "icon": "skills/icon-learn.svg",
+            "target": "騎士",
+            "expected": "騎士"
+          },
+          {
+            "role": "dancer",
+            "labels": 0,
+            "icon": "skills/icon-learn.svg",
+            "target": "舞者",
+            "expected": "舞者"
+          },
+          {
+            "role": "mask",
+            "labels": 0,
+            "icon": "skills/icon-learn.svg",
+            "target": "假面",
+            "expected": "假面"
+          },
+          {
+            "role": "fragrance",
+            "labels": 0,
+            "icon": "skills/icon-learn.svg",
+            "target": "尋香魅影",
+            "expected": "尋香魅影"
+          },
+          {
+            "role": "awakenedSeer",
+            "labels": 0,
+            "icon": "skills/icon-learn.svg",
+            "target": "覺醒預言家",
+            "expected": "覺醒預言家"
+          }
+        ]
+      }
+    },
+    {
+      "name": "計時器",
+      "command": "node scripts/timer-review-ui.mjs",
+      "source": "local",
+      "groups": 6,
+      "result": {
+        "results": [
+          {
+            "viewport": {
+              "width": 320,
+              "height": 568
+            },
+            "rect": {
+              "x": 12.796875,
+              "y": 112,
+              "width": 294.390625,
+              "height": 344
+            },
+            "main": {
+              "x": 164.984375,
+              "y": 329,
+              "width": 123.203125,
+              "height": 48
+            },
+            "small": {
+              "x": 123.984375,
+              "y": 387,
+              "width": 72,
+              "height": 44
+            }
+          },
+          {
+            "viewport": {
+              "width": 844,
+              "height": 390
+            },
+            "rect": {
+              "x": 207,
+              "y": 23,
+              "width": 430,
+              "height": 344
+            },
+            "main": {
+              "x": 427,
+              "y": 240,
+              "width": 191,
+              "height": 48
+            },
+            "small": {
+              "x": 386,
+              "y": 298,
+              "width": 72,
+              "height": 44
+            }
+          },
+          {
+            "viewport": {
+              "width": 768,
+              "height": 1024
+            },
+            "rect": {
+              "x": 169,
+              "y": 340,
+              "width": 430,
+              "height": 344
+            },
+            "main": {
+              "x": 389,
+              "y": 557,
+              "width": 191,
+              "height": 48
+            },
+            "small": {
+              "x": 348,
+              "y": 615,
+              "width": 72,
+              "height": 44
+            }
+          },
+          {
+            "timerCases": "T01-T08",
+            "clock": true,
+            "gameSaveUnchanged": true
+          },
+          {
+            "fearPoison": true,
+            "firstNight": true,
+            "refresh": true,
+            "rollback": true
+          },
+          {
+            "reducedMotion": true
+          }
+        ],
+        "errors": []
+      }
+    },
+    {
+      "name": "最終正式站專項",
+      "command": "UI_BASE=<正式站> node scripts/b3-r01-r09-ui.mjs",
+      "source": "live/add4a55",
+      "groups": 22,
+      "result": {
+        "results": [
+          {
+            "test": "R05/R07: 20% home paint, centered report link and nonblocking touch",
+            "pass": true,
+            "display": "flex",
+            "align": "center",
+            "justify": "center",
+            "height": 44,
+            "color": "rgba(27, 49, 66, 0.2)",
+            "opacity": "1",
+            "href": "https://docs.google.com/forms/d/e/1FAIpQLSe2idVT9QZON5Dlgu4YlB1xiNnzmo5mk1-MFi9UUuUovTjz3w/viewform?usp=publish-editor",
+            "touch": "manipulation"
+          },
+          {
+            "test": "WolfCue home: readable long brand, ice primary and directly reachable last link",
+            "pass": true,
+            "width": 320,
+            "height": 568,
+            "font": 100
+          },
+          {
+            "test": "WolfCue home: readable long brand, ice primary and directly reachable last link",
+            "pass": true,
+            "width": 320,
+            "height": 480,
+            "font": 100
+          },
+          {
+            "test": "WolfCue home: readable long brand, ice primary and directly reachable last link",
+            "pass": true,
+            "width": 390,
+            "height": 844,
+            "font": 200
+          },
+          {
+            "test": "WolfCue home: readable long brand, ice primary and directly reachable last link",
+            "pass": true,
+            "width": 430,
+            "height": 932,
+            "font": 100
+          },
+          {
+            "test": "R09: actual new game, dark, undo, refresh, no save/engine phase mutation",
+            "pass": true
+          },
+          {
+            "test": "R09: uncached/failed initial day never flashes night and remains interactive",
+            "pass": true,
+            "samples": [
+              {
+                "source": null,
+                "fallback": "url('art/backgrounds/host-day.png')",
+                "actualFallback": "url(\"https://jia0796.github.io/wolf_Emcee/art/backgrounds/host-day.png\")",
+                "phase": "第1天・準備階段"
+              },
+              {
+                "source": null,
+                "fallback": "url('art/backgrounds/host-day.png')",
+                "actualFallback": "url(\"https://jia0796.github.io/wolf_Emcee/art/backgrounds/host-day.png\")",
+                "phase": "第1天・準備階段"
+              },
+              {
+                "source": null,
+                "fallback": "url('art/backgrounds/host-day.png')",
+                "actualFallback": "url(\"https://jia0796.github.io/wolf_Emcee/art/backgrounds/host-day.png\")",
+                "phase": "第1天・準備階段"
+              },
+              {
+                "source": null,
+                "fallback": "url('art/backgrounds/host-day.png')",
+                "actualFallback": "url(\"https://jia0796.github.io/wolf_Emcee/art/backgrounds/host-day.png\")",
+                "phase": "第1天・準備階段"
+              },
+              {
+                "source": null,
+                "fallback": "url('art/backgrounds/host-day.png')",
+                "actualFallback": "url(\"https://jia0796.github.io/wolf_Emcee/art/backgrounds/host-day.png\")",
+                "phase": "第1天・準備階段"
+              },
+              {
+                "source": null,
+                "fallback": "url('art/backgrounds/host-day.png')",
+                "actualFallback": "url(\"https://jia0796.github.io/wolf_Emcee/art/backgrounds/host-day.png\")",
+                "phase": "第1天・準備階段"
+              },
+              {
+                "source": null,
+                "fallback": "url('art/backgrounds/host-day.png')",
+                "actualFallback": "url(\"https://jia0796.github.io/wolf_Emcee/art/backgrounds/host-day.png\")",
+                "phase": "第1天・準備階段"
+              },
+              {
+                "source": null,
+                "fallback": "url('art/backgrounds/host-day.png')",
+                "actualFallback": "url(\"https://jia0796.github.io/wolf_Emcee/art/backgrounds/host-day.png\")",
+                "phase": "第1天・準備階段"
+              }
+            ]
+          },
+          {
+            "test": "R01/R05: inline legal guard action and original dual seats",
+            "pass": true,
+            "width": 320,
+            "height": 568,
+            "font": 100,
+            "safe": 34,
+            "layout": {
+              "cols": [
+                6,
+                6
+              ],
+              "button": {
+                "x": 81,
+                "y": 130.140625,
+                "right": 125,
+                "bottom": 174.140625,
+                "width": 44,
+                "height": 44
+              },
+              "label": {
+                "x": 51,
+                "y": 144.640625,
+                "right": 75,
+                "bottom": 159.640625,
+                "width": 24,
+                "height": 15
+              },
+              "next": {
+                "x": 202,
+                "y": 512,
+                "right": 310,
+                "bottom": 556,
+                "width": 108,
+                "height": 44
+              },
+              "overflow": false,
+              "seat": "rgba(27, 49, 66, 0.48)",
+              "info": "rgba(19, 36, 52, 0.68)",
+              "buttonDisplay": "contents",
+              "judge": "0px"
+            }
+          },
+          {
+            "test": "R01/R05: inline legal guard action and original dual seats",
+            "pass": true,
+            "width": 375,
+            "height": 667,
+            "font": 100,
+            "safe": 34,
+            "layout": {
+              "cols": [
+                6,
+                6
+              ],
+              "button": {
+                "x": 81,
+                "y": 142.140625,
+                "right": 125,
+                "bottom": 186.140625,
+                "width": 44,
+                "height": 44
+              },
+              "label": {
+                "x": 51,
+                "y": 156.640625,
+                "right": 75,
+                "bottom": 171.640625,
+                "width": 24,
+                "height": 15
+              },
+              "next": {
+                "x": 257,
+                "y": 611,
+                "right": 365,
+                "bottom": 655,
+                "width": 108,
+                "height": 44
+              },
+              "overflow": false,
+              "seat": "rgba(27, 49, 66, 0.48)",
+              "info": "rgba(19, 36, 52, 0.68)",
+              "buttonDisplay": "contents",
+              "judge": "0px"
+            }
+          },
+          {
+            "test": "R01/R05: inline legal guard action and original dual seats",
+            "pass": true,
+            "width": 390,
+            "height": 844,
+            "font": 100,
+            "safe": 34,
+            "layout": {
+              "cols": [
+                6,
+                6
+              ],
+              "button": {
+                "x": 81,
+                "y": 142.140625,
+                "right": 125,
+                "bottom": 186.140625,
+                "width": 44,
+                "height": 44
+              },
+              "label": {
+                "x": 51,
+                "y": 156.640625,
+                "right": 75,
+                "bottom": 171.640625,
+                "width": 24,
+                "height": 15
+              },
+              "next": {
+                "x": 272,
+                "y": 788,
+                "right": 380,
+                "bottom": 832,
+                "width": 108,
+                "height": 44
+              },
+              "overflow": false,
+              "seat": "rgba(27, 49, 66, 0.48)",
+              "info": "rgba(19, 36, 52, 0.68)",
+              "buttonDisplay": "contents",
+              "judge": "0px"
+            }
+          },
+          {
+            "test": "R01/R05: inline legal guard action and original dual seats",
+            "pass": true,
+            "width": 430,
+            "height": 932,
+            "font": 100,
+            "safe": 34,
+            "layout": {
+              "cols": [
+                6,
+                6
+              ],
+              "button": {
+                "x": 81,
+                "y": 143.765625,
+                "right": 125,
+                "bottom": 187.765625,
+                "width": 44,
+                "height": 44
+              },
+              "label": {
+                "x": 51,
+                "y": 158.265625,
+                "right": 75,
+                "bottom": 173.265625,
+                "width": 24,
+                "height": 15
+              },
+              "next": {
+                "x": 312,
+                "y": 876,
+                "right": 420,
+                "bottom": 920,
+                "width": 108,
+                "height": 44
+              },
+              "overflow": false,
+              "seat": "rgba(27, 49, 66, 0.48)",
+              "info": "rgba(19, 36, 52, 0.68)",
+              "buttonDisplay": "contents",
+              "judge": "0px"
+            }
+          },
+          {
+            "test": "R01/R05: inline legal guard action and original dual seats",
+            "pass": true,
+            "width": 320,
+            "height": 480,
+            "font": 100,
+            "safe": 34,
+            "layout": {
+              "cols": [
+                6,
+                6
+              ],
+              "button": {
+                "x": 81,
+                "y": 130.140625,
+                "right": 125,
+                "bottom": 174.140625,
+                "width": 44,
+                "height": 44
+              },
+              "label": {
+                "x": 51,
+                "y": 144.640625,
+                "right": 75,
+                "bottom": 159.640625,
+                "width": 24,
+                "height": 15
+              },
+              "next": {
+                "x": 202,
+                "y": 424,
+                "right": 310,
+                "bottom": 468,
+                "width": 108,
+                "height": 44
+              },
+              "overflow": false,
+              "seat": "rgba(27, 49, 66, 0.48)",
+              "info": "rgba(19, 36, 52, 0.68)",
+              "buttonDisplay": "contents",
+              "judge": "0px"
+            }
+          },
+          {
+            "test": "R01/R05: inline legal guard action and original dual seats",
+            "pass": true,
+            "width": 844,
+            "height": 390,
+            "font": 100,
+            "safe": 0,
+            "layout": {
+              "cols": [
+                6,
+                6
+              ],
+              "button": {
+                "x": 98,
+                "y": 139.140625,
+                "right": 142,
+                "bottom": 183.140625,
+                "width": 44,
+                "height": 44
+              },
+              "label": {
+                "x": 68,
+                "y": 153.640625,
+                "right": 92,
+                "bottom": 168.640625,
+                "width": 24,
+                "height": 15
+              },
+              "next": {
+                "x": 699,
+                "y": 332,
+                "right": 824,
+                "bottom": 376,
+                "width": 125,
+                "height": 44
+              },
+              "overflow": false,
+              "seat": "rgba(27, 49, 66, 0.48)",
+              "info": "rgba(19, 36, 52, 0.68)",
+              "buttonDisplay": "contents",
+              "judge": "0px"
+            }
+          },
+          {
+            "test": "R01/R05: inline legal guard action and original dual seats",
+            "pass": true,
+            "width": 768,
+            "height": 1024,
+            "font": 150,
+            "safe": 34,
+            "layout": {
+              "cols": [
+                6,
+                6
+              ],
+              "button": {
+                "x": 98,
+                "y": 176.21875,
+                "right": 142,
+                "bottom": 220.21875,
+                "width": 44,
+                "height": 44
+              },
+              "label": {
+                "x": 68,
+                "y": 190.71875,
+                "right": 92,
+                "bottom": 205.71875,
+                "width": 24,
+                "height": 15
+              },
+              "next": {
+                "x": 623,
+                "y": 958,
+                "right": 748,
+                "bottom": 1010,
+                "width": 125,
+                "height": 52
+              },
+              "overflow": false,
+              "seat": "rgba(27, 49, 66, 0.48)",
+              "info": "rgba(19, 36, 52, 0.68)",
+              "buttonDisplay": "contents",
+              "judge": "0px"
+            }
+          },
+          {
+            "test": "R01/R05: inline legal guard action and original dual seats",
+            "pass": true,
+            "width": 390,
+            "height": 844,
+            "font": 200,
+            "safe": 34,
+            "layout": {
+              "cols": [
+                6,
+                6
+              ],
+              "button": {
+                "x": 81,
+                "y": 179.15625,
+                "right": 125,
+                "bottom": 223.15625,
+                "width": 44,
+                "height": 44
+              },
+              "label": {
+                "x": 51,
+                "y": 193.65625,
+                "right": 75,
+                "bottom": 208.65625,
+                "width": 24,
+                "height": 15
+              },
+              "next": {
+                "x": 250,
+                "y": 769,
+                "right": 380,
+                "bottom": 832,
+                "width": 130,
+                "height": 63
+              },
+              "overflow": false,
+              "seat": "rgba(27, 49, 66, 0.48)",
+              "info": "rgba(19, 36, 52, 0.68)",
+              "buttonDisplay": "contents",
+              "judge": "0px"
+            }
+          },
+          {
+            "test": "R02: 警上 label and 1px frame survive refresh",
+            "pass": true,
+            "top": "1px",
+            "left": "1px",
+            "right": "1px",
+            "outline": "3px",
+            "touch": "manipulation"
+          },
+          {
+            "test": "R02: 退水 label and 1px frame survive refresh",
+            "pass": true,
+            "top": "1px",
+            "left": "1px",
+            "right": "1px",
+            "outline": "3px",
+            "touch": "manipulation"
+          },
+          {
+            "test": "R02: 投票已選 label and 1px frame survive refresh",
+            "pass": true,
+            "top": "1px",
+            "left": "1px",
+            "right": "1px",
+            "outline": "0px",
+            "touch": "manipulation"
+          },
+          {
+            "test": "R03: separate target dropdown/voter grid, ice selection, existing automatic abstention",
+            "pass": true
+          },
+          {
+            "test": "R04/R07: transparent wheels, ice scales and retained pinch zoom",
+            "pass": true,
+            "paint": "rgba(27, 49, 66, 0.28)",
+            "line": "rgb(178, 219, 229)",
+            "touch": "pan-y pinch-zoom"
+          },
+          {
+            "test": "R08: all 30 original portraits, full image contain, no additional blue frame, flip and return",
+            "pass": true,
+            "reviewed": 30
+          },
+          {
+            "test": "R05/R06: original identity model, 65% glass paint and full-opacity card contents",
+            "pass": true
+          }
+        ],
+        "errors": [],
+        "realDevices": "待真機驗收"
+      }
+    },
+    {
+      "name": "正式站一般投票",
+      "command": "UI_BASE=<正式站> node scripts/vote62-ui.mjs",
+      "source": "live/59ba4a2",
+      "groups": 32,
+      "result": {
+        "base": "https://jia0796.github.io/wolf_Emcee/",
+        "results": [
+          {
+            "case": "dropdown: closed initially, ordered options, escape/outside close, badge, no automatic vote, background-free controls",
+            "pass": true
+          },
+          {
+            "case": "batch: initial choice, eligibility order, badges, live 1.5, reassignment and cancellation",
+            "pass": true
+          },
+          {
+            "case": "shared draft, immediate abstentions on next, mode positioning, close/reload/escape restoration and noncycling navigation",
+            "pass": true
+          },
+          {
+            "case": "formal result card, missing abstainers, tie highlights, collapse, edit preservation and resubmit toast",
+            "pass": true
+          },
+          {
+            "case": "manual override warning, raw history retained, undo and change-back recap qualification",
+            "pass": true
+          },
+          {
+            "case": "unsubmitted manual exile never generates vote recap",
+            "pass": true
+          },
+          {
+            "case": "all-abstain formal card; no invented outcome, target or PK",
+            "pass": true
+          },
+          {
+            "case": "clear requires two confirmations; formal data isolated; original abandon preserved",
+            "pass": true
+          },
+          {
+            "case": "real Storage quota failure rolls back submission and permits retry",
+            "pass": true
+          },
+          {
+            "case": "normal tie to original PK editor, independent rounds, undo and confirmed two-round recap",
+            "pass": true
+          },
+          {
+            "case": "sheriff and sheriff PK original editors; zero-vote summary presentation",
+            "pass": true
+          },
+          {
+            "case": "pagehide simulation and refresh preserve draft; new game never inherits it",
+            "pass": true
+          },
+          {
+            "case": "individual revision: distinct framed voter, moderate font reduction, no abstain button, explicit next only, back/correct/cancel",
+            "pass": true
+          },
+          {
+            "case": "individual revision: both layouts, close/reload preserve skipped ballots; correction replaces abstention without duplication",
+            "pass": true
+          },
+          {
+            "case": "individual revision: sheriff 1.5, progress, next/back snapshot and edit-resubmit isolation",
+            "pass": true
+          },
+          {
+            "case": "individual revision: 10/12 final voter and all-abstain completion, no invented exile/PK",
+            "pass": true
+          },
+          {
+            "case": "60 browser vote/reassign/cancel operations match independent draft oracle",
+            "pass": true
+          },
+          {
+            "case": "result components: weighted sorting, badge, hidden zero targets, collapsed sheriff zero summary",
+            "pass": true
+          },
+          {
+            "case": "touch regression: last dropdown and voter rows fully visible and directly tappable without auto-scroll",
+            "pass": true,
+            "viewports": [
+              {
+                "width": 320,
+                "height": 568,
+                "board": "12",
+                "target": {
+                  "x": 160.3984375,
+                  "y": 267.984375,
+                  "fullyVisible": true,
+                  "receives": true
+                },
+                "bottom": {
+                  "x": 252.6640625,
+                  "y": 417.171875,
+                  "fullyVisible": true,
+                  "receives": true
+                }
+              },
+              {
+                "width": 375,
+                "height": 667,
+                "board": "12",
+                "target": {
+                  "x": 187.5,
+                  "y": 319.984375,
+                  "fullyVisible": true,
+                  "receives": true
+                },
+                "bottom": {
+                  "x": 310.6875,
+                  "y": 480.171875,
+                  "fullyVisible": true,
+                  "receives": true
+                }
+              },
+              {
+                "width": 390,
+                "height": 844,
+                "board": "12",
+                "target": {
+                  "x": 195,
+                  "y": 409.984375,
+                  "fullyVisible": true,
+                  "receives": true
+                },
+                "bottom": {
+                  "x": 323.46875,
+                  "y": 516.171875,
+                  "fullyVisible": true,
+                  "receives": true
+                }
+              },
+              {
+                "width": 430,
+                "height": 932,
+                "board": "12",
+                "target": {
+                  "x": 215,
+                  "y": 453.984375,
+                  "fullyVisible": true,
+                  "receives": true
+                },
+                "bottom": {
+                  "x": 357.5703125,
+                  "y": 560.171875,
+                  "fullyVisible": true,
+                  "receives": true
+                }
+              },
+              {
+                "width": 390,
+                "height": 844,
+                "board": "10",
+                "target": {
+                  "x": 195,
+                  "y": 409.984375,
+                  "fullyVisible": true,
+                  "receives": true
+                },
+                "bottom": {
+                  "x": 152.171875,
+                  "y": 516.171875,
+                  "fullyVisible": true,
+                  "receives": true
+                }
+              }
+            ]
+          },
+          {
+            "case": "responsive batch and individual modal",
+            "pass": true,
+            "width": 320,
+            "height": 568,
+            "font": 100,
+            "safe": 34,
+            "voters": 111,
+            "button": 60,
+            "bottom": 479,
+            "viewport": 568,
+            "horizontal": false,
+            "dropdownClosed": true,
+            "listTop": 316.171875,
+            "candidateTop": 175.984375,
+            "individual": {
+              "voters": 110,
+              "doneTop": 435,
+              "doneBottom": 479,
+              "dialogBottom": 530,
+              "horizontal": false,
+              "order": true
+            }
+          },
+          {
+            "case": "responsive batch and individual modal",
+            "pass": true,
+            "width": 375,
+            "height": 667,
+            "font": 100,
+            "safe": 0,
+            "voters": 232,
+            "button": 60,
+            "bottom": 600,
+            "viewport": 667,
+            "horizontal": false,
+            "dropdownClosed": true,
+            "listTop": 316.171875,
+            "candidateTop": 175.984375,
+            "individual": {
+              "voters": 231,
+              "doneTop": 556,
+              "doneBottom": 600,
+              "dialogBottom": 651,
+              "horizontal": false,
+              "order": true
+            }
+          },
+          {
+            "case": "responsive batch and individual modal",
+            "pass": true,
+            "width": 390,
+            "height": 844,
+            "font": 100,
+            "safe": 34,
+            "voters": 337,
+            "button": 60,
+            "bottom": 730,
+            "viewport": 844,
+            "horizontal": false,
+            "dropdownClosed": true,
+            "listTop": 341.171875,
+            "candidateTop": 200.984375,
+            "individual": {
+              "voters": 336,
+              "doneTop": 686,
+              "doneBottom": 730,
+              "dialogBottom": 781,
+              "horizontal": false,
+              "order": true
+            }
+          },
+          {
+            "case": "responsive batch and individual modal",
+            "pass": true,
+            "width": 430,
+            "height": 932,
+            "font": 100,
+            "safe": 34,
+            "voters": 337,
+            "button": 60,
+            "bottom": 774,
+            "viewport": 932,
+            "horizontal": false,
+            "dropdownClosed": true,
+            "listTop": 385.171875,
+            "candidateTop": 244.984375,
+            "individual": {
+              "voters": 336,
+              "doneTop": 730,
+              "doneBottom": 774,
+              "dialogBottom": 825,
+              "horizontal": false,
+              "order": true
+            }
+          },
+          {
+            "case": "responsive batch and individual modal",
+            "pass": true,
+            "width": 568,
+            "height": 320,
+            "font": 100,
+            "safe": 0,
+            "voters": 44,
+            "button": 60,
+            "bottom": 255,
+            "viewport": 320,
+            "horizontal": false,
+            "dropdownClosed": true,
+            "listTop": 159,
+            "candidateTop": 175.984375,
+            "individual": {
+              "voters": 44,
+              "doneTop": 247,
+              "doneBottom": 291,
+              "dialogBottom": 304,
+              "horizontal": false,
+              "order": true
+            }
+          },
+          {
+            "case": "responsive batch and individual modal",
+            "pass": true,
+            "width": 568,
+            "height": 320,
+            "font": 200,
+            "safe": 0,
+            "voters": 44,
+            "button": 60,
+            "bottom": 271,
+            "viewport": 320,
+            "horizontal": false,
+            "dropdownClosed": true,
+            "listTop": 159,
+            "candidateTop": 231.984375,
+            "individual": {
+              "voters": 44,
+              "doneTop": 231,
+              "doneBottom": 291,
+              "dialogBottom": 304,
+              "horizontal": false,
+              "order": true
+            }
+          },
+          {
+            "case": "responsive batch and individual modal",
+            "pass": true,
+            "width": 390,
+            "height": 844,
+            "font": 200,
+            "safe": 34,
+            "voters": 161,
+            "button": 60,
+            "bottom": 719,
+            "viewport": 844,
+            "horizontal": false,
+            "dropdownClosed": true,
+            "listTop": 489.5625,
+            "candidateTop": 291.78125,
+            "individual": {
+              "voters": 206,
+              "doneTop": 659,
+              "doneBottom": 719,
+              "dialogBottom": 781,
+              "horizontal": false,
+              "order": true
+            }
+          },
+          {
+            "case": "responsive batch and individual modal",
+            "pass": true,
+            "width": 768,
+            "height": 1024,
+            "font": 200,
+            "safe": 34,
+            "voters": 196,
+            "button": 60,
+            "bottom": 809,
+            "viewport": 1024,
+            "horizontal": false,
+            "dropdownClosed": true,
+            "listTop": 544.765625,
+            "candidateTop": 346.984375,
+            "individual": {
+              "voters": 206,
+              "doneTop": 749,
+              "doneBottom": 809,
+              "dialogBottom": 871,
+              "horizontal": false,
+              "order": true
+            }
+          },
+          {
+            "case": "responsive batch and individual modal",
+            "pass": true,
+            "width": 390,
+            "height": 844,
+            "font": 100,
+            "safe": 150,
+            "voters": 271,
+            "button": 60,
+            "bottom": 639,
+            "viewport": 844,
+            "horizontal": false,
+            "dropdownClosed": true,
+            "listTop": 316.171875,
+            "candidateTop": 175.984375,
+            "individual": {
+              "voters": 270,
+              "doneTop": 595,
+              "doneBottom": 639,
+              "dialogBottom": 690,
+              "horizontal": false,
+              "order": true
+            }
+          },
+          {
+            "case": "fixed candidate/footer; same candidate preserves scroll; different candidate resets; refresh restores scroll",
+            "pass": true
+          },
+          {
+            "case": "invalid saved UI positions fall back to first legal candidate and top",
+            "pass": true
+          },
+          {
+            "case": "reduced motion result toggle is immediate",
+            "pass": true
+          },
+          {
+            "case": "existing Service Worker serves new editor offline; draft refresh and tally remain usable",
+            "pass": true
+          }
+        ],
+        "errors": [],
+        "realDevice": "未驗收"
+      }
+    },
+    {
+      "name": "正式站警長PK",
+      "command": "UI_BASE=<正式站> node scripts/ui56-ui.mjs",
+      "source": "live/59ba4a2",
+      "groups": 13,
+      "result": {
+        "results": [
+          {
+            "case": "UI56-01/02/03",
+            "pass": true
+          },
+          {
+            "case": "sheriffVote unchanged editor, mode switch, cancel, lock, empty reject, clear, abandon and reload",
+            "pass": true
+          },
+          {
+            "case": "sheriffRevote unchanged editor, mode switch, cancel, lock, empty reject, clear, abandon and reload",
+            "pass": true
+          },
+          {
+            "case": "exileRevote unchanged editor, mode switch, cancel, lock, empty reject, clear, abandon and reload",
+            "pass": true
+          },
+          {
+            "case": "bottom navigation and reduced number",
+            "width": 320,
+            "height": 568,
+            "font": 100,
+            "safe": 34,
+            "bottom": 507,
+            "dialogBottom": 556,
+            "horizontal": false,
+            "numberPx": 22,
+            "numberSpanPx": 22,
+            "footerOrder": true,
+            "pass": true
+          },
+          {
+            "case": "bottom navigation and reduced number",
+            "width": 375,
+            "height": 667,
+            "font": 100,
+            "safe": 0,
+            "bottom": 640,
+            "dialogBottom": 655,
+            "horizontal": false,
+            "numberPx": 22,
+            "numberSpanPx": 22,
+            "footerOrder": true,
+            "pass": true
+          },
+          {
+            "case": "bottom navigation and reduced number",
+            "width": 390,
+            "height": 844,
+            "font": 100,
+            "safe": 34,
+            "bottom": 713,
+            "dialogBottom": 762,
+            "horizontal": false,
+            "numberPx": 22,
+            "numberSpanPx": 22,
+            "footerOrder": true,
+            "pass": true
+          },
+          {
+            "case": "bottom navigation and reduced number",
+            "width": 430,
+            "height": 932,
+            "font": 100,
+            "safe": 34,
+            "bottom": 757,
+            "dialogBottom": 806,
+            "horizontal": false,
+            "numberPx": 22,
+            "numberSpanPx": 22,
+            "footerOrder": true,
+            "pass": true
+          },
+          {
+            "case": "bottom navigation and reduced number",
+            "width": 568,
+            "height": 320,
+            "font": 100,
+            "safe": 0,
+            "bottom": 298,
+            "dialogBottom": 308,
+            "horizontal": false,
+            "numberPx": 21,
+            "numberSpanPx": 21,
+            "footerOrder": true,
+            "pass": true
+          },
+          {
+            "case": "bottom navigation and reduced number",
+            "width": 568,
+            "height": 320,
+            "font": 200,
+            "safe": 0,
+            "bottom": 297.921875,
+            "dialogBottom": 308,
+            "horizontal": false,
+            "numberPx": 21,
+            "numberSpanPx": 21,
+            "footerOrder": true,
+            "pass": true
+          },
+          {
+            "case": "bottom navigation and reduced number",
+            "width": 390,
+            "height": 844,
+            "font": 200,
+            "safe": 34,
+            "bottom": 713,
+            "dialogBottom": 762,
+            "horizontal": false,
+            "numberPx": 22,
+            "numberSpanPx": 22,
+            "footerOrder": true,
+            "pass": true
+          },
+          {
+            "case": "bottom navigation and reduced number",
+            "width": 768,
+            "height": 1024,
+            "font": 200,
+            "safe": 34,
+            "bottom": 803,
+            "dialogBottom": 852,
+            "horizontal": false,
+            "numberPx": 22,
+            "numberSpanPx": 22,
+            "footerOrder": true,
+            "pass": true
+          },
+          {
+            "case": "bottom navigation and reduced number",
+            "width": 390,
+            "height": 844,
+            "font": 100,
+            "safe": 150,
+            "bottom": 597,
+            "dialogBottom": 762,
+            "horizontal": false,
+            "numberPx": 22,
+            "numberSpanPx": 22,
+            "footerOrder": true,
+            "pass": true
+          }
+        ],
+        "errors": []
+      }
+    },
+    {
+      "name": "正式站計時器",
+      "command": "UI_BASE=<正式站> node scripts/timer-review-ui.mjs",
+      "source": "live/59ba4a2",
+      "groups": 6,
+      "result": {
+        "results": [
+          {
+            "viewport": {
+              "width": 320,
+              "height": 568
+            },
+            "rect": {
+              "x": 12.796875,
+              "y": 112,
+              "width": 294.390625,
+              "height": 344
+            },
+            "main": {
+              "x": 164.984375,
+              "y": 329,
+              "width": 123.203125,
+              "height": 48
+            },
+            "small": {
+              "x": 123.984375,
+              "y": 387,
+              "width": 72,
+              "height": 44
+            }
+          },
+          {
+            "viewport": {
+              "width": 844,
+              "height": 390
+            },
+            "rect": {
+              "x": 207,
+              "y": 23,
+              "width": 430,
+              "height": 344
+            },
+            "main": {
+              "x": 427,
+              "y": 240,
+              "width": 191,
+              "height": 48
+            },
+            "small": {
+              "x": 386,
+              "y": 298,
+              "width": 72,
+              "height": 44
+            }
+          },
+          {
+            "viewport": {
+              "width": 768,
+              "height": 1024
+            },
+            "rect": {
+              "x": 169,
+              "y": 340,
+              "width": 430,
+              "height": 344
+            },
+            "main": {
+              "x": 389,
+              "y": 557,
+              "width": 191,
+              "height": 48
+            },
+            "small": {
+              "x": 348,
+              "y": 615,
+              "width": 72,
+              "height": 44
+            }
+          },
+          {
+            "timerCases": "T01-T08",
+            "clock": true,
+            "gameSaveUnchanged": true
+          },
+          {
+            "fearPoison": true,
+            "firstNight": true,
+            "refresh": true,
+            "rollback": true
+          },
+          {
+            "reducedMotion": true
+          }
+        ],
+        "errors": []
+      }
+    },
+    {
+      "name": "最終正式站B3及離線",
+      "command": "UI_BASE=<正式站> B3_STAGE=final node scripts/b3-ui.mjs",
+      "source": "live/add4a55",
+      "groups": 32,
+      "result": {
+        "base": "https://jia0796.github.io/wolf_Emcee/",
+        "results": [
+          {
+            "case": "C12/C18: official lobby and original menu across home, counts, boards and setup",
+            "pass": true
+          },
+          {
+            "case": "C14: restored host renders correct night immediately; same-night role steps do not transition",
+            "pass": true
+          },
+          {
+            "case": "C11/C14/C17: forward/undo/rapid day-night transitions and timer remain non-blocking",
+            "pass": true,
+            "durations": []
+          },
+          {
+            "case": "C14: day refresh restores exact scene without replay",
+            "pass": true
+          },
+          {
+            "case": "C11/C17: reduced motion switches directly, no residual blur",
+            "pass": true
+          },
+          {
+            "case": "C15: wide central contain with same-image blurred extension and click-through layers",
+            "pass": true,
+            "main": "contain",
+            "sides": "blur(20px)",
+            "pointer": "none"
+          },
+          {
+            "case": "C16: all three background requests fail; legacy shell and host actions remain usable",
+            "pass": true
+          },
+          {
+            "case": "C16: optional originals and presentation module work after offline reload",
+            "pass": true
+          },
+          {
+            "case": "C01-C09: approved tokens, readable primary CTA, centered subtitle, original seats and 24px swap marks",
+            "pass": true,
+            "--b3-primary": "#B2DBE5",
+            "--b3-text": "#F4F8F9",
+            "--wolf": "#F0A3B0",
+            "--god": "#E8D09B",
+            "--civil": "#C8DBE6"
+          },
+          {
+            "case": "host responsive surface without moving skills or controls",
+            "pass": true,
+            "width": 320,
+            "height": 568,
+            "font": 100,
+            "layout": {
+              "host": {
+                "x": 8,
+                "y": 10,
+                "right": 312,
+                "bottom": 438,
+                "height": 428
+              },
+              "next": {
+                "x": 202,
+                "y": 512,
+                "right": 310,
+                "bottom": 556,
+                "height": 44
+              },
+              "back": {
+                "x": 10,
+                "y": 512,
+                "right": 118,
+                "bottom": 556,
+                "height": 44
+              },
+              "last": {
+                "x": 163,
+                "y": 395,
+                "right": 312,
+                "bottom": 438,
+                "height": 43
+              },
+              "bodyOverflow": false,
+              "stage": {
+                "x": 8,
+                "y": 44,
+                "right": 312,
+                "bottom": 154,
+                "height": 110
+              }
+            }
+          },
+          {
+            "case": "host responsive surface without moving skills or controls",
+            "pass": true,
+            "width": 375,
+            "height": 667,
+            "font": 100,
+            "layout": {
+              "host": {
+                "x": 8,
+                "y": 10,
+                "right": 367,
+                "bottom": 537,
+                "height": 527
+              },
+              "next": {
+                "x": 257,
+                "y": 611,
+                "right": 365,
+                "bottom": 655,
+                "height": 44
+              },
+              "back": {
+                "x": 10,
+                "y": 611,
+                "right": 118,
+                "bottom": 655,
+                "height": 44
+              },
+              "last": {
+                "x": 190.5,
+                "y": 486.171875,
+                "right": 367,
+                "bottom": 537,
+                "height": 50.828125
+              },
+              "bodyOverflow": false,
+              "stage": {
+                "x": 8,
+                "y": 46,
+                "right": 367,
+                "bottom": 206.078125,
+                "height": 160.078125
+              }
+            }
+          },
+          {
+            "case": "host responsive surface without moving skills or controls",
+            "pass": true,
+            "width": 390,
+            "height": 844,
+            "font": 100,
+            "layout": {
+              "host": {
+                "x": 8,
+                "y": 10,
+                "right": 382,
+                "bottom": 714,
+                "height": 704
+              },
+              "next": {
+                "x": 272,
+                "y": 788,
+                "right": 380,
+                "bottom": 832,
+                "height": 44
+              },
+              "back": {
+                "x": 10,
+                "y": 788,
+                "right": 118,
+                "bottom": 832,
+                "height": 44
+              },
+              "last": {
+                "x": 198,
+                "y": 634.5,
+                "right": 382,
+                "bottom": 714,
+                "height": 79.5
+              },
+              "bodyOverflow": false,
+              "stage": {
+                "x": 8,
+                "y": 46,
+                "right": 382,
+                "bottom": 211,
+                "height": 165
+              }
+            }
+          },
+          {
+            "case": "host responsive surface without moving skills or controls",
+            "pass": true,
+            "width": 430,
+            "height": 932,
+            "font": 100,
+            "layout": {
+              "host": {
+                "x": 8,
+                "y": 10,
+                "right": 422,
+                "bottom": 802,
+                "height": 792
+              },
+              "next": {
+                "x": 312,
+                "y": 876,
+                "right": 420,
+                "bottom": 920,
+                "height": 44
+              },
+              "back": {
+                "x": 10,
+                "y": 876,
+                "right": 118,
+                "bottom": 920,
+                "height": 44
+              },
+              "last": {
+                "x": 218,
+                "y": 707.828125,
+                "right": 422,
+                "bottom": 801.984375,
+                "height": 94.15625
+              },
+              "bodyOverflow": false,
+              "stage": {
+                "x": 8,
+                "y": 46,
+                "right": 422,
+                "bottom": 211,
+                "height": 165
+              }
+            }
+          },
+          {
+            "case": "host responsive surface without moving skills or controls",
+            "pass": true,
+            "width": 844,
+            "height": 390,
+            "font": 100,
+            "layout": {
+              "host": {
+                "x": 20,
+                "y": 10,
+                "right": 824,
+                "bottom": 260,
+                "height": 250
+              },
+              "next": {
+                "x": 699,
+                "y": 332,
+                "right": 824,
+                "bottom": 376,
+                "height": 44
+              },
+              "back": {
+                "x": 20,
+                "y": 332,
+                "right": 145,
+                "bottom": 376,
+                "height": 44
+              },
+              "last": {
+                "x": 427,
+                "y": 252.328125,
+                "right": 824,
+                "bottom": 263.328125,
+                "height": 11
+              },
+              "bodyOverflow": false,
+              "stage": {
+                "x": 20,
+                "y": 46,
+                "right": 824,
+                "bottom": 176,
+                "height": 130
+              }
+            }
+          },
+          {
+            "case": "host responsive surface without moving skills or controls",
+            "pass": true,
+            "width": 768,
+            "height": 1024,
+            "font": 100,
+            "layout": {
+              "host": {
+                "x": 20,
+                "y": 10,
+                "right": 748,
+                "bottom": 894,
+                "height": 884
+              },
+              "next": {
+                "x": 623,
+                "y": 966,
+                "right": 748,
+                "bottom": 1010,
+                "height": 44
+              },
+              "back": {
+                "x": 20,
+                "y": 966,
+                "right": 145,
+                "bottom": 1010,
+                "height": 44
+              },
+              "last": {
+                "x": 389,
+                "y": 790.5,
+                "right": 748,
+                "bottom": 894,
+                "height": 103.5
+              },
+              "bodyOverflow": false,
+              "stage": {
+                "x": 20,
+                "y": 50,
+                "right": 748,
+                "bottom": 235,
+                "height": 185
+              }
+            }
+          },
+          {
+            "case": "host responsive surface without moving skills or controls",
+            "pass": true,
+            "width": 1280,
+            "height": 800,
+            "font": 100,
+            "layout": {
+              "host": {
+                "x": 70,
+                "y": 10,
+                "right": 1210,
+                "bottom": 670,
+                "height": 660
+              },
+              "next": {
+                "x": 1085,
+                "y": 742,
+                "right": 1210,
+                "bottom": 786,
+                "height": 44
+              },
+              "back": {
+                "x": 70,
+                "y": 742,
+                "right": 195,
+                "bottom": 786,
+                "height": 44
+              },
+              "last": {
+                "x": 645,
+                "y": 603.828125,
+                "right": 1210,
+                "bottom": 669.984375,
+                "height": 66.15625
+              },
+              "bodyOverflow": false,
+              "stage": {
+                "x": 70,
+                "y": 50,
+                "right": 1210,
+                "bottom": 235,
+                "height": 185
+              }
+            }
+          },
+          {
+            "case": "host responsive surface without moving skills or controls",
+            "pass": true,
+            "width": 390,
+            "height": 844,
+            "font": 200,
+            "layout": {
+              "host": {
+                "x": 8,
+                "y": 10,
+                "right": 382,
+                "bottom": 714,
+                "height": 704
+              },
+              "next": {
+                "x": 250,
+                "y": 769,
+                "right": 380,
+                "bottom": 832,
+                "height": 63
+              },
+              "back": {
+                "x": 10,
+                "y": 769,
+                "right": 140,
+                "bottom": 832,
+                "height": 63
+              },
+              "last": {
+                "x": 198,
+                "y": 634.5,
+                "right": 382,
+                "bottom": 714,
+                "height": 79.5
+              },
+              "bodyOverflow": false,
+              "stage": {
+                "x": 8,
+                "y": 46,
+                "right": 382,
+                "bottom": 211,
+                "height": 165
+              }
+            }
+          },
+          {
+            "case": "C19/C30: original count choices, independent list hint disappears at bottom; last board directly clickable",
+            "pass": true
+          },
+          {
+            "case": "C20: 10/12 normal and special settings preserve role counts, rules and both details controls",
+            "pass": true,
+            "boards": [
+              {
+                "board": "10",
+                "count": 10,
+                "expected": [
+                  "黑狼王 ×1",
+                  "狼人 ×2",
+                  "預言家 ×1",
+                  "女巫 ×1",
+                  "魔術師 ×1",
+                  "平民 ×4"
+                ],
+                "actual": [
+                  "黑狼王 ×1",
+                  "狼人 ×2",
+                  "預言家 ×1",
+                  "女巫 ×1",
+                  "魔術師 ×1",
+                  "平民 ×4"
+                ],
+                "sheriff": "true",
+                "expectedSheriff": "true",
+                "rescue": "false",
+                "expectedRescue": "false"
+              },
+              {
+                "board": "12",
+                "count": 12,
+                "expected": [
+                  "黑狼王 ×1",
+                  "狼人 ×3",
+                  "預言家 ×1",
+                  "女巫 ×1",
+                  "魔術師 ×1",
+                  "獵人 ×1",
+                  "平民 ×4"
+                ],
+                "actual": [
+                  "黑狼王 ×1",
+                  "狼人 ×3",
+                  "預言家 ×1",
+                  "女巫 ×1",
+                  "魔術師 ×1",
+                  "獵人 ×1",
+                  "平民 ×4"
+                ],
+                "sheriff": "true",
+                "expectedSheriff": "true",
+                "rescue": "false",
+                "expectedRescue": "false"
+              },
+              {
+                "board": "mechanical12",
+                "count": 12,
+                "expected": [
+                  "機械狼 ×1",
+                  "狼人 ×3",
+                  "通靈師 ×1",
+                  "女巫 ×1",
+                  "獵人 ×1",
+                  "守衛 ×1",
+                  "平民 ×4"
+                ],
+                "actual": [
+                  "機械狼 ×1",
+                  "狼人 ×3",
+                  "通靈師 ×1",
+                  "女巫 ×1",
+                  "獵人 ×1",
+                  "守衛 ×1",
+                  "平民 ×4"
+                ],
+                "sheriff": "true",
+                "expectedSheriff": "true",
+                "rescue": "false",
+                "expectedRescue": "false"
+              },
+              {
+                "board": "masquerade12",
+                "count": 12,
+                "expected": [
+                  "狼人 ×3",
+                  "假面 ×1",
+                  "舞者 ×1",
+                  "預言家 ×1",
+                  "女巫 ×1",
+                  "白痴 ×1",
+                  "平民 ×4"
+                ],
+                "actual": [
+                  "狼人 ×3",
+                  "假面 ×1",
+                  "舞者 ×1",
+                  "預言家 ×1",
+                  "女巫 ×1",
+                  "白痴 ×1",
+                  "平民 ×4"
+                ],
+                "sheriff": "true",
+                "expectedSheriff": "true",
+                "rescue": "false",
+                "expectedRescue": "false"
+              }
+            ]
+          },
+          {
+            "case": "C21/C22: last library card, approved front art, back text, inert/aria, Escape and original return",
+            "pass": true,
+            "image": "art/catalog/villager.png"
+          },
+          {
+            "case": "C28: host library/rules shells keep return route, Escape and exact saved game",
+            "pass": true
+          },
+          {
+            "case": "pages and flip card responsive without hiding rules or actions",
+            "pass": true,
+            "width": 320,
+            "height": 480,
+            "font": 100
+          },
+          {
+            "case": "pages and flip card responsive without hiding rules or actions",
+            "pass": true,
+            "width": 375,
+            "height": 620,
+            "font": 100
+          },
+          {
+            "case": "pages and flip card responsive without hiding rules or actions",
+            "pass": true,
+            "width": 390,
+            "height": 650,
+            "font": 100
+          },
+          {
+            "case": "pages and flip card responsive without hiding rules or actions",
+            "pass": true,
+            "width": 430,
+            "height": 932,
+            "font": 100
+          },
+          {
+            "case": "pages and flip card responsive without hiding rules or actions",
+            "pass": true,
+            "width": 844,
+            "height": 390,
+            "font": 100
+          },
+          {
+            "case": "pages and flip card responsive without hiding rules or actions",
+            "pass": true,
+            "width": 768,
+            "height": 1024,
+            "font": 100
+          },
+          {
+            "case": "pages and flip card responsive without hiding rules or actions",
+            "pass": true,
+            "width": 1280,
+            "height": 800,
+            "font": 100
+          },
+          {
+            "case": "pages and flip card responsive without hiding rules or actions",
+            "pass": true,
+            "width": 390,
+            "height": 844,
+            "font": 200
+          },
+          {
+            "case": "C23-C26: real fixture winner above complete recap, original segment order and separate art/roles",
+            "pass": true,
+            "winner": "狼人陣營",
+            "timeline": {
+              "model": [
+                "night",
+                "day",
+                "night",
+                "day"
+              ],
+              "dom": [
+                "night",
+                "day",
+                "night",
+                "day"
+              ],
+              "pointer": "none",
+              "art": "static"
+            }
+          },
+          {
+            "case": "C23-C26: real fixture winner above complete recap, original segment order and separate art/roles",
+            "pass": true,
+            "winner": "好人陣營",
+            "timeline": {
+              "model": [
+                "night",
+                "day",
+                "night",
+                "day"
+              ],
+              "dom": [
+                "night",
+                "day",
+                "night",
+                "day"
+              ],
+              "pointer": "none",
+              "art": "static"
+            }
+          },
+          {
+            "case": "C27: original cancel/restart rules, cleared histories, second finish heading and confirmed home route",
+            "pass": true
+          }
+        ],
+        "errors": [],
+        "realDevices": "未驗收"
+      }
+    },
+    {
+      "name": "最終正式站既有發布驗證",
+      "command": "node scripts/verify-deployment.mjs",
+      "source": "live/add4a55",
+      "groups": 5,
+      "result": {
+        "results": [
+          {
+            "sharedBackground": true,
+            "completeRecapTitle": true,
+            "originalAssetHashes": [
+              {
+                "path": "fragrance.js",
+                "sha256": "3bd8b6a105d8850218d33610785bc5903a19b1040408f9d537dd52ee5a6e0565"
+              },
+              {
+                "path": "skills/icon-bond.svg",
+                "sha256": "f48b96a26db32838df12bb77430e2b80ffb34b84e4fc086d8342cb31dde03b37"
+              },
+              {
+                "path": "art/catalog/fragrance.png",
+                "sha256": "a0cd2ce7ed591e7c015ed57305875d4de3b21d18063973a03ea64f94fe91f9c2"
+              },
+              {
+                "path": "art/catalog/awakenedSeer.png",
+                "sha256": "81e9b72cbfa849a90b933d68a01577a9137221ff89a384cc6b2e2533096167a1"
+              },
+              {
+                "path": "votes.js",
+                "sha256": "69bcb0c6bef91f9b4c7e3ec22b6d4db15ba1cfca312227792eea1898ef833ed3"
+              },
+              {
+                "path": "vote-ui.js",
+                "sha256": "90bce70d0badf982d7b9678f9912f266219b4235ebb6c8f75d8d303c9a5168eb"
+              },
+              {
+                "path": "timer.js",
+                "sha256": "4e74514905cf4d2f75b9990086d443aa45aad0416fd0cfb097eafb8a1b376556"
+              },
+              {
+                "path": "art/thumbs/evilKnight.webp",
+                "sha256": "53b0db8e3ed27f7adaf222c44b64d248419696ca5d3c30b477a06ad646d72c97"
+              },
+              {
+                "path": "art/thumbs/gargoyle.webp",
+                "sha256": "13460907c0b1da6a9286b61d2cd25becc3c42d16ca57b3097b9f049cbde5dc35"
+              },
+              {
+                "path": "art/thumbs/gravekeeper.webp",
+                "sha256": "692b05d8e98103569e4d7943edc0e249b4da5cdb07ce759a91da2b8989f42b7f"
+              },
+              {
+                "path": "art/thumbs/blood.webp",
+                "sha256": "3fba9b8014101a88e42b0f3bc71c1239151b832323f3ab109667e03a2abca9d3"
+              },
+              {
+                "path": "art/thumbs/demon.webp",
+                "sha256": "d888c321d6bfd574f86e04343a8426150c4b234c6bfe0080267a7d99435713a3"
+              },
+              {
+                "path": "art/thumbs/idiot.webp",
+                "sha256": "d60e94bab554a61c79097bb8950e00f5911956d260523b4d35f27396d6b38802"
+              },
+              {
+                "path": "art/thumbs/mixed.webp",
+                "sha256": "4f1c12193e784f6481673d2a597c3a17f0df788b350c16389e2007a67b661781"
+              },
+              {
+                "path": "art/thumbs/nightmare.webp",
+                "sha256": "e00277f296efe93f93c6708f5739f2f60bcb6b0624500fcbb357ec7a10bcfd6a"
+              },
+              {
+                "path": "art/thumbs/dream.webp",
+                "sha256": "050d14b33e89e2fbcd900b61e57d3a5d078a725253ae009ebf8ba57cfa5b0afa"
+              },
+              {
+                "path": "art/thumbs/elder.webp",
+                "sha256": "2d44b0e10655b81f4c35ecea81b73d3f94a466657f925583f2a07f9f308b53b7"
+              },
+              {
+                "path": "art/thumbs/younger.webp",
+                "sha256": "56429b5d15967729afb3b241b84ba52266562cc329e99b809105f1a70367f3a7"
+              },
+              {
+                "path": "art/thumbs/merchant.webp",
+                "sha256": "3e2b5ea075aafd5035be050569180d9f73436880a0bbd5608c38b1fee3309629"
+              },
+              {
+                "path": "art/thumbs/king.webp",
+                "sha256": "7b12c3d64ed8144fdbb8ebfa4cd86e1ee7f50c4fc34e2f7ed923cb89867a5a71"
+              },
+              {
+                "path": "art/thumbs/wolf.webp",
+                "sha256": "bab1a8025fab56626a4291546724abbe9e5ed0a013fc5db45537a38084a793d5"
+              },
+              {
+                "path": "art/thumbs/seer.webp",
+                "sha256": "79cf57247e55c27ca010a388097bd168ac07b8e444ad4ae76c2301f15e223e0c"
+              },
+              {
+                "path": "art/thumbs/witch.webp",
+                "sha256": "af866a0e6a997e62175cf3706e593f9735df813e1ebd01255cff7d4ec8cdb701"
+              },
+              {
+                "path": "art/thumbs/hunter.webp",
+                "sha256": "c86a8366f6ccd6721ef6c118e01effbd3af1e0b444643f29cab6846dcb08b5a7"
+              },
+              {
+                "path": "art/thumbs/magician.webp",
+                "sha256": "c0f2830a3e62cb64f1ede3c330dd9e3a767b0fcfab4269a6bbaa4d7f4556ea37"
+              },
+              {
+                "path": "art/thumbs/villager.webp",
+                "sha256": "b5ce3fed82771c84424ade9dde8fbce1c355b8e7ce15e1b842a31da586a07db6"
+              },
+              {
+                "path": "art/thumbs/mechanical.webp",
+                "sha256": "3fd858a890aa04021a1c87c99c331cac3b3f4d5d7a443e50334b87977bbc0e3d"
+              },
+              {
+                "path": "art/thumbs/medium.webp",
+                "sha256": "2dc52091b6666ce73a63428678a7b37cec4a6e68faa60e703570c003515c4afc"
+              },
+              {
+                "path": "art/thumbs/guard.webp",
+                "sha256": "df92a14757b89f646fa3b4229f2cdf1f3c5edfb61d8eef9fc038ea94be8d6fed"
+              },
+              {
+                "path": "art/thumbs/seedWolf.webp",
+                "sha256": "e1d1c0f6337c988879ea272bec1acf319ae5fe198069b771c642c531e746bda0"
+              },
+              {
+                "path": "art/thumbs/hiddenWolf.webp",
+                "sha256": "c18a453ae2f7379c56fb668a89191ca66d476f2fc9aeaa37dbf9b1b79026eb60"
+              },
+              {
+                "path": "art/thumbs/beauty.webp",
+                "sha256": "eee8cf7e932e6d30e49efc798c3df5400ddf992956ca908112da27ca3c730695"
+              },
+              {
+                "path": "art/thumbs/duelist.webp",
+                "sha256": "9adbb1473390f50b0147384ef5cf06872f38b00499b09f203dc925b9763a6f00"
+              },
+              {
+                "path": "art/thumbs/dancer.webp",
+                "sha256": "7f9069661c9477a8184115e11cd11063a28cab74f1795e507f6ec3b62b0f363a"
+              },
+              {
+                "path": "art/thumbs/mask.webp",
+                "sha256": "79f4f730c7f72f46e03a4ca2b3c2e67c4f76b627d92d8622e3ccae94d2d8f074"
+              },
+              {
+                "path": "art/thumbs/fragrance.webp",
+                "sha256": "7b71a0c6223fda54536dc912b69752ef6d88fbb4e8797da9c35504cd3a33f5d0"
+              },
+              {
+                "path": "art/thumbs/awakenedSeer.webp",
+                "sha256": "30665e8c5d1ee72083af5f572846413f3e388a286b289f227a32273c824614dd"
+              },
+              {
+                "path": "skills/icon-inspect.svg",
+                "sha256": "c19df40007f6656a4072df354e5536c3824308b5962f32cd7e34866910f8dfb8"
+              },
+              {
+                "path": "skills/icon-wolf-inspect.svg",
+                "sha256": "ba4cf9f6be94e69fcfad26aeb8434daa7a086d342d03f7981a4fe3d5b1d1de96"
+              },
+              {
+                "path": "masquerade.js",
+                "sha256": "8832b68e7bd94ffd49dd2a1ef2f67e5030b640002e9b0bdff74791bad8b746ec"
+              },
+              {
+                "path": "art/catalog/mask.png",
+                "sha256": "ac57ebbf80d04fd9b2d9bfb6b5297a9d5abbcefb4aa46658e93b0f334c94cc93"
+              },
+              {
+                "path": "art/catalog/dancer.png",
+                "sha256": "2d31372e01a6be4811d0d5e35f91252f60b287f14b56444c3ed91627c80d32fb"
+              },
+              {
+                "path": "skills/icon-mask.svg",
+                "sha256": "624a852658acdfbafd0df28ac577435126613191d6e1bd3724389ce178fc2e68"
+              },
+              {
+                "path": "skills/icon-dance.svg",
+                "sha256": "cf771203ca8c984ff8daa29108f3c320099e08d3655c1e635a1f06585f70021a"
+              },
+              {
+                "path": "style.css",
+                "sha256": "19ba6af5d122927c03b2c0bb971062e5283f65e95bc0a1d52d5216c96811925e"
+              },
+              {
+                "path": "identity.js",
+                "sha256": "1096228701c663e3beec4faa364f5b25b1248cade6383723517d37bc78127831"
+              },
+              {
+                "path": "board-rules.js",
+                "sha256": "02d8e5e070fe638c563dd8254deb43c6969431cbef8697266be10d566bd1987b"
+              },
+              {
+                "path": "app.js",
+                "sha256": "fb1a9df38d7eba59ef311444bb81070fb81806ce4556ddfd20bdd777565412a5"
+              },
+              {
+                "path": "engine.js",
+                "sha256": "7734f9d17f0126fd9ef1244ae3158546b20e024fb32089d689b1de0b34dae5e6"
+              },
+              {
+                "path": "night.js",
+                "sha256": "cd24fcc8692cd7402b991d51c1ca3440fb4c90d44f6c2191a030ee7dadc78c4b"
+              },
+              {
+                "path": "beauty.js",
+                "sha256": "0a92d96bc8c190e53e337f871aff1132c60ca8f1cca01130799acbd619291a25"
+              },
+              {
+                "path": "data.js",
+                "sha256": "e32efaf21a1e2633dc6cd9ce08f1113c4bd8201c15fdedb9ba185bb902aeaf87"
+              },
+              {
+                "path": "recap.js",
+                "sha256": "8407314e7e11322765d579b3c5f2ee0b6ab871b901c227c834433e6d28aade7c"
+              },
+              {
+                "path": "records.js",
+                "sha256": "cf8b38dd110511f61b60e9143be85060632c85310e1a231b33ae763803611983"
+              },
+              {
+                "path": "index.html",
+                "sha256": "08331cb3188b1e95c9cb22e82ca151a100255ef6a3a24a87cec6cec022536eb4"
+              },
+              {
+                "path": "sw.js",
+                "sha256": "ca0e33d8b86cb1fc3b1b9b1a8abc112054a93649b45664ef3e553808f7799797"
+              },
+              {
+                "path": "cache-manifest.js",
+                "sha256": "fdb53ae294430a18eac0dbe9e81b28976b210916e59c190a63bff3e4e41868b4"
+              },
+              {
+                "path": "art/catalog/beauty.png",
+                "sha256": "46d92b1b05a9a403b421af2c5308cc29ffae519d55467510462084d8c084689c"
+              },
+              {
+                "path": "art/catalog/duelist.png",
+                "sha256": "f41c24156559c4cd7141b890f9ec8738811bf1a0909f61996c06572f83d1fe41"
+              },
+              {
+                "path": "skills/icon-charm.svg",
+                "sha256": "5aff4c715517e3ae64a315bfd1e9aa0e95708f7900da6568e0900b8336baba5e"
+              },
+              {
+                "path": "skills/icon-heartbreak.svg",
+                "sha256": "97233180381368c9168cbbd1c2e5a4af66fa455bfe3acf62bd3485c125f0140d"
+              },
+              {
+                "path": "skills/icon-duel.svg",
+                "sha256": "eec5cc1cff7608e97c27848b2e9321308e5cfc208576a1cada7727c8d2a02b5c"
+              },
+              {
+                "path": "art/backgrounds/shared.png",
+                "sha256": "c38604bb53ee8b26dd604c9458884a0fe99daf5e83111b948a970569f146cc38"
+              },
+              {
+                "path": "art/recap-vote.png",
+                "sha256": "87e2987704055423868814b70d7d52f0d789c23f631c0869b09398642e3cda2c"
+              },
+              {
+                "path": "art/recap-sheriff.png",
+                "sha256": "d7a71fa7bc635ab3f61b774b9973ef74c59dc1999009355df1e752ed677ddb48"
+              },
+              {
+                "path": "skills/icon-vote.svg",
+                "sha256": "13cb4fba33d60ad8c6c747b3bcc84b19177ad9398066f0f8755cd8b3b6995fc7"
+              },
+              {
+                "path": "skills/icon-sheriff-badge.svg",
+                "sha256": "f1629595c84c4e459ad5e96dc4c6b4070796a2798410148e381f3bce05d23068"
+              }
+            ]
+          },
+          {
+            "liveBeautyBoard": true,
+            "romanceDefaults": true,
+            "detailsRemoved": true,
+            "newEdgeOnly": true
+          },
+          {
+            "liveMasquerade": true,
+            "firstNightRegistration": true,
+            "defaultIdiotChase": false,
+            "roomChoiceSaved": true,
+            "refresh": true
+          },
+          {
+            "liveBoard": true,
+            "order": true,
+            "mandatoryHiddenRegistration": true,
+            "pendingWolfTarget": true,
+            "hiddenRefresh": true,
+            "reload": true
+          },
+          {
+            "timerModes": true,
+            "resetOriginal": true,
+            "defaults": true,
+            "gameSaveUnchanged": true
+          }
+        ],
+        "cache": [
+          "council-v22-8"
+        ],
+        "errors": []
+      }
+    }
+  ],
+  "failedAttempts": [
+    {
+      "item": "首頁透明度",
+      "reason": "舊高優先級把20%覆蓋44%；限定首頁選擇器修正",
+      "resolved": true
+    },
+    {
+      "item": "普通放逐選中",
+      "reason": "舊!important紫框覆蓋冰藍；只在普通視窗覆寫",
+      "resolved": true
+    },
+    {
+      "item": "R09實際備援",
+      "reason": "早期只查變數，部署後發現body::before硬編碼shared夜景；add4a55修復，測試加查computed背景",
+      "resolved": true
+    },
+    {
+      "item": "新測試fixture",
+      "reason": "補候選池、結束頁等待正確screen；未改遊戲答案",
+      "resolved": true
+    },
+    {
+      "item": "早期完整對局中斷",
+      "reason": "未有最終JSON，不計成功，重跑26板通過",
+      "resolved": true
+    },
+    {
+      "item": "線上計時器reload",
+      "reason": "等待load30秒逾時；改DOMContentLoaded與90秒，原時計斷言不變，重跑通過",
+      "resolved": true
+    },
+    {
+      "item": "線上原圖decode",
+      "reason": "無期限decode等待停止；改90秒complete／原始尺寸檢查，仍完整驗30張",
+      "resolved": true
+    },
+    {
+      "item": "舊發布腳本及過渡版本",
+      "reason": "首頁legacy與主景的試驗斷言撤回；發佈切換中sw雜湊不同不計通過，最終重跑成功",
+      "resolved": true
+    }
+  ],
+  "liveHashes": {
+    "source": "add4a55328d349e30baaeb8bb53776841256751f",
+    "site": "https://jia0796.github.io/wolf_Emcee/",
+    "files": [
+      {
+        "path": "public/app.js",
+        "status": 200,
+        "bytes": 49179,
+        "sha256": "fb1a9df38d7eba59ef311444bb81070fb81806ce4556ddfd20bdd777565412a5",
+        "matchesGit": true
+      },
+      {
+        "path": "public/art/backgrounds/host-day.png",
+        "status": 200,
+        "bytes": 2845032,
+        "sha256": "67e471501c6db58889cf1850ad6cd84eebfb204ca3db2c801ef543fbb23678f3",
+        "matchesGit": true
+      },
+      {
+        "path": "public/art/backgrounds/host-night.png",
+        "status": 200,
+        "bytes": 2377554,
+        "sha256": "4f06f805be0552605f8802df4148e31eb45fbd7a10e3edf0558ca5b3ad5222b3",
+        "matchesGit": true
+      },
+      {
+        "path": "public/art/backgrounds/lobby-shared.png",
+        "status": 200,
+        "bytes": 2418309,
+        "sha256": "6699db53e978d46013b758a87163f28f4ccd8140344f43c07cb1162138ca4688",
+        "matchesGit": true
+      },
+      {
+        "path": "public/b3-ui.js",
+        "status": 200,
+        "bytes": 7346,
+        "sha256": "b7ebd633fdb0bea7a51d29778c4e3c64a357b37509bc32e9ec9fe7151401fbcc",
+        "matchesGit": true
+      },
+      {
+        "path": "public/b3.css",
+        "status": 200,
+        "bytes": 23392,
+        "sha256": "b1c31d4b739e8f4a0c8b2c2524c102edb66c33750a33e892669d3d08d48676fc",
+        "matchesGit": true
+      },
+      {
+        "path": "public/data.js",
+        "status": 200,
+        "bytes": 25802,
+        "sha256": "e32efaf21a1e2633dc6cd9ce08f1113c4bd8201c15fdedb9ba185bb902aeaf87",
+        "matchesGit": true
+      },
+      {
+        "path": "public/engine.js",
+        "status": 200,
+        "bytes": 84687,
+        "sha256": "7734f9d17f0126fd9ef1244ae3158546b20e024fb32089d689b1de0b34dae5e6",
+        "matchesGit": true
+      },
+      {
+        "path": "public/index.html",
+        "status": 200,
+        "bytes": 14702,
+        "sha256": "08331cb3188b1e95c9cb22e82ca151a100255ef6a3a24a87cec6cec022536eb4",
+        "matchesGit": true
+      },
+      {
+        "path": "public/manifest.webmanifest",
+        "status": 200,
+        "bytes": 618,
+        "sha256": "7b94cae26cbe2658aa26b09c37c56acb7806f3e9c379af75e675b54d973b8dbe",
+        "matchesGit": true
+      },
+      {
+        "path": "public/night.js",
+        "status": 200,
+        "bytes": 13169,
+        "sha256": "cd24fcc8692cd7402b991d51c1ca3440fb4c90d44f6c2191a030ee7dadc78c4b",
+        "matchesGit": true
+      },
+      {
+        "path": "public/recap.js",
+        "status": 200,
+        "bytes": 11629,
+        "sha256": "8407314e7e11322765d579b3c5f2ee0b6ab871b901c227c834433e6d28aade7c",
+        "matchesGit": true
+      },
+      {
+        "path": "public/records.js",
+        "status": 200,
+        "bytes": 9075,
+        "sha256": "cf8b38dd110511f61b60e9143be85060632c85310e1a231b33ae763803611983",
+        "matchesGit": true
+      },
+      {
+        "path": "public/skills/icon-antidote.svg",
+        "status": 200,
+        "bytes": 617,
+        "sha256": "56881638a36c1ec98ed480f2da0a617f83dbe03e5228c9db081ad4a4e4630a07",
+        "matchesGit": true
+      },
+      {
+        "path": "public/skills/icon-bond.svg",
+        "status": 200,
+        "bytes": 1496,
+        "sha256": "f48b96a26db32838df12bb77430e2b80ffb34b84e4fc086d8342cb31dde03b37",
+        "matchesGit": true
+      },
+      {
+        "path": "public/skills/icon-charm.svg",
+        "status": 200,
+        "bytes": 971,
+        "sha256": "5aff4c715517e3ae64a315bfd1e9aa0e95708f7900da6568e0900b8336baba5e",
+        "matchesGit": true
+      },
+      {
+        "path": "public/skills/icon-dance.svg",
+        "status": 200,
+        "bytes": 875,
+        "sha256": "cf771203ca8c984ff8daa29108f3c320099e08d3655c1e635a1f06585f70021a",
+        "matchesGit": true
+      },
+      {
+        "path": "public/skills/icon-duel.svg",
+        "status": 200,
+        "bytes": 963,
+        "sha256": "eec5cc1cff7608e97c27848b2e9321308e5cfc208576a1cada7727c8d2a02b5c",
+        "matchesGit": true
+      },
+      {
+        "path": "public/skills/icon-evil-knight-reflect.svg",
+        "status": 200,
+        "bytes": 1410,
+        "sha256": "9782a05d4e2bebd77e9df869abd227a7b3a8d2b48ae2eef02c106bc8bfec418c",
+        "matchesGit": true
+      },
+      {
+        "path": "public/skills/icon-fear.svg",
+        "status": 200,
+        "bytes": 1070,
+        "sha256": "ebb15653f0eaa8c423ea8605021c9964abf6887c7b9ac2b167ee0a90cf477fbf",
+        "matchesGit": true
+      },
+      {
+        "path": "public/skills/icon-gravekeeper.svg",
+        "status": 200,
+        "bytes": 1230,
+        "sha256": "27cb6baa1c862ebc7b6e79445fc341c2a06c25221b744a73c295612aff64ae60",
+        "matchesGit": true
+      },
+      {
+        "path": "public/skills/icon-gun.svg",
+        "status": 200,
+        "bytes": 1347,
+        "sha256": "eff907366ca0bab126727eb35533d4451e354aa9a630d01f543afcf2aeab91e5",
+        "matchesGit": true
+      },
+      {
+        "path": "public/skills/icon-heartbreak.svg",
+        "status": 200,
+        "bytes": 980,
+        "sha256": "97233180381368c9168cbbd1c2e5a4af66fa455bfe3acf62bd3485c125f0140d",
+        "matchesGit": true
+      },
+      {
+        "path": "public/skills/icon-hunt.svg",
+        "status": 200,
+        "bytes": 917,
+        "sha256": "29f37aad71a83abaf77fe94181e6624b6331ec77434d6fb14cb11f5d2c3d46cf",
+        "matchesGit": true
+      },
+      {
+        "path": "public/skills/icon-infect.svg",
+        "status": 200,
+        "bytes": 1556,
+        "sha256": "60d7fc7418ecfe1dd698d2f6634ff8cbddd101bb36df7e5c2e3ad211f07ce2ee",
+        "matchesGit": true
+      },
+      {
+        "path": "public/skills/icon-inspect.svg",
+        "status": 200,
+        "bytes": 509,
+        "sha256": "c19df40007f6656a4072df354e5536c3824308b5962f32cd7e34866910f8dfb8",
+        "matchesGit": true
+      },
+      {
+        "path": "public/skills/icon-learn.svg",
+        "status": 200,
+        "bytes": 847,
+        "sha256": "3ef58790b371d24dc18234f29b5af75a515a8be31be34c3708f02bb6ec4eebf9",
+        "matchesGit": true
+      },
+      {
+        "path": "public/skills/icon-mask.svg",
+        "status": 200,
+        "bytes": 1058,
+        "sha256": "624a852658acdfbafd0df28ac577435126613191d6e1bd3724389ce178fc2e68",
+        "matchesGit": true
+      },
+      {
+        "path": "public/skills/icon-poison.svg",
+        "status": 200,
+        "bytes": 830,
+        "sha256": "0671a137fdf9269b607331f6643a77f58051f57048d7bdc1e457e561642d79d2",
+        "matchesGit": true
+      },
+      {
+        "path": "public/skills/icon-role-model.svg",
+        "status": 200,
+        "bytes": 1042,
+        "sha256": "4a9a8851e05c4c9c7ddd5ddeb3d68d03a787599f14a2807fce2ef607adab1469",
+        "matchesGit": true
+      },
+      {
+        "path": "public/skills/icon-sheriff-badge.svg",
+        "status": 200,
+        "bytes": 1826,
+        "sha256": "f1629595c84c4e459ad5e96dc4c6b4070796a2798410148e381f3bce05d23068",
+        "matchesGit": true
+      },
+      {
+        "path": "public/skills/icon-shield.svg",
+        "status": 200,
+        "bytes": 534,
+        "sha256": "fb78c16062432e25a3a013f3a51680f208bd007eacf77c96e9d69a4366f34902",
+        "matchesGit": true
+      },
+      {
+        "path": "public/skills/icon-sleep.svg",
+        "status": 200,
+        "bytes": 730,
+        "sha256": "8f8e79c723396401cd35867fb2e22abfb8f40cec06e24a733d3132a4a2ac60dd",
+        "matchesGit": true
+      },
+      {
+        "path": "public/skills/icon-swap.svg",
+        "status": 200,
+        "bytes": 545,
+        "sha256": "cc8c12d39adb71d4c03fe1204008f0ed55008e8d59320c704e19647ff2a9b710",
+        "matchesGit": true
+      },
+      {
+        "path": "public/skills/icon-trade.svg",
+        "status": 200,
+        "bytes": 1036,
+        "sha256": "f48b0d3d3c8907aa4009286d5c644da702cd902d38cb8b0a0017747fb12e4c1f",
+        "matchesGit": true
+      },
+      {
+        "path": "public/skills/icon-transform.svg",
+        "status": 200,
+        "bytes": 1599,
+        "sha256": "555098208df997fb16ff4885f3d834abc9391e225cbdc9412827ee83c8749887",
+        "matchesGit": true
+      },
+      {
+        "path": "public/skills/icon-vote.svg",
+        "status": 200,
+        "bytes": 1734,
+        "sha256": "13cb4fba33d60ad8c6c747b3bcc84b19177ad9398066f0f8755cd8b3b6995fc7",
+        "matchesGit": true
+      },
+      {
+        "path": "public/skills/icon-wolf-attack.svg",
+        "status": 200,
+        "bytes": 673,
+        "sha256": "613d844185591de9499771448ecb999f164a35961a4df91e345a8749bb7ec4be",
+        "matchesGit": true
+      },
+      {
+        "path": "public/skills/icon-wolf-inspect.svg",
+        "status": 200,
+        "bytes": 956,
+        "sha256": "ba4cf9f6be94e69fcfad26aeb8434daa7a086d342d03f7981a4fe3d5b1d1de96",
+        "matchesGit": true
+      },
+      {
+        "path": "public/sw.js",
+        "status": 200,
+        "bytes": 6863,
+        "sha256": "ca0e33d8b86cb1fc3b1b9b1a8abc112054a93649b45664ef3e553808f7799797",
+        "matchesGit": true
+      },
+      {
+        "path": "public/timer.js",
+        "status": 200,
+        "bytes": 1655,
+        "sha256": "4e74514905cf4d2f75b9990086d443aa45aad0416fd0cfb097eafb8a1b376556",
+        "matchesGit": true
+      },
+      {
+        "path": "public/vote-ui.js",
+        "status": 200,
+        "bytes": 19574,
+        "sha256": "90bce70d0badf982d7b9678f9912f266219b4235ebb6c8f75d8d303c9a5168eb",
+        "matchesGit": true
+      },
+      {
+        "path": "public/votes.js",
+        "status": 200,
+        "bytes": 11473,
+        "sha256": "69bcb0c6bef91f9b4c7e3ec22b6d4db15ba1cfca312227792eea1898ef833ed3",
+        "matchesGit": true
+      },
+      {
+        "path": "public/wolfcue-192.png",
+        "status": 200,
+        "bytes": 22823,
+        "sha256": "28c8d2ce588aa4235926fb079639c941eb92aa7958a6f2d7cd80352d8494f810",
+        "matchesGit": true
+      },
+      {
+        "path": "public/wolfcue-512.png",
+        "status": 200,
+        "bytes": 99755,
+        "sha256": "0814325855c97cfa26a8f14831a435e6650c6ca07914dddf6e107236acb1b2b0",
+        "matchesGit": true
+      },
+      {
+        "path": "public/wolfcue.svg",
+        "status": 200,
+        "bytes": 1430,
+        "sha256": "24bd11c02d7b0156c2eda1576683575265576643835ddf7a43c2245505406154",
+        "matchesGit": true
+      }
+    ],
+    "pass": true,
+    "count": 46
+  },
+  "changedFiles": [
+    "README.md",
+    "docs/b3-r01-r09-portraits.json",
+    "docs/b3-r01-r09-report.md",
+    "docs/b3-r01-r09-screens/guard-390x844-100.png",
+    "docs/b3-r01-r09-screens/home.png",
+    "docs/b3-r01-r09-screens/ordinary-vote.png",
+    "docs/b3-r01-r09-screens/timer.png",
+    "docs/b3-r01-r09-validation.json",
+    "public/app.js",
+    "public/b3-ui.js",
+    "public/b3.css",
+    "public/data.js",
+    "public/index.html",
+    "public/manifest.webmanifest",
+    "public/sw.js",
+    "public/wolfcue-192.png",
+    "public/wolfcue-512.png",
+    "public/wolfcue.svg",
+    "scripts/b3-r01-r09-ui.mjs",
+    "scripts/b3-ui.mjs",
+    "scripts/timer-review-ui.mjs",
+    "scripts/ui-regression.mjs",
+    "scripts/verify-deployment.mjs",
+    "scripts/vote62-ui.mjs",
+    "test/b3-refinements.test.js",
+    "test/b3-ui.test.js"
+  ],
+  "realDevices": "待真機驗收"
+}
