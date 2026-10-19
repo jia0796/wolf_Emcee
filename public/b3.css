@@ -202,3 +202,6 @@ body #home :is(button#start,button#encyclopediaOpen,a#problemReport){background-
 body #home button#start{background-image:var(--b3-glass-sheen),linear-gradient(110deg,rgb(178 219 229 / .3),rgb(140 186 203 / .08) 65%,rgb(178 219 229 / .18));font-size:20px;font-weight:750;border:2px solid var(--b3-primary);box-shadow:inset 0 1px 0 rgb(244 248 249 / .45),inset 0 0 18px rgb(178 219 229 / .12),0 0 0 3px rgb(178 219 229 / .08),0 4px 20px rgb(178 219 229 / .18);letter-spacing:.04em}
 
 #home .home-brand h1{overflow-wrap:anywhere}
+
+/* R09: override the legacy hard-coded shared night image in the actual fallback layer. */
+body[data-screen=host]::before{background-image:var(--page-background)}
