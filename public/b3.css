@@ -243,3 +243,5 @@ body #boards #boardChoices button{background-color:rgb(27 49 66 / .34);backgroun
  body #boards .board-window{background-color:rgb(19 36 52 / .78)}
  body #boards #boardChoices button{background-color:rgb(19 36 52 / .60)}
 }
+/* R13 follow-up: legacy event-card::after was still painting a gold/brown veil. */
+#finished .recap-event::after{background:none}
