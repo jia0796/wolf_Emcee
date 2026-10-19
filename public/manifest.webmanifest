@@ -1,28 +1,28 @@
 {
   "id": "./",
-  "name": "月下議會｜狼人殺主持工具",
-  "short_name": "月下議會",
+  "name": "霜月司儀｜狼人殺主持工具",
+  "short_name": "霜月司儀",
   "lang": "zh-Hant",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#142132",
-  "theme_color": "#142132",
+  "background_color": "#13212D",
+  "theme_color": "#13212D",
   "icons": [
     {
-      "src": "icon.svg",
+      "src": "frost-emcee.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any"
     },
     {
-      "src": "icon-192.png",
+      "src": "frost-emcee-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "icon-512.png",
+      "src": "frost-emcee-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"

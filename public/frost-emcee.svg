@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+<title id="title">霜月司儀</title><desc id="desc">藏藍夜空中的冰藍弦月與六角霜星</desc>
+<defs><linearGradient id="night" x2="1" y2="1"><stop stop-color="#234357"/><stop offset="1" stop-color="#101D2E"/></linearGradient><linearGradient id="moon" x2="1" y2="1"><stop stop-color="#F4F8F9"/><stop offset=".55" stop-color="#B2DBE5"/><stop offset="1" stop-color="#8CBACB"/></linearGradient></defs>
+<path fill="url(#night)" d="M0 0h512v512H0z"/>
+<circle cx="256" cy="256" r="194" fill="none" stroke="#B2DBE5" stroke-opacity=".18" stroke-width="2"/>
+<path d="M300 99C202 78 117 153 117 249c0 97 77 174 174 169 54-3 103-33 130-77-34 22-75 29-113 20-90-22-132-124-91-205 18-35 47-54 83-57Z" fill="url(#moon)"/>
+<g stroke="#F4F8F9" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="none" transform="translate(328 205)">
+<path d="M0-65V65M-56-32 56 32M-56 32 56-32"/>
+<path d="m-17-47 17 17 17-17m-34 94 17-17 17 17M-49-8-26-15-31-39M49 8 26 15 31 39M-31 39-26 15-49 8M31-39 26-15 49-8" stroke-width="6"/>
+</g><circle cx="163" cy="371" r="5" fill="#E8D09B"/>
+</svg>
