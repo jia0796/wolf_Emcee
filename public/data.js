@@ -47,7 +47,7 @@ for(const count of [10,12]){const id='gargoyle'+count;BOARDS[id]={id,name:count+
 for(const b of Object.values(BOARDS)){b.category??='normal';b.enabled??=true;}
 for(const count of [10,12]){const id='evilKnight'+count;BOARDS[id]={id,name:count+'人 惡靈騎士/守衛',canonicalName:count+'人 惡靈騎士/守衛',shortLabel:'惡靈騎士/守衛',category:'normal',enabled:true,playerCount:count,roles:{evilKnight:1,wolf:count===12?3:2,guard:1,witch:1,seer:1,...(count===12?{hunter:1}:{}),villager:4},nightOrder:['guard','wolves','witch','seer',...(count===12?['hunter']:[])],defaults:{...defaults,swallow:count===12,...(count===12?{immuneNightGun:false}:{})},adjustable:['sheriff','selfRescue','victory','swallow',...(count===12?['immuneNightGun']:[])],swallowThreshold:count===12?2:1};}
 ROLE_DATA.elder.recapCrop=[90,185,880,950];ROLE_DATA.younger.recapCrop=[90,205,880,950];for(const r of ['elder','younger']){ROLE_DATA[r].recapAlign='xMidYMin slice';ROLE_DATA[r].facePriority=true;}
-export const PAGE_BACKGROUNDS=Object.fromEntries(['home','counts','boards','setup','host','encyclopedia','finished'].map(k=>[k,'art/backgrounds/shared.png']));
+export const PAGE_BACKGROUNDS=Object.fromEntries(['home','counts','boards','setup','host','encyclopedia','finished'].map(k=>[k,k==='host'?'art/backgrounds/host-night.png':'art/backgrounds/lobby-shared.png']));
 export const PLAYER_COUNTS=[...new Set(Object.values(BOARDS).filter(b=>b.enabled).map(b=>b.playerCount))].sort((a,b)=>a-b);
 ROLE_DATA.seedWolf={name:'種狼',kind:'wolf',camp:'狼隊陣營',image:CATALOG_ART.seedWolf.image,recapCrop:CATALOG_ART.seedWolf.crop,canShoot:false,skill:'夜晚與其他狼人共同睜眼並參與狼刀，可以自爆。自第二夜起，整局遊戲裡，可發動一次感染，將當晚狼刀目標改為感染目標。感染成功者立即加入狼人陣營並失去原有技能，下一夜起一同參與狼刀。感染可以被守衛或女巫的解藥阻止。',goal:'與狼人陣營共同取得勝利。'};
 ROLE_DATA.hiddenWolf={name:'隱狼',kind:'wolf',camp:'狼隊陣營',image:CATALOG_ART.hiddenWolf.image,recapCrop:CATALOG_ART.hiddenWolf.crop,canShoot:false,skill:'不與狼人相認，不參與狼刀，也不能自爆。預言家查驗時顯示好人。當場上狼人只剩隱狼時，好人直接獲勝。',goal:'隱藏身分，協助狼人陣營取得勝利。'};
@@ -82,3 +82,5 @@ for(const [role,driveId]of [['fragrance','1-XfDI1TORkJXnNjB2AwuNGBs_8FWqYdm'],['
 for(const count of [10,12]){const id='fragrance'+count;BOARDS[id]={id,name:count+'人 尋香魅影／覺醒預言家',canonicalName:count+'人 尋香魅影／覺醒預言家',shortLabel:'尋香魅影／覺醒預言家',category:'special',enabled:true,playerCount:count,roles:{fragrance:1,wolf:count===12?3:2,guard:1,witch:1,awakenedSeer:1,...(count===12?{hunter:1}:{}),villager:4},firstNightOrder:['guard','wolves','fragrance','witch','awakenedSeer',...(count===12?['hunter']:[])],nightOrder:['guard','fragrance','wolves','witch','awakenedSeer',...(count===12?['hunter']:[])],defaults:{...defaults,swallow:count===12},swallowThreshold:count===12?2:1,adjustable:['sheriff','selfRescue','swallow']};BOARD_ORDER.push(id);}
 
 for(const [id,role] of Object.entries(ROLE_DATA))role.thumbnail='art/thumbs/'+id+'.webp';
+
+export const HOST_BACKGROUNDS={day:'art/backgrounds/host-day.png',night:'art/backgrounds/host-night.png'};

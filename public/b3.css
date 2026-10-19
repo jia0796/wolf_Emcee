@@ -1,0 +1,15 @@
+/* B3 C11–C18: fixed, non-interactive original-image layers; legacy shell is the fallback. */
+.b3-backdrop,.b3-scene{position:fixed;inset:0;pointer-events:none}
+.b3-backdrop{z-index:-2;isolation:isolate;overflow:hidden}
+.b3-scene{opacity:0}
+.b3-scene::before,.b3-scene::after{content:'';position:absolute;inset:0;pointer-events:none;background-image:var(--b3-image);background-position:center;background-repeat:no-repeat;background-size:cover}
+.b3-scene::after{display:none}
+body{--b3-mask:rgb(13 29 44 / .25)}
+body::before{z-index:-3}
+body::after{background:var(--b3-mask)}
+body[data-screen=counts],body[data-screen=boards]{--b3-mask:rgb(13 29 44 / .42)}
+body[data-screen=setup],body[data-screen=encyclopedia],body[data-screen=finished]{--b3-mask:rgb(13 29 44 / .58)}
+body[data-screen=host][data-b3-phase=day]{--b3-mask:rgb(40 68 87 / .36)}
+body[data-screen=host][data-b3-phase=night]{--b3-mask:rgb(10 24 41 / .62)}
+@media(min-aspect-ratio:4/5){.b3-scene::before{filter:blur(20px);transform:scale(1.06);opacity:.8}.b3-scene::after{display:block;background-size:contain}}
+@media(prefers-reduced-motion:reduce){.b3-scene{animation:none!important;transition:none!important}}

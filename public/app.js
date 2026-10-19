@@ -1,3 +1,4 @@
+import {createB3Backdrop} from './b3-ui.js';
 import {originalKnifeActors,specialFlow,knifeEntry,knifeSelection,knifeKinds,statusSteps,switchSteps,knifeSummary,knifeStatus,closeRole} from './takeover.js';
 import {bondAvailable} from './fragrance.js';
 import {voteLocked} from './votes.js';
@@ -16,8 +17,9 @@ let previousScreen=null;try{previousScreen=sessionStorage.getItem(KEY+'-screen')
 try{const saved=JSON.parse(localStorage.getItem(KEY));if(saved){game=upgradeGame(saved);if(restoresSession(performance.getEntriesByType('navigation')[0]?.type,previousScreen,saved.version))screen=saved.step==='finished'?'finished':'host';}}catch{storageOK=false;}
 function persist(){if(!game)return false;try{localStorage.setItem(KEY,JSON.stringify(game));storageOK=true;}catch{storageOK=false;}$('saveStatus').textContent=storageOK?'':'儲存失敗，重新整理可能遺失目前進度';return storageOK;}
 function cacheForeground(){navigator.serviceWorker?.controller?.postMessage({type:'SET_FOREGROUND',busy:['host','encyclopedia','finished'].includes(screen)});}
-function show(name){const entering=screen!==name;screen=name;for(const id of ['home','counts','boards','setup','encyclopedia','host','finished'])$(id).hidden=id!==name;document.body.dataset.screen=name;document.body.style.setProperty('--page-background',PAGE_BACKGROUNDS[name]?`url('${PAGE_BACKGROUNDS[name]}')`:'none');if(entering){cacheForeground();for(const e of [$(name),...$(name).querySelectorAll('.board-window,.setup-content,.library,.preview-back,#nightRecap')])e.scrollTop=0;}try{sessionStorage.setItem(KEY+'-screen',name==='encyclopedia'&&libraryOrigin==='host'?'host':name);}catch{}}
+function show(name){const entering=screen!==name;screen=name;for(const id of ['home','counts','boards','setup','encyclopedia','host','finished'])$(id).hidden=id!==name;document.body.dataset.screen=name;backdrop.setScreen(name,name==='host'&&game?phaseOf(game):null);document.body.style.setProperty('--page-background',PAGE_BACKGROUNDS[name]?`url('${PAGE_BACKGROUNDS[name]}')`:'none');if(entering){cacheForeground();for(const e of [$(name),...$(name).querySelectorAll('.board-window,.setup-content,.library,.preview-back,#nightRecap')])e.scrollTop=0;}try{sessionStorage.setItem(KEY+'-screen',name==='encyclopedia'&&libraryOrigin==='host'?'host':name);}catch{}}
 function rulesText(b,r){return b.name+'\n警長：'+(r.sheriff?'開':'關')+'\n女巫自救：'+(r.selfRescue?'允許':'不允許')+'\n狼人勝利條件：'+(r.victory==='edge'?'屠邊':'屠城')+'\n'+(b.swallowThreshold===2?'雙爆':'單爆')+'吞警徽：'+(r.swallow?'啟用':'不啟用')+(b.roles.beauty?'\n女巫毒殺觸發殉情：'+(r.poisonRomance?'開':'關')+'\n最後一狼可殉情：'+(r.lastWolfRomance?'開':'關'):'')+(b.roles.mechanical?'\n學狼人：'+(r.mechanicalKnife==='next'?'下一晚可刀':'狼全死才有雙刀')+'\n機械守衛守護規則：'+((r.shieldMode||'once')==='once'?'只能使用一次':'成功守護一次後失效')+'\n機械守衛反彈毒藥：'+(r.reflectPoison?'開':'關'):'')+(b.roles.idiot?'\n白痴追刀：'+(r.idiotChase?'開啟':'關閉'):'')+(b.id==='evilKnight12'?'\n免疫獵人夜槍：'+(r.immuneNightGun?'開啟':'關閉'):'');}
+const backdrop=createB3Backdrop();
 const voteDialog=createVoteDialog({getGame:()=>game,save:persist,render});
 const OP_LABEL={learnTarget:'學習身分',extraAttack:'額外狼刀',mechanicalInspect:'查驗',mechanicalPoison:'一次性毒藥',shield:'無敵盾'};
 function setupBoard(id){
@@ -166,7 +168,7 @@ function renderFinished(){
 function render(){
  if(!game){show('home');return;}if(game.step==='finished'){timerStop();renderFinished();return;}persist();show('host');const s=game.step;
  $('phase').textContent='第'+game.night+'天・'+phaseOf(game);$('boardName').textContent=boardOf(game).name;
- $('stepLabel').hidden=true;$('subtitle').textContent=subtitle(game);$('hint').textContent=hintText();$('hint').style.whiteSpace=specialFlow(game)&&statusSteps.includes(s)?'pre-line':'';renderGesture();renderOperation();
+ $('stepLabel').hidden=true;$('subtitle').textContent=subtitle(game);backdrop.script(s);$('hint').textContent=hintText();$('hint').style.whiteSpace=specialFlow(game)&&statusSteps.includes(s)?'pre-line':'';renderGesture();renderOperation();
  $('selection').textContent=game.action.length?'已選：'+game.action.map(id=>id+'號').join('、'):game.draw?.revealed&&['draw','dayDraw','speeches'].includes(s)?game.draw.seat+'號開始，'+(game.draw.clockwise?'順':'逆')+'時針發言':'';
  if(s==='discussion'&&!game.sheriff&&game.draw?.revealed)$('selection').textContent='發言順序：'+game.draw.order.map(id=>id+'號').join(' → ');
  $('actions').replaceChildren();
