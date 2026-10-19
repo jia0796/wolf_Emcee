@@ -205,3 +205,41 @@ body #home button#start{background-image:var(--b3-glass-sheen),linear-gradient(1
 
 /* R09: override the legacy hard-coded shared night image in the actual fallback layer. */
 body[data-screen=host]::before{background-image:var(--page-background)}
+/* B3-R10–R16: presentation only; existing engine, ballots, recap model and assets stay authoritative. */
+/* R10: explicit row boundaries; 34px visible paint inside non-overlapping 44px buttons. */
+#host .judge-content{display:flex;flex-direction:column;align-items:stretch;gap:3px}
+#host .judge-content>:is(#hint,#gestureResult,#selection,#exileVoteResult,#voteUpdateToast){flex:0 0 auto;width:100%}
+#host .operation-row{display:flex;align-items:center;flex-wrap:wrap;gap:0 6px;min-width:0;flex:none}
+#host .operation-row:empty{display:none}
+#host .operation-row button{position:relative;isolation:isolate;flex:none;min-width:44px;min-height:44px;margin:0;padding:5px 9px;border:0;background:none;box-shadow:none;color:var(--b3-text);line-height:24px}
+#host .operation-row button::before{content:'';position:absolute;inset:5px 0;border:1px solid var(--b3-edge);border-radius:inherit;background:var(--b3-glass-sheen),var(--b3-glass-seat);box-shadow:var(--b3-inner);pointer-events:none;z-index:-1}
+#host .operation-row button[aria-pressed=true]{background:none;box-shadow:none}
+#host .operation-row button[aria-pressed=true]::before{border-color:var(--b3-primary);background:rgb(178 219 229 / .18);box-shadow:inset 0 0 0 1px rgb(178 219 229 / .2)}
+/* R11: candidate/withdrawn identity remains visible beneath the stronger selection ring. */
+#host :is(#left,#right) .seat.candidate::before{content:'';position:absolute;top:3px;right:3px;width:10px;height:10px;background:var(--b3-primary);clip-path:polygon(0 0,100% 0,100% 100%);pointer-events:none}
+#host #right .seat.candidate::before{right:auto;left:3px;transform:scaleX(-1)}
+#host :is(#left,#right) .seat.withdrawn{border-color:#698899;box-shadow:inset 0 0 0 1px rgb(105 136 153 / .08)}
+#host :is(#left,#right) .seat:is(.selected,.target,.vote-selected){border:2px solid var(--b3-primary);outline:0;box-shadow:inset 0 0 0 1px rgb(178 219 229 / .22)}
+/* R12: shared visual language, keeping each editor's existing structure and actions. */
+:is(#voteDialog,#exileVoteDialog){--gold:var(--b3-primary);--purple:var(--b3-panel);--ink:var(--b3-text);--muted:var(--b3-text-secondary);--line:var(--b3-edge)}
+:is(#voteDialog,#exileVoteDialog) button{color:var(--b3-text);border-color:var(--b3-edge);background:var(--b3-glass-sheen),rgb(27 49 66 / .65);box-shadow:var(--b3-inner)}
+:is(#voteDialog,#exileVoteDialog) :is(.vote-step,.vote-step-info){border-color:var(--b3-edge);color:var(--b3-text)}
+:is(#voteDialog,#exileVoteDialog) .vote-modes button[aria-pressed=true]{border-color:var(--b3-primary);background:rgb(178 219 229 / .18);box-shadow:inset 0 0 0 1px rgb(178 219 229 / .15)}
+#voteDialog #voteVoters button.ballot-selected{border-color:var(--b3-primary);background:rgb(178 219 229 / .13);box-shadow:inset 0 0 0 1px rgb(178 219 229 / .15)}
+#voteDialog #voteVoters button.ballot-selected::after{border-color:var(--b3-primary)}
+:is(#voteDialog,#exileVoteDialog) :is(#voteDone,#voteNext,#exileVoteDone,#exileNext){background:var(--b3-glass-sheen),rgb(178 219 229 / .7);border-color:var(--b3-primary);color:var(--b3-on-primary)}
+/* R13: only background paint and camp text; preserve borders, fused art and timeline. */
+#finished :is(.recap-event,.final-identity-card){background:linear-gradient(120deg,rgb(178 219 229 / .035),transparent 65%),rgb(27 49 66 / .65)}
+#finished :is(.recap-person,.final-identity-card).wolf{color:var(--wolf)}
+#finished :is(.recap-person,.final-identity-card).god{color:var(--god)}
+#finished :is(.recap-person,.final-identity-card).villager{color:var(--civil)}
+/* R14: limit warning semantics to destructive confirmations, not ordinary navigation. */
+:is(#resetCancel,#finishCancel,#voteClearCancel,#voteAbandonCancel,#exileClearCancel,#exileAbandonCancel){background:var(--b3-glass-sheen),rgb(178 219 229 / .7);border-color:var(--b3-primary);color:var(--b3-on-primary);box-shadow:var(--b3-glass-edge)}
+:is(#resetConfirm,#finishConfirm,#voteClearConfirm,#voteAbandonConfirm,#exileClearConfirm,#exileAbandonConfirm){background:var(--b3-glass-sheen),rgb(145 95 113 / .46);border-color:#C09AA7;color:#F4E8ED;box-shadow:var(--b3-glass-edge)}
+/* R15: scoped fill only. Two uniform fills compose to 61.72%, before sheen/backdrop. */
+body #boards .board-window{background-color:rgb(27 49 66 / .42);background-image:linear-gradient(130deg,rgb(178 219 229 / .035),transparent 70%);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+body #boards #boardChoices button{background-color:rgb(27 49 66 / .34);background-image:var(--b3-glass-sheen);color:var(--b3-text);text-shadow:0 1px 4px #13212d;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
+ body #boards .board-window{background-color:rgb(19 36 52 / .78)}
+ body #boards #boardChoices button{background-color:rgb(19 36 52 / .60)}
+}

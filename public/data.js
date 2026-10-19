@@ -84,3 +84,20 @@ for(const count of [10,12]){const id='fragrance'+count;BOARDS[id]={id,name:count
 for(const [id,role] of Object.entries(ROLE_DATA))role.thumbnail='art/thumbs/'+id+'.webp';
 
 export const HOST_BACKGROUNDS={day:'art/backgrounds/host-day.png',night:'art/backgrounds/host-night.png'};
+
+// B3-R16: display labels only. IDs, role data and rules remain the original objects.
+const R16_BOARD_NAMES={
+ '10':'黑狼王 / 魔術師','12':'黑狼王 / 魔術師',
+ kingGuard10:'黑狼王 / 守衛',kingGuard12:'黑狼王 / 守衛',
+ kingDream10:'黑狼王 / 攝夢人',kingDream12:'黑狼王 / 攝夢人',
+ evilKnight10:'惡靈騎士 / 守衛',evilKnight12:'惡靈騎士 / 守衛',
+ blood10:'血月 / 獵魔人',blood12:'血月 / 獵魔人',
+ nightmare10:'夢魘 / 攝夢人',nightmare12:'夢魘 / 攝夢人',
+ mechanical10:'機械狼 / 通靈師',mechanical12:'機械狼 / 通靈師',
+ gargoyle10:'覺醒石像鬼 / 守墓人',gargoyle12:'覺醒石像鬼 / 守墓人',
+ brothers12:'狼兄狼弟 / 黑市商人'
+};
+for(const [id,label]of Object.entries(R16_BOARD_NAMES)){
+ const board=BOARDS[id];board.shortLabel=label;
+ board.name=board.canonicalName=board.playerCount+'人 '+label;
+}
