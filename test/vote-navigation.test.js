@@ -16,13 +16,13 @@ const ready=(step='sheriffVote')=>{
 test('vote navigation: first sheriff shows each candidate and only eligible voters',()=>{
  const s=ready(),draft=createVoteDraft(s);
  assert.deepEqual(voteEligibility(s).voters,[4,6,8,9,10,11,12]);
- assert.deepEqual(voteSequence(draft,'batch'),[1,3,'abstain']);
+ assert.deepEqual(voteSequence(draft,'batch'),[1,3]);
  assert.deepEqual(voteSequence(draft,'individual'),[4,6,8,9,10,11,12]);
  setBallot(draft,4,1);setBallot(draft,6,1);setBallot(draft,8,3);
  assert.deepEqual(tallyVotes(draft).groups.map(({target,voters})=>({target,voters})),[
   {target:1,voters:[4,6]},{target:3,voters:[8]}
  ]);
- assert.deepEqual(voteSequence(draft,'batch'),[1,3,'abstain']);
+ assert.deepEqual(voteSequence(draft,'batch'),[1,3]);
  assert.deepEqual(voteSequence(draft,'individual'),[4,6,8,9,10,11,12]);
  assert.deepEqual(s.votePatterns,[]);
  assert.equal(submitVote(s,draft).ok,true);
@@ -31,7 +31,7 @@ test('vote navigation: first sheriff shows each candidate and only eligible vote
 
 test('both layouts share a ballot, switching assignment replaces rather than double-counts',()=>{
  const draft=createVoteDraft(ready('exileVote'));
- assert.deepEqual(voteSequence(draft,'batch'),[1,2,3,4,5,6,7,8,9,10,11,12,'abstain']);
+ assert.deepEqual(voteSequence(draft,'batch'),[1,2,3,4,5,6,7,8,9,10,11,12]);
  assert.deepEqual(voteSequence(draft,'individual'),[1,2,3,4,5,6,7,8,9,10,11,12]);
  setBallot(draft,4,1);setBallot(draft,4,3);setBallot(draft,6,3);
  assert.equal(tallyVotes(draft).groups[0].votes,2);
@@ -44,7 +44,7 @@ test('both layouts share a ballot, switching assignment replaces rather than dou
 test('all four formal voting stages use one-at-a-time navigation and current eligibility',()=>{
  for(const stage of ['sheriffVote','sheriffRevote','exileVote','exileRevote']){
   const s=ready(stage),d=createVoteDraft(s),batch=voteSequence(d,'batch'),individual=voteSequence(d,'individual');
-  assert.deepEqual(batch,[...d.targets,'abstain']);
+  assert.deepEqual(batch,[...d.targets]);
   assert.deepEqual(individual,d.voters);
   if(stage.endsWith('Revote'))assert.equal(individual.includes(1)||individual.includes(3),false);
   if(stage==='sheriffVote')assert.deepEqual(individual,[4,6,8,9,10,11,12]);

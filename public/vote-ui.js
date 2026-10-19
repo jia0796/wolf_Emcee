@@ -1,7 +1,27 @@
 import {voteRound,createVoteDraft,submitVote,abandonVote,setBallot,tallyVotes,voteGroups,saveVoteDraft,voteEligibility,validVoteCount,voteResultCard,voteRecapMismatch} from './votes.js';
 
 // Both layouts edit the same per-voter ballot draft; changing views never changes the vote rules.
-export const voteSequence=(round,mode)=>mode==='individual'?[...round.voters]:[...round.targets,'abstain'];
+export const voteSequence=(round,mode)=>mode==='individual'?[...round.voters]:[...round.targets];
+
+// Presentation shorthand for leaving eligible voters unassigned in either layout.
+// The original submitVote still validates eligibility, weighting and empty results.
+export function completeVoteDraft(draft){
+ const submission=structuredClone(draft);
+ for(const voter of submission.voters)if(!submission.targets.includes(submission.ballots[voter]))setBallot(submission,voter,'abstain');
+ return submission;
+}
+
+// Pure UI navigation: select -> next missing ballot in forward/wrap order.
+// Cancelling a choice stays put; recorded abstentions are not missing ballots.
+export function selectIndividualVote(draft,index,target){
+ const voter=draft.voters[index];
+ if(!draft.targets.includes(target)||!setBallot(draft,voter,target,true)||draft.ballots[voter]!==target)return index;
+ for(let offset=1;offset<draft.voters.length;offset++){
+  const next=(index+offset)%draft.voters.length,ballot=draft.ballots[draft.voters[next]];
+  if(!draft.targets.includes(ballot)&&ballot!=='abstain')return next;
+ }
+ return index;
+}
 
 export function createVoteDialog({getGame,save,render}){
  const $=id=>document.getElementById(id),dialog=$('voteDialog'),ordinary=createExileVoteEditor({getGame,save,render});
@@ -29,7 +49,7 @@ export function createVoteDialog({getGame,save,render}){
   $('voteStepCount').textContent=steps.length?(index+1)+'／'+steps.length:'0／0';
   $('voteStepHint').textContent=mode==='batch'
    ?current==='abstain'?'選取棄票的玩家；再次點選可取消。':'點選投給 '+label(current)+' 的玩家，可複選；再次點選可取消。'
-   :'點選 '+label(current)+' 的投票對象；一次只能投一位，再次點選可取消。';
+   :'選中後自動前往下一位未投票者；取消時停留。未選票按下一位記為棄票。';
   $('votePrevious').disabled=index===0||!steps.length;
   $('voteNext').disabled=index>=steps.length-1||!steps.length;
   const voters=$('voteVoters');voters.replaceChildren();
@@ -46,13 +66,13 @@ export function createVoteDialog({getGame,save,render}){
    }
   }else if(mode==='individual'&&current!==null){
    const ballot=round.ballots[current];
-   for(const choice of [...round.targets,'abstain']){
+   for(const choice of round.targets){
     const button=document.createElement('button');button.type='button';button.dataset.choice=String(choice);
     button.textContent=label(choice);
     button.setAttribute('aria-label',current+'號投給'+label(choice));
     button.setAttribute('aria-pressed',String(ballot===choice));
     button.classList.toggle('ballot-selected',ballot===choice);
-    button.onclick=()=>{setBallot(round,current,choice,true);changed();};
+    button.onclick=()=>{const next=selectIndividualVote(round,index,choice);indexes.individual=next;notice='';paint({resetScroll:next!==index});};
     voters.append(button);
    }
   }
@@ -67,7 +87,8 @@ export function createVoteDialog({getGame,save,render}){
   $('voteScroll').scrollTop=resetScroll?0:scroll;
  }
  function step(delta){
-  const steps=voteSequence(draft,mode);
+  const steps=voteSequence(draft,mode),current=steps[indexes[mode]];
+  if(mode==='individual'&&delta>0&&indexes[mode]<steps.length-1&&current!=null&&!draft.targets.includes(draft.ballots[current]))setBallot(draft,current,'abstain');
   indexes[mode]=Math.max(0,Math.min(steps.length-1,indexes[mode]+delta));
   paint({resetScroll:true});
  }
@@ -83,7 +104,11 @@ export function createVoteDialog({getGame,save,render}){
  }
  $('voteClose').onclick=()=>dialog.close();
  dialog.addEventListener('close',()=>{draft=null;});
- $('voteDone').onclick=()=>commit(game=>submitVote(game,draft));
+ $('voteDone').onclick=()=>commit(game=>{
+  // UI shorthand for the removed abstention controls; engine validation stays authoritative.
+  // Work on a copy so a rejected empty tally cannot change the editing draft.
+  return submitVote(game,completeVoteDraft(draft));
+ });
  $('voteClear').onclick=()=>$('voteClearDialog').showModal();
  $('voteClearCancel').onclick=()=>$('voteClearDialog').close();
  $('voteClearConfirm').onclick=()=>{draft.ballots={};$('voteClearDialog').close();changed();};
@@ -99,7 +124,7 @@ export function createVoteDialog({getGame,save,render}){
  }};
 }
 
-// Ordinary exile only. The three election/PK screens above retain their controls.
+// Ordinary exile retains its independent dual-zone layout; all editors use the original vote engine.
 function createExileVoteEditor({getGame,save,render}){
  const $=id=>document.getElementById(id),dialog=$('exileVoteDialog'),list=$('exileVoters'),candidates=$('exileCandidateGrid'),picker=$('exileTargetPicker');
  let owner=null,key=null,draft=null,mode='batch',target=null,voter=null,scrolls={batch:0,individual:0,candidates:0},painting=false,scrollTimer=null,clearStep=0,toastTimer=null,expansion=true,resultOwner=null,resultKey=null;
@@ -130,13 +155,13 @@ function createExileVoteEditor({getGame,save,render}){
   dialog.dataset.mode=mode;$('exileBatch').setAttribute('aria-pressed',String(mode==='batch'));$('exileIndividual').setAttribute('aria-pressed',String(mode==='individual'));
   candidates.hidden=mode!=='batch';$('exileTargetSection').hidden=mode!=='batch';$('exileIndividualStep').hidden=mode!=='individual';
   $('exileVotersTitle').textContent=mode==='batch'?'② 勾選投票者':'選擇投票對象';
-  $('exileTargetHint').textContent=mode==='batch'?(target===null?'先在上方選擇得票對象，再勾選投票者。':'勾選投給 '+target+' 號的人，可複選；再次點選可取消。'):'點選要投給的玩家；未選票按下一位記為棄票。';$('exileIndividualNavigation').hidden=mode!=='individual';candidates.replaceChildren();
+  $('exileTargetHint').textContent=mode==='batch'?(target===null?'先在上方選擇得票對象，再勾選投票者。':'勾選投給 '+target+' 號的人，可複選；再次點選可取消。'):'選中後自動前往下一位未投票者；取消時停留。未選票按下一位記為棄票。';$('exileIndividualNavigation').hidden=mode!=='individual';candidates.replaceChildren();
   const tally=tallyVotes(draft),counts=new Map(tally.groups.map(g=>[g.target,g.votes]));
   const selected=$('exileTargetSummary'),name=document.createElement('span'),count=document.createElement('small');name.textContent=target===null?'無合法得票對象':target+'號';badge(name,target);count.textContent=(counts.get(target)||0)+'票';selected.replaceChildren(name,count);if(mode!=='batch')picker.open=false;
   for(const id of draft.targets){const button=document.createElement('button'),name=document.createElement('span'),count=document.createElement('small');button.type='button';button.dataset.candidate=String(id);name.textContent=id+'號';badge(name,id);count.textContent=(counts.get(id)||0)+'票';button.append(name,count);button.setAttribute('aria-pressed',String(id===target));button.setAttribute('aria-label',id+'號候選人，'+count.textContent);button.onclick=()=>{if(target===id){picker.open=false;selected.focus({preventScroll:true});return;}capture();target=id;paint({reset:true});picker.open=false;store();selected.focus({preventScroll:true});};candidates.append(button);}
   list.replaceChildren();list.className=mode==='batch'?'exile-voters':'exile-voters exile-choices';list.setAttribute('aria-label',mode==='batch'?'投票者列表':'投票對象');
   if(mode==='batch')for(const id of draft.voters){const button=document.createElement('button'),name=document.createElement('span'),status=document.createElement('small'),ballot=draft.ballots[id];button.type='button';button.dataset.voter=String(id);name.textContent=id+'號';badge(name,id);status.textContent=draft.targets.includes(ballot)?'投'+ballot+'號':ballot==='abstain'?'棄票':'未紀錄';button.append(name,status);button.classList.toggle('ballot-selected',ballot===target&&target!==null);button.classList.toggle('ballot-other',draft.targets.includes(ballot)&&ballot!==target);button.setAttribute('aria-label',id+'號投票者，'+status.textContent);button.setAttribute('aria-pressed',String(ballot===target&&target!==null));button.disabled=target===null;button.onclick=()=>{setBallot(draft,id,target,true);paint();store();animate(id);};list.append(button);}
-  else for(const id of draft.targets){const button=document.createElement('button');button.type='button';button.dataset.choice=String(id);button.textContent=id==='abstain'?'棄票':id+'號';button.setAttribute('aria-pressed',String(draft.ballots[voter]===id));button.classList.toggle('ballot-selected',draft.ballots[voter]===id);button.disabled=voter===null;button.onclick=()=>{setBallot(draft,voter,id,true);paint();store();animate(null,id);};list.append(button);}
+  else for(const id of draft.targets){const button=document.createElement('button');button.type='button';button.dataset.choice=String(id);button.textContent=id==='abstain'?'棄票':id+'號';button.setAttribute('aria-pressed',String(draft.ballots[voter]===id));button.classList.toggle('ballot-selected',draft.ballots[voter]===id);button.disabled=voter===null;button.onclick=()=>{capture();const index=draft.voters.indexOf(voter),next=selectIndividualVote(draft,index,id);voter=draft.voters[next]??null;paint({reset:next!==index});store();if(next===index)animate(null,id);};list.append(button);}
   const index=draft.voters.indexOf(voter);$('exileCurrentVoter').replaceChildren(document.createTextNode(voter===null?'無合法投票者':voter+'號'));badge($('exileCurrentVoter'),voter);$('exilePrevious').disabled=index<=0;$('exileNext').disabled=index<0||index>=draft.voters.length-1;
   $('exileProgress').textContent='已紀錄 '+validVoteCount(draft)+'/'+draft.voters.length+' 人';$('exileAbandon').hidden=!voteRound(owner)?.submitted;
   if(focus)list.querySelector('[data-'+focus[0]+'="'+focus[1]+'"]')?.focus({preventScroll:true});
