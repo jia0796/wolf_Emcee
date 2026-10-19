@@ -67,5 +67,5 @@ export function installB3ScrollHints(){
  }
  const mutation=new MutationObserver(records=>{if(records.some(r=>!r.target.classList?.contains('b3-scroll-hint')&&(r.type!=='childList'||[...r.addedNodes,...r.removedNodes].some(n=>!n.classList?.contains('b3-scroll-hint')))))schedule();});
  mutation.observe(document.body,{subtree:true,childList:true,attributes:true,attributeFilter:['hidden','open','class','inert','aria-hidden','data-screen']});
- document.addEventListener('scroll',schedule,{capture:true,passive:true});document.addEventListener('load',schedule,true);document.addEventListener('visibilitychange',schedule);window.addEventListener('resize',schedule);window.visualViewport?.addEventListener('resize',schedule);schedule();
+ document.addEventListener('scroll',schedule,{capture:true,passive:true});document.addEventListener('load',schedule,true);document.addEventListener('transitionend',schedule,true);window.addEventListener('pageshow',schedule);document.addEventListener('visibilitychange',schedule);window.addEventListener('resize',schedule);window.visualViewport?.addEventListener('resize',schedule);schedule();
 }

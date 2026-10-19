@@ -19,7 +19,7 @@ function persist(){if(!game)return false;try{localStorage.setItem(KEY,JSON.strin
 function cacheForeground(){navigator.serviceWorker?.controller?.postMessage({type:'SET_FOREGROUND',busy:['host','encyclopedia','finished'].includes(screen)});}
 function show(name){const entering=screen!==name;screen=name;for(const id of ['home','counts','boards','setup','encyclopedia','host','finished'])$(id).hidden=id!==name;document.body.dataset.screen=name;backdrop.setScreen(name,name==='host'&&game?phaseOf(game):null);document.body.style.setProperty('--page-background',PAGE_BACKGROUNDS[name]?`url('${PAGE_BACKGROUNDS[name]}')`:'none');if(entering){cacheForeground();for(const e of [$(name),...$(name).querySelectorAll('.board-window,.setup-content,.library,.preview-back,#nightRecap')])e.scrollTop=0;}try{sessionStorage.setItem(KEY+'-screen',name==='encyclopedia'&&libraryOrigin==='host'?'host':name);}catch{}}
 function rulesText(b,r){return b.name+'\n警長：'+(r.sheriff?'開':'關')+'\n女巫自救：'+(r.selfRescue?'允許':'不允許')+'\n狼人勝利條件：'+(r.victory==='edge'?'屠邊':'屠城')+'\n'+(b.swallowThreshold===2?'雙爆':'單爆')+'吞警徽：'+(r.swallow?'啟用':'不啟用')+(b.roles.beauty?'\n女巫毒殺觸發殉情：'+(r.poisonRomance?'開':'關')+'\n最後一狼可殉情：'+(r.lastWolfRomance?'開':'關'):'')+(b.roles.mechanical?'\n學狼人：'+(r.mechanicalKnife==='next'?'下一晚可刀':'狼全死才有雙刀')+'\n機械守衛守護規則：'+((r.shieldMode||'once')==='once'?'只能使用一次':'成功守護一次後失效')+'\n機械守衛反彈毒藥：'+(r.reflectPoison?'開':'關'):'')+(b.roles.idiot?'\n白痴追刀：'+(r.idiotChase?'開啟':'關閉'):'')+(b.id==='evilKnight12'?'\n免疫獵人夜槍：'+(r.immuneNightGun?'開啟':'關閉'):'');}
-const backdrop=createB3Backdrop();
+const backdrop=createB3Backdrop(),recapTitle=document.querySelector('#finished .recap-title');
 installB3ScrollHints();
 const voteDialog=createVoteDialog({getGame:()=>game,save:persist,render});
 const OP_LABEL={learnTarget:'學習身分',extraAttack:'額外狼刀',mechanicalInspect:'查驗',mechanicalPoison:'一次性毒藥',shield:'無敵盾'};
@@ -164,7 +164,7 @@ function renderFinished(){
  $('identityCards').replaceChildren();for(const p of game.players.filter(p=>p.active)){const card=document.createElement('article');card.className='identity-card '+(realWolf(game,p)?'wolf':ROLE_DATA[p.role]?.kind);const img=document.createElement('img');img.src=ROLE_DATA[p.role].image;img.alt='';const text=document.createElement('p');text.textContent=p.id+'號｜'+roleName(game,p)+(infected(game,p)?'｜第'+game.infection.usedNight+'晚感染成功｜狼人陣營｜'+(game.winner==='狼人陣營'?'勝利':'失敗'):game.infection.target===p.id&&game.infection.result?'｜第'+game.infection.usedNight+'晚感染失敗':'');card.append(img,text);$('identityCards').append(card);}
  persist();show('finished');$('finished').className='finished-screen '+(game.winner==='狼人陣營'?'wolves-win':'good-win');$('winnerTitle').textContent=game.winner+'獲勝';$('winnerReason').textContent='勝利原因：'+(game.winnerReason||winnerReason(game));const result=mixedResult(game),mixed=game.players.find(p=>p.role==='mixed');$('mixedOutcome').hidden=!boardOf(game).roles.mixed;
  $('mixedOutcome').hidden=true;$('mixedOutcome').textContent='';$('identityOpen').hidden=true;document.querySelector('#finished > .victory').hidden=true;
- const recap=$('nightRecap');renderRecap(recap,game,persist);if(!wasFinished)recap.scrollTop=0;
+ const recap=$('nightRecap');renderRecap(recap,game,persist);recap.insertBefore(recapTitle,recap.children[1]||null);if(!wasFinished)recap.scrollTop=0;
 }
 function render(){
  if(!game){show('home');return;}if(game.step==='finished'){timerStop();renderFinished();return;}persist();show('host');const s=game.step;

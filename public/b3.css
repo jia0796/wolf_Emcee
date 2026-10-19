@@ -105,3 +105,45 @@ button:active:not(:disabled):not(:is(.seat,.preview-card,dialog *,#actions *)){b
 .b3-scroll-hint{position:fixed;pointer-events:none!important;z-index:20;background:linear-gradient(transparent,rgb(178 219 229 / .23));border-radius:0 0 var(--b3-radius-sm) var(--b3-radius-sm)}
 @media(prefers-reduced-motion:reduce){button:not(:is(.seat,.preview-card)),.preview-inner{transition:none!important}button:active:not(:disabled):not(:is(.seat,.preview-card)){transform:none;filter:none}}
 @supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.board-window,.setup-grid section,.rules-form,.night-order,.role-card,dialog:not(#rolePreview){background-color:var(--b3-panel-deep)}}
+
+/* B3 C23–C27: existing event/identity models, with illustrations fused into card backgrounds. */
+#finished{--b3-victory-glow:rgb(232 208 155 / .15);padding-bottom:calc(80px + var(--safe-bottom))}
+#finished.wolves-win{--b3-victory-glow:rgb(240 163 176 / .18)}
+#finished .recap-victory{background:radial-gradient(ellipse at top,var(--b3-victory-glow),transparent 75%),var(--b3-panel-deep);border:1px solid var(--b3-edge);box-shadow:var(--b3-inner);border-radius:var(--b3-radius-lg);color:var(--b3-text)}
+#finished .recap-victory h3{color:var(--b3-text);font-weight:600;letter-spacing:.15em}
+#finished .recap-victory p{color:var(--b3-text-secondary)}
+.recap-section-title{color:var(--b3-text);overflow-wrap:anywhere}
+.recap-segment{position:relative;padding-left:20px}
+.recap-segment::before{content:'';position:absolute;left:6px;top:20px;bottom:-20px;width:1px;background:linear-gradient(var(--b3-edge),rgb(130 171 189 / .2));pointer-events:none}
+.recap-segment::after{content:'';position:absolute;left:2px;top:19px;width:10px;height:10px;border-radius:50%;background:radial-gradient(circle at 70% 30%,transparent 42%,var(--b3-primary) 46%);pointer-events:none}
+.recap-segment.day::after{background:var(--b3-god);outline:1px dashed var(--b3-god);outline-offset:2px}
+.recap-event:not(.single-event){grid-template-columns:minmax(0,1fr) minmax(34px,.44fr) minmax(0,1fr)}
+.recap-event{position:relative;isolation:isolate;gap:6px;min-height:112px;background:linear-gradient(110deg,rgb(130 171 189 / .08),transparent 50%,rgb(130 171 189 / .08)),var(--b3-panel-deep);color:var(--b3-text);border:1px solid var(--b3-edge);border-radius:var(--b3-radius-lg);box-shadow:var(--b3-inner);backdrop-filter:blur(var(--b3-blur));-webkit-backdrop-filter:blur(var(--b3-blur))}
+.recap-event::after{content:none}
+.recap-event>.recap-image{position:absolute;inset:0 auto 0 0;width:44%;height:100%;margin:0;z-index:0;opacity:.36;pointer-events:none;mask-image:linear-gradient(to right,#000,transparent);-webkit-mask-image:linear-gradient(to right,#000,transparent)}
+.recap-event>.recap-image:not(:first-child){left:auto;right:0;mask-image:linear-gradient(to left,#000,transparent);-webkit-mask-image:linear-gradient(to left,#000,transparent)}
+.recap-event .recap-portrait{height:100%;width:100%;max-height:none;object-fit:cover;aspect-ratio:auto}
+.recap-event>.recap-person,.recap-effect,.recap-event-label,.recap-arrow,.recap-no-target,.badge-destroyed{position:relative;z-index:1;overflow-wrap:anywhere;text-shadow:0 1px 4px #13212d}
+.recap-event>.recap-person:nth-child(2){grid-column:1;grid-row:1}
+.recap-event>.recap-person:nth-child(4){grid-column:3;grid-row:1}
+.recap-effect{grid-column:2;grid-row:1}
+.recap-outcome{color:var(--b3-text-secondary)}
+.recap-double-targets{grid-column:3;grid-row:1;gap:4px;position:relative;z-index:1}
+.recap-target-row{position:relative;isolation:isolate;grid-template-columns:minmax(0,1fr);min-height:80px;padding:4px}
+.recap-target-row .recap-image{position:absolute;inset:0 -12px 0 -7px;width:calc(100% + 19px);height:100%;z-index:-1;opacity:.36;pointer-events:none;mask-image:linear-gradient(to left,#000,transparent);-webkit-mask-image:linear-gradient(to left,#000,transparent)}
+.recap-no-target{grid-column:3;grid-row:1}
+.recap-event.single-event{grid-template-columns:minmax(0,1fr) minmax(20px,.3fr) minmax(0,1fr)}
+.single-event>.recap-arrow{grid-column:2;grid-row:1}.single-event>.recap-event-label{grid-column:3;grid-row:1}
+.recap-event>.badge-destroyed{grid-column:3;grid-row:1}.recap-event:not(.single-event)>.recap-event-label{grid-column:3;grid-row:2}
+.recap-event:has(.pk-result){display:block;min-height:0}
+.night-result{background:var(--b3-panel-deep);border-color:var(--b3-edge);color:var(--b3-text-secondary);box-shadow:var(--b3-inner)}
+.final-identity-card{position:relative;isolation:isolate;overflow:hidden;grid-template-columns:minmax(0,.8fr) minmax(0,1fr);min-height:106px;background:var(--b3-panel-deep);border-color:var(--b3-edge);box-shadow:var(--b3-inner);border-radius:var(--b3-radius-md)}
+.final-identity-card>.recap-image{position:absolute;inset:0 auto 0 0;width:54%;height:100%;opacity:.5;z-index:0;pointer-events:none;mask-image:linear-gradient(to right,#000 35%,transparent);-webkit-mask-image:linear-gradient(to right,#000 35%,transparent)}
+.final-identity-card .recap-portrait{width:100%;height:100%;max-height:none;object-fit:cover}
+.final-identity-card>.recap-person{grid-column:2;position:relative;z-index:1;overflow-wrap:anywhere}
+.identity-status,.identity-original{color:var(--b3-text-secondary)}
+.finish-actions{background:rgb(19 33 45 / .84);border-color:var(--b3-edge);padding-bottom:calc(14px + var(--safe-bottom));backdrop-filter:blur(var(--b3-blur));-webkit-backdrop-filter:blur(var(--b3-blur))}
+.finish-actions #playAgain,.finish-actions #finishHome{background:var(--b3-panel-deep);color:var(--b3-text);box-shadow:var(--b3-inner);text-shadow:none}
+.finish-actions #playAgain{border-color:var(--b3-primary);box-shadow:var(--b3-inner),inset 0 0 0 1px rgb(178 219 229 / .24)}
+@media(max-width:360px){.recap-segment{padding-left:15px}.recap-segment::before{left:4px}.recap-segment::after{left:0}.recap-event{gap:4px;padding:10px 6px}}
+@supports not ((mask-image:linear-gradient(#000,transparent)) or (-webkit-mask-image:linear-gradient(#000,transparent))){.recap-event>.recap-image,.recap-target-row .recap-image{opacity:.18}.final-identity-card>.recap-image{opacity:.24}}
