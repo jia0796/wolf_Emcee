@@ -68,3 +68,40 @@ button:disabled{opacity:.45}
  #host .seat,#host .host-center,button:not(:where(dialog *,.seat,.preview-card,.role-card,#actions *)){background-color:var(--b3-panel-deep)}
  #host>nav #next,button.primary:not(:where(dialog *,#actions *)){background:var(--b3-primary)}
 }
+
+/* B3 C10/C19–C22: reuse each page's original controls and information order. */
+.home-brand{background:radial-gradient(ellipse, rgb(178 219 229 / .12),transparent 70%);border-radius:50%;text-shadow:0 2px 12px #13212d}
+.home-brand h1{font-family:inherit;font-size:clamp(2.25rem,7.4vw,3.5rem);font-weight:700;line-height:1.15;color:var(--b3-text);letter-spacing:.13em}
+.home-brand p{color:var(--b3-text-secondary);font-size:clamp(.875rem,2.1vw,1.125rem);letter-spacing:.18em}
+.welcome .menu button{background:linear-gradient(135deg,rgb(178 219 229 / .09),transparent 65%),var(--b3-panel);border-color:var(--b3-edge);box-shadow:var(--b3-inner);color:var(--b3-text);border-radius:var(--b3-radius-xl)}
+.welcome .menu button.primary{background:var(--b3-primary);color:var(--b3-on-primary);border-color:var(--b3-primary)}
+.problem-report{color:var(--b3-text-secondary);min-height:44px}
+.count-choices button,#boardChoices button{background:linear-gradient(125deg,rgb(178 219 229 / .13),transparent 62%),var(--b3-panel);border-color:var(--b3-edge);box-shadow:var(--b3-inner);color:var(--b3-text);backdrop-filter:blur(var(--b3-blur));-webkit-backdrop-filter:blur(var(--b3-blur))}
+.count-choices button::after,#boardChoices button::after{color:var(--b3-primary)}
+.board-window{background:var(--b3-panel);border-color:var(--b3-edge);box-shadow:var(--b3-inner);backdrop-filter:blur(var(--b3-blur));-webkit-backdrop-filter:blur(var(--b3-blur))}
+.board-tabs button[aria-pressed=true],.library-tabs button[aria-pressed=true]{border-color:var(--b3-primary);box-shadow:var(--b3-inner),inset 0 0 0 1px var(--b3-primary);background:var(--b3-panel-deep)}
+.board-tabs button[aria-pressed=true]{color:var(--b3-primary)}
+.setup-grid section,.rules-form,.night-order{background:var(--b3-panel);border:1px solid var(--b3-edge);border-radius:var(--b3-radius-lg);box-shadow:var(--b3-inner);backdrop-filter:blur(var(--b3-blur));-webkit-backdrop-filter:blur(var(--b3-blur))}
+.setup-grid section:first-child{background:linear-gradient(135deg,rgb(240 163 176 / .12),transparent 68%),var(--b3-panel)}
+.setup-grid section:last-child{background:linear-gradient(135deg,rgb(232 208 155 / .1),rgb(200 219 230 / .06) 75%),var(--b3-panel)}
+.setup-grid section:first-child h2{color:var(--b3-wolf)}
+.setup-grid section:last-child h2{color:var(--b3-god)}
+.setup-grid section{min-width:0;overflow-wrap:anywhere}
+.rules-form label{gap:8px;flex-wrap:wrap}
+.rules-form select{max-width:100%;min-width:0}
+.role-card{background:var(--b3-panel);border:1px solid var(--b3-edge);border-radius:var(--b3-radius-lg);box-shadow:var(--b3-inner);backdrop-filter:blur(var(--b3-blur));-webkit-backdrop-filter:blur(var(--b3-blur))}
+.role-card.wolf{color:var(--b3-wolf)}.role-card.god{color:var(--b3-god)}.role-card.villager{color:var(--b3-villager)}
+.preview-card .preview-front,.preview-card .preview-back{background:var(--b3-panel-deep);border:1px solid var(--b3-edge);border-radius:var(--b3-radius-lg);box-shadow:var(--b3-inner)}
+.preview-card .preview-front img{object-fit:contain}
+/* C28: shell only. Vote layouts, semantic colors and timer controls stay intact. */
+dialog:not(#rolePreview){background:linear-gradient(135deg,rgb(178 219 229 / .045),transparent 70%),var(--b3-panel-deep);border-color:var(--b3-edge);border-radius:var(--b3-radius-xl);box-shadow:var(--b3-inner),0 12px 40px rgb(3 14 25 / .35);backdrop-filter:blur(var(--b3-blur));-webkit-backdrop-filter:blur(var(--b3-blur))}
+dialog::backdrop{background:rgb(5 15 27 / .74)}
+dialog:not(:is(#rolePreview,.exile-editor,.vote-dialog)){max-height:calc(var(--app-height,100dvh) - max(12px,var(--safe-top)) - max(12px,var(--safe-bottom)) - 16px);overflow-y:auto}
+/* C29: CSS-only feedback never delays a click or changes selected state. */
+button:not(:is(.seat,.preview-card)){transition:transform .15s ease,box-shadow .15s ease,border-color .15s ease}
+button:active:not(:disabled):not(:is(.seat,.preview-card)){transform:translateY(1px);filter:brightness(1.06)}
+button:active:not(:disabled):not(:is(.seat,.preview-card,dialog *,#actions *)){box-shadow:var(--b3-inner),inset 0 0 10px rgb(178 219 229 / .2)}
+/* C30: fixed to each scrollport's clipped bounds, never in list layout or hit testing. */
+.b3-scroll-hint{position:fixed;pointer-events:none!important;z-index:20;background:linear-gradient(transparent,rgb(178 219 229 / .23));border-radius:0 0 var(--b3-radius-sm) var(--b3-radius-sm)}
+@media(prefers-reduced-motion:reduce){button:not(:is(.seat,.preview-card)),.preview-inner{transition:none!important}button:active:not(:disabled):not(:is(.seat,.preview-card)){transform:none;filter:none}}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.board-window,.setup-grid section,.rules-form,.night-order,.role-card,dialog:not(#rolePreview){background-color:var(--b3-panel-deep)}}

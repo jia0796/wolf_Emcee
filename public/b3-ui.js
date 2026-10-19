@@ -41,3 +41,31 @@ export function createB3Backdrop(){
  load(PAGE_BACKGROUNDS.home,'high').then(()=>{const prepare=()=>load(HOST_BACKGROUNDS.night).then(()=>load(HOST_BACKGROUNDS.day));if('requestIdleCallback'in window)requestIdleCallback(prepare,{timeout:2000});else setTimeout(prepare,0);});
  return {setScreen,script};
 }
+
+// Independent, click-through decorations; no children are added to vote/role lists.
+export function installB3ScrollHints(){
+ const selector='#counts,.board-window,.setup-content,#encyclopedia,#nightRecap,.preview-back,.judge-box,.judge-content,.script-box,.vote-scroll,#exileVoters,#exileCandidateGrid,.exile-header,.exile-footer,dialog:not(#rolePreview)';
+ const pairs=new Map();let frame=null;
+ const schedule=()=>{if(frame===null)frame=requestAnimationFrame(update);};
+ const resize=new ResizeObserver(schedule);
+ function update(){
+  frame=null;
+  for(const [e,hint]of pairs)if(!e.isConnected){resize.unobserve(e);hint.remove();pairs.delete(e);}
+  for(const e of document.querySelectorAll(selector))if(!pairs.has(e)){
+   const hint=document.createElement('span');hint.className='b3-scroll-hint';hint.setAttribute('role','presentation');hint.inert=true;hint.dataset.for=e.id||e.classList[0];hint.hidden=true;(e.closest('dialog')||document.body).append(hint);pairs.set(e,hint);resize.observe(e);
+  }
+  for(const [e,hint]of pairs){
+   let visible=e.getClientRects().length&&!e.closest('[hidden],[inert],[aria-hidden="true"]')&&e.scrollHeight-e.clientHeight-e.scrollTop>2;
+   const r=e.getBoundingClientRect();let left=Math.max(0,r.left+e.clientLeft),right=Math.min(innerWidth,r.left+e.clientLeft+e.clientWidth),top=Math.max(0,r.top+e.clientTop),bottom=Math.min(innerHeight,r.top+e.clientTop+e.clientHeight);
+   for(let parent=e.parentElement;visible&&parent;parent=parent.parentElement){const css=getComputedStyle(parent),box=parent.getBoundingClientRect();if(/auto|scroll|hidden|clip/.test(css.overflowY)){top=Math.max(top,box.top+parent.clientTop);bottom=Math.min(bottom,box.top+parent.clientTop+parent.clientHeight);}if(/auto|scroll|hidden|clip/.test(css.overflowX)){left=Math.max(left,box.left);right=Math.min(right,box.right);}}
+   visible=visible&&right-left>4&&bottom-top>4;hint.hidden=!visible;e.dataset.b3Scroll=visible?'more':'end';
+   if(visible){
+    const owner=hint.closest('dialog'),box=owner?.getBoundingClientRect(),x=owner?left-box.left-owner.clientLeft+owner.scrollLeft:left,y=owner?Math.max(top,bottom-12)-box.top-owner.clientTop+owner.scrollTop:Math.max(top,bottom-12);
+    Object.assign(hint.style,{position:owner?'absolute':'fixed',left:x+'px',top:y+'px',width:(right-left)+'px',height:Math.min(12,bottom-top)+'px'});
+   }
+  }
+ }
+ const mutation=new MutationObserver(records=>{if(records.some(r=>!r.target.classList?.contains('b3-scroll-hint')&&(r.type!=='childList'||[...r.addedNodes,...r.removedNodes].some(n=>!n.classList?.contains('b3-scroll-hint')))))schedule();});
+ mutation.observe(document.body,{subtree:true,childList:true,attributes:true,attributeFilter:['hidden','open','class','inert','aria-hidden','data-screen']});
+ document.addEventListener('scroll',schedule,{capture:true,passive:true});document.addEventListener('load',schedule,true);document.addEventListener('visibilitychange',schedule);window.addEventListener('resize',schedule);window.visualViewport?.addEventListener('resize',schedule);schedule();
+}
