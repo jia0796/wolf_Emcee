@@ -4,6 +4,9 @@ import {PAGE_BACKGROUNDS,HOST_BACKGROUNDS} from './data.js';
 export function backgroundSource(screen,phase){
  return screen==='host'?HOST_BACKGROUNDS[phase==='夜晚'?'night':'day']:PAGE_BACKGROUNDS[screen];
 }
+export function hostPresentation(phase,step,night){
+ const preparing=step==='confirm';return {phase:preparing?'白天':phase,label:'第'+night+'天・'+(preparing?'準備階段':phase),preparing};
+}
 export function createB3Backdrop(){
  const root=document.createElement('div');root.className='b3-backdrop';root.setAttribute('aria-hidden','true');
  const layers=[0,1].map(()=>{const e=document.createElement('div');e.className='b3-scene';root.append(e);return e;});document.body.prepend(root);
@@ -21,9 +24,11 @@ export function createB3Backdrop(){
   if(animate&&!motion.matches){const running=incoming.animate([{opacity:0},{opacity:1}],{duration:1000,easing:'ease-in-out'});animation=running;running.finished.then(()=>{if(animation===running){outgoing.style.opacity='0';animation=null;}}).catch(()=>{});}
   else outgoing.style.opacity='0';
  }
- function setScreen(next,nextPhase){
+ function setScreen(next,nextPhase,{preparing=false}={}){
   const transition=screen==='host'&&next==='host'&&phase!==nextPhase&&!quiet&&!document.hidden;
   quiet=false;if(screen!==next)lastStep=null;screen=next;phase=nextPhase;wanted=backgroundSource(next,nextPhase);const ticket=++epoch;
+  // A fresh/restored confirm screen must never retain a previously painted night.
+  if(preparing&&current===HOST_BACKGROUNDS.night&&!loaded.has(wanted)){cancel();layers.forEach(e=>e.style.opacity='0');current=null;delete root.dataset.source;}
   document.body.dataset.b3Phase=next==='host'?(nextPhase==='夜晚'?'night':'day'):'lobby';
   // Keep the previous usable scene/legacy background while an uncached image loads.
   if(loaded.has(wanted))paint(wanted,transition);
@@ -38,7 +43,7 @@ export function createB3Backdrop(){
  document.addEventListener('visibilitychange',resume);window.addEventListener('pageshow',resume);motion.addEventListener('change',resume);
  window.addEventListener('online',()=>{const src=wanted,ticket=epoch;if(src&&!loaded.has(src))load(src,'high').then(ok=>{if(ok&&ticket===epoch)paint(src,false);});});
  // Lobby starts first; silent host preparation remains optional and never gates show().
- load(PAGE_BACKGROUNDS.home,'high').then(()=>{const prepare=()=>load(HOST_BACKGROUNDS.night).then(()=>load(HOST_BACKGROUNDS.day));if('requestIdleCallback'in window)requestIdleCallback(prepare,{timeout:2000});else setTimeout(prepare,0);});
+ load(PAGE_BACKGROUNDS.home,'high').then(()=>{const prepare=()=>load(HOST_BACKGROUNDS.day).then(()=>load(HOST_BACKGROUNDS.night));if('requestIdleCallback'in window)requestIdleCallback(prepare,{timeout:2000});else setTimeout(prepare,0);});
  return {setScreen,script};
 }
 

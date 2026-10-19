@@ -137,3 +137,68 @@ body .finish-actions #playAgain{box-shadow:var(--b3-glass-edge),inset 0 0 0 1px 
 body :is(.board-tabs button,.library-tabs button)[aria-pressed=true]{box-shadow:var(--b3-glass-edge),inset 0 0 0 1px var(--b3-primary)}
 body :is(.welcome .menu button,.count-choices button,#boardChoices button,#setupStart,#host .host-top button,#host>footer button,#host>nav button,.finish-actions button):active:not(:disabled){box-shadow:inset 0 1px 5px rgb(8 22 35 / .22),inset 0 0 12px rgb(178 219 229 / .18)}
 @media(prefers-contrast:more){body :is(#host>footer button,#host>nav button,.welcome .menu button){border-width:2px;text-shadow:none}}
+
+/* B3-R01–R09: approved second-round refinements; game handlers and data are untouched. */
+:root{--b3-glass-home:rgb(27 49 66 / .20);--b3-glass-seat:rgb(27 49 66 / .48);--b3-glass-info:rgb(19 36 52 / .68);--b3-glass-recap:rgb(27 49 66 / .65)}
+/* R01: one scrolling surface, one inline skill/actions row; results follow underneath. */
+#host .judge-box{background:transparent;border:0;border-radius:0;padding:0;box-shadow:none;overflow:auto}
+#host .judge-content{display:flex;align-items:center;align-content:flex-start;flex-wrap:wrap;gap:4px 6px;overflow:visible;flex:1 0 auto;min-height:44px}
+#host :is(#operationCard,.operation-control,#actions){display:contents}
+#host :is(#hint,#gestureResult,#selection,#exileVoteResult,#voteUpdateToast){flex:0 0 100%;min-width:0;margin:0}
+#host #hint{padding-bottom:2px}
+#host .judge-box button{min-height:44px;min-width:44px;padding:5px 9px;font-size:12px;background:var(--b3-glass-seat);border:1px solid var(--b3-edge);color:var(--b3-text);box-shadow:var(--b3-inner)}
+#host .judge-box button[aria-pressed=true]{border-color:var(--b3-primary);background:rgb(178 219 229 / .18);box-shadow:inset 0 0 0 1px rgb(178 219 229 / .2)}
+#host .operation-control>span{font-size:12px;color:var(--b3-text-secondary)}
+#host #knifeToggle{margin-left:0!important;float:none!important}
+#host .judge-box .skill-icon{flex:none}
+/* R02: state values and priority remain in render(); no thick secondary outline. */
+#host :is(#left,#right) .seat:is(.candidate,.withdrawn,.vote-selected){border-width:1px;box-shadow:var(--b3-inner)}
+#host :is(#left,#right) .seat.candidate{border-color:var(--b3-primary)}
+#host :is(#left,#right) .seat.withdrawn{border-color:#8CBACB}
+#host :is(#left,#right) .seat.vote-selected{border-color:#d7eff4;outline:0;box-shadow:inset 0 0 0 1px rgb(178 219 229 / .1)}
+#host .seat:is(.candidate,.withdrawn,.vote-selected) .seat-tags span{color:var(--b3-text);background:rgb(19 36 52 / .8);border-radius:3px}
+/* R03: ordinary exile editor only; #voteDialog election/PK styles are unchanged. */
+#exileVoteDialog{--gold:var(--b3-primary);--ink:var(--b3-text);--muted:var(--b3-text-secondary)}
+#exileVoteDialog .vote-modes button{background:rgb(27 49 66 / .65);border-color:var(--b3-edge)}
+#exileVoteDialog .vote-modes button[aria-pressed=true]{background:rgb(178 219 229 / .18);border-color:var(--b3-primary);box-shadow:inset 0 0 0 1px rgb(178 219 229 / .15)}
+#exileVoteDialog #exileTargetSummary{min-height:56px;border:1px solid var(--b3-edge);background:linear-gradient(120deg,rgb(178 219 229 / .1),transparent),rgb(27 49 66 / .65);border-radius:12px;color:var(--b3-text)}
+#exileVoteDialog .exile-candidates{border-color:var(--b3-edge);background:rgb(19 36 52 / .92)}
+#exileVoteDialog .exile-candidates button[aria-pressed=true]{border-color:var(--b3-primary)!important;background:rgb(178 219 229 / .15)!important;box-shadow:none!important}
+#exileVoteDialog .exile-voters button{border-radius:9px;border:1px solid var(--b3-edge);background:rgb(27 49 66 / .6);color:var(--b3-text)}
+#exileVoteDialog .exile-voters button.ballot-selected{background:rgb(178 219 229 / .13)!important;border-color:var(--b3-primary)!important;box-shadow:inset 0 0 0 1px rgb(178 219 229 / .15)!important}
+#exileVoteDialog .exile-voters .ballot-selected::after{border-color:var(--b3-primary)}
+#exileVoteDialog .exile-voters button.ballot-other{background:rgb(27 49 66 / .35);color:var(--b3-text-secondary)}
+#exileVoteDialog #exileCurrentVoter{border-color:var(--b3-edge);background:var(--b3-glass-info)}
+#exileVoteDialog :is(#exileVoteDone,#exileNext){background:var(--b3-glass-sheen),rgb(178 219 229 / .7);border-color:var(--b3-primary);color:var(--b3-on-primary)}
+/* R04: CSS only; preserve the existing wheel, clock and mode animations. */
+#timerDialog .time-wheels{background:rgb(27 49 66 / .28);box-shadow:var(--b3-inner)}
+#timerDialog .time-wheels::after{border-color:var(--b3-primary);background:rgb(178 219 229 / .045)}
+#timerDialog .time-wheel button{color:var(--b3-text-secondary);background:transparent;box-shadow:none}
+#timerDialog .time-wheel button[aria-selected=true]{color:var(--b3-text)}
+#timerDialog :is(#timerStart,#timerPause){background:var(--b3-glass-sheen),rgb(178 219 229 / .7);border-color:var(--b3-primary);color:var(--b3-on-primary);box-shadow:var(--b3-glass-edge)}
+#timerDialog :is(#timerMinus,#timerPlus,#timerRestore,#timerReset){background:rgb(27 49 66 / .44);border-color:var(--b3-edge);color:var(--b3-text)}
+/* R05/R06: alpha applies to the background paint, never to card contents. */
+body #home :is(button#start,button#encyclopediaOpen,a#problemReport){background-color:var(--b3-glass-home);background-image:var(--b3-glass-sheen);color:var(--b3-text);text-shadow:0 1px 4px #13212d}
+#home .problem-report{display:flex;align-items:center;justify-content:center;text-align:center;min-height:44px}
+#host .seat{background:linear-gradient(130deg,rgb(178 219 229 / .04),transparent 75%),var(--b3-glass-seat)}
+#host :is(.host-center,#phase,#boardName){background:linear-gradient(130deg,rgb(178 219 229 / .04),transparent 65%),var(--b3-glass-info)}
+#finished :is(.recap-event,.final-identity-card){background:linear-gradient(120deg,rgb(178 219 229 / .035),transparent 65%),var(--b3-glass-recap);border-color:var(--b3-edge)}
+#finished .recap-image{border:0;background:none;box-shadow:none}
+/* R07: manipulation includes pinch zoom; do not intercept touch or gesture events. */
+:where(button,a,summary,select,[role=listbox],.board-window,.library,.vote-scroll,.exile-voters,.exile-candidates){touch-action:manipulation}
+#timerDialog .time-wheel{touch-action:pan-y pinch-zoom}
+/* R08: show the complete approved image. Frame/figure differences inside a bitmap are not repainted. */
+.role-card,.role-card:hover:not(:disabled){border:0;background:transparent;border-radius:0;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none;padding:0}
+.role-card img{width:100%;height:auto;aspect-ratio:5/7;object-fit:contain;object-position:var(--portrait-position,50% 50%)}
+#rolePreview .preview-front{border:0;box-shadow:none;background:transparent;border-radius:0;overflow:hidden}
+#rolePreview .preview-front img{object-fit:contain;object-position:var(--portrait-position,50% 50%)}
+:is(.role-card,.preview-front)[data-role=blood],:is(.role-card,.preview-front)[data-role=demon],:is(.role-card,.preview-front)[data-role=mixed]{--portrait-position:50% 0%}
+:is(.role-card,.preview-front)[data-role=duelist]{--portrait-position:50% 50%}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
+ body #home :is(button#start,button#encyclopediaOpen,a#problemReport),#host .seat,#host :is(.host-center,#phase,#boardName),#finished :is(.recap-event,.final-identity-card){background-color:rgb(19 36 52 / .92)}
+}
+
+/* User follow-up: emphasize the primary home action without changing the 20% paint. */
+body #home button#start{background-image:var(--b3-glass-sheen),linear-gradient(110deg,rgb(178 219 229 / .3),rgb(140 186 203 / .08) 65%,rgb(178 219 229 / .18));font-size:20px;font-weight:750;border:2px solid var(--b3-primary);box-shadow:inset 0 1px 0 rgb(244 248 249 / .45),inset 0 0 18px rgb(178 219 229 / .12),0 0 0 3px rgb(178 219 229 / .08),0 4px 20px rgb(178 219 229 / .18);letter-spacing:.04em}
+
+#home .home-brand h1{overflow-wrap:anywhere}

@@ -1,0 +1,400 @@
+{
+  "reviewed": 30,
+  "originalsModified": false,
+  "profiles": [
+    {
+      "id": "evilKnight",
+      "name": "惡靈騎士",
+      "image": "art/catalog/evilKnight.png",
+      "thumbnail": "art/thumbs/evilKnight.webp",
+      "size": [
+        1060,
+        1484
+      ],
+      "display": "contain; 5:7 card; original PNG/JPEG and embedded frame preserved",
+      "objectPosition": "50% 50%",
+      "exception": null
+    },
+    {
+      "id": "gargoyle",
+      "name": "覺醒石像鬼",
+      "image": "art/catalog/gargoyle-v04.png",
+      "thumbnail": "art/thumbs/gargoyle.webp",
+      "size": [
+        1060,
+        1484
+      ],
+      "display": "contain; 5:7 card; original PNG/JPEG and embedded frame preserved",
+      "objectPosition": "50% 50%",
+      "exception": "Approved original has a purple frame; preserved, cannot recolor to gold without changing art"
+    },
+    {
+      "id": "gravekeeper",
+      "name": "守墓人",
+      "image": "art/catalog/gravekeeper.png",
+      "thumbnail": "art/thumbs/gravekeeper.webp",
+      "size": [
+        1000,
+        1400
+      ],
+      "display": "contain; 5:7 card; original PNG/JPEG and embedded frame preserved",
+      "objectPosition": "50% 50%",
+      "exception": null
+    },
+    {
+      "id": "blood",
+      "name": "血月使者",
+      "image": "art/blood-moon-messenger-approved.png",
+      "thumbnail": "art/thumbs/blood.webp",
+      "size": [
+        1086,
+        1448
+      ],
+      "display": "contain; 5:7 card; original PNG/JPEG and embedded frame preserved",
+      "objectPosition": "50% 0%",
+      "exception": "4:3-like original; align upper edge, preserve letterbox; exact top/bottom frame match requires original re-authoring"
+    },
+    {
+      "id": "demon",
+      "name": "獵魔人",
+      "image": "art/demon-hunter-approved.png",
+      "thumbnail": "art/thumbs/demon.webp",
+      "size": [
+        1086,
+        1448
+      ],
+      "display": "contain; 5:7 card; original PNG/JPEG and embedded frame preserved",
+      "objectPosition": "50% 0%",
+      "exception": "4:3-like original; align upper edge, preserve letterbox; exact top/bottom frame match requires original re-authoring"
+    },
+    {
+      "id": "idiot",
+      "name": "白痴",
+      "image": "art/catalog/idiot.png",
+      "thumbnail": "art/thumbs/idiot.webp",
+      "size": [
+        1060,
+        1484
+      ],
+      "display": "contain; 5:7 card; original PNG/JPEG and embedded frame preserved",
+      "objectPosition": "50% 50%",
+      "exception": null
+    },
+    {
+      "id": "mixed",
+      "name": "混血兒",
+      "image": "art/mixed-blood-dual-approved.jpeg",
+      "thumbnail": "art/thumbs/mixed.webp",
+      "size": [
+        1089,
+        1445
+      ],
+      "display": "contain; 5:7 card; original PNG/JPEG and embedded frame preserved",
+      "objectPosition": "50% 0%",
+      "exception": "4:3-like original; align upper edge, preserve letterbox; exact top/bottom frame match requires original re-authoring"
+    },
+    {
+      "id": "nightmare",
+      "name": "夢魘",
+      "image": "art/catalog/nightmare.png",
+      "thumbnail": "art/thumbs/nightmare.webp",
+      "size": [
+        1060,
+        1484
+      ],
+      "display": "contain; 5:7 card; original PNG/JPEG and embedded frame preserved",
+      "objectPosition": "50% 50%",
+      "exception": null
+    },
+    {
+      "id": "dream",
+      "name": "攝夢人",
+      "image": "art/catalog/dream.png",
+      "thumbnail": "art/thumbs/dream.webp",
+      "size": [
+        1060,
+        1484
+      ],
+      "display": "contain; 5:7 card; original PNG/JPEG and embedded frame preserved",
+      "objectPosition": "50% 50%",
+      "exception": null
+    },
+    {
+      "id": "elder",
+      "name": "狼兄",
+      "image": "art/catalog/elder.png",
+      "thumbnail": "art/thumbs/elder.webp",
+      "size": [
+        1060,
+        1484
+      ],
+      "display": "contain; 5:7 card; original PNG/JPEG and embedded frame preserved",
+      "objectPosition": "50% 50%",
+      "exception": null
+    },
+    {
+      "id": "younger",
+      "name": "狼弟",
+      "image": "art/catalog/younger.png",
+      "thumbnail": "art/thumbs/younger.webp",
+      "size": [
+        1060,
+        1484
+      ],
+      "display": "contain; 5:7 card; original PNG/JPEG and embedded frame preserved",
+      "objectPosition": "50% 50%",
+      "exception": null
+    },
+    {
+      "id": "merchant",
+      "name": "黑市商人",
+      "image": "art/catalog/merchant.png",
+      "thumbnail": "art/thumbs/merchant.webp",
+      "size": [
+        1060,
+        1484
+      ],
+      "display": "contain; 5:7 card; original PNG/JPEG and embedded frame preserved",
+      "objectPosition": "50% 50%",
+      "exception": null
+    },
+    {
+      "id": "king",
+      "name": "黑狼王",
+      "image": "art/catalog/king.png",
+      "thumbnail": "art/thumbs/king.webp",
+      "size": [
+        1060,
+        1484
+      ],
+      "display": "contain; 5:7 card; original PNG/JPEG and embedded frame preserved",
+      "objectPosition": "50% 50%",
+      "exception": null
+    },
+    {
+      "id": "wolf",
+      "name": "狼人",
+      "image": "art/catalog/wolf.png",
+      "thumbnail": "art/thumbs/wolf.webp",
+      "size": [
+        1060,
+        1484
+      ],
+      "display": "contain; 5:7 card; original PNG/JPEG and embedded frame preserved",
+      "objectPosition": "50% 50%",
+      "exception": null
+    },
+    {
+      "id": "seer",
+      "name": "預言家",
+      "image": "art/catalog/seer.png",
+      "thumbnail": "art/thumbs/seer.webp",
+      "size": [
+        1060,
+        1484
+      ],
+      "display": "contain; 5:7 card; original PNG/JPEG and embedded frame preserved",
+      "objectPosition": "50% 50%",
+      "exception": null
+    },
+    {
+      "id": "witch",
+      "name": "女巫",
+      "image": "art/catalog/witch.png",
+      "thumbnail": "art/thumbs/witch.webp",
+      "size": [
+        1060,
+        1484
+      ],
+      "display": "contain; 5:7 card; original PNG/JPEG and embedded frame preserved",
+      "objectPosition": "50% 50%",
+      "exception": null
+    },
+    {
+      "id": "hunter",
+      "name": "獵人",
+      "image": "art/catalog/hunter.png",
+      "thumbnail": "art/thumbs/hunter.webp",
+      "size": [
+        1060,
+        1484
+      ],
+      "display": "contain; 5:7 card; original PNG/JPEG and embedded frame preserved",
+      "objectPosition": "50% 50%",
+      "exception": null
+    },
+    {
+      "id": "magician",
+      "name": "魔術師",
+      "image": "art/catalog/magician.png",
+      "thumbnail": "art/thumbs/magician.webp",
+      "size": [
+        1060,
+        1484
+      ],
+      "display": "contain; 5:7 card; original PNG/JPEG and embedded frame preserved",
+      "objectPosition": "50% 50%",
+      "exception": null
+    },
+    {
+      "id": "villager",
+      "name": "平民",
+      "image": "art/catalog/villager.png",
+      "thumbnail": "art/thumbs/villager.webp",
+      "size": [
+        1060,
+        1484
+      ],
+      "display": "contain; 5:7 card; original PNG/JPEG and embedded frame preserved",
+      "objectPosition": "50% 50%",
+      "exception": null
+    },
+    {
+      "id": "mechanical",
+      "name": "機械狼",
+      "image": "art/catalog/mechanical.png",
+      "thumbnail": "art/thumbs/mechanical.webp",
+      "size": [
+        1060,
+        1484
+      ],
+      "display": "contain; 5:7 card; original PNG/JPEG and embedded frame preserved",
+      "objectPosition": "50% 50%",
+      "exception": null
+    },
+    {
+      "id": "medium",
+      "name": "通靈師",
+      "image": "art/catalog/medium.png",
+      "thumbnail": "art/thumbs/medium.webp",
+      "size": [
+        1060,
+        1484
+      ],
+      "display": "contain; 5:7 card; original PNG/JPEG and embedded frame preserved",
+      "objectPosition": "50% 50%",
+      "exception": null
+    },
+    {
+      "id": "guard",
+      "name": "守衛",
+      "image": "art/catalog/guard.png",
+      "thumbnail": "art/thumbs/guard.webp",
+      "size": [
+        1060,
+        1484
+      ],
+      "display": "contain; 5:7 card; original PNG/JPEG and embedded frame preserved",
+      "objectPosition": "50% 50%",
+      "exception": null
+    },
+    {
+      "id": "seedWolf",
+      "name": "種狼",
+      "image": "art/catalog/seedWolf.png",
+      "thumbnail": "art/thumbs/seedWolf.webp",
+      "size": [
+        1060,
+        1484
+      ],
+      "display": "contain; 5:7 card; original PNG/JPEG and embedded frame preserved",
+      "objectPosition": "50% 50%",
+      "exception": null
+    },
+    {
+      "id": "hiddenWolf",
+      "name": "隱狼",
+      "image": "art/catalog/hiddenWolf.png",
+      "thumbnail": "art/thumbs/hiddenWolf.webp",
+      "size": [
+        1060,
+        1484
+      ],
+      "display": "contain; 5:7 card; original PNG/JPEG and embedded frame preserved",
+      "objectPosition": "50% 50%",
+      "exception": null
+    },
+    {
+      "id": "beauty",
+      "name": "狼美人",
+      "image": "art/catalog/beauty.png",
+      "thumbnail": "art/thumbs/beauty.webp",
+      "size": [
+        1060,
+        1484
+      ],
+      "display": "contain; 5:7 card; original PNG/JPEG and embedded frame preserved",
+      "objectPosition": "50% 50%",
+      "exception": null
+    },
+    {
+      "id": "duelist",
+      "name": "騎士",
+      "image": "art/catalog/duelist.png",
+      "thumbnail": "art/thumbs/duelist.webp",
+      "size": [
+        1054,
+        1492
+      ],
+      "display": "contain; 5:7 card; original PNG/JPEG and embedded frame preserved",
+      "objectPosition": "50% 50%",
+      "exception": "Original slightly taller than 5:7; contained without cutting frame"
+    },
+    {
+      "id": "dancer",
+      "name": "舞者",
+      "image": "art/catalog/dancer.png",
+      "thumbnail": "art/thumbs/dancer.webp",
+      "size": [
+        1060,
+        1484
+      ],
+      "display": "contain; 5:7 card; original PNG/JPEG and embedded frame preserved",
+      "objectPosition": "50% 50%",
+      "exception": null
+    },
+    {
+      "id": "mask",
+      "name": "假面",
+      "image": "art/catalog/mask.png",
+      "thumbnail": "art/thumbs/mask.webp",
+      "size": [
+        1060,
+        1484
+      ],
+      "display": "contain; 5:7 card; original PNG/JPEG and embedded frame preserved",
+      "objectPosition": "50% 50%",
+      "exception": null
+    },
+    {
+      "id": "fragrance",
+      "name": "尋香魅影",
+      "image": "art/catalog/fragrance.png",
+      "thumbnail": "art/thumbs/fragrance.webp",
+      "size": [
+        1060,
+        1484
+      ],
+      "display": "contain; 5:7 card; original PNG/JPEG and embedded frame preserved",
+      "objectPosition": "50% 50%",
+      "exception": null
+    },
+    {
+      "id": "awakenedSeer",
+      "name": "覺醒預言家",
+      "image": "art/catalog/awakenedSeer.png",
+      "thumbnail": "art/thumbs/awakenedSeer.webp",
+      "size": [
+        1060,
+        1484
+      ],
+      "display": "contain; 5:7 card; original PNG/JPEG and embedded frame preserved",
+      "objectPosition": "50% 50%",
+      "exception": "Approved original has a purple frame; preserved, cannot recolor to gold without changing art"
+    }
+  ],
+  "notes": [
+    "Single bitmap binds frame and figure; moving the figure alone requires separately authorized art changes.",
+    "No imitation gold border, no stretch, and no clipping of full original art."
+  ]
+}

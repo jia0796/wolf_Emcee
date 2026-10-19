@@ -2,13 +2,13 @@
 <html lang="zh-Hant">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#13212D"><meta name="apple-mobile-web-app-title" content="霜月司儀"><link rel="apple-touch-icon" href="frost-emcee-192.png"><title>霜月司儀｜狼人殺主持工具</title>
-<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="b3.css"><link rel="preload" as="image" href="art/backgrounds/lobby-shared.png" fetchpriority="high"><link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="frost-emcee.svg" type="image/svg+xml">
+<meta name="theme-color" content="#13212D"><meta name="apple-mobile-web-app-title" content="狼序"><link rel="apple-touch-icon" href="wolfcue-192.png"><title>狼序 WolfCue｜狼人殺主持工具</title>
+<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="b3.css"><link rel="preload" as="image" href="art/backgrounds/lobby-shared.png" fetchpriority="high"><link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="wolfcue.svg" type="image/svg+xml">
 </head>
 <body>
 <main>
 <section id="home" class="screen welcome" hidden>
-<div class="home-brand"><h1>霜月司儀</h1><p>狼人殺主持工具</p></div>
+<div class="home-brand"><h1>狼序 WolfCue</h1><p>狼人殺主持工具</p></div>
 <div class="menu"><button id="start" class="primary">開始主持</button><button id="encyclopediaOpen">角色圖鑑</button></div><a id="problemReport" class="problem-report" target="_blank" rel="noopener noreferrer">問題回報</a>
 </section>
 <section id="counts" class="screen" hidden><h1>選擇人數</h1><p class="page-subtitle">請選擇本場遊戲的人數</p><div id="countChoices" class="menu count-choices"></div><button data-home class="quiet page-back">返回首頁</button></section>
@@ -27,7 +27,7 @@
 <section id="encyclopedia" class="screen" hidden><h1>角色圖鑑</h1><button id="libraryReturn" class="quiet">返回首頁</button><div class="library-tabs"><button id="libraryWolves">狼人陣營</button><button id="libraryGood">好人陣營</button></div><div id="roleLibrary" class="library"></div></section>
 <section id="host" hidden>
 <header class="host-top"><span id="phase"></span><span id="boardName"></span><div><button id="rulesOpen" class="quiet">規則</button><button id="hostLibrary" class="quiet">圖鑑</button></div></header>
-<section class="host-center"><p id="stepLabel" class="small" hidden></p><div class="script-box"><p class="caption">主持字幕</p><h2 id="subtitle" aria-live="polite"></h2></div><div class="judge-box"><div class="judge-content"><p id="hint"></p><div id="operationCard"></div><div id="gestureResult"></div><p id="selection"></p><div id="exileVoteResult"></div><p id="voteUpdateToast" class="small" role="status" hidden></p></div><div id="actions" class="actions"></div></div></section>
+<section class="host-center"><p id="stepLabel" class="small" hidden></p><div class="script-box"><p class="caption">主持字幕</p><h2 id="subtitle" aria-live="polite"></h2></div><div class="judge-box"><div class="judge-content"><p id="hint"></p><div id="operationCard"></div><div id="actions" class="actions"></div><div id="gestureResult"></div><p id="selection"></p><div id="exileVoteResult"></div><p id="voteUpdateToast" class="small" role="status" hidden></p></div></div></section>
 <div class="table"><aside id="left" class="seats" aria-label="1至6號座位"></aside><aside id="right" class="seats" aria-label="7至12號座位"></aside></div>
 <footer><button id="timerOpen" class="quiet">發言計時器</button><button id="duelOpen" class="quiet" hidden>騎士決鬥</button><button id="explodeOpen" class="quiet" disabled>狼人自爆</button><button id="reset" class="quiet">重新開局</button></footer>
 <p id="saveStatus" class="small" role="status"></p>

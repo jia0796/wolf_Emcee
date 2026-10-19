@@ -20,10 +20,10 @@ test('B3 backgrounds remain optional while presentation code is available offlin
  assert.ok(core.includes('b3-ui.js')&&core.includes('b3.css')&&core.includes('art/backgrounds/shared.png'));
 });
 
-test('Frost Emcee branding and standalone icon preserve the installed app identity',async()=>{
+test('App branding and standalone icon preserve the installed app identity',async()=>{
  const manifest=JSON.parse(await readFile(new URL('../public/manifest.webmanifest',import.meta.url),'utf8'));
- assert.equal(manifest.name,'霜月司儀｜狼人殺主持工具');assert.equal(manifest.short_name,'霜月司儀');
+ assert.equal(manifest.name,'狼序 WolfCue｜狼人殺主持工具');assert.equal(manifest.short_name,'狼序');
  assert.equal(manifest.id,'./');assert.equal(manifest.start_url,'./');assert.equal(manifest.scope,'./');
- const html=await readFile(new URL('../public/index.html',import.meta.url),'utf8');assert.ok(html.includes('<title>'+manifest.name+'</title>'));assert.ok(html.includes('apple-touch-icon" href="frost-emcee-192.png'));
- for(const size of [192,512]){const png=await readFile(new URL('../public/frost-emcee-'+size+'.png',import.meta.url));assert.equal(png.subarray(1,4).toString(),'PNG');assert.equal(png.readUInt32BE(16),size);assert.equal(png.readUInt32BE(20),size);assert.ok(manifest.icons.some(i=>i.src==='frost-emcee-'+size+'.png'));}
+ const html=await readFile(new URL('../public/index.html',import.meta.url),'utf8');assert.ok(html.includes('<title>'+manifest.name+'</title>'));assert.ok(html.includes('apple-touch-icon" href="wolfcue-192.png'));
+ for(const size of [192,512]){const png=await readFile(new URL('../public/wolfcue-'+size+'.png',import.meta.url));assert.equal(png.subarray(1,4).toString(),'PNG');assert.equal(png.readUInt32BE(16),size);assert.equal(png.readUInt32BE(20),size);assert.ok(manifest.icons.some(i=>i.src==='wolfcue-'+size+'.png'));}
 });
