@@ -29,7 +29,7 @@ try{
  if(process.env.B3_STAGE!=='backgrounds'){
   await p.setViewportSize({width:390,height:844});await fixture(p,{step:'exchange'});await scene(p,'host-night.png');
   const tokens=await p.evaluate(()=>{const cs=getComputedStyle(document.documentElement);return Object.fromEntries(['--b3-primary','--b3-text','--wolf','--god','--civil'].map(k=>[k,cs.getPropertyValue(k).trim()]));});
-  assert.equal(tokens['--b3-primary'],'#B2DBE5');assert.equal(await p.locator('#next').evaluate(e=>getComputedStyle(e).backgroundColor),'rgb(178, 219, 229)');assert.equal(await p.locator('#subtitle').evaluate(e=>getComputedStyle(e).textAlign),'center');
+  assert.equal(tokens['--b3-primary'],'#B2DBE5');assert.equal(await p.locator('#next').evaluate(e=>getComputedStyle(e).backgroundColor),'rgba(178, 219, 229, 0.7)');assert.equal(await p.locator('#subtitle').evaluate(e=>getComputedStyle(e).textAlign),'center');
   assert.deepEqual(await p.locator('#left .seat-number').allTextContents(),['1號','2號','3號','4號','5號','6號']);assert.deepEqual(await p.locator('#right .seat-number').allTextContents(),['7號','8號','9號','10號','11號','12號']);
   await p.locator('#left .seat').nth(3).click();await p.locator('#right .seat').nth(2).click();assert.equal(await p.locator('.skill-marks img').count(),2);assert.equal(await p.locator('.skill-marks img').first().evaluate(e=>getComputedStyle(e).width),'24px');await shot(p,'host-ice-controls');pass('C01-C09: approved tokens, readable primary CTA, centered subtitle, original seats and 24px swap marks',tokens);
   for(const [width,height,font] of [[320,568,100],[375,667,100],[390,844,100],[430,932,100],[844,390,100],[768,1024,100],[1280,800,100],[390,844,200]]){
