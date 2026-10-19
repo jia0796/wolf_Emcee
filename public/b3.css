@@ -42,7 +42,8 @@ button:disabled{opacity:.45}
 #host .script-box::after{content:'';display:block;flex:none;height:1px;margin:6px 0 0;background:linear-gradient(90deg,transparent,var(--b3-primary),transparent);pointer-events:none}
 #host #subtitle{color:var(--b3-text);font-size:clamp(1.1875rem,4.7vw,1.75rem);line-height:1.35;overflow-wrap:anywhere;margin:0;text-shadow:0 1px 5px rgb(4 18 31 / .55)}
 #host .caption{color:var(--b3-text-secondary)}
-#host .judge-box{border:1px solid rgb(130 171 189 / .3);border-radius:var(--b3-radius-sm);background:rgb(19 33 45 / .62);padding:5px 7px;min-height:0}
+#host .judge-box{border:1px solid rgb(130 171 189 / .3);border-radius:var(--b3-radius-sm);background:rgb(19 33 45 / .62);padding:5px 7px;min-height:0;overflow:auto}
+#host .judge-content{min-height:44px;flex:1 0 44px}
 #host #hint{color:var(--b3-text-secondary)}
 #host .host-top{gap:5px;min-width:0}
 #host :is(#phase,#boardName){background:var(--b3-panel-deep);border:1px solid var(--b3-edge);border-radius:9999px;padding:4px 7px;box-shadow:var(--b3-inner);line-height:1.3}
