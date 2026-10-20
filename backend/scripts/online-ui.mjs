@@ -24,12 +24,12 @@ try{
  check('Traditional hosting still enters original confirm',await h.evaluate(()=>JSON.parse(localStorage.getItem('eclipse-host-v1')).step==='confirm'));
  // New isolated browser host starts online mode; no existing game is overwritten by waiting.
  const host=await page();await host.goto(base);await host.locator('#start').click();await host.locator('#onlineMode').click();await host.locator('[data-count="'+count+'"]').click();await host.locator('[data-board="'+count+'"]').click();await host.locator('#setupStart').click();
- await until(host,n=>document.querySelectorAll('#onlineRing button').length===n&&document.querySelector('#onlineQR canvas').width===208);
+ await until(host,n=>document.querySelectorAll('#onlineRing button').length===n&&document.querySelector('#onlineQR canvas').style.getPropertyValue('--online-qr-size'));
  check('QR canvas contains rendered pixels',await host.evaluate(()=>document.querySelector('#onlineQR canvas').getContext('2d').getImageData(0,0,1,1).data[3]===255));
  const saved=await host.evaluate(()=>JSON.parse(localStorage.getItem('wolfcue-online-host-v1')));
  const invitation=base+'#room='+saved.roomId+'&invite='+saved.inviteToken;
  const pixels=await host.evaluate(()=>{const c=document.querySelector('#onlineQR canvas');return {width:c.width,height:c.height,data:Array.from(c.getContext('2d').getImageData(0,0,c.width,c.height).data)};});
- check('Decorated 208px QR decodes exact invitation',jsQR(Uint8ClampedArray.from(pixels.data),pixels.width,pixels.height)?.data===invitation);
+ check('Decorated QR decodes exact invitation',jsQR(Uint8ClampedArray.from(pixels.data),pixels.width,pixels.height)?.data===invitation);
  await host.screenshot({path:out+'/02-host-room.png'});
  await host.locator('#onlineDeal').click();await until(host,()=>document.querySelector('#onlineNotice').textContent.includes('遊玩人數不足，無法發牌'));
  check('Insufficient players: clickable exact message',true);
@@ -55,7 +55,7 @@ try{
  await p.screenshot({path:out+'/06-synthetic-role.png'});
  await p.locator('#onlineLibrary').click();
  check('Library immediately clears visible role',await p.locator('.online-card-front strong').count()===0);
- await p.locator('#onlineBookBack').click();check('Returning from library remains covered',!(await p.locator('#onlineCard').getAttribute('class')).includes('revealed'));
+ await p.locator('#libraryReturn').click();check('Returning from library remains covered',!(await p.locator('#onlineCard').getAttribute('class')).includes('revealed'));
  await p.reload();await until(p,()=>!document.querySelector('#onlineCard').hidden);check('Player refresh preserves seat but covers role',await p.locator('#onlineCardSeat').textContent()==='1 號玩家');
  await p.locator('#onlineCard').click();await until(p,()=>document.querySelector('#onlineCard').classList.contains('revealed'));
  await p.evaluate(()=>{Object.defineProperty(document,'hidden',{configurable:true,value:true});document.dispatchEvent(new Event('visibilitychange'));});

@@ -23,7 +23,7 @@ function rulesText(b,r){return b.name+'\n警長：'+(r.sheriff?'開':'關')+'\n�
 const backdrop=createB3Backdrop(),recapTitle=document.querySelector('#finished .recap-title');
 installB3ScrollHints();
 let hostMode='traditional';
-const online=installOnline({show,onHome:()=>show('home'),onHostReady:(h,s)=>{
+const online=installOnline({show,onHome:()=>show('home'),onLibrary:boardId=>library('online',boardId),onLibraryClose:()=>$('rolePreview').close(),onHostReady:(h,s)=>{
  if(!h.started||!game){game=createGame(h.boardId,h.rules);timerStop();setSeconds(60);if(!persist())throw Error('儲存失敗，尚未進入主持');}
  render();
 }});
@@ -39,8 +39,8 @@ function setupBoard(id){
 }
 function drawBoards(){const available=Object.values(BOARDS).filter(b=>b.enabled&&b.playerCount===selectedCount);$('boardTabs').hidden=!available.some(b=>b.category==='special');for(const [id,category]of [['boardsNormal','normal'],['boardsSpecial','special']])$(id).setAttribute('aria-pressed',String(category===selectedCategory));$('boardChoices').replaceChildren();for(const b of availableBoards(selectedCount,selectedCategory)){const button=document.createElement('button');button.textContent=b.shortLabel;button.dataset.board=b.id;button.onclick=()=>setupBoard(b.id);$('boardChoices').append(button);}document.querySelector('.board-window').scrollTop=0;}
 function chooseCount(count){selectedCount=count;selectedCategory='normal';$('boardCount').textContent=count+' 人局';drawBoards();show('boards');}
-function library(origin='home'){
- libraryOrigin=origin;libraryRoles=origin==='host'?Object.keys(boardOf(game).roles):Object.keys(ROLE_DATA);$('libraryReturn').textContent=origin==='host'?'返回主持':'返回首頁';drawLibrary();show('encyclopedia');
+function library(origin='home',boardId=null){
+ libraryOrigin=origin;libraryRoles=origin==='online'?Object.keys(BOARDS[boardId].roles):origin==='host'?Object.keys(boardOf(game).roles):Object.keys(ROLE_DATA);$('libraryReturn').textContent=origin==='online'?'返回房間':origin==='host'?'返回主持':'返回首頁';drawLibrary();show('encyclopedia');
 }
 let libraryImages=null;
 function drawLibrary(){
@@ -288,7 +288,7 @@ document.querySelectorAll('[data-home]').forEach(b=>b.onclick=()=>show('home'));
 $('setupBack').onclick=()=>{drawBoards();show('boards');};$('setupStart').onclick=()=>{game=createGame(selectedBoard,{...(BOARDS[selectedBoard].roles.beauty?{poisonRomance:$('rulePoisonRomance').value==='true',lastWolfRomance:$('ruleLastWolfRomance').value==='true'}:{}),sheriff:$('ruleSheriff').value==='true',selfRescue:$('ruleSelfRescue').value==='true',victory:'edge',swallow:$('ruleSwallow').value==='true',...(selectedBoard==='evilKnight12'?{immuneNightGun:$('ruleImmuneNightGun').value==='true'}:{}),...(BOARDS[selectedBoard].roles.idiot?{idiotChase:$('ruleIdiotChase').value==='true'}:{}),...(BOARDS[selectedBoard].roles.mechanical?{mechanicalKnife:$('ruleMechanicalKnife').value,reflectPoison:$('ruleReflectPoison').value==='true',shieldMode:$('ruleShieldMode').value}:{})});if(hostMode==='online'){const config={boardId:game.boardId,rules:game.rules};game=null;online.host(config);return;}online.detach();timerStop();setSeconds(60);render();};
 $('rulesOpen').onclick=()=>{$('gameRules').textContent=rulesText(boardOf(game),game.rules);$('rulesDialog').showModal();};$('rulesClose').onclick=()=>$('rulesDialog').close();
 $('explodeOpen').onclick=()=>{if(beginSelfDestruct(game)){timerPaint();timerStop();render();}};
-$('libraryWolves').onclick=()=>{libraryCamp='wolf';drawLibrary();};$('libraryGood').onclick=()=>{libraryCamp='good';drawLibrary();};$('libraryReturn').onclick=()=>libraryOrigin==='host'?render():show('home');
+$('libraryWolves').onclick=()=>{libraryCamp='wolf';drawLibrary();};$('libraryGood').onclick=()=>{libraryCamp='good';drawLibrary();};$('libraryReturn').onclick=()=>libraryOrigin==='online'?online.closeLibrary():libraryOrigin==='host'?render():show('home');
 $('previewCard').onclick=()=>{const flipped=$('previewCard').classList.toggle('flipped');$('previewCard').setAttribute('aria-pressed',String(flipped));$('previewFront').setAttribute('aria-hidden',String(flipped));$('previewBack').setAttribute('aria-hidden',String(!flipped));$('previewFront').inert=flipped;$('previewBack').inert=!flipped;};
 $('rolePreview').onclick=e=>{if(e.target===$('rolePreview')||e.target.classList.contains('preview-returnhint'))$('rolePreview').close();};
 if(game&&screen!=='home')render();else show('home');

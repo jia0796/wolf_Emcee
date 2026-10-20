@@ -7,10 +7,10 @@ const read=k=>{try{return JSON.parse(localStorage.getItem(k));}catch{return null
 const save=(k,v)=>localStorage.setItem(k,JSON.stringify(v));
 const client=createClient(URL,KEY,{auth:{storageKey:'wolfcue-online-auth',persistSession:true,autoRefreshToken:true,detectSessionInUrl:false}});
 const closed=s=>['ended','expired','dissolved'].includes(s);
-export function installOnline({show,onHostReady,onHome}){
- let room=null,state=null,isHost=false,busy=false,channel=null,interval=null,seq=0,roleTicket=0,animating=false,library=false,active=false,starting=false;
+export function installOnline({show,onHostReady,onHome,onLibrary,onLibraryClose}){
+ let room=null,state=null,isHost=false,busy=false,channel=null,interval=null,seq=0,roleTicket=0,animating=false,library=false,active=false,starting=false,refreshing=false,refreshAgain=false,pendingSeat=null;
  const root=document.createElement('section');root.id='online';root.className='screen online-screen';root.hidden=true;
- root.innerHTML='<header class="online-head"><h1 id="onlineTitle">線上發牌</h1><button id="onlineLibrary">本板子圖鑑</button><button id="onlineDissolve" hidden>解散房間</button></header><p id="onlineNotice" role="status" aria-live="polite"></p><div id="onlineScroll" class="online-scroll"><div id="onlineQR" hidden><div class="online-qr-frame"><canvas aria-label="房間邀請 QR Code"></canvas></div><p id="onlineCode"></p><button id="onlineCopy">複製連結</button></div><p id="onlineCount"></p><div id="onlineRing" class="online-ring" aria-label="選擇座位"></div><button id="onlineCard" class="online-card" hidden aria-label="點擊翻牌"><span class="online-card-inner"><span class="online-card-back"><span class="online-moons" aria-hidden="true"><i></i><i></i><i></i></span><img src="wolfcue-mark.svg" alt="WolfCue 狼序"><strong>WolfCue 狼序</strong><strong id="onlineCardSeat"></strong><span>點擊翻牌</span></span><span class="online-card-front" aria-hidden="true"></span></span></button><div id="onlineBook" hidden><button id="onlineBookBack">返回房間</button><div id="onlineBookList"></div></div></div><footer class="online-footer"><button id="onlineDeal" class="primary" hidden>開始發牌</button><button id="onlineLeave" hidden>離開座位</button><button id="onlineHome">回首頁</button></footer>';
+ root.innerHTML='<header class="online-head"><h1 id="onlineTitle">線上發牌</h1><button id="onlineLibrary">本板子圖鑑</button><button id="onlineDissolve" hidden>解散房間</button></header><p id="onlineNotice" role="status" aria-live="polite"></p><div id="onlineScroll" class="online-scroll"><div id="onlineQR" hidden><div class="online-qr-frame"><canvas aria-label="房間邀請 QR Code"></canvas></div><div class="online-qr-info"><p id="onlineCode"></p><button id="onlineCopy">複製連結</button></div></div><p id="onlineCount"></p><div id="onlineRing" class="online-ring" aria-label="選擇座位"></div><button id="onlineCard" class="online-card" hidden aria-label="點擊翻牌"><span class="online-card-inner"><span class="online-card-back"><span class="online-moons" aria-hidden="true"><i></i><i></i><i></i></span><img src="wolfcue-mark.svg" alt="WolfCue 狼序"><strong>WolfCue 狼序</strong><strong id="onlineCardSeat"></strong><span>點擊翻牌</span></span><span class="online-card-front" aria-hidden="true"></span></span></button></div><footer class="online-footer"><button id="onlineDeal" class="primary" hidden>開始發牌</button><button id="onlineLeave" hidden>離開座位</button><button id="onlineHome">回首頁</button></footer>';
  document.querySelector('main').append(root);
  const $=id=>document.getElementById(id),notice=t=>{$('onlineNotice').textContent=t;};
  const cover=()=>{
@@ -35,9 +35,12 @@ export function installOnline({show,onHostReady,onHome}){
  function home(){leaveView();onHome();}
  async function refresh(){
   if(!active||document.hidden||busy)return;
+  if(refreshing){refreshAgain=true;return;}
+  refreshing=true;
   const n=++seq;
   try{const s=await api('state');if(n===seq&&active){await apply(s);}}
   catch{if(n===seq&&active){cover();notice('連線中斷，正在重新同步…');}}
+  finally{refreshing=false;if(refreshAgain){refreshAgain=false;queueMicrotask(refresh);}}
  }
  async function subscribe(){
   clearInterval(interval);if(channel)await client.removeChannel(channel);
@@ -48,8 +51,10 @@ export function installOnline({show,onHostReady,onHome}){
  }
  function link(s){const u=new globalThis.URL(location.href);u.search='';u.hash='room='+s.roomId+'&invite='+s.inviteToken;return u.href;}
  async function apply(s){
+  if(state?.roomId===s.roomId&&s.version<state.version)return;
   const prior=state;state=s;
   if(closed(s.status)){
+   if(library){library=false;onLibraryClose?.();show('online');}
    cover();notice(s.status==='ended'?'本局已結束':s.status==='expired'?'房間已逾時':'主持人已解散房間');
    if(isHost)localStorage.removeItem(HOST);
    clearInterval(interval);setTimeout(()=>{if(active&&state===s)home();},isHost?0:2000);return;
@@ -60,7 +65,7 @@ export function installOnline({show,onHostReady,onHome}){
     await onHostReady(h,s);h.dealId=s.dealId;h.started=true;save(HOST,h);leaveView();
    }catch(e){notice(e.message);}finally{starting=false;}return;
   }
-  if(s.status==='dealt'&&prior?.status!=='dealt'){library=false;cover();notice('正在發牌…');}
+  if(s.status==='dealt'&&prior?.status!=='dealt'){if(library){onLibraryClose?.();show('online');}library=false;cover();notice('正在發牌…');}
   const oldSeat=prior?.seats?.find(x=>x.mine),mine=s.seats?.find(x=>x.mine);
   if(oldSeat&&(!mine||mine.lease!==oldSeat.lease)){cover();notice(mine?'座位已更新':'座位已被清除，請重新選座');}
   paint();if(s.status==='dealt')notice('');
@@ -74,7 +79,6 @@ export function installOnline({show,onHostReady,onHome}){
   $('onlineQR').hidden=!isHost||dealt||library;
   $('onlineRing').hidden=dealt||library;
   $('onlineCount').hidden=dealt||library;
-  $('onlineBook').hidden=!library;
   $('onlineCard').hidden=isHost||!dealt||library||!mine;
   $('onlineHome').hidden=isHost;
   $('onlineLeave').hidden=isHost||dealt||!mine||library;
@@ -84,27 +88,33 @@ export function installOnline({show,onHostReady,onHome}){
   $('onlineDeal').classList.toggle('not-full',state.seats.filter(s=>s.occupied).length<state.capacity);
   $('onlineCount').textContent=`已入座 ${state.seats.filter(s=>s.occupied).length} / ${state.capacity} 人`;
   if(mine)$('onlineCardSeat').textContent=`${mine.seat} 號玩家`;
-  $('onlineRing').replaceChildren();
+  const ring=$('onlineRing');
+  if(ring.children.length!==state.capacity){
+   ring.replaceChildren();
+   for(let seat=1;seat<=state.capacity;seat++){
+    const e=document.createElement('button'),a=(seat-1)*2*Math.PI/state.capacity;
+    e.dataset.seat=seat;e.style.left=(50+40*Math.sin(a))+'%';e.style.top=(50-40*Math.cos(a))+'%';
+    const number=document.createElement('strong'),label=document.createElement('small');number.textContent=String(seat).padStart(2,'0');e.append(number,label);
+    e.onclick=()=>{const target=state.seats.find(s=>s.seat===seat),own=state.seats.find(s=>s.mine);mutate(isHost?'clear':'seat',isHost?{seat,lease:target.lease}:{seat,...(own?{lease:own.lease}:{})},isHost?`清除 ${seat} 號座位？`:null);};
+    ring.append(e);
+   }
+  }
   for(const s of state.seats){
-   const e=document.createElement('button');const a=(s.seat-1)*2*Math.PI/state.capacity;
-   e.style.left=(50+40*Math.sin(a))+'%';e.style.top=(50-40*Math.cos(a))+'%';
-   const number=document.createElement('strong'),label=document.createElement('small');
-   number.textContent=String(s.seat).padStart(2,'0');
-   label.textContent=s.mine?'自己 ✓':s.occupied?'已入座':'空位';
-   e.append(number,label);
+   const e=ring.children[s.seat-1],label=e.querySelector('small');
+   const text=pendingSeat===s.seat?'確認中…':s.mine?'自己 ✓':s.occupied?'已入座':'空位';
+   if(label.textContent!==text)label.textContent=text;
    e.setAttribute('aria-label',`${s.seat}號，${label.textContent}`);
    e.className=s.mine?'mine':s.occupied?'occupied':'';
+   e.classList.toggle('pending',pendingSeat===s.seat);
    e.disabled=busy||dealt||(!isHost&&s.occupied)|| (isHost&&!s.occupied);
-   e.onclick=()=>mutate(isHost?'clear':'seat',isHost?{seat:s.seat,lease:s.lease}:{seat:s.seat,...(mine?{lease:mine.lease}:{})},isHost?`清除 ${s.seat} 號座位？`:null);
-   $('onlineRing').append(e);
   }
  }
  async function mutate(action,body={},confirmation=null){
   if(busy)return;if(confirmation&&!confirm(confirmation))return;
-  busy=true;++seq;cover();paint();
+  busy=true;pendingSeat=action==='seat'||action==='clear'?body.seat:null;++seq;cover();paint();
   try{const s=await api(action,body);notice('');await apply(s);}
   catch(e){notice(e.message);try{await apply(await api('state'));}catch{cover();}}
-  finally{busy=false;paint();}
+  finally{busy=false;pendingSeat=null;paint();}
  }
  $('onlineDeal').onclick=()=>{const h=read(HOST);if(h)mutate('deal',{requestId:h.dealRequest});};
  $('onlineLeave').onclick=()=>{const mine=state?.seats.find(s=>s.mine);if(mine)mutate('leave',{lease:mine.lease},'離開目前座位？');};
@@ -112,13 +122,8 @@ export function installOnline({show,onHostReady,onHome}){
  $('onlineHome').onclick=()=>{if(confirm('回首頁？角色卡會蓋牌；可用原連結再次進入。'))home();};
  $('onlineCopy').onclick=async()=>{try{await navigator.clipboard.writeText(link(read(HOST)));notice('連結已複製');}catch{notice('無法複製，請掃描 QR Code');}};
  $('onlineLibrary').onclick=()=>{
-  if(!state)return;cover();library=true;$('onlineBookList').replaceChildren();
-  for(const r of Object.keys(BOARDS[state.boardId].roles)){
-   const data=ROLE_DATA[r],card=document.createElement('article'),img=document.createElement('img'),h=document.createElement('h2'),p=document.createElement('p');
-   img.src=data.image;img.alt=data.name;img.loading='lazy';h.textContent=data.name;h.className=data.kind;p.textContent=`［技能］${data.skill}\n［目標］${data.goal}`;card.append(img,h,p);$('onlineBookList').append(card);
-  }paint();$('onlineScroll').scrollTop=0;
+  if(!state)return;cover();library=true;paint();onLibrary(state.boardId);
  };
- $('onlineBookBack').onclick=()=>{library=false;cover();paint();};
  $('onlineCard').onclick=async()=>{
   if(animating||busy||document.hidden)return;
   if($('onlineCard').classList.contains('revealed')){cover();return;}
@@ -140,7 +145,7 @@ export function installOnline({show,onHostReady,onHome}){
   try{
    const s=await api(h.roomId?'recover':'create',h.roomId?{}:{boardId:h.boardId,requestId:h.requestId},h.roomId||null);
    room=s.roomId;h={...h,...s};save(HOST,h);notice('');await apply(s);
-   if(active){$('onlineCode').textContent='房號 '+s.roomCode;await toCanvas(document.querySelector('#onlineQR canvas'),link(h),{width:208,margin:4});await subscribe();}
+   if(active){$('onlineCode').textContent='房號 '+s.roomCode;const canvas=document.querySelector('#onlineQR canvas');await toCanvas(canvas,link(h),{scale:4,margin:4});canvas.style.removeProperty('width');canvas.style.removeProperty('height');canvas.style.setProperty('--online-qr-size',(canvas.width/2)+'px');await subscribe();}
   }catch(e){notice(e.message);const retry=document.createElement('button');retry.textContent='重新連線';retry.onclick=()=>host(config);$('onlineNotice').append(retry);}
  }
  async function player(id,invite){
@@ -162,7 +167,7 @@ export function installOnline({show,onHostReady,onHome}){
  document.addEventListener('visibilitychange',()=>{cover();++seq;if(!document.hidden){refresh();end();}});
  window.addEventListener('online',()=>{refresh();end();});window.addEventListener('pagehide',cover);
  window.addEventListener('storage',e=>{if(e.key==='wolfcue-online-auth'){cover();refresh();}});
- return {host,end,detach(){const h=read(HOST);if(h?.started)localStorage.removeItem(HOST);},async resume(){
+ return {host,end,closeLibrary(){library=false;cover();paint();show('online');refresh();},detach(){const h=read(HOST);if(h?.started)localStorage.removeItem(HOST);},async resume(){
   const hash=new URLSearchParams(location.hash.slice(1)),u=new globalThis.URL(location.href),id=hash.get('room')||u.searchParams.get('room');
   if(id){const invite=hash.get('invite');u.hash='';u.searchParams.set('room',id);history.replaceState(null,'',u);await player(id,invite);return true;}
   const h=read(HOST);if(h&&!h.started){await host(h);return true;}end();return false;
