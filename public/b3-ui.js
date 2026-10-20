@@ -13,6 +13,7 @@ export function createB3Backdrop(){
  const loaded=new Map(),pending=new Map(),motion=matchMedia('(prefers-reduced-motion: reduce)');
  let screen=null,phase=null,wanted=null,current=null,index=0,epoch=0,animation=null,quiet=true,lastStep=null;
  function cancel(){animation?.cancel();animation=null;}
+ function clearScene(){cancel();for(const e of layers){e.style.opacity='0';e.style.removeProperty('--b3-image');delete e.dataset.source;}current=null;delete root.dataset.source;}
  function load(src,priority='low'){
   if(loaded.has(src))return Promise.resolve(true);if(pending.has(src))return pending.get(src);
   const task=new Promise(resolve=>{const image=new Image();image.fetchPriority=priority;image.onload=async()=>{try{await image.decode();}catch{}loaded.set(src,image);resolve(true);};image.onerror=()=>resolve(false);image.src=src;});
@@ -28,9 +29,10 @@ export function createB3Backdrop(){
   const transition=screen==='host'&&next==='host'&&phase!==nextPhase&&!quiet&&!document.hidden;
   quiet=false;if(screen!==next)lastStep=null;screen=next;phase=nextPhase;wanted=backgroundSource(next,nextPhase);const ticket=++epoch;
   // A fresh/restored confirm screen must never retain a previously painted night.
-  if(preparing&&current===HOST_BACKGROUNDS.night&&!loaded.has(wanted)){cancel();layers.forEach(e=>e.style.opacity='0');current=null;delete root.dataset.source;}
+  if((next==='online'&&current!==wanted)||(preparing&&current===HOST_BACKGROUNDS.night&&!loaded.has(wanted)))clearScene();
   document.body.dataset.b3Phase=next==='host'?(nextPhase==='夜晚'?'night':'day'):'lobby';
-  // Keep the previous usable scene/legacy background while an uncached image loads.
+  // Online entry uses its neutral canvas while loading, never the prior scene.
+  // Other screens retain the existing fallback and host day/night transitions.
   if(loaded.has(wanted))paint(wanted,transition);
   else load(wanted,'high').then(ok=>{if(ok&&ticket===epoch)paint(wanted,transition);});
  }
@@ -39,7 +41,7 @@ export function createB3Backdrop(){
   const prior=lastStep;lastStep=step;title.getAnimations().forEach(a=>a.cancel());
   if(prior&&['dark','dawn'].includes(step)&&!motion.matches&&!document.hidden)title.animate([{opacity:.45,filter:'blur(2px)'},{opacity:1,filter:'blur(0px)'}],{duration:1000,easing:'ease-out'});
  }
- function resume(){quiet=true;cancel();layers.forEach((e,i)=>e.style.opacity=i===index?'1':'0');document.getElementById('subtitle')?.getAnimations().forEach(a=>a.cancel());}
+ function resume(){quiet=true;cancel();layers.forEach((e,i)=>e.style.opacity=current&&i===index?'1':'0');document.getElementById('subtitle')?.getAnimations().forEach(a=>a.cancel());}
  document.addEventListener('visibilitychange',resume);window.addEventListener('pageshow',resume);motion.addEventListener('change',resume);
  window.addEventListener('online',()=>{const src=wanted,ticket=epoch;if(src&&!loaded.has(src))load(src,'high').then(ok=>{if(ok&&ticket===epoch)paint(src,false);});});
  // Lobby starts first; silent host preparation remains optional and never gates show().

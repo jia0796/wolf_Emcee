@@ -10,7 +10,7 @@ const closed=s=>['ended','expired','dissolved'].includes(s);
 export function installOnline({show,onHostReady,onHome,onLibrary,onLibraryClose}){
  let room=null,state=null,isHost=false,busy=false,channel=null,interval=null,seq=0,roleTicket=0,animating=false,library=false,active=false,starting=false,refreshing=false,refreshAgain=false,pendingSeat=null;
  const root=document.createElement('section');root.id='online';root.className='screen online-screen';root.hidden=true;
- root.innerHTML='<header class="online-head"><h1 id="onlineTitle">線上發牌</h1><button id="onlineLibrary">本板子圖鑑</button><button id="onlineDissolve" hidden>解散房間</button></header><p id="onlineNotice" role="status" aria-live="polite"></p><div id="onlineScroll" class="online-scroll"><div id="onlineQR" hidden><div class="online-qr-frame"><canvas aria-label="房間邀請 QR Code"></canvas></div><div class="online-qr-info"><p id="onlineCode"></p><button id="onlineCopy">複製連結</button></div></div><p id="onlineCount"></p><div id="onlineRing" class="online-ring" aria-label="選擇座位"></div><button id="onlineCard" class="online-card" hidden aria-label="點擊翻牌"><span class="online-card-inner"><span class="online-card-back"><span class="online-moons" aria-hidden="true"><i></i><i></i><i></i></span><img src="wolfcue-mark.svg" alt="WolfCue 狼序"><strong>WolfCue 狼序</strong><strong id="onlineCardSeat"></strong><span>點擊翻牌</span></span><span class="online-card-front" aria-hidden="true"></span></span></button></div><footer class="online-footer"><button id="onlineDeal" class="primary" hidden>開始發牌</button><button id="onlineLeave" hidden>離開座位</button><button id="onlineHome">回首頁</button></footer>';
+ root.innerHTML='<header class="online-head"><h1 id="onlineTitle">線上發牌（Beta版）</h1><button id="onlineDissolve" hidden>解散房間</button><button id="onlineLibrary">圖鑑</button></header><p id="onlineNotice" role="status" aria-live="polite"></p><div id="onlineScroll" class="online-scroll"><div id="onlineQR" hidden><div class="online-qr-frame"><canvas aria-label="房間邀請 QR Code"></canvas></div><div class="online-qr-info"><p id="onlineCode"></p><button id="onlineCopy">複製連結</button></div></div><p id="onlineCount"></p><div id="onlineRing" class="online-ring" aria-label="選擇座位"></div><button id="onlineCard" class="online-card" hidden aria-label="點擊翻牌"><span class="online-card-inner"><span class="online-card-back"><span class="online-moons" aria-hidden="true"><i></i><i></i><i></i></span><img src="wolfcue-mark.svg" alt="WolfCue 狼序"><strong>WolfCue 狼序</strong><strong id="onlineCardSeat"></strong><span>點擊翻牌</span></span><span class="online-card-front" aria-hidden="true"></span></span></button></div><footer class="online-footer"><button id="onlineDeal" class="primary" hidden>開始發牌</button><button id="onlineLeave" hidden>離開座位</button><button id="onlineHome">回首頁</button></footer>';
  document.querySelector('main').append(root);
  const $=id=>document.getElementById(id),notice=t=>{$('onlineNotice').textContent=t;};
  const cover=()=>{
@@ -60,7 +60,7 @@ export function installOnline({show,onHostReady,onHome,onLibrary,onLibraryClose}
    clearInterval(interval);setTimeout(()=>{if(active&&state===s)home();},isHost?0:2000);return;
   }
   if(s.status==='dealt'&&isHost){
-   if(starting)return;starting=true;
+   if(starting)return;starting=true;if(library){onLibraryClose?.();library=false;}
    try{const h=read(HOST);if(!h||h.roomId!==s.roomId)throw Error('房間恢復資料不存在');
     await onHostReady(h,s);h.dealId=s.dealId;h.started=true;save(HOST,h);leaveView();
    }catch(e){notice(e.message);}finally{starting=false;}return;
@@ -73,8 +73,8 @@ export function installOnline({show,onHostReady,onHome,onLibrary,onLibraryClose}
  function paint(){
   if(!state)return;
   const b=BOARDS[state.boardId],mine=state.seats.find(s=>s.mine),dealt=state.status==='dealt';
-  $('onlineTitle').textContent=b?.name||'線上發牌';
-  $('onlineLibrary').hidden=isHost;
+  $('onlineTitle').textContent=b?.name||'線上發牌（Beta版）';
+  $('onlineLibrary').hidden=false;
   $('onlineDissolve').hidden=!isHost||dealt;
   $('onlineQR').hidden=!isHost||dealt||library;
   $('onlineRing').hidden=dealt||library;
