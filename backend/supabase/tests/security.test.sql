@@ -1,0 +1,16 @@
+begin;
+create extension if not exists pgtap with schema extensions;
+set search_path = public, extensions;
+select plan(10);
+select is((select count(*)::integer from pg_tables where schemaname='wolfcue_private' and rowsecurity),7,'All seven application tables enable RLS');
+select ok(not has_table_privilege('anon','wolfcue_private.player_roles','SELECT'),'Unauthenticated role cannot read roles');
+select ok(not has_table_privilege('authenticated','wolfcue_private.player_roles','INSERT'),'Players cannot insert roles');
+select ok(not has_table_privilege('authenticated','wolfcue_private.room_seats','UPDATE'),'Players cannot directly change seats');
+select ok(not has_table_privilege('authenticated','wolfcue_private.room_secrets','SELECT'),'Invite secrets not readable');
+select ok(not has_function_privilege('authenticated','public.wolfcue_expire()','EXECUTE'),'Player cannot run cleanup');
+select ok(has_function_privilege('service_role','public.wolfcue_expire()','EXECUTE'),'Worker can run cleanup');
+select ok(not has_function_privilege('anon','public.wolfcue_command(text,uuid,jsonb)','EXECUTE'),'Anonymous database role cannot call command');
+select is((select count(*)::integer from wolfcue_private.boards),26,'Authoritative catalog has 26 boards');
+select ok(not exists(select 1 from pg_proc p join pg_namespace n on n.oid=p.pronamespace where n.nspname='wolfcue_private' and p.prosecdef and not ('search_path=""'=any(p.proconfig))),'All privileged functions have fixed empty search_path');
+select * from finish();
+rollback;

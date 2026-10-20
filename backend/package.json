@@ -1,0 +1,23 @@
+{
+  "name": "wolfcue-supabase-local-draft",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "test:integration": "node --test tests/integration/*.test.mjs",
+    "local:init": "supabase init",
+    "local:start": "supabase start",
+    "local:db-test": "supabase test db",
+    "build:vendor": "esbuild vendor-entry.mjs --bundle --minify --format=esm --outfile=../public/online-vendor.js"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "0.5.10",
+    "@supabase/supabase-js": "2.118.0",
+    "esbuild": "0.25.12",
+    "jsqr": "1.4.0",
+    "pg": "8.23.1",
+    "playwright": "1.56.1",
+    "qrcode": "1.5.4",
+    "supabase": "2.121.0"
+  }
+}

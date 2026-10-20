@@ -1,0 +1,1229 @@
+{
+  "sourceCommit": "31beb7787ddecad6c607c00133f230a55519fba2",
+  "catalogHash": "f8feaaf945d72ffe91bf0cc686ef50c12d00877e8155c2678d0203cef0cf8595",
+  "boards": [
+    {
+      "id": "10",
+      "name": "10人 黑狼王 / 魔術師",
+      "capacity": 10,
+      "roles": {
+        "king": 1,
+        "wolf": 2,
+        "seer": 1,
+        "witch": 1,
+        "magician": 1,
+        "villager": 4
+      },
+      "defaults": {
+        "sheriff": true,
+        "selfRescue": false,
+        "victory": "edge",
+        "swallow": false
+      },
+      "adjustable": [
+        "sheriff",
+        "selfRescue",
+        "victory",
+        "swallow"
+      ],
+      "firstNightOrder": [
+        "magician",
+        "wolves",
+        "witch",
+        "seer"
+      ],
+      "nightOrder": [
+        "magician",
+        "wolves",
+        "witch",
+        "seer"
+      ]
+    },
+    {
+      "id": "12",
+      "name": "12人 黑狼王 / 魔術師",
+      "capacity": 12,
+      "roles": {
+        "king": 1,
+        "wolf": 3,
+        "seer": 1,
+        "witch": 1,
+        "magician": 1,
+        "hunter": 1,
+        "villager": 4
+      },
+      "defaults": {
+        "sheriff": true,
+        "selfRescue": false,
+        "victory": "edge",
+        "swallow": true
+      },
+      "adjustable": [
+        "sheriff",
+        "selfRescue",
+        "victory",
+        "swallow"
+      ],
+      "firstNightOrder": [
+        "magician",
+        "wolves",
+        "witch",
+        "seer",
+        "hunter"
+      ],
+      "nightOrder": [
+        "magician",
+        "wolves",
+        "witch",
+        "seer",
+        "hunter"
+      ]
+    },
+    {
+      "id": "mechanical10",
+      "name": "10人 機械狼 / 通靈師",
+      "capacity": 10,
+      "roles": {
+        "mechanical": 1,
+        "wolf": 2,
+        "medium": 1,
+        "witch": 1,
+        "guard": 1,
+        "villager": 4
+      },
+      "defaults": {
+        "sheriff": true,
+        "selfRescue": false,
+        "victory": "edge",
+        "swallow": false,
+        "mechanicalKnife": "next",
+        "reflectPoison": false,
+        "shieldMode": "once"
+      },
+      "adjustable": [
+        "sheriff",
+        "selfRescue",
+        "victory",
+        "swallow",
+        "mechanicalKnife",
+        "reflectPoison",
+        "shieldMode"
+      ],
+      "firstNightOrder": [
+        "mediumIdentify",
+        "guard",
+        "wolves",
+        "witch",
+        "mechanical",
+        "medium"
+      ],
+      "nightOrder": [
+        "guard",
+        "mechanical",
+        "wolves",
+        "witch",
+        "medium"
+      ]
+    },
+    {
+      "id": "mechanical12",
+      "name": "12人 機械狼 / 通靈師",
+      "capacity": 12,
+      "roles": {
+        "mechanical": 1,
+        "wolf": 3,
+        "medium": 1,
+        "witch": 1,
+        "hunter": 1,
+        "guard": 1,
+        "villager": 4
+      },
+      "defaults": {
+        "sheriff": true,
+        "selfRescue": false,
+        "victory": "edge",
+        "swallow": true,
+        "mechanicalKnife": "next",
+        "reflectPoison": false,
+        "shieldMode": "once"
+      },
+      "adjustable": [
+        "sheriff",
+        "selfRescue",
+        "victory",
+        "swallow",
+        "mechanicalKnife",
+        "reflectPoison",
+        "shieldMode"
+      ],
+      "firstNightOrder": [
+        "mediumIdentify",
+        "guard",
+        "wolves",
+        "witch",
+        "hunter",
+        "mechanical",
+        "medium"
+      ],
+      "nightOrder": [
+        "guard",
+        "mechanical",
+        "wolves",
+        "witch",
+        "medium",
+        "hunter"
+      ]
+    },
+    {
+      "id": "brothers12",
+      "name": "12人 狼兄狼弟 / 黑市商人",
+      "capacity": 12,
+      "roles": {
+        "elder": 1,
+        "younger": 1,
+        "wolf": 2,
+        "seer": 1,
+        "witch": 1,
+        "hunter": 1,
+        "merchant": 1,
+        "villager": 4
+      },
+      "defaults": {
+        "sheriff": true,
+        "selfRescue": false,
+        "victory": "edge",
+        "swallow": true
+      },
+      "adjustable": [
+        "sheriff",
+        "selfRescue",
+        "victory",
+        "swallow"
+      ],
+      "firstNightOrder": [
+        "brothers",
+        "wolves",
+        "witch",
+        "seer",
+        "hunter",
+        "merchant",
+        "lucky"
+      ],
+      "nightOrder": [
+        "younger",
+        "wolves",
+        "witch",
+        "seer",
+        "hunter",
+        "merchant",
+        "lucky"
+      ]
+    },
+    {
+      "id": "nightmare10",
+      "name": "10人 夢魘 / 攝夢人",
+      "capacity": 10,
+      "roles": {
+        "nightmare": 1,
+        "wolf": 2,
+        "dream": 1,
+        "seer": 1,
+        "witch": 1,
+        "villager": 4
+      },
+      "defaults": {
+        "sheriff": true,
+        "selfRescue": false,
+        "victory": "edge",
+        "swallow": false
+      },
+      "adjustable": [
+        "sheriff",
+        "selfRescue",
+        "victory",
+        "swallow"
+      ],
+      "firstNightOrder": [
+        "nightmare",
+        "dream",
+        "wolves",
+        "witch",
+        "seer"
+      ],
+      "nightOrder": [
+        "nightmare",
+        "dream",
+        "wolves",
+        "witch",
+        "seer"
+      ]
+    },
+    {
+      "id": "nightmare12",
+      "name": "12人 夢魘 / 攝夢人",
+      "capacity": 12,
+      "roles": {
+        "nightmare": 1,
+        "wolf": 3,
+        "dream": 1,
+        "seer": 1,
+        "witch": 1,
+        "hunter": 1,
+        "villager": 4
+      },
+      "defaults": {
+        "sheriff": true,
+        "selfRescue": false,
+        "victory": "edge",
+        "swallow": true
+      },
+      "adjustable": [
+        "sheriff",
+        "selfRescue",
+        "victory",
+        "swallow"
+      ],
+      "firstNightOrder": [
+        "nightmare",
+        "dream",
+        "wolves",
+        "witch",
+        "seer",
+        "hunter"
+      ],
+      "nightOrder": [
+        "nightmare",
+        "dream",
+        "wolves",
+        "witch",
+        "seer",
+        "hunter"
+      ]
+    },
+    {
+      "id": "classic12",
+      "name": "12人 預女獵白",
+      "capacity": 12,
+      "roles": {
+        "wolf": 4,
+        "seer": 1,
+        "witch": 1,
+        "hunter": 1,
+        "idiot": 1,
+        "villager": 4
+      },
+      "defaults": {
+        "sheriff": true,
+        "selfRescue": false,
+        "victory": "edge",
+        "swallow": true,
+        "idiotChase": false
+      },
+      "adjustable": [
+        "sheriff",
+        "selfRescue",
+        "victory",
+        "swallow",
+        "idiotChase"
+      ],
+      "firstNightOrder": [
+        "wolves",
+        "witch",
+        "seer",
+        "hunter",
+        "idiot"
+      ],
+      "nightOrder": [
+        "wolves",
+        "witch",
+        "seer",
+        "hunter"
+      ]
+    },
+    {
+      "id": "classicMixed12",
+      "name": "12人 預女獵白混",
+      "capacity": 12,
+      "roles": {
+        "wolf": 4,
+        "seer": 1,
+        "witch": 1,
+        "hunter": 1,
+        "idiot": 1,
+        "villager": 3,
+        "mixed": 1
+      },
+      "defaults": {
+        "sheriff": true,
+        "selfRescue": false,
+        "victory": "edge",
+        "swallow": true,
+        "idiotChase": false
+      },
+      "adjustable": [
+        "sheriff",
+        "selfRescue",
+        "victory",
+        "swallow",
+        "idiotChase"
+      ],
+      "firstNightOrder": [
+        "wolves",
+        "witch",
+        "seer",
+        "hunter",
+        "idiot",
+        "mixed"
+      ],
+      "nightOrder": [
+        "wolves",
+        "witch",
+        "seer",
+        "hunter"
+      ]
+    },
+    {
+      "id": "blood10",
+      "name": "10人 血月 / 獵魔人",
+      "capacity": 10,
+      "roles": {
+        "blood": 1,
+        "wolf": 2,
+        "seer": 1,
+        "witch": 1,
+        "demon": 1,
+        "villager": 4
+      },
+      "defaults": {
+        "sheriff": true,
+        "selfRescue": false,
+        "victory": "edge",
+        "swallow": false
+      },
+      "adjustable": [
+        "sheriff",
+        "selfRescue",
+        "victory",
+        "swallow"
+      ],
+      "firstNightOrder": [
+        "wolves",
+        "witch",
+        "seer",
+        "demon"
+      ],
+      "nightOrder": [
+        "wolves",
+        "witch",
+        "seer",
+        "demon"
+      ]
+    },
+    {
+      "id": "kingGuard10",
+      "name": "10人 黑狼王 / 守衛",
+      "capacity": 10,
+      "roles": {
+        "king": 1,
+        "wolf": 2,
+        "guard": 1,
+        "seer": 1,
+        "witch": 1,
+        "villager": 4
+      },
+      "defaults": {
+        "sheriff": true,
+        "selfRescue": false,
+        "victory": "edge",
+        "swallow": false
+      },
+      "adjustable": [
+        "sheriff",
+        "selfRescue",
+        "victory",
+        "swallow"
+      ],
+      "firstNightOrder": [
+        "guard",
+        "wolves",
+        "witch",
+        "seer"
+      ],
+      "nightOrder": [
+        "guard",
+        "wolves",
+        "witch",
+        "seer"
+      ]
+    },
+    {
+      "id": "kingDream10",
+      "name": "10人 黑狼王 / 攝夢人",
+      "capacity": 10,
+      "roles": {
+        "king": 1,
+        "wolf": 2,
+        "dream": 1,
+        "seer": 1,
+        "witch": 1,
+        "villager": 4
+      },
+      "defaults": {
+        "sheriff": true,
+        "selfRescue": false,
+        "victory": "edge",
+        "swallow": false
+      },
+      "adjustable": [
+        "sheriff",
+        "selfRescue",
+        "victory",
+        "swallow"
+      ],
+      "firstNightOrder": [
+        "dream",
+        "wolves",
+        "witch",
+        "seer"
+      ],
+      "nightOrder": [
+        "dream",
+        "wolves",
+        "witch",
+        "seer"
+      ]
+    },
+    {
+      "id": "blood12",
+      "name": "12人 血月 / 獵魔人",
+      "capacity": 12,
+      "roles": {
+        "blood": 1,
+        "wolf": 3,
+        "seer": 1,
+        "witch": 1,
+        "demon": 1,
+        "idiot": 1,
+        "villager": 4
+      },
+      "defaults": {
+        "sheriff": true,
+        "selfRescue": false,
+        "victory": "edge",
+        "swallow": true,
+        "idiotChase": false
+      },
+      "adjustable": [
+        "sheriff",
+        "selfRescue",
+        "victory",
+        "swallow",
+        "idiotChase"
+      ],
+      "firstNightOrder": [
+        "wolves",
+        "witch",
+        "seer",
+        "demon",
+        "idiot"
+      ],
+      "nightOrder": [
+        "wolves",
+        "witch",
+        "seer",
+        "demon"
+      ]
+    },
+    {
+      "id": "kingGuard12",
+      "name": "12人 黑狼王 / 守衛",
+      "capacity": 12,
+      "roles": {
+        "king": 1,
+        "wolf": 3,
+        "guard": 1,
+        "seer": 1,
+        "witch": 1,
+        "hunter": 1,
+        "villager": 4
+      },
+      "defaults": {
+        "sheriff": true,
+        "selfRescue": false,
+        "victory": "edge",
+        "swallow": true
+      },
+      "adjustable": [
+        "sheriff",
+        "selfRescue",
+        "victory",
+        "swallow"
+      ],
+      "firstNightOrder": [
+        "guard",
+        "wolves",
+        "witch",
+        "seer",
+        "hunter"
+      ],
+      "nightOrder": [
+        "guard",
+        "wolves",
+        "witch",
+        "seer",
+        "hunter"
+      ]
+    },
+    {
+      "id": "kingDream12",
+      "name": "12人 黑狼王 / 攝夢人",
+      "capacity": 12,
+      "roles": {
+        "king": 1,
+        "wolf": 3,
+        "dream": 1,
+        "seer": 1,
+        "witch": 1,
+        "hunter": 1,
+        "villager": 4
+      },
+      "defaults": {
+        "sheriff": true,
+        "selfRescue": false,
+        "victory": "edge",
+        "swallow": true
+      },
+      "adjustable": [
+        "sheriff",
+        "selfRescue",
+        "victory",
+        "swallow"
+      ],
+      "firstNightOrder": [
+        "dream",
+        "wolves",
+        "witch",
+        "seer",
+        "hunter"
+      ],
+      "nightOrder": [
+        "dream",
+        "wolves",
+        "witch",
+        "seer",
+        "hunter"
+      ]
+    },
+    {
+      "id": "gargoyle10",
+      "name": "10人 覺醒石像鬼 / 守墓人",
+      "capacity": 10,
+      "roles": {
+        "gargoyle": 1,
+        "wolf": 1,
+        "guard": 1,
+        "witch": 1,
+        "seer": 1,
+        "gravekeeper": 1,
+        "villager": 4
+      },
+      "defaults": {
+        "sheriff": true,
+        "selfRescue": false,
+        "victory": "edge",
+        "swallow": false
+      },
+      "adjustable": [
+        "sheriff",
+        "selfRescue",
+        "victory",
+        "swallow"
+      ],
+      "firstNightOrder": [
+        "guard",
+        "wolves",
+        "gargoyle",
+        "witch",
+        "seer",
+        "gravekeeper",
+        "converted"
+      ],
+      "nightOrder": [
+        "guard",
+        "converted",
+        "wolves",
+        "witch",
+        "seer",
+        "gravekeeper"
+      ]
+    },
+    {
+      "id": "gargoyle12",
+      "name": "12人 覺醒石像鬼 / 守墓人",
+      "capacity": 12,
+      "roles": {
+        "gargoyle": 1,
+        "wolf": 2,
+        "guard": 1,
+        "witch": 1,
+        "seer": 1,
+        "gravekeeper": 1,
+        "hunter": 1,
+        "villager": 4
+      },
+      "defaults": {
+        "sheriff": true,
+        "selfRescue": false,
+        "victory": "edge",
+        "swallow": true
+      },
+      "adjustable": [
+        "sheriff",
+        "selfRescue",
+        "victory",
+        "swallow"
+      ],
+      "firstNightOrder": [
+        "guard",
+        "wolves",
+        "gargoyle",
+        "witch",
+        "seer",
+        "gravekeeper",
+        "hunter",
+        "converted"
+      ],
+      "nightOrder": [
+        "guard",
+        "converted",
+        "wolves",
+        "witch",
+        "seer",
+        "gravekeeper",
+        "hunter"
+      ]
+    },
+    {
+      "id": "evilKnight10",
+      "name": "10人 惡靈騎士 / 守衛",
+      "capacity": 10,
+      "roles": {
+        "evilKnight": 1,
+        "wolf": 2,
+        "guard": 1,
+        "witch": 1,
+        "seer": 1,
+        "villager": 4
+      },
+      "defaults": {
+        "sheriff": true,
+        "selfRescue": false,
+        "victory": "edge",
+        "swallow": false
+      },
+      "adjustable": [
+        "sheriff",
+        "selfRescue",
+        "victory",
+        "swallow"
+      ],
+      "firstNightOrder": [
+        "guard",
+        "wolves",
+        "witch",
+        "seer"
+      ],
+      "nightOrder": [
+        "guard",
+        "wolves",
+        "witch",
+        "seer"
+      ]
+    },
+    {
+      "id": "evilKnight12",
+      "name": "12人 惡靈騎士 / 守衛",
+      "capacity": 12,
+      "roles": {
+        "evilKnight": 1,
+        "wolf": 3,
+        "guard": 1,
+        "witch": 1,
+        "seer": 1,
+        "hunter": 1,
+        "villager": 4
+      },
+      "defaults": {
+        "sheriff": true,
+        "selfRescue": false,
+        "victory": "edge",
+        "swallow": true,
+        "immuneNightGun": false
+      },
+      "adjustable": [
+        "sheriff",
+        "selfRescue",
+        "victory",
+        "swallow",
+        "immuneNightGun"
+      ],
+      "firstNightOrder": [
+        "guard",
+        "wolves",
+        "witch",
+        "seer",
+        "hunter"
+      ],
+      "nightOrder": [
+        "guard",
+        "wolves",
+        "witch",
+        "seer",
+        "hunter"
+      ]
+    },
+    {
+      "id": "seedHidden10",
+      "name": "10人 種狼／隱狼",
+      "capacity": 10,
+      "roles": {
+        "seedWolf": 1,
+        "hiddenWolf": 1,
+        "wolf": 1,
+        "guard": 1,
+        "witch": 1,
+        "seer": 1,
+        "villager": 4
+      },
+      "defaults": {
+        "sheriff": true,
+        "selfRescue": false,
+        "victory": "edge",
+        "swallow": false
+      },
+      "adjustable": [
+        "sheriff",
+        "selfRescue",
+        "victory",
+        "swallow"
+      ],
+      "firstNightOrder": [
+        "guard",
+        "wolves",
+        "hiddenWolf",
+        "witch",
+        "seer"
+      ],
+      "nightOrder": [
+        "guard",
+        "wolves",
+        "witch",
+        "seer",
+        "infectionNotice"
+      ]
+    },
+    {
+      "id": "seedHidden12",
+      "name": "12人 種狼／隱狼",
+      "capacity": 12,
+      "roles": {
+        "seedWolf": 1,
+        "hiddenWolf": 1,
+        "wolf": 2,
+        "guard": 1,
+        "witch": 1,
+        "seer": 1,
+        "hunter": 1,
+        "villager": 4
+      },
+      "defaults": {
+        "sheriff": true,
+        "selfRescue": false,
+        "victory": "edge",
+        "swallow": true
+      },
+      "adjustable": [
+        "sheriff",
+        "selfRescue",
+        "victory",
+        "swallow"
+      ],
+      "firstNightOrder": [
+        "guard",
+        "wolves",
+        "hiddenWolf",
+        "witch",
+        "seer",
+        "hunter"
+      ],
+      "nightOrder": [
+        "guard",
+        "wolves",
+        "witch",
+        "seer",
+        "hunter",
+        "infectionNotice"
+      ]
+    },
+    {
+      "id": "beauty10",
+      "name": "10人 狼美人／騎士",
+      "capacity": 10,
+      "roles": {
+        "beauty": 1,
+        "wolf": 2,
+        "seer": 1,
+        "witch": 1,
+        "duelist": 1,
+        "villager": 4
+      },
+      "defaults": {
+        "sheriff": true,
+        "selfRescue": false,
+        "victory": "edge",
+        "swallow": false,
+        "poisonRomance": true,
+        "lastWolfRomance": true
+      },
+      "adjustable": [
+        "sheriff",
+        "selfRescue",
+        "victory",
+        "swallow",
+        "poisonRomance",
+        "lastWolfRomance"
+      ],
+      "firstNightOrder": [
+        "wolves",
+        "beauty",
+        "witch",
+        "seer",
+        "duelist"
+      ],
+      "nightOrder": [
+        "wolves",
+        "beauty",
+        "witch",
+        "seer"
+      ]
+    },
+    {
+      "id": "beauty12",
+      "name": "12人 狼美人／騎士",
+      "capacity": 12,
+      "roles": {
+        "beauty": 1,
+        "wolf": 3,
+        "seer": 1,
+        "witch": 1,
+        "hunter": 1,
+        "duelist": 1,
+        "villager": 4
+      },
+      "defaults": {
+        "sheriff": true,
+        "selfRescue": false,
+        "victory": "edge",
+        "swallow": true,
+        "poisonRomance": true,
+        "lastWolfRomance": true
+      },
+      "adjustable": [
+        "sheriff",
+        "selfRescue",
+        "victory",
+        "swallow",
+        "poisonRomance",
+        "lastWolfRomance"
+      ],
+      "firstNightOrder": [
+        "wolves",
+        "beauty",
+        "witch",
+        "seer",
+        "hunter",
+        "duelist"
+      ],
+      "nightOrder": [
+        "wolves",
+        "beauty",
+        "witch",
+        "seer",
+        "hunter"
+      ]
+    },
+    {
+      "id": "masquerade12",
+      "name": "12人 假面／舞者",
+      "capacity": 12,
+      "roles": {
+        "wolf": 3,
+        "mask": 1,
+        "dancer": 1,
+        "seer": 1,
+        "witch": 1,
+        "idiot": 1,
+        "villager": 4
+      },
+      "defaults": {
+        "sheriff": true,
+        "selfRescue": false,
+        "victory": "edge",
+        "swallow": true,
+        "idiotChase": false
+      },
+      "adjustable": [
+        "sheriff",
+        "selfRescue",
+        "swallow",
+        "idiotChase"
+      ],
+      "firstNightOrder": [
+        "dancer",
+        "mask",
+        "wolves",
+        "witch",
+        "seer",
+        "idiot"
+      ],
+      "nightOrder": [
+        "dancer",
+        "mask",
+        "wolves",
+        "witch",
+        "seer"
+      ]
+    },
+    {
+      "id": "fragrance10",
+      "name": "10人 尋香魅影／覺醒預言家",
+      "capacity": 10,
+      "roles": {
+        "fragrance": 1,
+        "wolf": 2,
+        "guard": 1,
+        "witch": 1,
+        "awakenedSeer": 1,
+        "villager": 4
+      },
+      "defaults": {
+        "sheriff": true,
+        "selfRescue": false,
+        "victory": "edge",
+        "swallow": false
+      },
+      "adjustable": [
+        "sheriff",
+        "selfRescue",
+        "swallow"
+      ],
+      "firstNightOrder": [
+        "guard",
+        "wolves",
+        "fragrance",
+        "witch",
+        "awakenedSeer"
+      ],
+      "nightOrder": [
+        "guard",
+        "fragrance",
+        "wolves",
+        "witch",
+        "awakenedSeer"
+      ]
+    },
+    {
+      "id": "fragrance12",
+      "name": "12人 尋香魅影／覺醒預言家",
+      "capacity": 12,
+      "roles": {
+        "fragrance": 1,
+        "wolf": 3,
+        "guard": 1,
+        "witch": 1,
+        "awakenedSeer": 1,
+        "hunter": 1,
+        "villager": 4
+      },
+      "defaults": {
+        "sheriff": true,
+        "selfRescue": false,
+        "victory": "edge",
+        "swallow": true
+      },
+      "adjustable": [
+        "sheriff",
+        "selfRescue",
+        "swallow"
+      ],
+      "firstNightOrder": [
+        "guard",
+        "wolves",
+        "fragrance",
+        "witch",
+        "awakenedSeer",
+        "hunter"
+      ],
+      "nightOrder": [
+        "guard",
+        "fragrance",
+        "wolves",
+        "witch",
+        "awakenedSeer",
+        "hunter"
+      ]
+    }
+  ],
+  "roles": {
+    "evilKnight": {
+      "name": "惡靈騎士",
+      "kind": "wolf",
+      "image": "art/catalog/evilKnight.png"
+    },
+    "gargoyle": {
+      "name": "覺醒石像鬼",
+      "kind": "wolf",
+      "image": "art/catalog/gargoyle-v04.png"
+    },
+    "gravekeeper": {
+      "name": "守墓人",
+      "kind": "god",
+      "image": "art/catalog/gravekeeper.png"
+    },
+    "blood": {
+      "name": "血月使者",
+      "kind": "wolf",
+      "image": "art/blood-moon-messenger-approved.png"
+    },
+    "demon": {
+      "name": "獵魔人",
+      "kind": "god",
+      "image": "art/demon-hunter-approved.png"
+    },
+    "idiot": {
+      "name": "白痴",
+      "kind": "god",
+      "image": "art/catalog/idiot.png"
+    },
+    "mixed": {
+      "name": "混血兒",
+      "kind": "villager",
+      "image": "art/mixed-blood-dual-approved.jpeg"
+    },
+    "nightmare": {
+      "name": "夢魘",
+      "kind": "wolf",
+      "image": "art/catalog/nightmare.png"
+    },
+    "dream": {
+      "name": "攝夢人",
+      "kind": "god",
+      "image": "art/catalog/dream.png"
+    },
+    "elder": {
+      "name": "狼兄",
+      "kind": "wolf",
+      "image": "art/catalog/elder.png"
+    },
+    "younger": {
+      "name": "狼弟",
+      "kind": "wolf",
+      "image": "art/catalog/younger.png"
+    },
+    "merchant": {
+      "name": "黑市商人",
+      "kind": "god",
+      "image": "art/catalog/merchant.png"
+    },
+    "king": {
+      "name": "黑狼王",
+      "kind": "wolf",
+      "image": "art/catalog/king.png"
+    },
+    "wolf": {
+      "name": "狼人",
+      "kind": "wolf",
+      "image": "art/catalog/wolf.png"
+    },
+    "seer": {
+      "name": "預言家",
+      "kind": "god",
+      "image": "art/catalog/seer.png"
+    },
+    "witch": {
+      "name": "女巫",
+      "kind": "god",
+      "image": "art/catalog/witch.png"
+    },
+    "hunter": {
+      "name": "獵人",
+      "kind": "god",
+      "image": "art/catalog/hunter.png"
+    },
+    "magician": {
+      "name": "魔術師",
+      "kind": "god",
+      "image": "art/catalog/magician.png"
+    },
+    "villager": {
+      "name": "平民",
+      "kind": "villager",
+      "image": "art/catalog/villager.png"
+    },
+    "mechanical": {
+      "name": "機械狼",
+      "kind": "wolf",
+      "image": "art/catalog/mechanical.png"
+    },
+    "medium": {
+      "name": "通靈師",
+      "kind": "god",
+      "image": "art/catalog/medium.png"
+    },
+    "guard": {
+      "name": "守衛",
+      "kind": "god",
+      "image": "art/catalog/guard.png"
+    },
+    "seedWolf": {
+      "name": "種狼",
+      "kind": "wolf",
+      "image": "art/catalog/seedWolf.png"
+    },
+    "hiddenWolf": {
+      "name": "隱狼",
+      "kind": "wolf",
+      "image": "art/catalog/hiddenWolf.png"
+    },
+    "beauty": {
+      "name": "狼美人",
+      "kind": "wolf",
+      "image": "art/catalog/beauty.png"
+    },
+    "duelist": {
+      "name": "騎士",
+      "kind": "god",
+      "image": "art/catalog/duelist.png"
+    },
+    "dancer": {
+      "name": "舞者",
+      "kind": "god",
+      "image": "art/catalog/dancer.png"
+    },
+    "mask": {
+      "name": "假面",
+      "kind": "wolf",
+      "image": "art/catalog/mask.png"
+    },
+    "fragrance": {
+      "name": "尋香魅影",
+      "kind": "wolf",
+      "image": "art/catalog/fragrance.png"
+    },
+    "awakenedSeer": {
+      "name": "覺醒預言家",
+      "kind": "god",
+      "image": "art/catalog/awakenedSeer.png"
+    }
+  }
+}
