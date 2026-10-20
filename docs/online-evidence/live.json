@@ -1,0 +1,17 @@
+{
+  "base": "https://jia0796.github.io/wolf_Emcee/",
+  "checks": [
+    "Published asset online.js",
+    "Published asset online.css",
+    "Published asset b3-ui.js",
+    "Published asset art/backgrounds/online-plaza-v3.png",
+    "Live site creates cloud room",
+    "Live invite joins cloud room",
+    "Live player can select seat",
+    "Live host receives authoritative seat update",
+    "Live dissolved room returns player home",
+    "Live browser exceptions absent"
+  ],
+  "errors": [],
+  "completed": true
+}

@@ -4,7 +4,16 @@
 
 [開啟App](https://jia0796.github.io/wolf_Emcee/) · [R10～R16完成／部署報告](docs/b3-r10-r16-report.md) · [本輪逐項驗證](docs/b3-r10-r16-validation.json) · [前輪報告](docs/b3-r01-r09-report.md) · [票型報告](docs/vote62-report.md) · [接刀報告](docs/takeover-nightknife-report.md)
 
-## 目前版本
+## 2026-10-20｜線上發牌已實作、部署
+
+- 新增傳統／線上發牌入口，支援既有 26 款板子、10／12 人選座、QR 邀請、伺服器一次性發牌、個人角色翻牌與恢復。發牌後沿用原主持流程。
+- Supabase wolfcue-online 已部署；私有 Realtime、RLS、座位交易、冪等發牌及未發牌閒置清理已驗證。
+- 線上頁採村莊中央議會廣場背景，保留海港與原建築風格；通透席位牌、原按鍵色彩、月相卡背及 208px 裝飾 QR。原圖保留，遊戲引擎與存檔格式不改。
+- 網站程式 `f402c28`，工作分支 `feat/online-deal-20261020`。[部署成功](https://github.com/jia0796/wolf_Emcee/actions/runs/39444622259)。未合併 main。
+- 本輪：App 824／後端整合19／私有頻道客戶端1／pgTAP10／B3 UI50／10與12人 UI各27／Supabase雲端29／正式網站10項通過。各組範圍不混算；真機 Safari、PWA、Android 與相機掃碼仍待驗收。
+- [完整報告、限制與回退](docs/online-deal-report.md) · [部署後實測](docs/online-evidence/live.json)。正式終局前丟棄主持存檔的房間生命週期仍是已列明限制。
+
+## 先前版本紀錄
 
 2026-10-19：**狼序 WolfCue｜B3 R10～R16及逐人投票自動跳號已部署**。正式站程式 `bdc33fe26de000f5b5554a4dd396b9f746afcf70`（[成功發布](https://github.com/jia0796/wolf_Emcee/actions/runs/39277460295)），工作分支 `feat/b3-arctic-ui-20261019`。未合併或覆寫 `main`／`feat/eclipse-host-app`。
 

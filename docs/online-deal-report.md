@@ -86,3 +86,15 @@
 Supabase 已部署並完成上列雲端測試。網站程式已推送獨立分支，但 Pages 執行 [39443729796](https://github.com/jia0796/wolf_Emcee/actions/runs/39443729796) 的 build 通過、deploy 被環境保護拒絕：`feat/online-deal-20261020` 不在允許清單。尚未宣稱正式網站已更新；已詢問使用者是否允許只加入此發布分支。沒有擅自移除環境保護或合併 main。
 
 後端提交：`46481fc`；前端整合提交：`4cd2c7f`。後續美術調整另以獨立提交保留。
+
+### 更新：正式網站已完成發布及驗證
+
+使用者隨後明確允許加入本次發布分支。只新增此分支，保留其他環境保護與既有允許清單，未合併 main。
+
+發布程式：`f402c2823bbd408028043954b1eb6b20ff04f73e`；[Pages 成功執行 39444622259](https://github.com/jia0796/wolf_Emcee/actions/runs/39444622259)。[正式網站](https://jia0796.github.io/wolf_Emcee/)。
+
+部署後 Edge 實際瀏覽器 10 項通過、0 失敗：四個發布資產 SHA256 相符、建立雲端房、邀請加入、選座、主持同步、解散返回首頁、無瀏覽器例外。虛構房間已解散；證據 `online-evidence/live.json`，截圖 `online-evidence/live-player.png`。
+
+首次檢查發生於 CDN 完成更新前，資產斷言失敗；待新檔案出現後重新完整執行，最終程序 exit 0、completed=true。
+
+安全回退：若只回退廣場背景，可 `git revert f402c2823bbd408028043954b1eb6b20ff04f73e`；若撤回整個前端整合，依序 revert 該美術提交及 `4cd2c7f8ac06d57f0b09e3fcbda6f5218b964e20`，保留後端及其他後續提交，確認差異後重新部署。不要刪除雲端資料或備份分支。
