@@ -1,0 +1,33 @@
+{
+  "checks": [
+    "Traditional hosting still enters original confirm",
+    "QR canvas contains rendered pixels",
+    "Decorated 208px QR decodes exact invitation",
+    "Insufficient players: clickable exact message",
+    "Host reload recovers same room",
+    "Dealt enters unchanged first-night confirm",
+    "Dealt player initially covered",
+    "Own role revealed only after authenticated request",
+    "Library immediately clears visible role",
+    "Returning from library remains covered",
+    "Player refresh preserves seat but covers role",
+    "Privacy event immediately removes role DOM",
+    "No horizontal overflow 320x568",
+    "Bottom action visible 320x568",
+    "No horizontal overflow 375x667",
+    "Bottom action visible 375x667",
+    "No horizontal overflow 390x844",
+    "Bottom action visible 390x844",
+    "No horizontal overflow 430x932",
+    "Bottom action visible 430x932",
+    "No horizontal overflow 844x390",
+    "Bottom action visible 844x390",
+    "No horizontal overflow 1024x768",
+    "Bottom action visible 1024x768",
+    "Authorized terminal callback accepted",
+    "Terminal state covers and returns player home",
+    "No browser exceptions"
+  ],
+  "errors": [],
+  "environment": "desktop Edge with local real Supabase; NOT physical Safari/PWA"
+}
