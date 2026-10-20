@@ -2,7 +2,7 @@ name: Deploy moderator app
 
 on:
   push:
-    branches: [main, feat/eclipse-host-app]
+    branches: [main, feat/eclipse-host-app, feat/online-deal-20261020]
     paths:
       - 'public/**'
       - 'test/**'

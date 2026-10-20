@@ -4,6 +4,7 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#13212D"><meta name="apple-mobile-web-app-title" content="狼序"><link rel="apple-touch-icon" href="wolfcue-192.png"><title>狼序 WolfCue｜狼人殺主持工具</title>
 <link rel="stylesheet" href="style.css"><link rel="stylesheet" href="b3.css"><link rel="preload" as="image" href="art/backgrounds/lobby-shared.png" fetchpriority="high"><link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="wolfcue.svg" type="image/svg+xml">
+<link rel="stylesheet" href="online.css"><meta name="referrer" content="no-referrer">
 </head>
 <body>
 <main>
@@ -58,5 +59,6 @@
 <div class="exile-voter-section" role="group" aria-labelledby="exileVotersTitle"><div class="exile-voter-heading"><div class="exile-section-row"><p id="exileVotersTitle" class="exile-section-title">② 勾選投票者</p><p id="exileProgress" class="small" aria-live="polite"></p></div><p id="exileTargetHint" class="exile-section-help" aria-live="polite"></p></div><div id="exileVoters" class="exile-voters" tabindex="0" aria-label="投票者列表" aria-describedby="exileTargetHint"></div></div><div class="exile-footer"><div id="exileIndividualNavigation" class="exile-navigation" hidden><button id="exilePrevious">上一位</button><button id="exileNext">下一位</button></div><p id="exileVoteError" class="small" role="status"></p><button id="exileVoteDone" class="primary">完成統計</button><details><summary>更多操作</summary><button id="exileClear" class="quiet">清空紀錄</button><button id="exileAbandon" class="quiet" hidden>放棄票型紀錄</button></details></div></dialog>
 <dialog id="exileClearDialog" aria-labelledby="exileClearTitle"><h2 id="exileClearTitle">清空紀錄？</h2><p id="exileClearText">只清除本輪編輯草稿，正式紀錄保持不變。</p><div class="actions"><button id="exileClearCancel">取消</button><button id="exileClearConfirm">確認清空</button></div></dialog>
 <dialog id="exileAbandonDialog"><h2>放棄票型紀錄？</h2><p>只清除本輪正式票型及統計鎖定，恢復手動選擇結果。</p><div class="actions"><button id="exileAbandonCancel">取消</button><button id="exileAbandonConfirm">確認放棄</button></div></dialog>
+<dialog id="hostModeDialog"><div class="dialog-head"><h2>選擇主持方式</h2><button id="hostModeClose" aria-label="關閉">×</button></div><p>傳統主持自行分配角色；線上發牌讓玩家掃碼入座、查看自己的角色。</p><div class="actions"><button id="traditionalMode">傳統主持</button><button id="onlineMode" class="primary">線上發牌</button></div></dialog>
 <script type="module" src="app.js"></script>
 </body></html>
