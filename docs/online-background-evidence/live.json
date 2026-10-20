@@ -1,0 +1,25 @@
+{
+  "checks": [
+    "Published b3-ui.js matches commit",
+    "Published online.css matches commit",
+    "Published online.js matches commit",
+    "Published index.html matches commit",
+    "Published sw.js matches commit",
+    "Live entry labelled online dealing Beta",
+    "Live delayed host entry has no old image",
+    "Live host order is encyclopedia then dissolve",
+    "Live host opens original board encyclopedia",
+    "Returning host still shows no old image while loading",
+    "Live loaded host uses the village square",
+    "Live cold player entry has no old image",
+    "Live player button label is encyclopedia",
+    "Live loaded player uses the village square",
+    "All sampled live online frames exclude prior scenes",
+    "All sampled live online frames exclude prior scenes",
+    "Synthetic live room dissolved",
+    "No live browser exceptions"
+  ],
+  "errors": [],
+  "completed": true,
+  "environment": "Desktop Edge, real Pages and Supabase; not physical Safari/PWA"
+}

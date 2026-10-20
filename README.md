@@ -4,6 +4,13 @@
 
 [開啟App](https://jia0796.github.io/wolf_Emcee/) · [R10～R16完成／部署報告](docs/b3-r10-r16-report.md) · [本輪逐項驗證](docs/b3-r10-r16-validation.json) · [前輪報告](docs/b3-r01-r09-report.md) · [票型報告](docs/vote62-report.md) · [接刀報告](docs/takeover-nightknife-report.md)
 
+## 2026-10-21｜線上發牌 Beta 與背景載入修正
+
+- 修正新背景載入前閃出舊圖；等待或載入失敗時只顯示深藍底色，按鍵仍可操作。新圖就緒後直接顯示村莊廣場，前景恢復與刷新不復活舊圖。
+- 入口改為「線上發牌（Beta版）」。線上主持房間新增共用圖鑑；玩家「本板子圖鑑」改名「圖鑑」。主持右上最終順序為「圖鑑 → 解散房間」。
+- 已部署 `7af2cc8`（背景主修正 `9bffd96`），快取版本 `council-v22-12`。[發布成功](https://github.com/jia0796/wolf_Emcee/actions/runs/39453374951) · [完整報告與回退](docs/online-background-report.md)。
+- 本輪通過824項 App 測試、24項背景／入口、24項主持圖鑑發牌回歸、27項12人完整流程，以及正式站18項驗證。桌面結果不代表 Safari／PWA 真機驗收。
+
 ## 2026-10-20｜線上發牌已實作、部署
 
 **本輪四項回饋已修正並部署**（`aa2c172`）：座位按壓／選座／同步不移位；線上圖鑑直接共用一般房間的陣營卡片與翻卡；QR 改為約120px左側、房號與複製連結右側；座位不再反覆重建，操作即時顯示確認中。原玩法、角色原畫與後端授權不改。[修正報告與實測截圖](docs/online-feedback-report.md) · [正式站18項驗證](docs/online-feedback-evidence/live.json)。本輪另通過824項 App、50項 B3、兩人數各22項專項／27項完整流程及50組 QR 解碼；真機仍待驗收。

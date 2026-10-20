@@ -1,0 +1,39 @@
+{
+  "checks": [
+    "Online mode is labelled Beta",
+    "Original legacy-image flash reproduced",
+    "Entry immediately clears prior lobby and legacy underlay",
+    "Foreground restore cannot revive an old scene while loading",
+    "Host controls work while new background is blocked",
+    "Host has a right-side encyclopedia button",
+    "Host opens the original board encyclopedia",
+    "Host returns without revealing old scene",
+    "Loaded image becomes correct online scene without transition",
+    "Player button is named encyclopedia",
+    "Cold player invitation never uses the old background",
+    "Player refresh remains neutral until its image is ready",
+    "Late online image does not overwrite encyclopedia background",
+    "Returning to cached online image works with reduced motion",
+    "Failed background keeps navy canvas instead of legacy art",
+    "Player can select a seat even when image fails",
+    "All recorded online frames exclude legacy scenes",
+    "All recorded online frames exclude legacy scenes",
+    "All recorded online frames exclude legacy scenes",
+    "Traditional preparation still uses day scene",
+    "Traditional dark step still switches to night",
+    "Traditional previous step restores day scene",
+    "Traditional refresh restores correct scene",
+    "No browser exceptions"
+  ],
+  "errors": [],
+  "snapshots": [
+    {
+      "case": "loaded previous lobby, pending online image",
+      "fallback": "none",
+      "source": null,
+      "visible": []
+    }
+  ],
+  "completed": true,
+  "environment": "Desktop Edge, actual app and local Supabase; not physical Safari/PWA"
+}
