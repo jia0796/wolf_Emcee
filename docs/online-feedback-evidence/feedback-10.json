@@ -1,0 +1,35 @@
+{
+  "checks": [
+    "Compact horizontal QR: 120px left, code/copy on right",
+    "QR decodes at actual compact display size",
+    "Old CSS press displacement reproduced",
+    "Held seat stays fixed while pressed",
+    "Immediate pending feedback; no unconfirmed success",
+    "Confirmed seat stays at identical position",
+    "Mutation keeps existing seat nodes",
+    "Online library reuses original encyclopedia",
+    "Wolf cards only show board wolf roles",
+    "Good cards grouped into gods and villagers",
+    "Original portrait preview opens",
+    "Original flip shows full approved skill/goal",
+    "Library returns to room preserving selected seat",
+    "Peer sync preserves all seat nodes and positions",
+    "Deal closes open library preview and leaves card covered",
+    "Viewport 320x568 retains accessible actions",
+    "Viewport 375x667 retains accessible actions",
+    "Viewport 390x844 retains accessible actions",
+    "Viewport 430x932 retains accessible actions",
+    "Viewport 844x390 retains accessible actions",
+    "No browser exceptions",
+    "Synthetic game cleanup accepted"
+  ],
+  "metrics": {
+    "qrDisplayPx": 114,
+    "oldPressShiftPx": 42.5205832509386,
+    "fixedPressShiftPx": 0,
+    "pendingVisibleMs": 20,
+    "localSeatConfirmedMs": 521
+  },
+  "errors": [],
+  "environment": "Desktop Edge and local real Supabase; physical Safari/PWA not tested"
+}

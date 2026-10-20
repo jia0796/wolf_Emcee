@@ -1,0 +1,30 @@
+{
+  "checks": [
+    "Published online.js matches commit",
+    "Published online.css matches commit",
+    "Published app.js matches commit",
+    "Published sw.js matches commit",
+    "Live compact QR left, room/code right",
+    "Live QR decodes at displayed size",
+    "Live held seat does not move",
+    "Live confirmation does not move seat",
+    "Live seat DOM retained",
+    "Cloud seat sync remains correct",
+    "Live beauty/knight board wolf cards",
+    "Live original good-role grouping and cards",
+    "Live original flip/approved copy retained",
+    "Live library returns to original seat",
+    "Host clear revokes seat without rebuilding nodes",
+    "Live 320px QR row has no horizontal overflow",
+    "Synthetic cloud room dissolved",
+    "No live browser exceptions"
+  ],
+  "errors": [],
+  "metrics": {
+    "qrDisplayPx": 114,
+    "pressShiftPx": 0,
+    "cloudSeatConfirmMs": 766
+  },
+  "completed": true,
+  "environment": "Desktop Edge, real GitHub Pages and cloud Supabase; physical devices not tested"
+}
