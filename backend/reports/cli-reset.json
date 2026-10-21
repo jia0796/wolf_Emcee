@@ -1,0 +1,22 @@
+{
+  "command": [
+    "db",
+    "reset",
+    "--local",
+    "--yes"
+  ],
+  "exitCode": 0,
+  "lines": [
+    "Resetting local database...",
+    "Recreating database...",
+    "Initialising schema...",
+    "Seeding globals from roles.sql...",
+    "Applying migration 20261020134928_online_dealing_draft.sql...",
+    "Applying migration 20261020142406_expiry_schedule.sql...",
+    "Applying migration 20261020143021_deployment_hardening.sql...",
+    "Applying migration 20261021110926_room_dissolve_delete.sql...",
+    "Seeding data from supabase/seed.sql...",
+    "Restarting containers...",
+    "Finished supabase db reset on branch feat/room-dissolve-20261021."
+  ]
+}

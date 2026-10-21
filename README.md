@@ -4,6 +4,16 @@
 
 [開啟App](https://jia0796.github.io/wolf_Emcee/) · [R10～R16完成／部署報告](docs/b3-r10-r16-report.md) · [本輪逐項驗證](docs/b3-r10-r16-validation.json) · [前輪報告](docs/b3-r01-r09-report.md) · [票型報告](docs/vote62-report.md) · [接刀報告](docs/takeover-nightknife-report.md)
 
+## 2026-10-21｜線上房間解散／刪除與玩家退出（已實作、已部署）
+
+- 依使用者本次確認：**解散直接刪除房間**，同交易清除房間授權、座位、邀請、發牌交易與玩家角色；不保留可恢復的舊房間。只允許房主操作；重複解散同一 UUID 是安全的空操作，不會刪到之後的新房間。
+- 發牌前「解散房間」及主持中「重新開局 → 回首頁」均關閉線上房間；正式終局通知也刪除該局線上發牌資料。本機正式復盤、原遊戲規則與存檔 v22 不變。
+- 玩家收到關閉訊號後立即蓋牌、清除角色正面、房間連結／該房邀請並回首頁；圖鑑、多分頁同樣退出。斷線時無法即時收訊，恢復連線／重新查證後退出。舊連結不再恢復角色卡。
+- 主持確認關閉時，**等伺服器確認刪除成功後才清本機對局**。失敗或回應遺失時保留原對局與回退歷史、顯示重試訊息；刪除其實已成功時可安全重試。新建房間不再閃出上一間房號／QR。
+- 程式提交 `4b06eb3288262966ba81f1f5d8d0f931363bf196`；[Pages 發布成功](https://github.com/jia0796/wolf_Emcee/actions/runs/39598524191)。Supabase room Edge Function v2、migration `20261021110926` 已部署；未修改 main、Google Drive、Auth／Realtime 設定或快取策略。
+- 驗證：App **875**、後端資料庫 **25**、Edge／Realtime **6**、pgTAP **10**、私有頻道客戶端 **1** 通過；新增 UI 專項本機／正式站各 **17** 通過、既有線上 UI **27** 及主持 UI **50** 通過。正式站 3 間自建測試房與五類關聯資料均確認為 0 筆。iPhone Safari／安裝 PWA／Android 真機仍待驗收。
+- [完整報告、截圖與安全回退](docs/room-dissolve-report.md) · [正式站結果](docs/room-dissolve-evidence/live/results.json) · [實體刪除證據](docs/room-dissolve-evidence/cloud-deletion-proof.json)。備份 `backup/pre-room-dissolve-20261021` 保留；**程式回退不能復原已刪除的房間資料**。
+
 ## 2026-10-21｜主持操作 2.0（HOST-01／HOST-02-01～20／HOST-03-01～07，設計已定案、待實作）
 
 > **狀態與權限**：本節為 2026-10-21 使用者逐項確認的**後續施工規格**；本次**僅更新 README.md**，**不代表任何 HOST 項目已實作、已測試或已部署**。以目前 `feat/eclipse-host-app` 分支及既有原始程式為實作基準，不改 App、`DESIGN.md`、Google Drive、Supabase、GitHub 其他檔案或部署。後續施工須另有明確授權、保留可回退 Git 歷史並按實際結果記錄驗收。
@@ -176,7 +186,7 @@
 - 線上頁採村莊中央議會廣場背景，保留海港與原建築風格；通透席位牌、原按鍵色彩、月相卡背及約120px橫排裝飾 QR（本輪更新）。原圖保留，遊戲引擎與存檔格式不改。
 - 網站程式 `aa2c172`，工作分支 `feat/online-deal-20261020`。[部署成功](https://github.com/jia0796/wolf_Emcee/actions/runs/39449239704)。未合併 main。
 - 本輪：App 824／後端整合19／私有頻道客戶端1／pgTAP10／B3 UI50／10與12人 UI各27／Supabase雲端29／正式網站10項通過。各組範圍不混算；真機 Safari、PWA、Android 與相機掃碼仍待驗收。
-- [完整報告、限制與回退](docs/online-deal-report.md) · [部署後實測](docs/online-evidence/live.json)。正式終局前丟棄主持存檔的房間生命週期仍是已列明限制。
+- [完整報告、限制與回退](docs/online-deal-report.md) · [部署後實測](docs/online-evidence/live.json)。先前「正式終局前丟棄主持存檔」的房間生命週期限制，已於 2026-10-21 刪房修正處理，詳見本頁最新完成紀錄。
 
 ## 先前版本紀錄
 

@@ -1,0 +1,14 @@
+✔ parallel authorized cleanup workers close expired waiting rooms once, retain recent rooms (1533.0734ms)
+✔ Edge validates JWT, refuses forged identity and never caches role responses (514.8577ms)
+✔ Edge 10-player deal and own-role flow; new visitor and role spoof blocked (570.7549ms)
+✔ private Realtime: member receives only safe state; outsider cannot join; client cannot spoof (10847.681ms)
+✔ cleanup worker rejects player JWT and missing authentication (306.356ms)
+✔ cleanup accepts verified local service credential; production CORS accepts only approved origin (29.6131ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 24445.5274

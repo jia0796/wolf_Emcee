@@ -1,0 +1,8 @@
+{
+  "command": [
+    "test",
+    "db"
+  ],
+  "exitCode": 0,
+  "lines": []
+}

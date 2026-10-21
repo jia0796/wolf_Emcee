@@ -1,7 +1,7 @@
 -- Emergency rollback: restore the previous command body, not deleted data.
 -- Keep this file OUTSIDE migrations. Apply only with explicit rollback intent.
 begin;
-+CREATE OR REPLACE FUNCTION wolfcue_private.command(p_action text, p_room uuid, p_body jsonb)
+CREATE OR REPLACE FUNCTION wolfcue_private.command(p_action text, p_room uuid, p_body jsonb)
  RETURNS jsonb
  LANGUAGE plpgsql
  SECURITY DEFINER

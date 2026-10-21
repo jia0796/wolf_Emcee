@@ -1,0 +1,51 @@
+R10 compact rows and independent 44px targets
+R10 compact rows and independent 44px targets
+R10 compact rows and independent 44px targets
+R10 compact rows and independent 44px targets
+R10 compact rows and independent 44px targets
+R10 compact rows and independent 44px targets
+R10 compact rows and independent 44px targets
+R10 original attack targeting and SVG
+R10 original inspect targeting and SVG
+R10 original antidote targeting and SVG
+R11 layered identity/selection states
+R11 layered identity/selection states
+R11 layered identity/selection states
+R11 layered identity/selection states
+R12 sheriffVote batch eligibility, implicit abstention, weights, submit/reload/undo
+R12 sheriffVote individual eligibility, implicit abstention, weights, submit/reload/undo
+R12 sheriffRevote batch eligibility, implicit abstention, weights, submit/reload/undo
+R12 sheriffRevote individual eligibility, implicit abstention, weights, submit/reload/undo
+R12 exileVote batch eligibility, implicit abstention, weights, submit/reload/undo
+R12 exileVote individual eligibility, implicit abstention, weights, submit/reload/undo
+R12 exileRevote batch eligibility, implicit abstention, weights, submit/reload/undo
+R12 exileRevote individual eligibility, implicit abstention, weights, submit/reload/undo
+auto-next sheriffVote skips assigned, cancel stays, reselect advances
+auto-next sheriffVote wraps to first missing and never auto-submits
+auto-next sheriffRevote skips assigned, cancel stays, reselect advances
+auto-next sheriffRevote wraps to first missing and never auto-submits
+auto-next exileVote skips assigned, cancel stays, reselect advances
+auto-next exileVote wraps to first missing and never auto-submits
+auto-next exileRevote skips assigned, cancel stays, reselect advances
+auto-next exileRevote wraps to first missing and never auto-submits
+R12 sheriffVote preserves original empty rejection
+R12 sheriffRevote preserves original empty rejection
+R12 exileRevote preserves original empty rejection
+R13 only neutral 65% paint and current host camp colors; all original portraits loaded
+R14 original confirm/cancel/order and clear semantics
+R15 scoped computed alpha, readable content, directly hit last card
+R15 scoped computed alpha, readable content, directly hit last card
+R15 scoped computed alpha, readable content, directly hit last card
+R15 scoped computed alpha, readable content, directly hit last card
+R15 scoped computed alpha, readable content, directly hit last card
+R15 simulated no-blur authored fallback protects readable text
+R16 12 exact label, setup/host/rules, saved ID and recap
+R16 kingGuard12 exact label, setup/host/rules, saved ID and recap
+R16 kingDream12 exact label, setup/host/rules, saved ID and recap
+R16 evilKnight12 exact label, setup/host/rules, saved ID and recap
+R16 blood12 exact label, setup/host/rules, saved ID and recap
+R16 nightmare12 exact label, setup/host/rules, saved ID and recap
+R16 mechanical12 exact label, setup/host/rules, saved ID and recap
+R16 gargoyle12 exact label, setup/host/rules, saved ID and recap
+R16 brothers12 exact label, setup/host/rules, saved ID and recap
+{"passed":50,"errors":[]}

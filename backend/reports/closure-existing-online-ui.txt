@@ -1,0 +1,27 @@
+PASS Traditional hosting still enters original confirm
+PASS QR canvas contains rendered pixels
+PASS Decorated QR decodes exact invitation
+PASS Insufficient players: clickable exact message
+PASS Host reload recovers same room
+PASS Dealt enters unchanged first-night confirm
+PASS Dealt player initially covered
+PASS Own role revealed only after authenticated request
+PASS Library immediately clears visible role
+PASS Returning from library remains covered
+PASS Player refresh preserves seat but covers role
+PASS Privacy event immediately removes role DOM
+PASS No horizontal overflow 320x568
+PASS Bottom action visible 320x568
+PASS No horizontal overflow 375x667
+PASS Bottom action visible 375x667
+PASS No horizontal overflow 390x844
+PASS Bottom action visible 390x844
+PASS No horizontal overflow 430x932
+PASS Bottom action visible 430x932
+PASS No horizontal overflow 844x390
+PASS Bottom action visible 844x390
+PASS No horizontal overflow 1024x768
+PASS Bottom action visible 1024x768
+PASS Authorized terminal callback accepted
+PASS Terminal state covers and returns player home
+PASS No browser exceptions

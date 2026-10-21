@@ -1,0 +1,17 @@
+PASS waiting player can remain in encyclopedia before dissolution
+PASS waiting dissolution removes room and returns every tab/library player home
+PASS closed player clears URL, invite and any role DOM
+PASS host clears only its room reference
+PASS deleted invite cannot recreate or recover the room
+PASS same host can immediately create a new room after deletion
+PASS dealt player can reveal own role before closure
+PASS failed close retains exact game/history and host room reference
+PASS lost successful close response retains host game until confirmation
+PASS dealt/revealed/library players all exit when server deletes room
+PASS offline player exits after reconnect even without terminal broadcast
+PASS idempotent retry confirms missing room and clears original game once
+PASS host reload cannot recover deleted room or cleared game
+PASS player reload cannot return to deleted room
+PASS post-deal closure no longer blocks new room creation
+PASS all synthetic rooms removed at test completion
+PASS no uncaught browser exceptions

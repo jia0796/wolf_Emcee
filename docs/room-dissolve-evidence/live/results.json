@@ -1,0 +1,31 @@
+{
+  "base": "https://jia0796.github.io/wolf_Emcee/",
+  "complete": true,
+  "passed": 17,
+  "checks": [
+    "waiting player can remain in encyclopedia before dissolution",
+    "waiting dissolution removes room and returns every tab/library player home",
+    "closed player clears URL, invite and any role DOM",
+    "host clears only its room reference",
+    "deleted invite cannot recreate or recover the room",
+    "same host can immediately create a new room after deletion",
+    "dealt player can reveal own role before closure",
+    "failed close retains exact game/history and host room reference",
+    "lost successful close response retains host game until confirmation",
+    "dealt/revealed/library players all exit when server deletes room",
+    "offline player exits after reconnect even without terminal broadcast",
+    "idempotent retry confirms missing room and clears original game once",
+    "host reload cannot recover deleted room or cleared game",
+    "player reload cannot return to deleted room",
+    "post-deal closure no longer blocks new room creation",
+    "all synthetic rooms removed at test completion",
+    "no uncaught browser exceptions"
+  ],
+  "errors": [],
+  "roomIds": [
+    "908541a0-5f73-4105-8e0b-59f65ce62576",
+    "c7def218-7281-4fa0-9437-7636cd69d5d2",
+    "00af23a6-cd87-40b3-9b13-e4a58d2585a5"
+  ],
+  "environment": "Desktop Edge; physical Safari/PWA not tested"
+}

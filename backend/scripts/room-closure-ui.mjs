@@ -35,7 +35,7 @@ try{
  check('host clears only its room reference',await host.evaluate(()=>localStorage.getItem('wolfcue-online-host-v1')===null&&!!localStorage.getItem('wolfcue-online-auth')));
  await host.screenshot({path:out+'/waiting-host-home.png'});await p1.screenshot({path:out+'/waiting-player-home.png'});
  await p2.goto('about:blank');await p2.goto(r.link,{waitUntil:'domcontentloaded'});await home(p2);check('deleted invite cannot recreate or recover the room',await wiped(p2,r.roomId));await duplicate.close();
- const fresh=await create(host,count);check('same host can immediately create a different board after deletion',fresh.roomId!==r.roomId&&fresh.capacity===count);
+ const fresh=await create(host,count);check('same host can immediately create a new room after deletion',fresh.roomId!==r.roomId&&fresh.capacity===count);
  const players=[p1,p2];for(let i=2;i<count;i++)players.push(await make());for(let i=0;i<count;i++)await join(players[i],fresh,i+1);
  await host.waitForFunction(n=>document.querySelector('#onlineCount').textContent===`已入座 ${n} / ${n} 人`,count);await host.locator('#onlineDeal').click();await host.waitForFunction(()=>document.body.dataset.screen==='host');
  for(const p of players)await p.locator('#onlineCard').waitFor({state:'visible'});

@@ -1,0 +1,6 @@
+{
+  "environment": "loopback Supabase only",
+  "rollbackVerified": true,
+  "correctedVersionReapplied": true,
+  "cloudRollbackExecuted": false
+}

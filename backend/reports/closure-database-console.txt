@@ -1,0 +1,33 @@
+✔ anonymous user is authenticated DB role; unauthenticated RPC rejected (155.9626ms)
+✔ create retry, two tabs with differing IDs, recover: one room and stable invite (57.6706ms)
+✔ 10 and 12 capacities; all 26 authoritative role compositions exactly preserved (7952.7528ms)
+✔ 20 real concurrent same-seat claims have exactly one winner (181.6093ms)
+✔ failed swap retains source; clear revokes lease; same browser may select again (251.814ms)
+✔ leave, swap, stale tab, capacity bounds and host seat restriction (66.4874ms)
+✔ full/new-visitor and dealt/new-visitor both use identical full message (249.2276ms)
+✔ insufficient occupancy rejected; two host tabs and lost response retry never reshuffle (299.421ms)
+✔ deal-versus-leave 12 races: each outcome is atomic and consistent (2811.8089ms)
+✔ forged host/user/role, cross-room state and roles, incorrect lease all rejected (266.289ms)
+✔ database RLS and GRANT reject direct bulk-role, secrets, writes, privileged functions (240.2339ms)
+✔ expiry boundary, state polling does not refresh idle; dealt rooms never expire (286.5596ms)
+✔ dissolved links invalid; official end idempotently closes own-role access (295.1631ms)
+✔ 10 waiting dissolution deletes room, invite, seats, access and rejects old links (298.5787ms)
+✔ 10 dealt dissolution removes all roles and blocks every prior lease (405.2329ms)
+✔ 12 waiting dissolution deletes room, invite, seats, access and rejects old links (106.1442ms)
+✔ 12 dealt dissolution removes all roles and blocks every prior lease (410.9428ms)
+✔ outsider and seated player cannot delete an existing room (116.4183ms)
+✔ official end validates deal ID and atomically purges terminal data (346.3817ms)
+✔ concurrent closure and lost-response retry are idempotent; a new room is never touched (167.8337ms)
+✔ deal versus dissolution serializes without orphaned roles or a surviving room (1209.7714ms)
+✔ seat versus dissolution cannot recreate deleted seats (80.5292ms)
+✔ deletion rollback retains room and all role assignments (283.7851ms)
+✔ privileged deletion helper is not directly granted to clients (1.5467ms)
+✔ authenticated input validation precedes idempotent missing-room closure (20.3991ms)
+ℹ tests 25
+ℹ suites 0
+ℹ pass 25
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 24889.1002

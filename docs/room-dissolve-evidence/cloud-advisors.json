@@ -1,0 +1,255 @@
+{
+  "security": {
+    "result": {
+      "lints": [
+        {
+          "name": "rls_enabled_no_policy",
+          "title": "RLS Enabled No Policy",
+          "level": "INFO",
+          "facing": "EXTERNAL",
+          "categories": [
+            "SECURITY"
+          ],
+          "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+          "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+          "count": 4,
+          "findings": [
+            {
+              "detail": "Table \\`wolfcue_private.boards\\` has RLS enabled, but no policies exist",
+              "metadata": {
+                "name": "boards",
+                "type": "table",
+                "schema": "wolfcue_private"
+              },
+              "observed_at": "2026-10-21T12:19:12.002Z"
+            },
+            {
+              "detail": "Table \\`wolfcue_private.deal_transactions\\` has RLS enabled, but no policies exist",
+              "metadata": {
+                "name": "deal_transactions",
+                "type": "table",
+                "schema": "wolfcue_private"
+              },
+              "observed_at": "2026-10-21T12:19:12.002Z"
+            },
+            {
+              "detail": "Table \\`wolfcue_private.room_seats\\` has RLS enabled, but no policies exist",
+              "metadata": {
+                "name": "room_seats",
+                "type": "table",
+                "schema": "wolfcue_private"
+              },
+              "observed_at": "2026-10-21T12:19:12.002Z"
+            },
+            {
+              "detail": "Table \\`wolfcue_private.room_secrets\\` has RLS enabled, but no policies exist",
+              "metadata": {
+                "name": "room_secrets",
+                "type": "table",
+                "schema": "wolfcue_private"
+              },
+              "observed_at": "2026-10-21T12:19:12.002Z"
+            }
+          ]
+        },
+        {
+          "name": "auth_allow_anonymous_sign_ins",
+          "title": "Anonymous Access Policies",
+          "level": "WARN",
+          "facing": "EXTERNAL",
+          "categories": [
+            "SECURITY"
+          ],
+          "description": "Detects row level security (RLS) policies that allow access to anonymous users.",
+          "remediation": "Table `cron.job` has policies enforced on roles that allow access to anonymous users. Policies include `{cron_job_policy}`",
+          "count": 1,
+          "findings": [
+            {
+              "detail": "https://supabase.com/docs/guides/database/database-advisors?queryGroups=lint&lint=0012_auth_allow_anonymous_sign_ins",
+              "metadata": {
+                "name": "job",
+                "type": "table",
+                "schema": "cron"
+              },
+              "observed_at": "2026-10-21T12:19:12.002Z"
+            }
+          ]
+        },
+        {
+          "name": "auth_allow_anonymous_sign_ins",
+          "title": "Anonymous Access Policies",
+          "level": "WARN",
+          "facing": "EXTERNAL",
+          "categories": [
+            "SECURITY"
+          ],
+          "description": "Detects row level security (RLS) policies that allow access to anonymous users.",
+          "remediation": "Table `cron.job_run_details` has policies enforced on roles that allow access to anonymous users. Policies include `{cron_job_run_details_policy}`",
+          "count": 1,
+          "findings": [
+            {
+              "detail": "https://supabase.com/docs/guides/database/database-advisors?queryGroups=lint&lint=0012_auth_allow_anonymous_sign_ins",
+              "metadata": {
+                "name": "job_run_details",
+                "type": "table",
+                "schema": "cron"
+              },
+              "observed_at": "2026-10-21T12:19:12.002Z"
+            }
+          ]
+        },
+        {
+          "name": "auth_allow_anonymous_sign_ins",
+          "title": "Anonymous Access Policies",
+          "level": "WARN",
+          "facing": "EXTERNAL",
+          "categories": [
+            "SECURITY"
+          ],
+          "description": "Detects row level security (RLS) policies that allow access to anonymous users.",
+          "remediation": "Table `realtime.messages` has policies enforced on roles that allow access to anonymous users. Policies include `{wolfcue_receive,wolfcue_receive_guard}`",
+          "count": 1,
+          "findings": [
+            {
+              "detail": "https://supabase.com/docs/guides/database/database-advisors?queryGroups=lint&lint=0012_auth_allow_anonymous_sign_ins",
+              "metadata": {
+                "name": "messages",
+                "type": "table",
+                "schema": "realtime"
+              },
+              "observed_at": "2026-10-21T12:19:12.002Z"
+            }
+          ]
+        },
+        {
+          "name": "auth_allow_anonymous_sign_ins",
+          "title": "Anonymous Access Policies",
+          "level": "WARN",
+          "facing": "EXTERNAL",
+          "categories": [
+            "SECURITY"
+          ],
+          "description": "Detects row level security (RLS) policies that allow access to anonymous users.",
+          "remediation": "Table `wolfcue_private.player_roles` has policies enforced on roles that allow access to anonymous users. Policies include `{own_role}`",
+          "count": 1,
+          "findings": [
+            {
+              "detail": "https://supabase.com/docs/guides/database/database-advisors?queryGroups=lint&lint=0012_auth_allow_anonymous_sign_ins",
+              "metadata": {
+                "name": "player_roles",
+                "type": "table",
+                "schema": "wolfcue_private"
+              },
+              "observed_at": "2026-10-21T12:19:12.002Z"
+            }
+          ]
+        },
+        {
+          "name": "auth_allow_anonymous_sign_ins",
+          "title": "Anonymous Access Policies",
+          "level": "WARN",
+          "facing": "EXTERNAL",
+          "categories": [
+            "SECURITY"
+          ],
+          "description": "Detects row level security (RLS) policies that allow access to anonymous users.",
+          "remediation": "Table `wolfcue_private.room_access` has policies enforced on roles that allow access to anonymous users. Policies include `{own_access}`",
+          "count": 1,
+          "findings": [
+            {
+              "detail": "https://supabase.com/docs/guides/database/database-advisors?queryGroups=lint&lint=0012_auth_allow_anonymous_sign_ins",
+              "metadata": {
+                "name": "room_access",
+                "type": "table",
+                "schema": "wolfcue_private"
+              },
+              "observed_at": "2026-10-21T12:19:12.002Z"
+            }
+          ]
+        },
+        {
+          "name": "auth_allow_anonymous_sign_ins",
+          "title": "Anonymous Access Policies",
+          "level": "WARN",
+          "facing": "EXTERNAL",
+          "categories": [
+            "SECURITY"
+          ],
+          "description": "Detects row level security (RLS) policies that allow access to anonymous users.",
+          "remediation": "Table `wolfcue_private.rooms` has policies enforced on roles that allow access to anonymous users. Policies include `{member_room}`",
+          "count": 1,
+          "findings": [
+            {
+              "detail": "https://supabase.com/docs/guides/database/database-advisors?queryGroups=lint&lint=0012_auth_allow_anonymous_sign_ins",
+              "metadata": {
+                "name": "rooms",
+                "type": "table",
+                "schema": "wolfcue_private"
+              },
+              "observed_at": "2026-10-21T12:19:12.002Z"
+            }
+          ]
+        },
+        {
+          "name": "auth_leaked_password_protection",
+          "title": "Leaked Password Protection Disabled",
+          "level": "WARN",
+          "facing": "EXTERNAL",
+          "categories": [
+            "SECURITY"
+          ],
+          "description": "Leaked password protection is currently disabled.",
+          "remediation": "https://supabase.com/docs/guides/auth/password-security#password-strength-and-leaked-password-protection",
+          "count": 1,
+          "findings": [
+            {
+              "detail": "Supabase Auth prevents the use of compromised passwords by checking against HaveIBeenPwned.org. Enable this feature to enhance security.",
+              "metadata": {
+                "type": "auth",
+                "entity": "Auth"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "performance": {
+    "result": {
+      "lints": [
+        {
+          "name": "unused_index",
+          "title": "Unused Index",
+          "level": "INFO",
+          "facing": "EXTERNAL",
+          "categories": [
+            "PERFORMANCE"
+          ],
+          "description": "Detects if an index has never been used and may be a candidate for removal.",
+          "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0005_unused_index",
+          "count": 2,
+          "findings": [
+            {
+              "detail": "Index \\`player_roles_deal\\` on table \\`wolfcue_private.player_roles\\` has not been used",
+              "metadata": {
+                "name": "player_roles",
+                "type": "table",
+                "schema": "wolfcue_private"
+              },
+              "observed_at": "2026-10-21T12:19:12.957Z"
+            },
+            {
+              "detail": "Index \\`rooms_board\\` on table \\`wolfcue_private.rooms\\` has not been used",
+              "metadata": {
+                "name": "rooms",
+                "type": "table",
+                "schema": "wolfcue_private"
+              },
+              "observed_at": "2026-10-21T12:19:12.957Z"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

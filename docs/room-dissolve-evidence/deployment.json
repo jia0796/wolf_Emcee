@@ -1,0 +1,30 @@
+{
+  "sha": "4b06eb3288262966ba81f1f5d8d0f931363bf196",
+  "base": "https://jia0796.github.io/wolf_Emcee/",
+  "pagesRun": "https://github.com/jia0796/wolf_Emcee/actions/runs/39598524191",
+  "success": true,
+  "edgeVersion": 2,
+  "migration": "20261021110926",
+  "files": [
+    {
+      "file": "index.html",
+      "sha256": "c23208369c8817c7bde77c1386a35492877ae0b1727133cb0ca0be1bafab7518",
+      "matches": true
+    },
+    {
+      "file": "app.js",
+      "sha256": "2226794db6fd051db9a271697f146c0cffaaa1d3f12ad6b236bfac696d25c0de",
+      "matches": true
+    },
+    {
+      "file": "online.js",
+      "sha256": "45e2cb93b7d5e80d7f2d4be66dc3dac1fb2dd4c6b80f982066592216f559b474",
+      "matches": true
+    },
+    {
+      "file": "sw.js",
+      "sha256": "bda1ebed1b798b5ca8cdbca48773b96bc9cf596cb24302bbc05061ff55ae1915",
+      "matches": true
+    }
+  ]
+}

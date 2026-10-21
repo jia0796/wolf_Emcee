@@ -1,0 +1,57 @@
+{
+  "environment": "local Supabase Docker (real Auth/Postgres/PostgREST/Realtime)",
+  "tests": [
+    {
+      "name": "anonymous user is authenticated DB role; unauthenticated RPC rejected",
+      "passed": true
+    },
+    {
+      "name": "create retry, two tabs with differing IDs, recover: one room and stable invite",
+      "passed": true
+    },
+    {
+      "name": "10 and 12 capacities; all 26 authoritative role compositions exactly preserved",
+      "passed": true
+    },
+    {
+      "name": "20 real concurrent same-seat claims have exactly one winner",
+      "passed": true
+    },
+    {
+      "name": "failed swap retains source; clear revokes lease; same browser may select again",
+      "passed": true
+    },
+    {
+      "name": "leave, swap, stale tab, capacity bounds and host seat restriction",
+      "passed": true
+    },
+    {
+      "name": "full/new-visitor and dealt/new-visitor both use identical full message",
+      "passed": true
+    },
+    {
+      "name": "insufficient occupancy rejected; two host tabs and lost response retry never reshuffle",
+      "passed": true
+    },
+    {
+      "name": "deal-versus-leave 12 races: each outcome is atomic and consistent",
+      "passed": true
+    },
+    {
+      "name": "forged host/user/role, cross-room state and roles, incorrect lease all rejected",
+      "passed": true
+    },
+    {
+      "name": "database RLS and GRANT reject direct bulk-role, secrets, writes, privileged functions",
+      "passed": true
+    },
+    {
+      "name": "expiry boundary, state polling does not refresh idle; dealt rooms never expire",
+      "passed": true
+    },
+    {
+      "name": "dissolved links invalid; official end idempotently closes own-role access",
+      "passed": true
+    }
+  ]
+}

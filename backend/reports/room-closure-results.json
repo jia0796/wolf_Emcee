@@ -1,0 +1,18 @@
+{
+  "environment": "local Supabase Docker",
+  "checks": [
+    "10 waiting dissolution deletes room, invite, seats, access and rejects old links",
+    "10 dealt dissolution removes all roles and blocks every prior lease",
+    "12 waiting dissolution deletes room, invite, seats, access and rejects old links",
+    "12 dealt dissolution removes all roles and blocks every prior lease",
+    "outsider and seated player cannot delete an existing room",
+    "official end validates deal ID and atomically purges terminal data",
+    "concurrent closure and lost-response retry are idempotent; a new room is never touched",
+    "deal versus dissolution serializes without orphaned roles or a surviving room",
+    "seat versus dissolution cannot recreate deleted seats",
+    "deletion rollback retains room and all role assignments",
+    "privileged deletion helper is not directly granted to clients",
+    "authenticated input validation precedes idempotent missing-room closure"
+  ],
+  "passed": 12
+}

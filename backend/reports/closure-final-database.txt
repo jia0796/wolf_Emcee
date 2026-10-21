@@ -1,0 +1,20 @@
+✔ 10 waiting dissolution deletes room, invite, seats, access and rejects old links (188.4428ms)
+✔ 10 dealt dissolution removes all roles and blocks every prior lease (322.8542ms)
+✔ 12 waiting dissolution deletes room, invite, seats, access and rejects old links (100.5766ms)
+✔ 12 dealt dissolution removes all roles and blocks every prior lease (357.8344ms)
+✔ outsider and seated player cannot delete an existing room (101.2499ms)
+✔ official end validates deal ID and atomically purges terminal data (268.3572ms)
+✔ concurrent closure and lost-response retry are idempotent; a new room is never touched (111.8151ms)
+✔ deal versus dissolution serializes without orphaned roles or a surviving room (1090.1637ms)
+✔ seat versus dissolution cannot recreate deleted seats (74.549ms)
+✔ deletion rollback retains room and all role assignments (268.6381ms)
+✔ privileged deletion helper is not directly granted to clients (1.5268ms)
+✔ authenticated input validation precedes idempotent missing-room closure (19.3946ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 14500.2598

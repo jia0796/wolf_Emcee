@@ -1,0 +1,31 @@
+{
+  "base": "http://127.0.0.1:5173/",
+  "complete": true,
+  "passed": 17,
+  "checks": [
+    "waiting player can remain in encyclopedia before dissolution",
+    "waiting dissolution removes room and returns every tab/library player home",
+    "closed player clears URL, invite and any role DOM",
+    "host clears only its room reference",
+    "deleted invite cannot recreate or recover the room",
+    "same host can immediately create a different board after deletion",
+    "dealt player can reveal own role before closure",
+    "failed close retains exact game/history and host room reference",
+    "lost successful close response retains host game until confirmation",
+    "dealt/revealed/library players all exit when server deletes room",
+    "offline player exits after reconnect even without terminal broadcast",
+    "idempotent retry confirms missing room and clears original game once",
+    "host reload cannot recover deleted room or cleared game",
+    "player reload cannot return to deleted room",
+    "post-deal closure no longer blocks new room creation",
+    "all synthetic rooms removed at test completion",
+    "no uncaught browser exceptions"
+  ],
+  "errors": [],
+  "roomIds": [
+    "2ecccffa-79c0-469a-83be-00192c47d226",
+    "2d29607f-6f52-4bdf-9bcb-8df9c8dc7f77",
+    "8c497a91-726e-4e32-9e30-536fb8393d7d"
+  ],
+  "environment": "Desktop Edge; physical Safari/PWA not tested"
+}

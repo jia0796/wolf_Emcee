@@ -1,0 +1,10 @@
+{
+  "environment": "local Supabase Edge Runtime and real Realtime WebSocket",
+  "passed": [
+    "Edge validates JWT, refuses forged identity and never caches role responses",
+    "Edge 10-player deal and own-role flow; new visitor and role spoof blocked",
+    "private Realtime: member receives only safe state; outsider cannot join; client cannot spoof",
+    "cleanup worker rejects player JWT and missing authentication",
+    "cleanup accepts verified local service credential; production CORS accepts only approved origin"
+  ]
+}
