@@ -48,5 +48,15 @@ try{
  }
  const cached=await open({oldCSS:true});check('New HTML neutralizes old cached CSS before scripts',(await sample(cached.page)).image==='none');cached.release();await cached.context.close();
  const failed=await open({failImages:true});failed.release();await failed.page.locator('#start').waitFor();check('Failed images preserve interactive home without legacy art',!(await sample(failed.page)).image.match(/\/shared\.png/)&&await failed.page.locator('#start').isEnabled());await failed.page.locator('#start').click();check('Image failure does not block mode selection',await failed.page.locator('#traditionalMode').isVisible());await failed.context.close();
+ const offline=await browser.newContext({viewport:{width:390,height:844},serviceWorkers:'allow'}),op=await offline.newPage();
+ await op.goto(base,{waitUntil:'domcontentloaded'});
+ await op.waitForFunction(async()=>!!navigator.serviceWorker.controller&&(await caches.keys()).includes('council-v22-13'),null,{timeout:60000});
+ check('Updated Service Worker controls the page',true);
+ await op.waitForFunction(()=>navigator.serviceWorker.controller?.state==='activated');
+ await op.reload({waitUntil:'domcontentloaded'});await op.locator('#start').waitFor();
+ await op.waitForFunction(async()=>!!(await (await caches.open('council-v22-13')).match(new URL('art/backgrounds/lobby-shared.png',location.href).href)),null,{timeout:60000});
+ await offline.setOffline(true);await op.reload({waitUntil:'domcontentloaded'});await op.locator('#start').waitFor();
+ check('Offline reload uses current background without shared.png',!(await sample(op)).image.match(/\/shared\.png/));
+ await op.locator('#start').click();check('Offline reload keeps mode buttons usable',await op.locator('#traditionalMode').isVisible());await offline.close();
  check('No browser exceptions',errors.length===0);completed=true;
 }finally{await browser.close();writeFileSync(out+'/results.json',JSON.stringify({base,completed,passed:checks.length,checks,errors,environment:'Desktop Edge; physical iPhone/PWA not verified'},null,2));}
