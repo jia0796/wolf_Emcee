@@ -7,7 +7,7 @@ import {createGame,next,previous,choose,selectSeat,selectable,canNext,subtitle,n
 import {initializeTakeover,knifeKinds,specialBoard,originalKnifeActors} from '../public/takeover.js';
 import {basicActor,settleNight,trueWinner} from '../public/night.js';
 import {recapNights} from '../public/records.js';
-import {cardModel,outcomeLabel} from '../public/recap.js';
+import {cardModel,outcomeLabel,recapTimeline} from '../public/recap.js';
 const go=s=>assert.equal(next(s),true,'blocked '+s.step);
 const id=(s,r)=>s.players.find(p=>p.active&&p.role===r).id;
 const events=s=>s.nightRecords.flatMap(r=>r.events);
@@ -75,4 +75,12 @@ test('SK gravekeeper consumes the same formal exile snapshot without conversion'
 });
 test('SK final ordinary wolf daytime exile grants next-night takeover only',()=>{
  const s=ready();s.night=1;s.takeover.ready=false;const wolves=s.players.filter(p=>p.role==='wolf');wolves.slice(1).forEach(p=>p.alive=false);s.step='exileVote';s.votePool=s.players.filter(p=>p.active&&p.alive).map(p=>p.id);selectSeat(s,wolves[0].id);go(s);assert.equal(s.winner,null);while(s.step!=='nextNight'){assert.ok(['lastWords','eliminated'].includes(s.step));go(s);}go(s);assert.equal(s.night,2);assert.equal(s.takeover.actor,id(s,'stoneGargoyle'));
+});
+
+test('Recap hides knife status for old/new saves without deleting actions or history',()=>{
+ for(const mode of ['knife','empty','dead','ineligible']){const s=ready(12,mode!=='ineligible');s.step='stoneGargoyleKnifeState';if(mode==='dead')s.players[id(s,'stoneGargoyle')-1].alive=false;else if(mode==='knife'){choose(s,'knife');selectSeat(s,id(s,'villager'));}go(s);if(mode!=='dead')selectSeat(s,id(s,'seer'));go(s);go(s);go(s);
+ while(s.step!=='dawn'&&!s.winner){if(['attack','antidote','poison'].includes(s.step))choose(s,'skip');if(s.step==='inspect')selectSeat(s,id(s,'villager'));go(s);}
+ const saved=JSON.stringify(s),all=events(s);assert.equal(all.filter(e=>e.key==='stoneKnifeState').length,1);const shown=recapTimeline(s).flatMap(n=>n.events);assert.equal(shown.some(e=>e.key==='stoneKnifeState'),false);assert.equal(shown.filter(e=>e.key==='basic').length,mode==='knife'?1:0);assert.equal(shown.filter(e=>e.key==='stoneInspect').length,mode==='dead'?0:1);assert.equal(JSON.stringify(s),saved);
+ const restored=upgradeGame(JSON.parse(saved));delete events(restored).find(e=>e.key==='stoneKnifeState').statusOnly;const old=JSON.stringify(restored);assert.equal(recapTimeline(restored).flatMap(n=>n.events).some(e=>e.key==='stoneKnifeState'),false);assert.equal(JSON.stringify(restored),old);
+ }
 });

@@ -75,7 +75,7 @@ export function eventCard(e){
 }
 export function recapTimeline(s){
  const nights=recapNights(s),days=s.dayEvents||[],numbers=[...new Set([...nights.map(r=>r.night),...days.map(e=>e.day)])].sort((a,b)=>a-b),sections=[];
- for(const n of numbers){const r=nights.find(x=>x.night===n);if(r)sections.push({kind:'night',number:n,record:r,events:r.events.filter(e=>!!e.skill)});const events=days.filter(e=>e.day===n&&e.executed!==false).map(e=>e.type?e:{...e,type:'shot',actors:[e.sourceActor],rawTargets:[e.id],effectiveTargets:[e.id]});if(events.length)sections.push({kind:'day',number:n,events});}
+ for(const n of numbers){const r=nights.find(x=>x.night===n);if(r)sections.push({kind:'night',number:n,record:r,events:r.events.filter(e=>!!e.skill&&!e.statusOnly&&e.key!=='stoneKnifeState')});const events=days.filter(e=>e.day===n&&e.executed!==false).map(e=>e.type?e:{...e,type:'shot',actors:[e.sourceActor],rawTargets:[e.id],effectiveTargets:[e.id]});if(events.length)sections.push({kind:'day',number:n,events});}
  if(s.blood?.lastEvent?.executed&&!days.some(e=>e.type==='lastBlade')){let day=sections.find(r=>r.kind==='day'&&r.number===s.night);if(!day){day={kind:'day',number:s.night,events:[]};sections.push(day);}day.events.push(s.blood.lastEvent);}
  return sections;
 }
