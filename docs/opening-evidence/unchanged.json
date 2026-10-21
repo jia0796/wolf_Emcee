@@ -1,0 +1,195 @@
+{
+  "baseline": "43b9b1bbf48b411ee8b51c246c07eac04f0b2b7c",
+  "checks": [
+    {
+      "path": "public/wolfcue-mark.svg",
+      "unchanged": true,
+      "gitBlob": "86de64367fd9f6cb1e8efb3edcd7e79b94c8f6aa"
+    },
+    {
+      "path": "public/sw.js",
+      "unchanged": true,
+      "gitBlob": "f1d58785a4bb943b8dd04c676e1c46fa4468ba27"
+    },
+    {
+      "path": "public/engine.js",
+      "unchanged": true,
+      "gitBlob": "0e8bb012980c74a65b578c3c7cab4d767a6d7760"
+    },
+    {
+      "path": "public/night.js",
+      "unchanged": true,
+      "gitBlob": "1b4eee40d80f95f0a6b71b5c54186ed68d67726f"
+    },
+    {
+      "path": "public/identity.js",
+      "unchanged": true,
+      "gitBlob": "b6c702126684492cf2f389a15e65120b29073253"
+    },
+    {
+      "path": "public/takeover.js",
+      "unchanged": true,
+      "gitBlob": "617b9cdc98e37963661152630908f97c7a1e1538"
+    },
+    {
+      "path": "public/records.js",
+      "unchanged": true,
+      "gitBlob": "72de3285278689439dce2fc7ece3956f29b75542"
+    },
+    {
+      "path": "public/recap.js",
+      "unchanged": true,
+      "gitBlob": "d0ef7947ea39bfeb388c382818ff0f5e3a32ab3a"
+    },
+    {
+      "path": "public/timer.js",
+      "unchanged": true,
+      "gitBlob": "2df11cb322bd3be8881522fbe73eb1a9a7884b30"
+    },
+    {
+      "path": "public/votes.js",
+      "unchanged": true,
+      "gitBlob": "3d3a2179058db0c5a3a07a3c04fcdb7327c2f32d"
+    },
+    {
+      "path": "public/data.js",
+      "unchanged": true,
+      "gitBlob": "5e4d3a83ab01817508b437c8f4732d01f383880b"
+    },
+    {
+      "path": "public/online.js",
+      "unchanged": true,
+      "gitBlob": "4aa00800e65c0809399407b33b7023f45391fa14"
+    },
+    {
+      "path": "public/skills/icon-antidote.svg",
+      "unchanged": true,
+      "gitBlob": "e587379c0f1ca173277c060c07c7089df698b0da"
+    },
+    {
+      "path": "public/skills/icon-bond.svg",
+      "unchanged": true,
+      "gitBlob": "2fe9c8f89282f8f7deec3d9a924eea0ae6ae8d4a"
+    },
+    {
+      "path": "public/skills/icon-charm.svg",
+      "unchanged": true,
+      "gitBlob": "81cb84391b67f26f465876001a9992b15a910b8d"
+    },
+    {
+      "path": "public/skills/icon-dance.svg",
+      "unchanged": true,
+      "gitBlob": "1d479d422d6fe98cf3425187babfad4a23d11919"
+    },
+    {
+      "path": "public/skills/icon-duel.svg",
+      "unchanged": true,
+      "gitBlob": "6dfee67b3b1902840f9627b2a758e58932e49b4a"
+    },
+    {
+      "path": "public/skills/icon-evil-knight-reflect.svg",
+      "unchanged": true,
+      "gitBlob": "a123861b44d94863dfc83e143eb9e6dbccfd451d"
+    },
+    {
+      "path": "public/skills/icon-fear.svg",
+      "unchanged": true,
+      "gitBlob": "46e7a23a3e7fd04214cd57c7f63863aeb2505e88"
+    },
+    {
+      "path": "public/skills/icon-gravekeeper.svg",
+      "unchanged": true,
+      "gitBlob": "e269abee608ff22af2204f2ed02073917f59a85b"
+    },
+    {
+      "path": "public/skills/icon-gun.svg",
+      "unchanged": true,
+      "gitBlob": "356689a89311100265acc01a61cca54f7f9257ea"
+    },
+    {
+      "path": "public/skills/icon-heartbreak.svg",
+      "unchanged": true,
+      "gitBlob": "fcebe51ea5b922f727e188a28eff86c71eb7f419"
+    },
+    {
+      "path": "public/skills/icon-hunt.svg",
+      "unchanged": true,
+      "gitBlob": "8e27fe7c1a667ba5a7c6356bb768b371458858d6"
+    },
+    {
+      "path": "public/skills/icon-infect.svg",
+      "unchanged": true,
+      "gitBlob": "91197667d198f7f6a49319b93c609089531aa90e"
+    },
+    {
+      "path": "public/skills/icon-inspect.svg",
+      "unchanged": true,
+      "gitBlob": "78d43a755b3d019c7fe5cfd6bfa2f85f7adbf3c8"
+    },
+    {
+      "path": "public/skills/icon-learn.svg",
+      "unchanged": true,
+      "gitBlob": "b3e1c6a68cdad0c40f46b155327e9725c12104a2"
+    },
+    {
+      "path": "public/skills/icon-mask.svg",
+      "unchanged": true,
+      "gitBlob": "01d20dcbf5c6c185d86bff30a62363e0dd8675bb"
+    },
+    {
+      "path": "public/skills/icon-poison.svg",
+      "unchanged": true,
+      "gitBlob": "3a09a31a4002594dd5aff4206fc246df1e1fe7d7"
+    },
+    {
+      "path": "public/skills/icon-role-model.svg",
+      "unchanged": true,
+      "gitBlob": "8b45d45c02410d17bc610d79c912ea3f9ba95844"
+    },
+    {
+      "path": "public/skills/icon-sheriff-badge.svg",
+      "unchanged": true,
+      "gitBlob": "1c653c846dafaa103d2a1f1f7cc40f3dc224dc0c"
+    },
+    {
+      "path": "public/skills/icon-shield.svg",
+      "unchanged": true,
+      "gitBlob": "617ef9fe6a35413ebcdbd56f67bd634dba28dd30"
+    },
+    {
+      "path": "public/skills/icon-sleep.svg",
+      "unchanged": true,
+      "gitBlob": "92158d83851138469e6763962c8eca535aa7a38d"
+    },
+    {
+      "path": "public/skills/icon-swap.svg",
+      "unchanged": true,
+      "gitBlob": "d3459416879799ac0a35c17234d993636193b00b"
+    },
+    {
+      "path": "public/skills/icon-trade.svg",
+      "unchanged": true,
+      "gitBlob": "edfac7f4979dcd63a1c8803788da18f6e9d3e72d"
+    },
+    {
+      "path": "public/skills/icon-transform.svg",
+      "unchanged": true,
+      "gitBlob": "745f9b446bf37621cc0f8d29c4932fb87ac65a73"
+    },
+    {
+      "path": "public/skills/icon-vote.svg",
+      "unchanged": true,
+      "gitBlob": "9595a1f72e58d161454ae937ddd78816361e706c"
+    },
+    {
+      "path": "public/skills/icon-wolf-attack.svg",
+      "unchanged": true,
+      "gitBlob": "f45a614a08a48fbc920f673c1f17d9b49925ad3e"
+    },
+    {
+      "path": "public/skills/icon-wolf-inspect.svg",
+      "unchanged": true,
+      "gitBlob": "2b34f69b032a1b9d429d986b0ef06905e9e6c108"
+    }
+  ]
+}

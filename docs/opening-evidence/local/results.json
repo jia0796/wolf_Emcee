@@ -1,0 +1,301 @@
+{
+  "complete": true,
+  "base": "http://127.0.0.1:5173/",
+  "checks": [
+    {
+      "name": "320: original wolf SVG and exact brand",
+      "pass": true
+    },
+    {
+      "name": "320: pointer/programmatic click and keyboard cannot activate home",
+      "pass": true
+    },
+    {
+      "name": "320: normal total 1.8s including fade",
+      "pass": true,
+      "on": {
+        "active": true,
+        "time": 86.39999999850988
+      },
+      "off": {
+        "active": false,
+        "time": 1890.199999999255
+      },
+      "duration": 1803.800000000745
+    },
+    {
+      "name": "320: overlay and inert fully removed",
+      "pass": true
+    },
+    {
+      "name": "320: home usable",
+      "pass": true
+    },
+    {
+      "name": "320: reload skips",
+      "pass": true
+    },
+    {
+      "name": "320: internal home skips",
+      "pass": true
+    },
+    {
+      "name": "375: original wolf SVG and exact brand",
+      "pass": true
+    },
+    {
+      "name": "375: pointer/programmatic click and keyboard cannot activate home",
+      "pass": true
+    },
+    {
+      "name": "375: normal total 1.8s including fade",
+      "pass": true,
+      "on": {
+        "active": true,
+        "time": 73.5
+      },
+      "off": {
+        "active": false,
+        "time": 1876.699999999255
+      },
+      "duration": 1803.199999999255
+    },
+    {
+      "name": "375: overlay and inert fully removed",
+      "pass": true
+    },
+    {
+      "name": "375: home usable",
+      "pass": true
+    },
+    {
+      "name": "375: reload skips",
+      "pass": true
+    },
+    {
+      "name": "375: internal home skips",
+      "pass": true
+    },
+    {
+      "name": "390: original wolf SVG and exact brand",
+      "pass": true
+    },
+    {
+      "name": "390: pointer/programmatic click and keyboard cannot activate home",
+      "pass": true
+    },
+    {
+      "name": "390: normal total 1.8s including fade",
+      "pass": true,
+      "on": {
+        "active": true,
+        "time": 86.40000000223517
+      },
+      "off": {
+        "active": false,
+        "time": 1886
+      },
+      "duration": 1799.5999999977648
+    },
+    {
+      "name": "390: overlay and inert fully removed",
+      "pass": true
+    },
+    {
+      "name": "390: home usable",
+      "pass": true
+    },
+    {
+      "name": "390: reload skips",
+      "pass": true
+    },
+    {
+      "name": "390: internal home skips",
+      "pass": true
+    },
+    {
+      "name": "430: original wolf SVG and exact brand",
+      "pass": true
+    },
+    {
+      "name": "430: pointer/programmatic click and keyboard cannot activate home",
+      "pass": true
+    },
+    {
+      "name": "430: normal total 1.8s including fade",
+      "pass": true,
+      "on": {
+        "active": true,
+        "time": 154.80000000074506
+      },
+      "off": {
+        "active": false,
+        "time": 1955.4000000022352
+      },
+      "duration": 1800.6000000014901
+    },
+    {
+      "name": "430: overlay and inert fully removed",
+      "pass": true
+    },
+    {
+      "name": "430: home usable",
+      "pass": true
+    },
+    {
+      "name": "430: reload skips",
+      "pass": true
+    },
+    {
+      "name": "430: internal home skips",
+      "pass": true
+    },
+    {
+      "name": "reduced: skipped safely",
+      "pass": true
+    },
+    {
+      "name": "inheritedSession: skipped safely",
+      "pass": true
+    },
+    {
+      "name": "priorHost: skipped safely",
+      "pass": true
+    },
+    {
+      "name": "storageUnavailable: skipped safely",
+      "pass": true
+    },
+    {
+      "name": "logoFailure: fails open within 2.5s tolerance",
+      "pass": true,
+      "on": {
+        "active": true,
+        "time": 89.90000000223517
+      },
+      "off": {
+        "active": false,
+        "time": 106.20000000298023
+      },
+      "duration": 16.300000000745058
+    },
+    {
+      "name": "logoFailure: no stuck input lock",
+      "pass": true
+    },
+    {
+      "name": "missingOpeningCSS: fails open within 2.5s tolerance",
+      "pass": true,
+      "duration": null
+    },
+    {
+      "name": "missingOpeningCSS: no stuck input lock",
+      "pass": true
+    },
+    {
+      "name": "runtimeError: fails open within 2.5s tolerance",
+      "pass": true,
+      "on": {
+        "active": true,
+        "time": 90.40000000223517
+      },
+      "off": {
+        "active": false,
+        "time": 100
+      },
+      "duration": 9.599999997764826
+    },
+    {
+      "name": "runtimeError: no stuck input lock",
+      "pass": true
+    },
+    {
+      "name": "watchdog: fails open within 2.5s tolerance",
+      "pass": true,
+      "on": {
+        "active": true,
+        "time": 146.10000000149012
+      },
+      "off": {
+        "active": false,
+        "time": 2643.300000000745
+      },
+      "duration": 2497.199999999255
+    },
+    {
+      "name": "independent watchdog, normal completion disabled",
+      "pass": true,
+      "on": {
+        "active": true,
+        "time": 146.10000000149012
+      },
+      "off": {
+        "active": false,
+        "time": 2643.300000000745
+      },
+      "duration": 2497.199999999255
+    },
+    {
+      "name": "watchdog: no stuck input lock",
+      "pass": true
+    },
+    {
+      "name": "missing background: usable neutral home, no old image",
+      "pass": true
+    },
+    {
+      "name": "missing background does not gate interaction",
+      "pass": true
+    },
+    {
+      "name": "slow lobby never extends opening",
+      "pass": true
+    },
+    {
+      "name": "late lobby fades independently",
+      "pass": true
+    },
+    {
+      "name": "press spanning dismissal cannot click through",
+      "pass": true
+    },
+    {
+      "name": "next intentional press works",
+      "pass": true
+    },
+    {
+      "name": "BFCache restoration cancels rather than replaying",
+      "pass": true
+    },
+    {
+      "name": "QR invitation bypasses opening",
+      "pass": true
+    },
+    {
+      "name": "independent new tab plays despite same localStorage",
+      "pass": true
+    },
+    {
+      "name": "held keyboard release does not activate a home action",
+      "pass": true
+    },
+    {
+      "name": "background/foreground cancels without replay",
+      "pass": true
+    },
+    {
+      "name": "animation cancellation unlocks immediately",
+      "pass": true
+    },
+    {
+      "name": "host save reload bypasses animation and preserves history",
+      "pass": true
+    },
+    {
+      "name": "no uncaught browser errors",
+      "pass": true,
+      "errors": []
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,11 @@
+{
+  "base": "https://jia0796.github.io/wolf_Emcee/",
+  "complete": true,
+  "checks": [
+    "fresh offline tab loads the approved logo from existing cache",
+    "touch during offline opening does not activate home",
+    "offline opening releases touch input",
+    "offline reload does not replay"
+  ],
+  "environment": "Desktop Edge with touch emulation; not physical iOS/PWA"
+}

@@ -1,0 +1,24 @@
+✔ B3 uses only lobby for non-host screens and the current host phase (0.5617ms)
+✔ B3 official PNG bytes and all 26 pre-B3 skill originals remain exact (15.8813ms)
+✔ B3 backgrounds remain optional while presentation code is available offline (0.8051ms)
+✔ App branding and standalone icon preserve the installed app identity (1.4956ms)
+✔ OPEN fresh home tab is eligible, without a cross-tab localStorage flag (0.6527ms)
+✔ OPEN skips reload (0.0878ms)
+✔ OPEN skips backForward (0.0557ms)
+✔ OPEN skips unknown (0.0525ms)
+✔ OPEN skips seenTab (0.065ms)
+✔ OPEN skips restoredHome (0.0549ms)
+✔ OPEN skips restoredHost (0.0508ms)
+✔ OPEN skips invite (0.0431ms)
+✔ OPEN skips onlineHost (0.5393ms)
+✔ OPEN skips reduceMotion (0.1246ms)
+✔ OPEN skips background (0.0578ms)
+✔ OPEN skips uncertain (0.0577ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 16
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 96.4319

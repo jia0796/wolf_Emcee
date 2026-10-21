@@ -1,0 +1,55 @@
+PASS 320: original wolf SVG and exact brand
+PASS 320: pointer/programmatic click and keyboard cannot activate home
+PASS 320: normal total 1.8s including fade
+PASS 320: overlay and inert fully removed
+PASS 320: home usable
+PASS 320: reload skips
+PASS 320: internal home skips
+PASS 375: original wolf SVG and exact brand
+PASS 375: pointer/programmatic click and keyboard cannot activate home
+PASS 375: normal total 1.8s including fade
+PASS 375: overlay and inert fully removed
+PASS 375: home usable
+PASS 375: reload skips
+PASS 375: internal home skips
+PASS 390: original wolf SVG and exact brand
+PASS 390: pointer/programmatic click and keyboard cannot activate home
+PASS 390: normal total 1.8s including fade
+PASS 390: overlay and inert fully removed
+PASS 390: home usable
+PASS 390: reload skips
+PASS 390: internal home skips
+PASS 430: original wolf SVG and exact brand
+PASS 430: pointer/programmatic click and keyboard cannot activate home
+PASS 430: normal total 1.8s including fade
+PASS 430: overlay and inert fully removed
+PASS 430: home usable
+PASS 430: reload skips
+PASS 430: internal home skips
+PASS reduced: skipped safely
+PASS inheritedSession: skipped safely
+PASS priorHost: skipped safely
+PASS storageUnavailable: skipped safely
+PASS logoFailure: fails open within 2.5s tolerance
+PASS logoFailure: no stuck input lock
+PASS missingOpeningCSS: fails open within 2.5s tolerance
+PASS missingOpeningCSS: no stuck input lock
+PASS runtimeError: fails open within 2.5s tolerance
+PASS runtimeError: no stuck input lock
+PASS watchdog: fails open within 2.5s tolerance
+PASS independent watchdog, normal completion disabled
+PASS watchdog: no stuck input lock
+PASS missing background: usable neutral home, no old image
+PASS missing background does not gate interaction
+PASS slow lobby never extends opening
+PASS late lobby fades independently
+PASS press spanning dismissal cannot click through
+PASS next intentional press works
+PASS BFCache restoration cancels rather than replaying
+PASS QR invitation bypasses opening
+PASS independent new tab plays despite same localStorage
+PASS held keyboard release does not activate a home action
+PASS background/foreground cancels without replay
+PASS animation cancellation unlocks immediately
+PASS host save reload bypasses animation and preserves history
+PASS no uncaught browser errors

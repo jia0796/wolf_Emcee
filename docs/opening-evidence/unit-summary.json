@@ -1,0 +1,11 @@
+{
+  "command": "npm test",
+  "pass": 875,
+  "fail": 0,
+  "cancelled": 0,
+  "skipped": 0,
+  "boards": 28,
+  "completedGames": 504,
+  "actions": 55875,
+  "log": "unit-tests.txt"
+}

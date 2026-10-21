@@ -1,0 +1,23 @@
+PASS 320: delayed app script has no legacy image
+PASS 320: current lobby loads and Start remains actionable
+PASS 320: all sampled frames exclude shared.png
+PASS 375: delayed app script has no legacy image
+PASS 375: current lobby loads and Start remains actionable
+PASS 375: all sampled frames exclude shared.png
+PASS 390: delayed app script has no legacy image
+PASS 390: current lobby loads and Start remains actionable
+PASS 390: all sampled frames exclude shared.png
+PASS Traditional prepare: host-day
+PASS Traditional #next: host-night
+PASS Traditional #back: host-day
+PASS Reload retains preparation day scene
+PASS 430: delayed app script has no legacy image
+PASS 430: current lobby loads and Start remains actionable
+PASS 430: all sampled frames exclude shared.png
+PASS New HTML neutralizes old cached CSS before scripts
+PASS Failed images preserve interactive home without legacy art
+PASS Image failure does not block mode selection
+PASS Updated Service Worker controls the page
+PASS Offline reload uses current background without shared.png
+PASS Offline reload keeps mode buttons usable
+PASS No browser exceptions

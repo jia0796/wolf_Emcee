@@ -1,0 +1,33 @@
+{
+  "sha": "b72b08fd037ca1ef8a9da5a524756ed2f28a9a94",
+  "base": "https://jia0796.github.io/wolf_Emcee/",
+  "workflow": "https://github.com/jia0796/wolf_Emcee/actions/runs/39568918152",
+  "conclusion": "success",
+  "checks": [
+    {
+      "path": "app.js",
+      "sha256": "65f681a38d7d8dda66d69a9871454cb4abe6450d99e6bf59897d1f96c68674ec",
+      "matches": true
+    },
+    {
+      "path": "b3-ui.js",
+      "sha256": "4b362ea4dc0db6b7af08bb0a0b25cefde2086971505ea973010834c0d06226d5",
+      "matches": true
+    },
+    {
+      "path": "b3.css",
+      "sha256": "ecc58174d8804342e2e3715d29b2f5176188723ba1ed36a115f7048746e0b4ed",
+      "matches": true
+    },
+    {
+      "path": "wolfcue-mark.svg",
+      "sha256": "57f61988695ab6002b5b79420006a36f36c9b6d2c38110cfa1de257b0eaba747",
+      "matches": true
+    },
+    {
+      "path": "sw.js",
+      "sha256": "bda1ebed1b798b5ca8cdbca48773b96bc9cf596cb24302bbc05061ff55ae1915",
+      "matches": true
+    }
+  ]
+}
