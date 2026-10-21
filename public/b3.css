@@ -252,3 +252,15 @@ body #boards #boardChoices button{background-color:rgb(27 49 66 / .34);backgroun
 body :is(#home .menu button,#problemReport,#setupStart,#setupBack,#traditionalMode,#onlineMode){position:relative;border-radius:15px 24px 15px 24px}
 body :is(#home .menu button,#problemReport,#setupStart,#setupBack,#traditionalMode,#onlineMode)::after{content:'';position:absolute;inset:8px;pointer-events:none;border:0;border-radius:inherit;opacity:.78;background:none;box-shadow:inset 1px 0 0 #b2dbe51c,inset -1px 0 0 #b2dbe514}
 body #home .menu button::before{inset:2px 8px auto;height:42%;border-radius:12px 20px 70% 25%;background:linear-gradient(115deg,#effbff20,transparent 67%);pointer-events:none}
+
+/* OPEN-01–10: isolated, silent startup layer. Source SVG and home stay intact. */
+.wolfcue-opening{position:fixed;inset:0;z-index:2147483646;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:24px;background:#13212D;color:#F4F8F9;text-align:center;isolation:isolate;touch-action:manipulation;outline:none}
+.opening-art{position:relative;width:min(48vw,210px);aspect-ratio:1}
+.opening-art svg{position:absolute;inset:0;width:100%;height:100%}
+.opening-badge,.opening-brand strong,.opening-brand p{opacity:0}
+.opening-trace path{fill:none;stroke:#B2DBE5;stroke-width:2.5;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;filter:drop-shadow(0 0 4px #b2dbe5)}
+.opening-brand strong{display:block;font-size:clamp(24px,6vw,32px);letter-spacing:.06em;font-weight:600}
+.opening-brand p{margin:10px 0 0;font-size:15px;letter-spacing:.15em;color:#C8DBE6}
+/* While the first lobby image decodes, expose only the neutral canvas. */
+body[data-screen=home][data-lobby-managed]::before{background-image:none}
+body[data-screen=home][data-lobby-managed]{background-image:none}

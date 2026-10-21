@@ -1,5 +1,5 @@
 import {installOnline} from './online.js';
-import {backgroundSource,hostPresentation,createB3Backdrop,installB3ScrollHints} from './b3-ui.js';
+import {backgroundSource,hostPresentation,createB3Backdrop,installB3ScrollHints,installWolfCueOpening} from './b3-ui.js';
 import {originalKnifeActors,specialFlow,knifeEntry,knifeSelection,knifeKinds,statusSteps,switchSteps,knifeSummary,knifeStatus,closeRole} from './takeover.js';
 import {bondAvailable} from './fragrance.js';
 import {voteLocked} from './votes.js';
@@ -303,4 +303,5 @@ const updateViewport=()=>{const viewport=window.visualViewport;document.document
 updateViewport();window.addEventListener('resize',updateViewport);window.visualViewport?.addEventListener('resize',updateViewport);
 if('serviceWorker' in navigator){const resumePrecache=()=>{cacheForeground();navigator.serviceWorker.controller?.postMessage({type:'RESUME_PRECACHE'});};navigator.serviceWorker.addEventListener('controllerchange',resumePrecache);navigator.serviceWorker.ready.then(resumePrecache);window.addEventListener('online',resumePrecache);document.addEventListener('visibilitychange',()=>{if(!document.hidden)resumePrecache();});}
 
+installWolfCueOpening({screen,previousScreen});
 void online.resume();

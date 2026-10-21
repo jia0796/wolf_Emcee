@@ -26,6 +26,8 @@ export function createB3Backdrop(){
   else outgoing.style.opacity='0';
  }
  function setScreen(next,nextPhase,{preparing=false}={}){
+  const firstLobby=screen===null&&next==='home';
+  if(firstLobby)document.body.dataset.lobbyManaged='true';
   const transition=screen==='host'&&next==='host'&&phase!==nextPhase&&!quiet&&!document.hidden;
   quiet=false;if(screen!==next)lastStep=null;screen=next;phase=nextPhase;wanted=backgroundSource(next,nextPhase);const ticket=++epoch;
   // A fresh/restored confirm screen must never retain a previously painted night.
@@ -34,7 +36,7 @@ export function createB3Backdrop(){
   // Online entry uses its neutral canvas while loading, never the prior scene.
   // Other screens retain the existing fallback and host day/night transitions.
   if(loaded.has(wanted))paint(wanted,transition);
-  else load(wanted,'high').then(ok=>{if(ok&&ticket===epoch)paint(wanted,transition);});
+  else load(wanted,'high').then(ok=>{if(ok&&ticket===epoch)paint(wanted,transition||firstLobby);});
  }
  function script(step){
   const title=document.getElementById('subtitle');if(lastStep===step)return;
@@ -43,7 +45,7 @@ export function createB3Backdrop(){
  }
  function resume(){quiet=true;cancel();layers.forEach((e,i)=>e.style.opacity=current&&i===index?'1':'0');document.getElementById('subtitle')?.getAnimations().forEach(a=>a.cancel());}
  document.addEventListener('visibilitychange',resume);window.addEventListener('pageshow',resume);motion.addEventListener('change',resume);
- window.addEventListener('online',()=>{const src=wanted,ticket=epoch;if(src&&!loaded.has(src))load(src,'high').then(ok=>{if(ok&&ticket===epoch)paint(src,false);});});
+ window.addEventListener('online',()=>{const src=wanted,ticket=epoch;if(src&&!loaded.has(src))load(src,'high').then(ok=>{if(ok&&ticket===epoch)paint(src,screen==='home');});});
  // Lobby starts first; silent host preparation remains optional and never gates show().
  load(PAGE_BACKGROUNDS.home,'high').then(()=>{const prepare=()=>load(HOST_BACKGROUNDS.day).then(()=>load(HOST_BACKGROUNDS.night));if('requestIdleCallback'in window)requestIdleCallback(prepare,{timeout:2000});else setTimeout(prepare,0);});
  return {setScreen,script};
@@ -75,4 +77,71 @@ export function installB3ScrollHints(){
  const mutation=new MutationObserver(records=>{if(records.some(r=>!r.target.classList?.contains('b3-scroll-hint')&&(r.type!=='childList'||[...r.addedNodes,...r.removedNodes].some(n=>!n.classList?.contains('b3-scroll-hint')))))schedule();});
  mutation.observe(document.body,{subtree:true,childList:true,attributes:true,attributeFilter:['hidden','open','class','inert','aria-hidden','data-screen']});
  document.addEventListener('scroll',schedule,{capture:true,passive:true});document.addEventListener('load',schedule,true);document.addEventListener('transitionend',schedule,true);window.addEventListener('pageshow',schedule);document.addEventListener('visibilitychange',schedule);window.addEventListener('resize',schedule);window.visualViewport?.addEventListener('resize',schedule);schedule();
+}
+
+// OPEN-01–10. Tab-local presentation only; no game snapshots or durable flags.
+export function openingEligible({navigation,seen,previousScreen,screen,roomLink,onlineRecovery,reduced,visible,reliable=true}){
+ return reliable&&navigation==='navigate'&&!seen&&!previousScreen&&screen==='home'&&!roomLink&&!onlineRecovery&&!reduced&&visible;
+}
+export function installWolfCueOpening({screen,previousScreen}){
+ const key='wolfcue-opening-tab-v1';let motion,eligible=false;
+ try{
+  motion=matchMedia('(prefers-reduced-motion: reduce)');
+  const seen=sessionStorage.getItem(key),url=new URL(location.href),hash=new URLSearchParams(url.hash.slice(1));
+  const online=JSON.parse(localStorage.getItem('wolfcue-online-host-v1'));
+  eligible=openingEligible({navigation:performance.getEntriesByType('navigation')[0]?.type,seen,previousScreen,screen,roomLink:url.searchParams.has('room')||hash.has('room')||hash.has('invite'),onlineRecovery:!!online&&!online.started,reduced:motion.matches,visible:document.visibilityState==='visible'});
+  sessionStorage.setItem(key,'seen');if(sessionStorage.getItem(key)!=='seen')return;
+ }catch{return;} // Unknown restoration/storage state: skip, never guess.
+ if(!eligible)return;
+ const root=document.createElement('div');root.className='wolfcue-opening';root.tabIndex=-1;root.setAttribute('role','status');root.setAttribute('aria-label','狼序 WolfCue，狼人殺主持工具');
+ root.innerHTML='<div class="opening-art" aria-hidden="true"></div><div class="opening-brand" aria-hidden="true"><strong>狼序 WolfCue</strong><p>狼人殺主持工具</p></div>';
+ const before=document.activeElement,locked=[],animations=[],started=performance.now(),controller=new AbortController();
+ let active=true,held=false,normalTimer,observer;
+ const eventTypes=['pointerdown','pointerup','pointercancel','click','dblclick','keydown','keyup'];
+ function unlisten(){for(const type of eventTypes)window.removeEventListener(type,guard,true);}
+ function guard(e){
+  if(!active){
+   // A press begun under the overlay must not finish as a click on the home.
+   if(e.type==='pointerdown'||(e.type==='keydown'&&!e.repeat)){held=false;unlisten();return;}
+   if(!held){unlisten();return;}
+  }
+  if(e.type==='pointerdown'||e.type==='keydown')held=true;
+  e.preventDefault();e.stopImmediatePropagation();
+ }
+ function finish(){
+  if(!active)return;active=false;clearTimeout(watchdog);clearTimeout(normalTimer);controller.abort();observer?.disconnect();
+  for(const a of animations)a.cancel();root.remove();for(const [node,inert]of locked)node.inert=inert;
+  window.removeEventListener('error',finish);window.removeEventListener('unhandledrejection',finish);window.removeEventListener('pagehide',finish);window.removeEventListener('pageshow',restored);document.removeEventListener('visibilitychange',hidden);motion.removeEventListener('change',finish);
+  if(!held)unlisten();if(before?.isConnected&&!before.closest('[hidden],[inert]'))before.focus({preventScroll:true});
+ }
+ function hidden(){if(document.hidden)finish();}
+ function restored(e){if(e.persisted)finish();}
+ // Independent of image loading, animation events and the normal timeline.
+ const watchdog=setTimeout(finish,2500);
+ try{
+  document.body.append(root);
+  if(getComputedStyle(root).position!=='fixed'||!root.animate){finish();return;}
+  for(const node of document.body.children)if(node!==root){locked.push([node,node.inert]);node.inert=true;}
+  for(const type of eventTypes)window.addEventListener(type,guard,{capture:true,passive:false});root.focus({preventScroll:true});
+  window.addEventListener('error',finish);window.addEventListener('unhandledrejection',finish);window.addEventListener('pagehide',finish);window.addEventListener('pageshow',restored);document.addEventListener('visibilitychange',hidden);motion.addEventListener('change',finish);
+  observer=new MutationObserver(()=>{if(document.body.dataset.screen!=='home')finish();});observer.observe(document.body,{attributes:true,attributeFilter:['data-screen']});
+  const play=(node,frames,options)=>{const a=node.animate(frames,{fill:'both',...options});a.currentTime=performance.now()-started;animations.push(a);a.finished.catch(()=>finish());return a;};
+  play(root,[{opacity:1},{opacity:0}],{delay:1450,duration:350,easing:'ease-in-out'});
+  normalTimer=setTimeout(finish,Math.max(0,1800-(performance.now()-started)));
+  // Reuse the actual approved SVG, including its exact contour; no new artwork.
+  fetch('./wolfcue-mark.svg',{signal:controller.signal}).then(r=>{if(!r.ok)throw Error('Logo unavailable');return r.text();}).then(text=>{
+   if(!active)return;
+   if(performance.now()-started>600){finish();return;}
+   const svg=new DOMParser().parseFromString(text,'image/svg+xml').documentElement;
+   if(svg.localName!=='svg'||!svg.querySelector('path'))throw Error('Invalid logo');
+   const art=root.querySelector('.opening-art'),badge=document.importNode(svg,true);badge.classList.add('opening-badge');badge.setAttribute('aria-hidden','true');
+   const trace=document.createElementNS('http://www.w3.org/2000/svg','svg');trace.setAttribute('viewBox',svg.getAttribute('viewBox'));trace.classList.add('opening-trace');
+   const contour=svg.querySelector('path').cloneNode(true);contour.removeAttribute('fill');contour.setAttribute('pathLength','1');trace.append(contour);art.append(badge,trace);
+   play(contour,[{strokeDashoffset:1},{strokeDashoffset:0}],{duration:850,easing:'ease-in-out'});
+   play(trace,[{opacity:1},{opacity:0}],{delay:750,duration:300});
+   play(badge,[{opacity:0},{opacity:1}],{delay:550,duration:400});
+   for(const [selector,delay]of [['strong',950],['p',1100]])play(root.querySelector('.opening-brand '+selector),[{opacity:0,filter:'blur(5px)',transform:'translateY(4px)'},{opacity:1,filter:'blur(0px)',transform:'translateY(0)'}],{delay,duration:250,easing:'ease-out'});
+  }).catch(()=>finish());
+ }catch{finish();}
+ return finish;
 }
