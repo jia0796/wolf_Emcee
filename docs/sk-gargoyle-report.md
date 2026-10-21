@@ -4,7 +4,7 @@
 
 ## 發布狀態
 
-程式與素材已完成，本機驗證已完成，等待本次提交通過 GitHub CI 後發布。使用者要求所有項目完成後統一發布。石像鬼人物圖採使用者後續指定的灰岩普通版，改為參考圖蹲踞姿勢；已替換 Drive 原檔並回讀核對 SHA256。已完成的冷啟背景修復仍保留在線上，詳見 [冷啟報告](cold-start-background-report.md)。
+**已統一部署並完成正式站驗證**。程式提交 `a6939aa20543c2cafdbd0a5aa29562820cf296b8`，發布分支 `feat/eclipse-host-app`。[GitHub Pages 發布成功](https://github.com/jia0796/wolf_Emcee/actions/runs/39560547407)；工作分支與發布分支的 CI 全部成功。使用者要求部署後才更新 README，本報告與 README 的後續提交不再發布 App 程式。石像鬼人物圖採使用者後續指定的灰岩普通版，改為參考圖蹲踞姿勢；已替換 Drive 原檔並回讀核對 SHA256。已完成的冷啟背景修復仍保留在線上，詳見 [冷啟報告](cold-start-background-report.md)。
 
 ## 基準與回退保護
 
@@ -28,8 +28,9 @@
 | `public/art/catalog/stoneGargoyle-crouch-v3.png`、`docs/sk-stone-art.json` | 使用者指定姿勢編修的角色圖、來源、授權文字、完整提示詞與雜湊。 |
 | `public/b3.css` | 僅抽籤「完成」改冰藍；首頁、開局入口按鈕增加原創冰晶細節，保留原色與透明玻璃。 |
 | `test/stone-gargoyle.test.js` | 新板子、查驗、接刀、結算、復盤、回退與白天字幕精準測試。 |
+| `scripts/cold-start-background-ui.mjs` | 部署後驗證使用本次快取 v22-14，保留原背景／離線斷言；可用環境變數指定版本。 |
 | `scripts/stone-gargoyle-ui.mjs` | 新板子操作、窄手機／橫向、刷新、回退、抽籤防重複推進瀏覽器驗收。 |
-| 既有測試與 `scripts/ui-regression.mjs` | 加入兩個新板子、保留原 26 板子的規則基準；抽籤自動推進後仍執行原有刷新／回退檢查。 |
+| `test/b3-r10-r16.test.js`、`test/council.test.js`、`test/readme48.test.js`、`test/stress.test.js`、`test/ui54.test.js`、`scripts/ui-regression.mjs` | 加入兩個新板子、保留原 26 板子的規則基準；抽籤自動推進後仍執行原有刷新／回退檢查。 |
 
 本輪沒有修改 `night.js`、`identity.js`、投票／計時器引擎、線上發牌程式或 Supabase。26 份原技能 SVG 已逐檔比對原始位元組，全部相同。原角色資料及 26 個舊板子非顯示設定亦與既有測試基準一致。
 
@@ -51,7 +52,7 @@
 - 初輪完整 `npm test`：857 項，856 通過、1 失敗。原因為既有測試固定板子排序尚未列入新板子；更新為規格要求的位置，保留原規則斷言。
 - 後續完整 `npm test`：857 通過、0 失敗。
 - 再補四項夜間毒殺、正式終局、守墓快照與白天接刀測試後，完整 `npm test`：**861 通過、0 失敗、0 跳過**。其中 28 板各 18 個種子，共 **504 局、55,875 次操作**完成；詳見 [測試摘要](sk-evidence/node-tests.json)。此輪在接入新版圖片之前完成，接入圖鑑素材後另跑完整 862 項通過；本次採該完整卡面版本。
-- 最終完整卡面版本 `npm test`：**862 通過、0 失敗、0 跳過**。取消去背後再驗證下列 64 項單元與 20 項瀏覽器測試；發佈 CI 會對提交版本重新跑完整測試。
+- 最終完整卡面版本 `npm test`：**862 通過、0 失敗、0 跳過**。取消去背後再驗證下列 64 項單元與 20 項瀏覽器測試；GitHub 發佈 CI 及兩個分支的 Host flow tests 皆已對實際提交版本重新執行 npm test 並成功。
 - `node --test test/stone-gargoyle.test.js`：接入素材後與 `test/council.test.js` 合跑，64 通過、0 失敗（其中新板子 28 項）。
 - `scripts/stone-gargoyle-ui.mjs`：接入素材後 **20 通過、0 瀏覽器例外**；320×568、375×667、390×844、430×932、844×390。
 - `scripts/b3-r10-r16-ui.mjs`：50 通過、0 瀏覽器例外。涵蓋投票／PK、計時器、復盤及原玻璃介面回歸。
@@ -70,7 +71,16 @@
 
 ## 安全回退
 
-完工提交後以 `git revert <本輪程式提交 SHA>` 建立反向提交，再執行測試並按既有流程發布；不要 reset 或 force push。這樣保留冷啟修復及其他後續提交，也不改動兩份遠端備份。完成提交與發布後補上確切 SHA、工作流程連結及線上驗證結果。
+先備份正在使用的存檔；新板子需先完成，舊版不認識新 ID。從當時最新遠端建立唯一回退工作分支：
+
+```powershell
+git fetch origin
+git switch -c revert/sk-gargoyle-20261021 origin/feat/eclipse-host-app
+git revert a6939aa20543c2cafdbd0a5aa29562820cf296b8
+npm test
+```
+
+若已有同名回退分支，改用新名稱；若後續提交造成衝突，先審查並保留其他後續修改，再完成 revert，不能 reset 或強推。確認測試與差異後才正常推送回開發分支發布。這個反向提交保留冷啟修復及完整歷史，不修改兩份遠端備份。報告後續補記可能產生文件衝突，保留最新驗收紀錄。
 
 ## 人物素材與畫面
 
@@ -81,3 +91,14 @@
 [首頁按鈕](sk-evidence/ornamented-home.png) · [查驗操作](sk-evidence/stone-inspect-390.png) · [新圖鑑](sk-evidence/stone-catalog.png) · [新角色復盤](sk-evidence/stone-recap.png)
 
 使用者最終裁定「不要去背好了」：復盤沿用完整蹲姿卡面與原裁切／融合版型，不接入透明圖片。
+
+## 部署後驗收
+
+- 程式提交：`a6939aa20543c2cafdbd0a5aa29562820cf296b8`。發布分支：`feat/eclipse-host-app`，實作分支：`feat/sk-gargoyle-20261021`。沒有更新 main 或 Supabase。
+- [部署與檔案雜湊](sk-evidence/deployment.json)：15 個正式站檔案逐一比對提交內容，全部一致，包含 HTML、CSS、新角色 PNG、紅色 SVG、線上頁及新功能程式。
+- 正式站執行 `UI_BASE=https://jia0796.github.io/wolf_Emcee/ node scripts/stone-gargoyle-ui.mjs`：**20 通過、0 例外**，[結果](sk-evidence/live-ui.json)。以隔離瀏覽器與虛構本機存檔驗證，不建立 Supabase 房間。
+- 正式站執行 `COUNCIL_URL=https://jia0796.github.io/wolf_Emcee/ COUNCIL_BASELINE=0 node scripts/cold-start-background-ui.mjs`：**23 通過、0 例外**，[結果](sk-evidence/live-cold.json)。包含延遲初始化、快取舊 CSS、缺圖、日夜／回退／刷新與 SW 啟用後離線。
+- 上述命令需設定 `COUNCIL_PLAYWRIGHT_MODULE` 指向已安裝的 Playwright；本環境使用桌面 Edge。
+- [正式站復盤截圖](sk-evidence/live-recap.png)：完整蹲姿圖片、原裁切／融合樣式；使用者最後取消去背，透明變體未發布。
+- 未完成真機驗收：iPhone Safari、iOS 安裝 PWA、Android、低階裝置與實際系統字級／動態地址列。桌面測試不能代替真機。
+- 已知範圍限制：新板子僅傳統主持；線上後端白名單仍為 26 板。既有快取摘要多一筆歷史素材，專用 `--check` 集合檢查仍失敗，未混稱通過。
