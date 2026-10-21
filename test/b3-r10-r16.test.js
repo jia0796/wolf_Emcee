@@ -10,8 +10,8 @@ const digest=x=>createHash('sha256').update(JSON.stringify(x)).digest('hex');
 const ready=stage=>{const s=createGame('12');let i=0;for(const [r,n]of Object.entries(BOARDS['12'].roles))for(let j=0;j<n;j++)s.players[i++].role=r;s.rolesConfirmed=true;s.step=stage;s.candidates=[7,8];s.nominees=[7,8,9];s.votePool=stage==='exileVote'?s.players.map(p=>p.id):[7,8];s.sheriff=stage.startsWith('sheriff')?null:1;return s;};
 test('R16 only display fields change across all 26 boards and original roles are exact',async()=>{
  const baseline=JSON.parse(await readFile(new URL('./fixtures/b3-r16-baseline.json',import.meta.url),'utf8'));
- assert.equal(Object.keys(BOARDS).length,26);assert.equal(digest(ROLE_DATA),baseline.roles);
- for(const [id,{name,shortLabel,canonicalName,...rest}]of Object.entries(BOARDS))assert.equal(digest(rest),baseline.boards[id],id);
+ const {stoneGargoyle,...originalRoles}=ROLE_DATA;assert.equal(Object.keys(BOARDS).length,28);assert.equal(Object.keys(baseline.boards).length,26);assert.equal(digest(originalRoles),baseline.roles);
+ for(const id of Object.keys(baseline.boards)){assert.ok(BOARDS[id],id);const {name,shortLabel,canonicalName,...rest}=BOARDS[id];assert.equal(digest(rest),baseline.boards[id],id);}
 });
 test('R16 nine exact names resolve by stable ID for current and old saves, preserving history',()=>{
  const names={'12':'黑狼王 / 魔術師',kingGuard12:'黑狼王 / 守衛',kingDream12:'黑狼王 / 攝夢人',evilKnight12:'惡靈騎士 / 守衛',blood12:'血月 / 獵魔人',nightmare12:'夢魘 / 攝夢人',mechanical12:'機械狼 / 通靈師',gargoyle12:'覺醒石像鬼 / 守墓人',brothers12:'狼兄狼弟 / 黑市商人'};

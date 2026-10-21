@@ -1,0 +1,14 @@
+{
+  "image": "public/art/catalog/stoneGargoyle-crouch-v3.png",
+  "sha256": "e9b95bde9a96ac40ee23603cc3cb998c262e84592c5487a97ae7871e19f15872",
+  "width": 1060,
+  "height": 1484,
+  "bytes": 2068077,
+  "method": "Built-in image_gen; user-requested pose edit on 2026-10-21",
+  "source": "https://drive.google.com/file/d/1s4HQg3vz0vBvS8RaD5Q33K3DDuveqD18/view",
+  "poseReference": "User attachment 照片 2.jpg (2026-10-21); pose only",
+  "authorization": "用這一張 改成二圖的「姿勢」",
+  "originals": "Source v01 replaced in Google Drive at user request on 2026-10-21; same file ID. Original input retained locally; awakened gargoyle art unchanged.",
+  "prompt": "Use case: precise-object-edit. Asset: a portrait collectible character card for WolfCue. Image 1 is the exact EDIT TARGET: the plain grey stone gargoyle card with gold borders, navy-black backdrop, gold crescent and stars, and Traditional Chinese title 石像鬼. Image 2 is ONLY a POSE reference (it is a phone screenshot; ignore all phone UI). Change only the grey gargoyle's pose in Image 1 to the compact crouched/perched pose in Image 2: body low, deeply bent knees gathered towards chest, leaning forward, head facing slightly to viewer's right, forearms forward and downward with large clawed hands resting in front of its knees, two stone wings extending upward behind shoulders and framing its head. Preserve the character identity, grey polygonal rock material, face, horns and grey-black color palette of Image 1. DO NOT copy the red cape, gold jewelry, chains, bracelets, costume, colors, background or border from Image 2. Preserve Image 1's gold card frame, black/navy background, crescent, stars, bottom title cartouche and exact text 石像鬼 in the same positions and proportions. Keep the whole card visible in its original approximately 5:7 portrait aspect ratio, with all four corners intact. No new decorations, no pedestal, no smartphone UI, no extra text, no watermark. Anatomically coherent clean crouching pose, polished faceted low-poly stone illustration, no black scribbles or disconnected geometric fragments.",
+  "driveModifiedTime": "2026-10-21T06:52:42.024Z"
+}

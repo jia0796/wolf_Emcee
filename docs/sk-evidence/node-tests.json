@@ -1,0 +1,211 @@
+{
+  "command": "npm test",
+  "tests": 862,
+  "passed": 862,
+  "failed": 0,
+  "skipped": 0,
+  "stress": {
+    "boards": 28,
+    "finished": 504,
+    "actions": 55875,
+    "runs": [
+      {
+        "board": "10",
+        "seeds": 18,
+        "finished": 18,
+        "actions": 1354,
+        "maxSaveBytes": 2018151
+      },
+      {
+        "board": "12",
+        "seeds": 18,
+        "finished": 18,
+        "actions": 1989,
+        "maxSaveBytes": 2038260
+      },
+      {
+        "board": "mechanical10",
+        "seeds": 18,
+        "finished": 18,
+        "actions": 1761,
+        "maxSaveBytes": 1736225
+      },
+      {
+        "board": "mechanical12",
+        "seeds": 18,
+        "finished": 18,
+        "actions": 2334,
+        "maxSaveBytes": 3199992
+      },
+      {
+        "board": "brothers12",
+        "seeds": 18,
+        "finished": 18,
+        "actions": 2510,
+        "maxSaveBytes": 2596079
+      },
+      {
+        "board": "nightmare10",
+        "seeds": 18,
+        "finished": 18,
+        "actions": 1679,
+        "maxSaveBytes": 2111119
+      },
+      {
+        "board": "nightmare12",
+        "seeds": 18,
+        "finished": 18,
+        "actions": 2613,
+        "maxSaveBytes": 2858165
+      },
+      {
+        "board": "classic12",
+        "seeds": 18,
+        "finished": 18,
+        "actions": 2080,
+        "maxSaveBytes": 2405756
+      },
+      {
+        "board": "classicMixed12",
+        "seeds": 18,
+        "finished": 18,
+        "actions": 2090,
+        "maxSaveBytes": 2166492
+      },
+      {
+        "board": "blood10",
+        "seeds": 18,
+        "finished": 18,
+        "actions": 1366,
+        "maxSaveBytes": 1470308
+      },
+      {
+        "board": "kingGuard10",
+        "seeds": 18,
+        "finished": 18,
+        "actions": 1496,
+        "maxSaveBytes": 1456197
+      },
+      {
+        "board": "kingDream10",
+        "seeds": 18,
+        "finished": 18,
+        "actions": 1395,
+        "maxSaveBytes": 1440934
+      },
+      {
+        "board": "blood12",
+        "seeds": 18,
+        "finished": 18,
+        "actions": 1711,
+        "maxSaveBytes": 2108300
+      },
+      {
+        "board": "kingGuard12",
+        "seeds": 18,
+        "finished": 18,
+        "actions": 2096,
+        "maxSaveBytes": 2655011
+      },
+      {
+        "board": "kingDream12",
+        "seeds": 18,
+        "finished": 18,
+        "actions": 2053,
+        "maxSaveBytes": 2395694
+      },
+      {
+        "board": "gargoyle10",
+        "seeds": 18,
+        "finished": 18,
+        "actions": 2134,
+        "maxSaveBytes": 2711800
+      },
+      {
+        "board": "gargoyle12",
+        "seeds": 18,
+        "finished": 18,
+        "actions": 2604,
+        "maxSaveBytes": 3077721
+      },
+      {
+        "board": "evilKnight10",
+        "seeds": 18,
+        "finished": 18,
+        "actions": 1621,
+        "maxSaveBytes": 1653855
+      },
+      {
+        "board": "evilKnight12",
+        "seeds": 18,
+        "finished": 18,
+        "actions": 2228,
+        "maxSaveBytes": 2518164
+      },
+      {
+        "board": "seedHidden10",
+        "seeds": 18,
+        "finished": 18,
+        "actions": 1532,
+        "maxSaveBytes": 2147255
+      },
+      {
+        "board": "seedHidden12",
+        "seeds": 18,
+        "finished": 18,
+        "actions": 2402,
+        "maxSaveBytes": 2737720
+      },
+      {
+        "board": "beauty10",
+        "seeds": 18,
+        "finished": 18,
+        "actions": 1506,
+        "maxSaveBytes": 1544504
+      },
+      {
+        "board": "beauty12",
+        "seeds": 18,
+        "finished": 18,
+        "actions": 2224,
+        "maxSaveBytes": 3110590
+      },
+      {
+        "board": "masquerade12",
+        "seeds": 18,
+        "finished": 18,
+        "actions": 2507,
+        "maxSaveBytes": 3243873
+      },
+      {
+        "board": "fragrance10",
+        "seeds": 18,
+        "finished": 18,
+        "actions": 1631,
+        "maxSaveBytes": 1956117
+      },
+      {
+        "board": "fragrance12",
+        "seeds": 18,
+        "finished": 18,
+        "actions": 2244,
+        "maxSaveBytes": 3135912
+      },
+      {
+        "board": "stoneGargoyle10",
+        "seeds": 18,
+        "finished": 18,
+        "actions": 2088,
+        "maxSaveBytes": 2659819
+      },
+      {
+        "board": "stoneGargoyle12",
+        "seeds": 18,
+        "finished": 18,
+        "actions": 2627,
+        "maxSaveBytes": 3219956
+      }
+    ]
+  },
+  "note": "Full card artwork release; temporary transparent variant canceled by user and removed. Restored final code also verified by 64 targeted unit tests and 20 browser checks."
+}

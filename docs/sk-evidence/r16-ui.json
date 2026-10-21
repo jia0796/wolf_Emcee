@@ -1,0 +1,1318 @@
+{
+  "base": "http://127.0.0.1:5386/",
+  "results": [
+    {
+      "test": "R10 compact rows and independent 44px targets",
+      "pass": true,
+      "width": 320,
+      "height": 568,
+      "font": 100,
+      "layout": {
+        "hint": {
+          "x": 18,
+          "y": 85.640625,
+          "right": 302,
+          "bottom": 104.140625,
+          "width": 284,
+          "height": 18.5
+        },
+        "row": {
+          "x": 18,
+          "y": 107.140625,
+          "right": 302,
+          "bottom": 151.140625,
+          "width": 284,
+          "height": 44
+        },
+        "result": {
+          "x": 18,
+          "y": 157.140625,
+          "right": 302,
+          "bottom": 177.53125,
+          "width": 284,
+          "height": 20.390625
+        },
+        "button": {
+          "x": 81,
+          "y": 107.140625,
+          "right": 125,
+          "bottom": 151.140625,
+          "width": 44,
+          "height": 44
+        },
+        "visual": 32,
+        "buttons": [
+          {
+            "x": 81,
+            "y": 107.140625,
+            "right": 125,
+            "bottom": 151.140625,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "cols": [
+          6,
+          6
+        ],
+        "overflow": false
+      }
+    },
+    {
+      "test": "R10 compact rows and independent 44px targets",
+      "pass": true,
+      "width": 375,
+      "height": 667,
+      "font": 100,
+      "layout": {
+        "hint": {
+          "x": 18,
+          "y": 119.640625,
+          "right": 357,
+          "bottom": 138.140625,
+          "width": 339,
+          "height": 18.5
+        },
+        "row": {
+          "x": 18,
+          "y": 141.140625,
+          "right": 357,
+          "bottom": 185.140625,
+          "width": 339,
+          "height": 44
+        },
+        "result": {
+          "x": 18,
+          "y": 191.140625,
+          "right": 357,
+          "bottom": 211.53125,
+          "width": 339,
+          "height": 20.390625
+        },
+        "button": {
+          "x": 81,
+          "y": 141.140625,
+          "right": 125,
+          "bottom": 185.140625,
+          "width": 44,
+          "height": 44
+        },
+        "visual": 32,
+        "buttons": [
+          {
+            "x": 81,
+            "y": 141.140625,
+            "right": 125,
+            "bottom": 185.140625,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "cols": [
+          6,
+          6
+        ],
+        "overflow": false
+      }
+    },
+    {
+      "test": "R10 compact rows and independent 44px targets",
+      "pass": true,
+      "width": 390,
+      "height": 844,
+      "font": 100,
+      "layout": {
+        "hint": {
+          "x": 18,
+          "y": 119.640625,
+          "right": 372,
+          "bottom": 138.140625,
+          "width": 354,
+          "height": 18.5
+        },
+        "row": {
+          "x": 18,
+          "y": 141.140625,
+          "right": 372,
+          "bottom": 185.140625,
+          "width": 354,
+          "height": 44
+        },
+        "result": {
+          "x": 18,
+          "y": 191.140625,
+          "right": 372,
+          "bottom": 211.53125,
+          "width": 354,
+          "height": 20.390625
+        },
+        "button": {
+          "x": 81,
+          "y": 141.140625,
+          "right": 125,
+          "bottom": 185.140625,
+          "width": 44,
+          "height": 44
+        },
+        "visual": 32,
+        "buttons": [
+          {
+            "x": 81,
+            "y": 141.140625,
+            "right": 125,
+            "bottom": 185.140625,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "cols": [
+          6,
+          6
+        ],
+        "overflow": false
+      }
+    },
+    {
+      "test": "R10 compact rows and independent 44px targets",
+      "pass": true,
+      "width": 430,
+      "height": 932,
+      "font": 100,
+      "layout": {
+        "hint": {
+          "x": 18,
+          "y": 121.265625,
+          "right": 412,
+          "bottom": 139.765625,
+          "width": 394,
+          "height": 18.5
+        },
+        "row": {
+          "x": 18,
+          "y": 142.765625,
+          "right": 412,
+          "bottom": 186.765625,
+          "width": 394,
+          "height": 44
+        },
+        "result": {
+          "x": 18,
+          "y": 192.765625,
+          "right": 412,
+          "bottom": 213.15625,
+          "width": 394,
+          "height": 20.390625
+        },
+        "button": {
+          "x": 81,
+          "y": 142.765625,
+          "right": 125,
+          "bottom": 186.765625,
+          "width": 44,
+          "height": 44
+        },
+        "visual": 32,
+        "buttons": [
+          {
+            "x": 81,
+            "y": 142.765625,
+            "right": 125,
+            "bottom": 186.765625,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "cols": [
+          6,
+          6
+        ],
+        "overflow": false
+      }
+    },
+    {
+      "test": "R10 compact rows and independent 44px targets",
+      "pass": true,
+      "width": 320,
+      "height": 480,
+      "font": 100,
+      "layout": {
+        "hint": {
+          "x": 18,
+          "y": 85.640625,
+          "right": 302,
+          "bottom": 104.140625,
+          "width": 284,
+          "height": 18.5
+        },
+        "row": {
+          "x": 18,
+          "y": 107.140625,
+          "right": 302,
+          "bottom": 151.140625,
+          "width": 284,
+          "height": 44
+        },
+        "result": {
+          "x": 18,
+          "y": 157.140625,
+          "right": 302,
+          "bottom": 177.53125,
+          "width": 284,
+          "height": 20.390625
+        },
+        "button": {
+          "x": 81,
+          "y": 107.140625,
+          "right": 125,
+          "bottom": 151.140625,
+          "width": 44,
+          "height": 44
+        },
+        "visual": 32,
+        "buttons": [
+          {
+            "x": 81,
+            "y": 107.140625,
+            "right": 125,
+            "bottom": 151.140625,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "cols": [
+          6,
+          6
+        ],
+        "overflow": false
+      }
+    },
+    {
+      "test": "R10 compact rows and independent 44px targets",
+      "pass": true,
+      "width": 844,
+      "height": 390,
+      "font": 100,
+      "layout": {
+        "hint": {
+          "x": 35,
+          "y": 96.640625,
+          "right": 809,
+          "bottom": 118.140625,
+          "width": 774,
+          "height": 21.5
+        },
+        "row": {
+          "x": 35,
+          "y": 121.140625,
+          "right": 809,
+          "bottom": 165.140625,
+          "width": 774,
+          "height": 44
+        },
+        "result": {
+          "x": 35,
+          "y": 171.140625,
+          "right": 809,
+          "bottom": 191.53125,
+          "width": 774,
+          "height": 20.390625
+        },
+        "button": {
+          "x": 98,
+          "y": 121.140625,
+          "right": 142,
+          "bottom": 165.140625,
+          "width": 44,
+          "height": 44
+        },
+        "visual": 32,
+        "buttons": [
+          {
+            "x": 98,
+            "y": 121.140625,
+            "right": 142,
+            "bottom": 165.140625,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "cols": [
+          6,
+          6
+        ],
+        "overflow": false
+      }
+    },
+    {
+      "test": "R10 compact rows and independent 44px targets",
+      "pass": true,
+      "width": 390,
+      "height": 844,
+      "font": 200,
+      "layout": {
+        "hint": {
+          "x": 18,
+          "y": 138.65625,
+          "right": 372,
+          "bottom": 157.15625,
+          "width": 354,
+          "height": 18.5
+        },
+        "row": {
+          "x": 18,
+          "y": 160.15625,
+          "right": 372,
+          "bottom": 204.15625,
+          "width": 354,
+          "height": 44
+        },
+        "result": {
+          "x": 18,
+          "y": 210.15625,
+          "right": 372,
+          "bottom": 230.546875,
+          "width": 354,
+          "height": 20.390625
+        },
+        "button": {
+          "x": 81,
+          "y": 160.15625,
+          "right": 125,
+          "bottom": 204.15625,
+          "width": 44,
+          "height": 44
+        },
+        "visual": 32,
+        "buttons": [
+          {
+            "x": 81,
+            "y": 160.15625,
+            "right": 125,
+            "bottom": 204.15625,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "cols": [
+          6,
+          6
+        ],
+        "overflow": false
+      }
+    },
+    {
+      "test": "R10 original attack targeting and SVG",
+      "pass": true,
+      "icon": "skills/icon-wolf-attack.svg"
+    },
+    {
+      "test": "R10 original inspect targeting and SVG",
+      "pass": true,
+      "icon": "skills/icon-inspect.svg"
+    },
+    {
+      "test": "R10 original antidote targeting and SVG",
+      "pass": true,
+      "icon": "skills/icon-antidote.svg"
+    },
+    {
+      "test": "R11 layered identity/selection states",
+      "pass": true,
+      "width": 320,
+      "height": 568,
+      "night": 1,
+      "styles": {
+        "selected": {
+          "border": "2px",
+          "color": "rgb(178, 219, 229)",
+          "label": "警上投票已選",
+          "corner": "rgb(178, 219, 229)"
+        },
+        "candidate": {
+          "border": "1px",
+          "color": "rgb(178, 219, 229)",
+          "label": "警上",
+          "corner": "rgb(178, 219, 229)"
+        },
+        "withdrawn": {
+          "border": "1px",
+          "color": "rgb(105, 136, 153)",
+          "label": "退水",
+          "corner": "rgba(0, 0, 0, 0)"
+        },
+        "plain": {
+          "border": "1px",
+          "color": "rgba(103, 116, 137, 0.44)",
+          "label": "",
+          "corner": "rgba(0, 0, 0, 0)"
+        }
+      }
+    },
+    {
+      "test": "R11 layered identity/selection states",
+      "pass": true,
+      "width": 390,
+      "height": 844,
+      "night": 1,
+      "styles": {
+        "selected": {
+          "border": "2px",
+          "color": "rgb(178, 219, 229)",
+          "label": "警上投票已選",
+          "corner": "rgb(178, 219, 229)"
+        },
+        "candidate": {
+          "border": "1px",
+          "color": "rgb(178, 219, 229)",
+          "label": "警上",
+          "corner": "rgb(178, 219, 229)"
+        },
+        "withdrawn": {
+          "border": "1px",
+          "color": "rgb(105, 136, 153)",
+          "label": "退水",
+          "corner": "rgba(0, 0, 0, 0)"
+        },
+        "plain": {
+          "border": "1px",
+          "color": "rgba(103, 116, 137, 0.44)",
+          "label": "",
+          "corner": "rgba(0, 0, 0, 0)"
+        }
+      }
+    },
+    {
+      "test": "R11 layered identity/selection states",
+      "pass": true,
+      "width": 320,
+      "height": 568,
+      "night": 2,
+      "styles": {
+        "selected": {
+          "border": "2px",
+          "color": "rgb(178, 219, 229)",
+          "label": "警上投票已選",
+          "corner": "rgb(178, 219, 229)"
+        },
+        "candidate": {
+          "border": "1px",
+          "color": "rgb(178, 219, 229)",
+          "label": "警上",
+          "corner": "rgb(178, 219, 229)"
+        },
+        "withdrawn": {
+          "border": "1px",
+          "color": "rgb(105, 136, 153)",
+          "label": "退水",
+          "corner": "rgba(0, 0, 0, 0)"
+        },
+        "plain": {
+          "border": "1px",
+          "color": "rgba(103, 116, 137, 0.44)",
+          "label": "",
+          "corner": "rgba(0, 0, 0, 0)"
+        }
+      }
+    },
+    {
+      "test": "R11 layered identity/selection states",
+      "pass": true,
+      "width": 430,
+      "height": 932,
+      "night": 2,
+      "styles": {
+        "selected": {
+          "border": "2px",
+          "color": "rgb(178, 219, 229)",
+          "label": "警上投票已選",
+          "corner": "rgb(178, 219, 229)"
+        },
+        "candidate": {
+          "border": "1px",
+          "color": "rgb(178, 219, 229)",
+          "label": "警上",
+          "corner": "rgb(178, 219, 229)"
+        },
+        "withdrawn": {
+          "border": "1px",
+          "color": "rgb(105, 136, 153)",
+          "label": "退水",
+          "corner": "rgba(0, 0, 0, 0)"
+        },
+        "plain": {
+          "border": "1px",
+          "color": "rgba(103, 116, 137, 0.44)",
+          "label": "",
+          "corner": "rgba(0, 0, 0, 0)"
+        }
+      }
+    },
+    {
+      "test": "R12 sheriffVote batch eligibility, implicit abstention, weights, submit/reload/undo",
+      "pass": true,
+      "voters": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        10,
+        11,
+        12
+      ],
+      "targets": [
+        7,
+        8
+      ],
+      "tally": {
+        "recorded": 9,
+        "total": 9,
+        "groups": [
+          {
+            "target": 7,
+            "votes": 1,
+            "voters": [
+              1
+            ],
+            "tied": false
+          }
+        ],
+        "abstainers": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          10,
+          11,
+          12
+        ]
+      }
+    },
+    {
+      "test": "R12 sheriffVote individual eligibility, implicit abstention, weights, submit/reload/undo",
+      "pass": true,
+      "voters": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        10,
+        11,
+        12
+      ],
+      "targets": [
+        7,
+        8
+      ],
+      "tally": {
+        "recorded": 9,
+        "total": 9,
+        "groups": [
+          {
+            "target": 7,
+            "votes": 1,
+            "voters": [
+              1
+            ],
+            "tied": false
+          }
+        ],
+        "abstainers": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          10,
+          11,
+          12
+        ]
+      }
+    },
+    {
+      "test": "R12 sheriffRevote batch eligibility, implicit abstention, weights, submit/reload/undo",
+      "pass": true,
+      "voters": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        9,
+        10,
+        11,
+        12
+      ],
+      "targets": [
+        7,
+        8
+      ],
+      "tally": {
+        "recorded": 10,
+        "total": 10,
+        "groups": [
+          {
+            "target": 7,
+            "votes": 1,
+            "voters": [
+              1
+            ],
+            "tied": false
+          }
+        ],
+        "abstainers": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          9,
+          10,
+          11,
+          12
+        ]
+      }
+    },
+    {
+      "test": "R12 sheriffRevote individual eligibility, implicit abstention, weights, submit/reload/undo",
+      "pass": true,
+      "voters": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        9,
+        10,
+        11,
+        12
+      ],
+      "targets": [
+        7,
+        8
+      ],
+      "tally": {
+        "recorded": 10,
+        "total": 10,
+        "groups": [
+          {
+            "target": 7,
+            "votes": 1,
+            "voters": [
+              1
+            ],
+            "tied": false
+          }
+        ],
+        "abstainers": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          9,
+          10,
+          11,
+          12
+        ]
+      }
+    },
+    {
+      "test": "R12 exileVote batch eligibility, implicit abstention, weights, submit/reload/undo",
+      "pass": true,
+      "voters": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "targets": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "tally": {
+        "recorded": 12,
+        "total": 12,
+        "groups": [
+          {
+            "target": 1,
+            "votes": 1.5,
+            "voters": [
+              1
+            ],
+            "tied": false
+          }
+        ],
+        "abstainers": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ]
+      }
+    },
+    {
+      "test": "R12 exileVote individual eligibility, implicit abstention, weights, submit/reload/undo",
+      "pass": true,
+      "voters": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "targets": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "tally": {
+        "recorded": 12,
+        "total": 12,
+        "groups": [
+          {
+            "target": 1,
+            "votes": 1.5,
+            "voters": [
+              1
+            ],
+            "tied": false
+          }
+        ],
+        "abstainers": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ]
+      }
+    },
+    {
+      "test": "R12 exileRevote batch eligibility, implicit abstention, weights, submit/reload/undo",
+      "pass": true,
+      "voters": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        9,
+        10,
+        11,
+        12
+      ],
+      "targets": [
+        7,
+        8
+      ],
+      "tally": {
+        "recorded": 10,
+        "total": 10,
+        "groups": [
+          {
+            "target": 7,
+            "votes": 1.5,
+            "voters": [
+              1
+            ],
+            "tied": false
+          }
+        ],
+        "abstainers": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          9,
+          10,
+          11,
+          12
+        ]
+      }
+    },
+    {
+      "test": "R12 exileRevote individual eligibility, implicit abstention, weights, submit/reload/undo",
+      "pass": true,
+      "voters": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        9,
+        10,
+        11,
+        12
+      ],
+      "targets": [
+        7,
+        8
+      ],
+      "tally": {
+        "recorded": 10,
+        "total": 10,
+        "groups": [
+          {
+            "target": 7,
+            "votes": 1.5,
+            "voters": [
+              1
+            ],
+            "tied": false
+          }
+        ],
+        "abstainers": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          9,
+          10,
+          11,
+          12
+        ]
+      }
+    },
+    {
+      "test": "auto-next sheriffVote skips assigned, cancel stays, reselect advances",
+      "pass": true
+    },
+    {
+      "test": "auto-next sheriffVote wraps to first missing and never auto-submits",
+      "pass": true
+    },
+    {
+      "test": "auto-next sheriffRevote skips assigned, cancel stays, reselect advances",
+      "pass": true
+    },
+    {
+      "test": "auto-next sheriffRevote wraps to first missing and never auto-submits",
+      "pass": true
+    },
+    {
+      "test": "auto-next exileVote skips assigned, cancel stays, reselect advances",
+      "pass": true
+    },
+    {
+      "test": "auto-next exileVote wraps to first missing and never auto-submits",
+      "pass": true
+    },
+    {
+      "test": "auto-next exileRevote skips assigned, cancel stays, reselect advances",
+      "pass": true
+    },
+    {
+      "test": "auto-next exileRevote wraps to first missing and never auto-submits",
+      "pass": true
+    },
+    {
+      "test": "R12 sheriffVote preserves original empty rejection",
+      "pass": true
+    },
+    {
+      "test": "R12 sheriffRevote preserves original empty rejection",
+      "pass": true
+    },
+    {
+      "test": "R12 exileRevote preserves original empty rejection",
+      "pass": true
+    },
+    {
+      "test": "R13 only neutral 65% paint and current host camp colors; all original portraits loaded",
+      "pass": true,
+      "hostColors": {
+        "wolf": "rgb(240, 163, 176)",
+        "god": "rgb(232, 208, 155)",
+        "villager": "rgb(200, 219, 230)"
+      },
+      "paint": [
+        {
+          "paint": "rgba(27, 49, 66, 0.65)",
+          "image": "linear-gradient(120deg, rgba(178, 219, 229, 0.035), rgba(0, 0, 0, 0) 65%), none",
+          "opacity": "1",
+          "border": "1px"
+        },
+        {
+          "paint": "rgba(27, 49, 66, 0.65)",
+          "image": "linear-gradient(120deg, rgba(178, 219, 229, 0.035), rgba(0, 0, 0, 0) 65%), none",
+          "opacity": "1",
+          "border": "1px"
+        },
+        {
+          "paint": "rgba(27, 49, 66, 0.65)",
+          "image": "linear-gradient(120deg, rgba(178, 219, 229, 0.035), rgba(0, 0, 0, 0) 65%), none",
+          "opacity": "1",
+          "border": "1px"
+        },
+        {
+          "paint": "rgba(27, 49, 66, 0.65)",
+          "image": "linear-gradient(120deg, rgba(178, 219, 229, 0.035), rgba(0, 0, 0, 0) 65%), none",
+          "opacity": "1",
+          "border": "1px"
+        },
+        {
+          "paint": "rgba(27, 49, 66, 0.65)",
+          "image": "linear-gradient(120deg, rgba(178, 219, 229, 0.035), rgba(0, 0, 0, 0) 65%), none",
+          "opacity": "1",
+          "border": "1px"
+        },
+        {
+          "paint": "rgba(27, 49, 66, 0.65)",
+          "image": "linear-gradient(120deg, rgba(178, 219, 229, 0.035), rgba(0, 0, 0, 0) 65%), none",
+          "opacity": "1",
+          "border": "1px"
+        },
+        {
+          "paint": "rgba(27, 49, 66, 0.65)",
+          "image": "linear-gradient(120deg, rgba(178, 219, 229, 0.035), rgba(0, 0, 0, 0) 65%), none",
+          "opacity": "1",
+          "border": "1px"
+        },
+        {
+          "paint": "rgba(27, 49, 66, 0.65)",
+          "image": "linear-gradient(120deg, rgba(178, 219, 229, 0.035), rgba(0, 0, 0, 0) 65%), none",
+          "opacity": "1",
+          "border": "1px"
+        },
+        {
+          "paint": "rgba(27, 49, 66, 0.65)",
+          "image": "linear-gradient(120deg, rgba(178, 219, 229, 0.035), rgba(0, 0, 0, 0) 65%), none",
+          "opacity": "1",
+          "border": "1px"
+        },
+        {
+          "paint": "rgba(27, 49, 66, 0.65)",
+          "image": "linear-gradient(120deg, rgba(178, 219, 229, 0.035), rgba(0, 0, 0, 0) 65%), none",
+          "opacity": "1",
+          "border": "1px"
+        },
+        {
+          "paint": "rgba(27, 49, 66, 0.65)",
+          "image": "linear-gradient(120deg, rgba(178, 219, 229, 0.035), rgba(0, 0, 0, 0) 65%), none",
+          "opacity": "1",
+          "border": "1px"
+        },
+        {
+          "paint": "rgba(27, 49, 66, 0.65)",
+          "image": "linear-gradient(120deg, rgba(178, 219, 229, 0.035), rgba(0, 0, 0, 0) 65%), none",
+          "opacity": "1",
+          "border": "1px"
+        },
+        {
+          "paint": "rgba(27, 49, 66, 0.65)",
+          "image": "linear-gradient(120deg, rgba(178, 219, 229, 0.035), rgba(0, 0, 0, 0) 65%), none",
+          "opacity": "1",
+          "border": "1px"
+        }
+      ],
+      "overlays": [
+        {
+          "image": "none",
+          "color": "rgba(0, 0, 0, 0)"
+        }
+      ],
+      "portraitSources": {
+        "count": 14,
+        "sources": [
+          "art/catalog/wolf.png",
+          "art/catalog/villager.png",
+          "art/catalog/king.png",
+          "art/catalog/guard.png",
+          "art/catalog/seer.png",
+          "art/catalog/witch.png",
+          "art/catalog/hunter.png"
+        ],
+        "boxes": [
+          {
+            "width": 100.125,
+            "height": 108.078125
+          },
+          {
+            "width": 100.125,
+            "height": 108.078125
+          },
+          {
+            "width": 76.703125,
+            "height": 90
+          },
+          {
+            "width": 76.703125,
+            "height": 90
+          },
+          {
+            "width": 76.703125,
+            "height": 90
+          },
+          {
+            "width": 76.703125,
+            "height": 90
+          },
+          {
+            "width": 76.703125,
+            "height": 90
+          },
+          {
+            "width": 76.703125,
+            "height": 90
+          },
+          {
+            "width": 76.703125,
+            "height": 90
+          },
+          {
+            "width": 76.703125,
+            "height": 90
+          },
+          {
+            "width": 76.703125,
+            "height": 90
+          },
+          {
+            "width": 76.703125,
+            "height": 90
+          },
+          {
+            "width": 76.703125,
+            "height": 90
+          },
+          {
+            "width": 76.703125,
+            "height": 90
+          }
+        ]
+      }
+    },
+    {
+      "test": "R14 original confirm/cancel/order and clear semantics",
+      "pass": true
+    },
+    {
+      "test": "R15 scoped computed alpha, readable content, directly hit last card",
+      "pass": true,
+      "width": 320,
+      "height": 568,
+      "font": 100,
+      "glass": {
+        "outer": {
+          "paint": "rgba(27, 49, 66, 0.42)",
+          "opacity": "1",
+          "blur": "blur(12px)",
+          "color": "rgb(244, 248, 249)"
+        },
+        "inner": {
+          "paint": "rgba(27, 49, 66, 0.34)",
+          "opacity": "1",
+          "blur": "blur(10px)",
+          "color": "rgb(244, 248, 249)"
+        }
+      },
+      "uniformComposite": 0.6172
+    },
+    {
+      "test": "R15 scoped computed alpha, readable content, directly hit last card",
+      "pass": true,
+      "width": 375,
+      "height": 667,
+      "font": 100,
+      "glass": {
+        "outer": {
+          "paint": "rgba(27, 49, 66, 0.42)",
+          "opacity": "1",
+          "blur": "blur(12px)",
+          "color": "rgb(244, 248, 249)"
+        },
+        "inner": {
+          "paint": "rgba(27, 49, 66, 0.34)",
+          "opacity": "1",
+          "blur": "blur(10px)",
+          "color": "rgb(244, 248, 249)"
+        }
+      },
+      "uniformComposite": 0.6172
+    },
+    {
+      "test": "R15 scoped computed alpha, readable content, directly hit last card",
+      "pass": true,
+      "width": 390,
+      "height": 844,
+      "font": 100,
+      "glass": {
+        "outer": {
+          "paint": "rgba(27, 49, 66, 0.42)",
+          "opacity": "1",
+          "blur": "blur(12px)",
+          "color": "rgb(244, 248, 249)"
+        },
+        "inner": {
+          "paint": "rgba(27, 49, 66, 0.34)",
+          "opacity": "1",
+          "blur": "blur(10px)",
+          "color": "rgb(244, 248, 249)"
+        }
+      },
+      "uniformComposite": 0.6172
+    },
+    {
+      "test": "R15 scoped computed alpha, readable content, directly hit last card",
+      "pass": true,
+      "width": 430,
+      "height": 932,
+      "font": 100,
+      "glass": {
+        "outer": {
+          "paint": "rgba(27, 49, 66, 0.42)",
+          "opacity": "1",
+          "blur": "blur(12px)",
+          "color": "rgb(244, 248, 249)"
+        },
+        "inner": {
+          "paint": "rgba(27, 49, 66, 0.34)",
+          "opacity": "1",
+          "blur": "blur(10px)",
+          "color": "rgb(244, 248, 249)"
+        }
+      },
+      "uniformComposite": 0.6172
+    },
+    {
+      "test": "R15 scoped computed alpha, readable content, directly hit last card",
+      "pass": true,
+      "width": 568,
+      "height": 320,
+      "font": 150,
+      "glass": {
+        "outer": {
+          "paint": "rgba(27, 49, 66, 0.42)",
+          "opacity": "1",
+          "blur": "blur(12px)",
+          "color": "rgb(244, 248, 249)"
+        },
+        "inner": {
+          "paint": "rgba(27, 49, 66, 0.34)",
+          "opacity": "1",
+          "blur": "blur(10px)",
+          "color": "rgb(244, 248, 249)"
+        }
+      },
+      "uniformComposite": 0.6172
+    },
+    {
+      "test": "R15 simulated no-blur authored fallback protects readable text",
+      "pass": true
+    },
+    {
+      "test": "R16 12 exact label, setup/host/rules, saved ID and recap",
+      "pass": true,
+      "board": "12",
+      "label": "黑狼王 / 魔術師"
+    },
+    {
+      "test": "R16 kingGuard12 exact label, setup/host/rules, saved ID and recap",
+      "pass": true,
+      "board": "kingGuard12",
+      "label": "黑狼王 / 守衛"
+    },
+    {
+      "test": "R16 kingDream12 exact label, setup/host/rules, saved ID and recap",
+      "pass": true,
+      "board": "kingDream12",
+      "label": "黑狼王 / 攝夢人"
+    },
+    {
+      "test": "R16 evilKnight12 exact label, setup/host/rules, saved ID and recap",
+      "pass": true,
+      "board": "evilKnight12",
+      "label": "惡靈騎士 / 守衛"
+    },
+    {
+      "test": "R16 blood12 exact label, setup/host/rules, saved ID and recap",
+      "pass": true,
+      "board": "blood12",
+      "label": "血月 / 獵魔人"
+    },
+    {
+      "test": "R16 nightmare12 exact label, setup/host/rules, saved ID and recap",
+      "pass": true,
+      "board": "nightmare12",
+      "label": "夢魘 / 攝夢人"
+    },
+    {
+      "test": "R16 mechanical12 exact label, setup/host/rules, saved ID and recap",
+      "pass": true,
+      "board": "mechanical12",
+      "label": "機械狼 / 通靈師"
+    },
+    {
+      "test": "R16 gargoyle12 exact label, setup/host/rules, saved ID and recap",
+      "pass": true,
+      "board": "gargoyle12",
+      "label": "覺醒石像鬼 / 守墓人"
+    },
+    {
+      "test": "R16 brothers12 exact label, setup/host/rules, saved ID and recap",
+      "pass": true,
+      "board": "brothers12",
+      "label": "狼兄狼弟 / 黑市商人"
+    }
+  ],
+  "errors": [],
+  "realDevices": "待真機驗收"
+}

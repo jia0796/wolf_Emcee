@@ -245,3 +245,10 @@ body #boards #boardChoices button{background-color:rgb(27 49 66 / .34);backgroun
 }
 /* R13 follow-up: legacy event-card::after was still painting a gold/brown veil. */
 #finished .recap-event::after{background:none}
+
+/* Draw completion: scoped to the existing dialog; no global primary change. */
+#drawDialog #drawClose{background-color:#B2DBE5;color:#13212D;border-color:#c8e8ee;background-image:var(--b3-glass-sheen);box-shadow:var(--b3-glass-edge)}
+/* Original WolfCue frosted inlays: keep colors, transparent glass and hit areas. */
+body :is(#home .menu button,#problemReport,#setupStart,#setupBack,#traditionalMode,#onlineMode){position:relative;border-radius:15px 24px 15px 24px}
+body :is(#home .menu button,#problemReport,#setupStart,#setupBack,#traditionalMode,#onlineMode)::after{content:'';position:absolute;inset:8px;pointer-events:none;border:0;border-radius:inherit;opacity:.78;background:linear-gradient(120deg,transparent 30%,#d7f1f8 50%,transparent 70%) left 3px top 3px/15px 2px no-repeat,linear-gradient(120deg,transparent 30%,#a1d7e3 50%,transparent 70%) right 3px bottom 3px/24px 2px no-repeat,radial-gradient(circle,#e7f9ff 1px,transparent 2px) left 19px top 4px/4px 4px no-repeat,radial-gradient(circle,#a1d7e3 1px,transparent 2px) right 30px bottom 3px/4px 4px no-repeat;box-shadow:inset 1px 0 0 #b2dbe51c,inset -1px 0 0 #b2dbe514}
+body #home .menu button::before{inset:2px 8px auto;height:42%;border-radius:12px 20px 70% 25%;background:linear-gradient(115deg,#effbff20,transparent 67%);pointer-events:none}

@@ -101,3 +101,10 @@ for(const [id,label]of Object.entries(R16_BOARD_NAMES)){
  const board=BOARDS[id];board.shortLabel=label;
  board.name=board.canonicalName=board.playerCount+'人 '+label;
 }
+
+// SK: distinct from the awakened gargoyle and its conversion state.
+ROLE_DATA.stoneGargoyle={name:'石像鬼',kind:'wolf',camp:'狼隊陣營',image:'art/catalog/stoneGargoyle-crouch-v3.png',thumbnail:'art/catalog/stoneGargoyle-crouch-v3.png',artSize:[1060,1484],recapCrop:[90,170,880,970],canShoot:false,skill:'夜晚不與狼人相認，不能自爆。每晚可以查驗一名存活玩家的具體身分。當普通狼人全部出局後，便會回歸狼隊，接手基本狼刀。',goal:ROLE_DATA.wolf.goal};
+for(const count of [10,12]){const id='stoneGargoyle'+count,label='石像鬼 / 守墓人',ordinary=['wolves','witch','seer','gravekeeper',...(count===12?['hunter']:[])];BOARDS[id]={id,name:count+'人 '+label,canonicalName:count+'人 '+label,shortLabel:label,category:'normal',enabled:true,online:false,playerCount:count,roles:{stoneGargoyle:1,wolf:count===12?3:2,seer:1,witch:1,gravekeeper:1,...(count===12?{hunter:1}:{}),villager:4},firstNightOrder:['stoneIdentify',...ordinary,'stoneGargoyle'],nightOrder:['stoneGargoyle',...ordinary],defaults:{...defaults,swallow:count===12},swallowThreshold:count===12?2:1,adjustable:['sheriff','selfRescue','victory','swallow']};}
+BOARD_ORDER.splice(BOARD_ORDER.indexOf('evilKnight12'),0,'stoneGargoyle12','stoneGargoyle10');
+
+CATALOG_ART.stoneGargoyle={image:ROLE_DATA.stoneGargoyle.image,driveId:'1s4HQg3vz0vBvS8RaD5Q33K3DDuveqD18',sourceKind:'user-requested-pose-edit',crop:ROLE_DATA.stoneGargoyle.recapCrop};

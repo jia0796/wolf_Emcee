@@ -21,6 +21,7 @@ function basicKnifeName(e){
  if(name.startsWith('轉化者'))return conversionLabel(name);
  if(e.displayName?.startsWith('轉化者'))return conversionLabel(e.displayName);
  if(e.actorRole==='mechanical')return name.startsWith('機械狼')?name:'機械狼';
+ if(e.actorRole==='stoneGargoyle')return '石像鬼';
  if(e.actorRole==='fragrance')return '尋香魅影';if(e.actorRole==='younger')return '狼弟';if(e.actorRole==='mask')return '假面';
  return '狼人';
 }
@@ -59,8 +60,9 @@ export function eventCard(e){
  if(e.type==='exilePK'){card.append(el('p','pk-result',e.result));return card;}
  let left=actorModel(e);const vote=['sheriff','exile'].includes(e.type);
  if(vote)left={name:e.type==='sheriff'?'警長競選':'放逐投票',image:e.type==='sheriff'?'art/recap-sheriff.png':'art/recap-vote.png',tone:'neutral'};
- card.append(portrait(left),personText(left,{noNumber:vote||e.key==='basic'&&e.actorRole!=='fragrance'}));
+ card.append(portrait(left),personText(left,{noNumber:vote||e.key==='basic'&&!['fragrance','stoneGargoyle'].includes(e.actorRole)}));
  const center=el('div','recap-effect'),label=outcomeLabel(e);if(label&&!vote)center.append(el('span','recap-outcome',label));if(e.key==='extraAttack')center.append(el('span','recap-outcome','額外狼刀'));if(e.skill)center.append(skillIcon(e.key==='maskInspect'?'wolf-inspect':e.skill));else center.append(el('span','recap-arrow','→'));card.append(center);
+ if(e.key==='stoneKnifeState'){card.append(el('span','recap-no-target','帶刀狀態'));return card;}
  if(e.key==='maskAssign'&&!e.rawTargets.length){card.append(el('strong','recap-no-target',e.unsettled?'未結算（遊戲已結束）':'空過'));return card;}
  if(e.type==='badge'&&!e.rawTargets.length){card.append(el('strong','badge-destroyed','X'),el('span','recap-event-label','撕毀警徽'));return card;}
  if(vote&&!e.rawTargets.length){card.append(el('strong','recap-no-target',e.result||'無人出局'));return card;}

@@ -1,0 +1,178 @@
+{
+  "baseline": "3c519f280cda4fb2c2a4210e2c1be83711ebfb6a",
+  "svgCount": 26,
+  "allUnchanged": true,
+  "files": [
+    {
+      "path": "public/night.js",
+      "unchanged": true,
+      "exactBytes": false
+    },
+    {
+      "path": "public/identity.js",
+      "unchanged": true,
+      "exactBytes": false
+    },
+    {
+      "path": "public/votes.js",
+      "unchanged": true,
+      "exactBytes": false
+    },
+    {
+      "path": "public/vote-ui.js",
+      "unchanged": true,
+      "exactBytes": false
+    },
+    {
+      "path": "public/timer.js",
+      "unchanged": true,
+      "exactBytes": false
+    },
+    {
+      "path": "public/online.js",
+      "unchanged": true,
+      "exactBytes": true
+    },
+    {
+      "path": "public/online.css",
+      "unchanged": true,
+      "exactBytes": true
+    },
+    {
+      "path": "public/online-vendor.js",
+      "unchanged": true,
+      "exactBytes": true
+    },
+    {
+      "path": "public/skills/icon-antidote.svg",
+      "unchanged": true,
+      "exactBytes": true
+    },
+    {
+      "path": "public/skills/icon-bond.svg",
+      "unchanged": true,
+      "exactBytes": true
+    },
+    {
+      "path": "public/skills/icon-charm.svg",
+      "unchanged": true,
+      "exactBytes": true
+    },
+    {
+      "path": "public/skills/icon-dance.svg",
+      "unchanged": true,
+      "exactBytes": true
+    },
+    {
+      "path": "public/skills/icon-duel.svg",
+      "unchanged": true,
+      "exactBytes": true
+    },
+    {
+      "path": "public/skills/icon-evil-knight-reflect.svg",
+      "unchanged": true,
+      "exactBytes": true
+    },
+    {
+      "path": "public/skills/icon-fear.svg",
+      "unchanged": true,
+      "exactBytes": true
+    },
+    {
+      "path": "public/skills/icon-gravekeeper.svg",
+      "unchanged": true,
+      "exactBytes": true
+    },
+    {
+      "path": "public/skills/icon-gun.svg",
+      "unchanged": true,
+      "exactBytes": true
+    },
+    {
+      "path": "public/skills/icon-heartbreak.svg",
+      "unchanged": true,
+      "exactBytes": true
+    },
+    {
+      "path": "public/skills/icon-hunt.svg",
+      "unchanged": true,
+      "exactBytes": true
+    },
+    {
+      "path": "public/skills/icon-infect.svg",
+      "unchanged": true,
+      "exactBytes": true
+    },
+    {
+      "path": "public/skills/icon-inspect.svg",
+      "unchanged": true,
+      "exactBytes": true
+    },
+    {
+      "path": "public/skills/icon-learn.svg",
+      "unchanged": true,
+      "exactBytes": true
+    },
+    {
+      "path": "public/skills/icon-mask.svg",
+      "unchanged": true,
+      "exactBytes": true
+    },
+    {
+      "path": "public/skills/icon-poison.svg",
+      "unchanged": true,
+      "exactBytes": true
+    },
+    {
+      "path": "public/skills/icon-role-model.svg",
+      "unchanged": true,
+      "exactBytes": true
+    },
+    {
+      "path": "public/skills/icon-sheriff-badge.svg",
+      "unchanged": true,
+      "exactBytes": true
+    },
+    {
+      "path": "public/skills/icon-shield.svg",
+      "unchanged": true,
+      "exactBytes": true
+    },
+    {
+      "path": "public/skills/icon-sleep.svg",
+      "unchanged": true,
+      "exactBytes": true
+    },
+    {
+      "path": "public/skills/icon-swap.svg",
+      "unchanged": true,
+      "exactBytes": true
+    },
+    {
+      "path": "public/skills/icon-trade.svg",
+      "unchanged": true,
+      "exactBytes": true
+    },
+    {
+      "path": "public/skills/icon-transform.svg",
+      "unchanged": true,
+      "exactBytes": true
+    },
+    {
+      "path": "public/skills/icon-vote.svg",
+      "unchanged": true,
+      "exactBytes": true
+    },
+    {
+      "path": "public/skills/icon-wolf-attack.svg",
+      "unchanged": true,
+      "exactBytes": true
+    },
+    {
+      "path": "public/skills/icon-wolf-inspect.svg",
+      "unchanged": true,
+      "exactBytes": true
+    }
+  ],
+  "comparison": "SVG exact bytes; JS/CSS normalize CRLF checkout line endings only"
+}

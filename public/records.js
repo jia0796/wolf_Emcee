@@ -1,4 +1,4 @@
-import {specialFlow} from './takeover.js';
+import {specialFlow,takeoverOwner} from './takeover.js';
 import {savedVoteNotes} from './votes.js';
 import {converted,convertedName,graveResult,nativeAllowed,infected,infectionName,realWolf} from './identity.js';
 import {ROLE_DATA} from './data.js';
@@ -58,6 +58,8 @@ export function recordStage(s,stage,order){
  if(stage==='poison'&&n.poison===true&&n.poisonTarget)add('poison','witch','poison',[n.poisonTarget]);
  if(stage==='inspect'&&n.inspect)add('inspect','seer','inspect',[n.inspect],{result:inspectedWolf(s,map(n.inspect))?'狼人':'好人'});
  if(stage==='guardTarget'&&n.guard)add('guard','guard','shield',[n.guard],{unmapped:true});
+ if(stage==='stoneInspect'&&n.stoneResult)add('stoneInspect','stoneGargoyle','wolf-inspect',[n.stoneResult.target],{unmapped:true,result:ROLE_DATA[n.stoneResult.role]?.name,inspectedRole:n.stoneResult.role});
+ if(stage==='stoneKnifeState'){const p=s.players.find(p=>p.role==='stoneGargoyle'),eligible=!!takeoverOwner(s)&&p?.alive;add('stoneKnifeState','stoneGargoyle','wolf-attack',[],{actors:p?[p.id]:[],allowEmpty:true,unmapped:true,executed:true,statusOnly:true,eligible,result:!p?.alive?'角色已出局':!eligible?'本晚不可帶刀':n.attack?'接手基本狼刀':'空刀'});}
  if(stage==='mediumInspect'&&n.mediumInspect)add('medium','medium','inspect',[n.mediumInspect],{unmapped:true,result:ROLE_DATA[apparent(n.mediumInspect)]?.name});
  if(stage==='mechanicalAction'){
   if(n.learnTarget)add('learn','mechanical','learn',[n.learnTarget],{unmapped:true,result:'學習結果：'+ROLE_DATA[role(n.learnTarget)].name});

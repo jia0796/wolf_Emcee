@@ -1,0 +1,643 @@
+{
+  "results": [
+    {
+      "library": 31,
+      "originalFrame": true,
+      "descriptionGrid": true,
+      "touchOutline": true
+    },
+    {
+      "hostLibrary": true,
+      "preserved": true
+    },
+    {
+      "candidateBlue": true,
+      "cancel": true,
+      "refresh": true,
+      "rollback": true,
+      "electionClear": true
+    },
+    {
+      "classificationScrollReset": true,
+      "fastSwitches": 12,
+      "exactOrder": true,
+      "fixedBackground": {
+        "position": "fixed",
+        "pointer": "none",
+        "overflow": "hidden",
+        "outer": 0,
+        "background": "cover"
+      },
+      "boardFontScale": 1.5
+    },
+    {
+      "board": "10",
+      "reflect": null,
+      "nightGun": false,
+      "immuneNightGun": false,
+      "passed": true,
+      "actions": 65,
+      "refresh": true,
+      "rollback": true,
+      "restart": true,
+      "measures": {
+        "width": 390,
+        "scrollWidth": 390,
+        "buttons": 767,
+        "recap": 764
+      }
+    },
+    {
+      "board": "12",
+      "reflect": null,
+      "nightGun": false,
+      "immuneNightGun": false,
+      "passed": true,
+      "actions": 99,
+      "refresh": true,
+      "rollback": true,
+      "restart": true,
+      "measures": {
+        "width": 390,
+        "scrollWidth": 390,
+        "buttons": 767,
+        "recap": 764
+      }
+    },
+    {
+      "board": "mechanical10",
+      "reflect": null,
+      "nightGun": false,
+      "immuneNightGun": false,
+      "passed": true,
+      "actions": 80,
+      "refresh": true,
+      "rollback": true,
+      "restart": true,
+      "measures": {
+        "width": 390,
+        "scrollWidth": 390,
+        "buttons": 767,
+        "recap": 764
+      }
+    },
+    {
+      "board": "mechanical12",
+      "reflect": null,
+      "nightGun": false,
+      "immuneNightGun": false,
+      "passed": true,
+      "actions": 119,
+      "refresh": true,
+      "rollback": true,
+      "restart": true,
+      "measures": {
+        "width": 390,
+        "scrollWidth": 390,
+        "buttons": 767,
+        "recap": 764
+      }
+    },
+    {
+      "board": "brothers12",
+      "reflect": null,
+      "nightGun": false,
+      "immuneNightGun": false,
+      "passed": true,
+      "actions": 121,
+      "refresh": true,
+      "rollback": true,
+      "restart": true,
+      "measures": {
+        "width": 390,
+        "scrollWidth": 390,
+        "buttons": 767,
+        "recap": 764
+      }
+    },
+    {
+      "board": "nightmare10",
+      "reflect": null,
+      "nightGun": false,
+      "immuneNightGun": false,
+      "passed": true,
+      "actions": 74,
+      "refresh": true,
+      "rollback": true,
+      "restart": true,
+      "measures": {
+        "width": 390,
+        "scrollWidth": 390,
+        "buttons": 767,
+        "recap": 764
+      }
+    },
+    {
+      "board": "nightmare12",
+      "reflect": null,
+      "nightGun": false,
+      "immuneNightGun": false,
+      "passed": true,
+      "actions": 111,
+      "refresh": true,
+      "rollback": true,
+      "restart": true,
+      "measures": {
+        "width": 390,
+        "scrollWidth": 390,
+        "buttons": 767,
+        "recap": 764
+      }
+    },
+    {
+      "board": "classic12",
+      "reflect": null,
+      "nightGun": false,
+      "immuneNightGun": false,
+      "passed": true,
+      "actions": 89,
+      "refresh": true,
+      "rollback": true,
+      "restart": true,
+      "measures": {
+        "width": 390,
+        "scrollWidth": 390,
+        "buttons": 767,
+        "recap": 764
+      }
+    },
+    {
+      "board": "classicMixed12",
+      "reflect": null,
+      "nightGun": false,
+      "immuneNightGun": false,
+      "passed": true,
+      "actions": 115,
+      "refresh": true,
+      "rollback": true,
+      "restart": true,
+      "measures": {
+        "width": 390,
+        "scrollWidth": 390,
+        "buttons": 767,
+        "recap": 764
+      }
+    },
+    {
+      "board": "blood10",
+      "reflect": null,
+      "nightGun": false,
+      "immuneNightGun": false,
+      "passed": true,
+      "actions": 66,
+      "refresh": true,
+      "rollback": true,
+      "restart": true,
+      "measures": {
+        "width": 390,
+        "scrollWidth": 390,
+        "buttons": 767,
+        "recap": 764
+      }
+    },
+    {
+      "board": "kingGuard10",
+      "reflect": null,
+      "nightGun": false,
+      "immuneNightGun": false,
+      "passed": true,
+      "actions": 65,
+      "refresh": true,
+      "rollback": true,
+      "restart": true,
+      "measures": {
+        "width": 390,
+        "scrollWidth": 390,
+        "buttons": 767,
+        "recap": 764
+      }
+    },
+    {
+      "board": "kingDream10",
+      "reflect": null,
+      "nightGun": false,
+      "immuneNightGun": false,
+      "passed": true,
+      "actions": 65,
+      "refresh": true,
+      "rollback": true,
+      "restart": true,
+      "measures": {
+        "width": 390,
+        "scrollWidth": 390,
+        "buttons": 767,
+        "recap": 764
+      }
+    },
+    {
+      "board": "blood12",
+      "reflect": null,
+      "nightGun": false,
+      "immuneNightGun": false,
+      "passed": true,
+      "actions": 90,
+      "refresh": true,
+      "rollback": true,
+      "restart": true,
+      "measures": {
+        "width": 390,
+        "scrollWidth": 390,
+        "buttons": 767,
+        "recap": 764
+      }
+    },
+    {
+      "board": "kingGuard12",
+      "reflect": null,
+      "nightGun": false,
+      "immuneNightGun": false,
+      "passed": true,
+      "actions": 99,
+      "refresh": true,
+      "rollback": true,
+      "restart": true,
+      "measures": {
+        "width": 390,
+        "scrollWidth": 390,
+        "buttons": 767,
+        "recap": 764
+      }
+    },
+    {
+      "board": "kingDream12",
+      "reflect": null,
+      "nightGun": false,
+      "immuneNightGun": false,
+      "passed": true,
+      "actions": 99,
+      "refresh": true,
+      "rollback": true,
+      "restart": true,
+      "measures": {
+        "width": 390,
+        "scrollWidth": 390,
+        "buttons": 767,
+        "recap": 764
+      }
+    },
+    {
+      "board": "gargoyle10",
+      "reflect": null,
+      "nightGun": false,
+      "immuneNightGun": false,
+      "passed": true,
+      "actions": 84,
+      "refresh": true,
+      "rollback": true,
+      "restart": true,
+      "measures": {
+        "width": 390,
+        "scrollWidth": 390,
+        "buttons": 767,
+        "recap": 764
+      }
+    },
+    {
+      "board": "gargoyle12",
+      "reflect": null,
+      "nightGun": false,
+      "immuneNightGun": false,
+      "passed": true,
+      "actions": 124,
+      "refresh": true,
+      "rollback": true,
+      "restart": true,
+      "measures": {
+        "width": 390,
+        "scrollWidth": 390,
+        "buttons": 767,
+        "recap": 764
+      }
+    },
+    {
+      "board": "evilKnight10",
+      "reflect": null,
+      "nightGun": false,
+      "immuneNightGun": false,
+      "passed": true,
+      "actions": 65,
+      "refresh": true,
+      "rollback": true,
+      "restart": true,
+      "measures": {
+        "width": 390,
+        "scrollWidth": 390,
+        "buttons": 767,
+        "recap": 764
+      }
+    },
+    {
+      "board": "evilKnight12",
+      "reflect": null,
+      "nightGun": false,
+      "immuneNightGun": false,
+      "passed": true,
+      "actions": 99,
+      "refresh": true,
+      "rollback": true,
+      "restart": true,
+      "measures": {
+        "width": 390,
+        "scrollWidth": 390,
+        "buttons": 767,
+        "recap": 764
+      }
+    },
+    {
+      "board": "seedHidden10",
+      "reflect": null,
+      "nightGun": false,
+      "immuneNightGun": false,
+      "passed": true,
+      "actions": 48,
+      "refresh": true,
+      "rollback": true,
+      "restart": true,
+      "measures": {
+        "width": 390,
+        "scrollWidth": 390,
+        "buttons": 767,
+        "recap": 764
+      }
+    },
+    {
+      "board": "seedHidden12",
+      "reflect": null,
+      "nightGun": false,
+      "immuneNightGun": false,
+      "passed": true,
+      "actions": 82,
+      "refresh": true,
+      "rollback": true,
+      "restart": true,
+      "measures": {
+        "width": 390,
+        "scrollWidth": 390,
+        "buttons": 767,
+        "recap": 764
+      }
+    },
+    {
+      "board": "beauty10",
+      "reflect": null,
+      "nightGun": false,
+      "immuneNightGun": false,
+      "passed": true,
+      "actions": 67,
+      "refresh": true,
+      "rollback": true,
+      "restart": true,
+      "measures": {
+        "width": 390,
+        "scrollWidth": 390,
+        "buttons": 767,
+        "recap": 764
+      }
+    },
+    {
+      "board": "beauty12",
+      "reflect": null,
+      "nightGun": false,
+      "immuneNightGun": false,
+      "passed": true,
+      "actions": 101,
+      "refresh": true,
+      "rollback": true,
+      "restart": true,
+      "measures": {
+        "width": 390,
+        "scrollWidth": 390,
+        "buttons": 767,
+        "recap": 764
+      }
+    },
+    {
+      "board": "masquerade12",
+      "reflect": null,
+      "nightGun": false,
+      "immuneNightGun": false,
+      "passed": true,
+      "actions": 108,
+      "refresh": true,
+      "rollback": true,
+      "restart": true,
+      "measures": {
+        "width": 390,
+        "scrollWidth": 390,
+        "buttons": 767,
+        "recap": 764
+      }
+    },
+    {
+      "board": "fragrance10",
+      "reflect": null,
+      "nightGun": false,
+      "immuneNightGun": false,
+      "passed": true,
+      "actions": 77,
+      "refresh": true,
+      "rollback": true,
+      "restart": true,
+      "measures": {
+        "width": 390,
+        "scrollWidth": 390,
+        "buttons": 767,
+        "recap": 764
+      }
+    },
+    {
+      "board": "fragrance12",
+      "reflect": null,
+      "nightGun": false,
+      "immuneNightGun": false,
+      "passed": true,
+      "actions": 115,
+      "refresh": true,
+      "rollback": true,
+      "restart": true,
+      "measures": {
+        "width": 390,
+        "scrollWidth": 390,
+        "buttons": 767,
+        "recap": 764
+      }
+    },
+    {
+      "board": "stoneGargoyle10",
+      "reflect": null,
+      "nightGun": false,
+      "immuneNightGun": false,
+      "passed": true,
+      "actions": 80,
+      "refresh": true,
+      "rollback": true,
+      "restart": true,
+      "measures": {
+        "width": 390,
+        "scrollWidth": 390,
+        "buttons": 767,
+        "recap": 764
+      }
+    },
+    {
+      "board": "stoneGargoyle12",
+      "reflect": null,
+      "nightGun": false,
+      "immuneNightGun": false,
+      "passed": true,
+      "actions": 119,
+      "refresh": true,
+      "rollback": true,
+      "restart": true,
+      "measures": {
+        "width": 390,
+        "scrollWidth": 390,
+        "buttons": 767,
+        "recap": 764
+      }
+    },
+    {
+      "responsive": {
+        "width": 320,
+        "height": 568
+      },
+      "medicine": true,
+      "cancel": true,
+      "geometry": {
+        "viewport": [
+          320,
+          568
+        ],
+        "pageWidth": 320,
+        "footer": 456,
+        "seats": [
+          203,
+          250,
+          297,
+          344,
+          391,
+          438,
+          203,
+          250,
+          297,
+          344,
+          391,
+          438
+        ],
+        "portraits": 0
+      }
+    },
+    {
+      "responsive": {
+        "width": 768,
+        "height": 1024
+      },
+      "medicine": true,
+      "cancel": true,
+      "geometry": {
+        "viewport": [
+          768,
+          1024
+        ],
+        "pageWidth": 768,
+        "footer": 907,
+        "seats": [
+          346.5,
+          456,
+          565.5,
+          675,
+          784.5,
+          894,
+          346.5,
+          456,
+          565.5,
+          675,
+          784.5,
+          894
+        ],
+        "portraits": 0
+      }
+    },
+    {
+      "responsive": {
+        "width": 1024,
+        "height": 768
+      },
+      "medicine": true,
+      "cancel": true,
+      "geometry": {
+        "viewport": [
+          1024,
+          768
+        ],
+        "pageWidth": 1024,
+        "footer": 651,
+        "seats": [
+          303.828125,
+          370.65625,
+          437.484375,
+          504.328125,
+          571.15625,
+          637.984375,
+          303.828125,
+          370.65625,
+          437.484375,
+          504.328125,
+          571.15625,
+          637.984375
+        ],
+        "portraits": 0
+      }
+    },
+    {
+      "responsive": {
+        "width": 1180,
+        "height": 600
+      },
+      "medicine": true,
+      "cancel": true,
+      "geometry": {
+        "viewport": [
+          1180,
+          600
+        ],
+        "pageWidth": 1180,
+        "footer": 483,
+        "seats": [
+          226.65625,
+          275.328125,
+          324,
+          372.65625,
+          421.328125,
+          470,
+          226.65625,
+          275.328125,
+          324,
+          372.65625,
+          421.328125,
+          470
+        ],
+        "portraits": 0
+      }
+    },
+    {
+      "assets": 24,
+      "loaded": true
+    },
+    {
+      "offline": true,
+      "assets": 55
+    }
+  ],
+  "errors": []
+}

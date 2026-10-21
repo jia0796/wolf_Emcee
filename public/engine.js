@@ -12,6 +12,7 @@ export {mechanicalAbility,mapTarget,eligibleVoters,mixedResult} from './night.js
 export const ROLES=Object.fromEntries(Object.entries(ROLE_DATA).map(([id,r])=>[id,r.name]));
 export const boardOf=s=>BOARDS[s.boardId || '12'];
 export const SCRIPT = {
+ stoneIdentify:'石像鬼請睜眼',stoneIdentified:'石像鬼請閉眼',stoneGargoyle:'石像鬼請睜眼',stoneGargoyleKnifeState:'今晚的帶刀狀態',stoneInspect:'選擇你今晚要查驗的對象',stoneResult:'-',stoneGargoyleClose:'石像鬼請閉眼',
  fragrance:'尋香魅影請睜眼',bond:'請選擇你要綁定的對象',fragranceClose:'尋香魅影請閉眼',awakenedSeer:'覺醒預言家請睜眼',awakenedInspect:'選擇你今晚要查驗的對象',awakenedResult:'-',awakenedSeerClose:'覺醒預言家請閉眼',dancer:'舞者請睜眼',dance:'請選擇三名共舞的對象',dancerClose:'舞者請閉眼',mask:'假面請睜眼',maskInspect:'請選擇你要查驗的對象',maskResult:'-',maskAssign:'請選擇你要賦予面具的對象',maskClose:'假面請閉眼',
   beauty:'狼美人請睜眼',charm:'請選擇今晚要魅惑的對象',beautyClose:'狼美人請閉眼',duelist:'騎士請睜眼',duelistClose:'騎士請閉眼',hiddenWolf:'隱狼請睜眼',hiddenWolfClose:'隱狼請閉眼',infectionNotice:'現在確認感染者身分',infectionOpen:'感染者請睜眼',infectionClose:'感染者請閉眼',wolvesClose:'狼人請閉眼',gargoyle:'覺醒石像鬼請睜眼',transform:'請選擇你要轉化的玩家',gargoyleClose:'覺醒石像鬼請閉眼',gravekeeper:'守墓人請睜眼',graveResult:'昨天被放逐的玩家是',gravekeeperClose:'守墓人請閉眼',converted:'轉化者請睜眼',convertedClose:'轉化者請閉眼',lastBlade:'血月使者請選擇你要襲擊的對象',
   demon:'獵魔人請睜眼',hunt:'請選擇今晚要狩獵的玩家',demonClose:'獵魔人請閉眼',
@@ -32,7 +33,7 @@ export const SCRIPT = {
   voteIntro: '現在進行投票，3、2、1請投票', exileVote: '現在進行投票，3、2、1請投票', exileRevote:'再次進行投票，3、2、1請投票', noExile:'無人出局，進入下一晚',
   mediumIdentify:'通靈師請舉手', mediumIdentified:'通靈師手放下', guard:'守衛請睜眼', guardTarget:'今晚你要守護的對象是？', guardClose:'守衛請閉眼', mechanical:'機械狼請睜眼', mechanicalLearn:'選擇你要學習的對象',mechanicalSkill:'選擇使用技能的對象',mechanicalKnifeState:'今晚的帶刀狀態',convertedKnifeState:'今晚的帶刀狀態',maskKnifeState:'今晚的帶刀狀態',fragranceKnifeState:'今晚的帶刀狀態',mechanicalAction:'-', mechanicalClose:'機械狼請閉眼', medium:'通靈師請睜眼', mediumInspect:'選擇你今晚要查驗的對象', mediumClose:'通靈師請閉眼'
 };
-const blankNight = () => ({ basicSubmitted:false,basicActor:null,basicActors:[],extraSubmitted:false,extraActor:null,mechanicalCommitted:false,bondTargets:[],bondSkip:false,bondConfirmed:false,awakenedTargets:[],danceTargets:[],danceConfirmed:false,maskInspect:null,maskResult:null,maskTarget:null,maskSkip:false,maskConfirmed:false,charm:null,charmSkip:false,attackMode:'attack',infectionDecision:false,mechanicalResult:null,infectionConfirmed:false,infectionFired:false,exchange: [], noExchange: false, attack: null, emptyAttack: false, antidote: null, poison: null, poisonTarget: null, inspect: null, guard:null,guardSkip:false,learnTarget:null,learnSkip:false,extraAttack:null,extraAttackSkip:false,mechanicalInspect:null,mechanicalPoison:null,mechanicalPoisonSkip:false,shield:null,shieldSkip:false,mediumInspect:null,revenge:null,revengeSkip:false,tradeTarget:null,tradeAbility:null,tradeSkip:false,luckyInspect:null,luckyPoison:null,luckySkip:false,fear:null,fearSkip:false,fearApplied:false,sleep:null,sleepApplied:false,repeatPending:null,repeatExecuted:false,forcedAttackReason:null,roleModel:null,transform:null,hunt:null,huntSkip:false,huntApplied:false,huntSuccess:null,huntDeath:null,huntResolved:false });
+const blankNight = () => ({ stoneInspect:null,stoneResult:null, basicSubmitted:false,basicActor:null,basicActors:[],extraSubmitted:false,extraActor:null,mechanicalCommitted:false,bondTargets:[],bondSkip:false,bondConfirmed:false,awakenedTargets:[],danceTargets:[],danceConfirmed:false,maskInspect:null,maskResult:null,maskTarget:null,maskSkip:false,maskConfirmed:false,charm:null,charmSkip:false,attackMode:'attack',infectionDecision:false,mechanicalResult:null,infectionConfirmed:false,infectionFired:false,exchange: [], noExchange: false, attack: null, emptyAttack: false, antidote: null, poison: null, poisonTarget: null, inspect: null, guard:null,guardSkip:false,learnTarget:null,learnSkip:false,extraAttack:null,extraAttackSkip:false,mechanicalInspect:null,mechanicalPoison:null,mechanicalPoisonSkip:false,shield:null,shieldSkip:false,mediumInspect:null,revenge:null,revengeSkip:false,tradeTarget:null,tradeAbility:null,tradeSkip:false,luckyInspect:null,luckyPoison:null,luckySkip:false,fear:null,fearSkip:false,fearApplied:false,sleep:null,sleepApplied:false,repeatPending:null,repeatExecuted:false,forcedAttackReason:null,roleModel:null,transform:null,hunt:null,huntSkip:false,huntApplied:false,huntSuccess:null,huntDeath:null,huntResolved:false });
 export function createGame(boardId='12',rules={}) {
   const b=BOARDS[boardId];if(!b)throw new Error('Unknown board');const config={...b.defaults,...rules};
   if(!['edge','city'].includes(config.victory)||!['sheriff','selfRescue','swallow'].every(k=>typeof config[k]==='boolean'))throw new Error('Invalid rules');
@@ -154,6 +155,7 @@ export function potionBlocked(s,type) {
 export const needsInfectionDecision=s=>s.step==='attack'&&canInfect(s)&&!!s.nightAction.attack&&!s.nightAction.infectionDecision;
 export const canInfect=s=>!!boardOf(s).roles.seedWolf&&s.night>1&&s.infection.remaining>0&&s.players.some(p=>p.role==='seedWolf'&&p.alive)&&!s.winner;
 function roleForStep(s) {
+  if(s.step==='stoneIdentify')return 'stoneGargoyle';
   if(s.step==='hiddenWolf'&&s.night===1)return 'hiddenWolf';
   if(s.step==='wolves'&&boardOf(s).roles.beauty)return s.action.length?'wolf':'beauty';
   if(s.step==='wolves'&&boardOf(s).roles.seedWolf)return s.action.length?'wolf':'seedWolf';
@@ -190,6 +192,7 @@ export function selectable(s,id) {
   if(s.step==='trade')return canTrade(s)&&p.role!=='merchant';
   if(s.step==='luckyAction')return !!luckyAbility(s)&&s.lucky.remaining>0;
   if(s.step==='guardTarget')return livingRole(s,'guard')&&id!==s.lastGuard;
+  if(s.step==='stoneInspect')return livingRole(s,'stoneGargoyle')&&!skillBlocked(s,'stoneGargoyle');
   if(s.step==='mediumInspect')return livingRole(s,'medium');
   if(s.step==='mechanicalAction')return livingRole(s,'mechanical')&&(s.operation==='learnTarget'?!s.mechanical.role&&p.role!=='mechanical':s.operation===mechanicalAbility(s))&&(s.operation!=='shield'||id!==s.mechanical.lastShield);
   if(specialFlow(s)&&s.step==='attack'&&!originalKnifeActors(s).length)return false;
@@ -245,6 +248,7 @@ export function selectSeat(s,id) {
     if (s.step==='inspect') s.nightAction.inspect=target;
     if (s.step==='poison') s.nightAction.poisonTarget=target;
     if(s.step==='guardTarget'){s.nightAction.guard=target;s.nightAction.guardSkip=false;}
+    if(s.step==='stoneInspect'){s.nightAction.stoneInspect=target;s.nightAction.stoneResult=null;}
     if(s.step==='mediumInspect')s.nightAction.mediumInspect=target;
     if(['mechanicalLearn','mechanicalSkill'].includes(s.step)&&specialFlow(s)||s.step==='mechanicalAction'){s.nightAction.mechanicalResult=null;s.nightAction[s.operation]=target;s.nightAction[s.operation==='learnTarget'?'learnSkip':s.operation+'Skip']=false;}
   }
@@ -337,6 +341,7 @@ export function canNext(s) {
   if(s.step==='luckyAction')return !luckyAbility(s)||s.lucky.remaining<1||s.nightAction.luckySkip||!!s.nightAction[s.lucky.ability==='inspect'?'luckyInspect':'luckyPoison'];
   if (s.step==='exchange') return !livingRole(s,'magician') || s.nightAction.noExchange || s.action.length===2;
   if(s.step==='guardTarget')return !livingRole(s,'guard')||s.nightAction.guardSkip||!!s.nightAction.guard;
+  if(s.step==='stoneInspect')return !livingRole(s,'stoneGargoyle')||skillBlocked(s,'stoneGargoyle')||!!s.nightAction.stoneInspect;
   if(s.step==='mediumInspect')return !livingRole(s,'medium')||!!s.nightAction.mediumInspect;
   if(s.step==='mechanicalAction')return mechanicalModes(s).every(mode=>!!s.nightAction[mode]||s.nightAction[mode==='learnTarget'?'learnSkip':mode+'Skip']);
   if (s.step==='attack') return specialFlow(s)&&!originalKnifeActors(s).length||forcedEmpty(s)||!basicActor(s) || s.nightAction.emptyAttack || s.action.length===1;
@@ -375,7 +380,7 @@ export function syncMarks(s){
  add('extra','wolf-attack',n.extraAttack);add('mechanicalPoison','poison',n.mechanicalPoison);
  add('inspect','inspect',n.inspect);add('revenge','wolf-attack',n.revenge);add('learn','learn',n.learnTarget);add('trade','trade',n.tradeTarget);
  add('luckyInspect','inspect',n.luckyInspect);add('luckyPoison','poison',n.luckyPoison);
- add('mediumInspect','inspect',n.mediumInspect);add('mechanicalInspect','inspect',n.mechanicalInspect);
+ add('stoneInspect','wolf-inspect',n.stoneInspect);add('mediumInspect','inspect',n.mediumInspect);add('mechanicalInspect','inspect',n.mechanicalInspect);
  s.marks=(s.marks||[]).filter(m=>desired.some(d=>d.key===m.key&&d.type===m.type&&d.id===m.id&&d.partner===m.partner));
  for(const d of desired)if(!s.marks.some(m=>m.key===d.key)){const prior=d.type==='bond'&&pendingBondAnnouncement(s)?[...(s.history||[])].reverse().filter(h=>h.night===s.night).flatMap(h=>h.marks||[]).find(m=>m.key===d.key&&m.id===d.id&&m.partner===d.partner):null;if(prior)s.marks.push({...d,sequence:prior.sequence});else{s.markSequence=(s.markSequence||0)+1;s.marks.push({...d,sequence:s.markSequence});}}
 }
@@ -510,6 +515,7 @@ function commitSpecialRole(s,role){
   n.basicSubmitted=true;n.basicActor=owner.id;n.basicActors=[owner.id];n.emptyAttack=!n.attack;
   replace('attack',['basic'],order);
  }
+ if(role==='stoneGargoyle'){replace('stoneKnifeState',['stoneKnifeState'],nightSteps(s).indexOf(s.night===1?'stoneGargoyle':'stoneGargoyleKnifeState'));if(livingRole(s,'stoneGargoyle')&&!skillBlocked(s,'stoneGargoyle'))replace('stoneInspect',['stoneInspect'],nightSteps(s).indexOf('stoneInspect'));}
  if(role==='mechanical'&&livingRole(s,'mechanical')){
   n.mechanicalCommitted=true;
   if(n.extraAttack){n.extraSubmitted=true;n.extraActor=s.players.find(p=>p.role==='mechanical').id;Object.assign(s.mechanical,{extraUsed:true,extraUsedNight:s.night,extraTarget:n.extraAttack});}
@@ -546,7 +552,7 @@ function prepareDawn(s){
  if(!s.winner)commitNightPhase(s,'dawn','dawn');
  nightRecord(s).settled=true;return true;
 }
-export function nightSteps(s){const parts={fragrance:['fragrance',...(s.night===1?['fragranceKnown']:[]),'bond','fragranceClose'],awakenedSeer:['awakenedSeer','awakenedInspect','awakenedResult','awakenedSeerClose'],dancer:s.night===1?['dancer','dancerClose']:['dancer','dance','dancerClose'],mask:s.night===1?['mask','maskClose']:['mask','maskInspect','maskResult','maskAssign','maskClose'],beauty:['beauty','charm','beautyClose'],duelist:['duelist','duelistClose'],hiddenWolf:['hiddenWolf','hiddenWolfClose'],infectionNotice:['infectionNotice','infectionOpen','infectionClose'],gargoyle:['gargoyle','transform','gargoyleClose'],gravekeeper:s.night===1||!graveResult(s)||!livingRole(s,'gravekeeper')?['gravekeeper','gravekeeperClose']:['gravekeeper','graveResult','gravekeeperClose'],converted:s.gargoyle.target&&!s.nightState.deaths.some(d=>d.id===s.gargoyle.target)&&player(s,s.gargoyle.target)?.alive?['converted','convertedClose']:[],demon:s.night===1?['demon','demonClose']:['demon','hunt','demonClose'],idiot:['idiot','idiotClose'],mixed:['mixed','roleModel',...(s.nightAction.roleModel||s.mixed.chosen?['mixedResult']:[]),'mixedClose'],nightmare:['nightmare','fear','nightmareClose'],dream:['dream','sleep','dreamClose'],brothers:['brothers','brothersClose'],younger:['younger','revenge','youngerClose'],merchant:['merchant','trade','merchantClose'],lucky:s.night===1?['lucky','luckyClose']:['lucky','luckyAction','luckyClose'],magician:['magician','exchange','magicianClose'],wolves:['wolves','attack','wolvesClose'],witch:['witch','antidote','poison','witchClose'],seer:['seer','inspect','inspectResult','seerClose'],hunter:['hunter','gesture','hunterClose'],mediumIdentify:['mediumIdentify','mediumIdentified'],guard:['guard','guardTarget','guardClose'],mechanical:['mechanical','mechanicalAction',...(s.nightAction.mechanicalInspect?['mechanicalResult']:[]),'mechanicalClose'],medium:['medium','mediumInspect','mediumResult','mediumClose']};if(specialFlow(s)){initializeTakeover(s);parts.mechanical=s.night===1?['mechanical','mechanicalLearn','mechanicalClose']:['mechanical','mechanicalKnifeState','mechanicalLearn','mechanicalSkill',...(s.nightAction.mechanicalInspect?['mechanicalResult']:[]),'mechanicalClose'];parts.fragrance=['fragrance',...(s.night===1?['fragranceKnown']:['fragranceKnifeState']),'bond','fragranceClose'];parts.mask=s.night===1?['mask','maskClose']:['mask','maskKnifeState','maskInspect','maskResult','maskAssign','maskClose'];parts.converted=['converted',...(s.night>1?['convertedKnifeState']:[]),'convertedClose'];}const b=boardOf(s);return ['dark',...(s.night===1&&b.firstNightOrder?b.firstNightOrder:b.nightOrder).filter(r=>s.night===1||r!=='converted'||specialFlow(s)).flatMap(r=>parts[r]),'dawn'];}
+export function nightSteps(s){const parts={stoneIdentify:['stoneIdentify','stoneIdentified'],stoneGargoyle:['stoneGargoyle',...(s.night>1?['stoneGargoyleKnifeState']:[]),'stoneInspect','stoneResult','stoneGargoyleClose'],fragrance:['fragrance',...(s.night===1?['fragranceKnown']:[]),'bond','fragranceClose'],awakenedSeer:['awakenedSeer','awakenedInspect','awakenedResult','awakenedSeerClose'],dancer:s.night===1?['dancer','dancerClose']:['dancer','dance','dancerClose'],mask:s.night===1?['mask','maskClose']:['mask','maskInspect','maskResult','maskAssign','maskClose'],beauty:['beauty','charm','beautyClose'],duelist:['duelist','duelistClose'],hiddenWolf:['hiddenWolf','hiddenWolfClose'],infectionNotice:['infectionNotice','infectionOpen','infectionClose'],gargoyle:['gargoyle','transform','gargoyleClose'],gravekeeper:s.night===1||!graveResult(s)||!livingRole(s,'gravekeeper')?['gravekeeper','gravekeeperClose']:['gravekeeper','graveResult','gravekeeperClose'],converted:s.gargoyle.target&&!s.nightState.deaths.some(d=>d.id===s.gargoyle.target)&&player(s,s.gargoyle.target)?.alive?['converted','convertedClose']:[],demon:s.night===1?['demon','demonClose']:['demon','hunt','demonClose'],idiot:['idiot','idiotClose'],mixed:['mixed','roleModel',...(s.nightAction.roleModel||s.mixed.chosen?['mixedResult']:[]),'mixedClose'],nightmare:['nightmare','fear','nightmareClose'],dream:['dream','sleep','dreamClose'],brothers:['brothers','brothersClose'],younger:['younger','revenge','youngerClose'],merchant:['merchant','trade','merchantClose'],lucky:s.night===1?['lucky','luckyClose']:['lucky','luckyAction','luckyClose'],magician:['magician','exchange','magicianClose'],wolves:['wolves','attack','wolvesClose'],witch:['witch','antidote','poison','witchClose'],seer:['seer','inspect','inspectResult','seerClose'],hunter:['hunter','gesture','hunterClose'],mediumIdentify:['mediumIdentify','mediumIdentified'],guard:['guard','guardTarget','guardClose'],mechanical:['mechanical','mechanicalAction',...(s.nightAction.mechanicalInspect?['mechanicalResult']:[]),'mechanicalClose'],medium:['medium','mediumInspect','mediumResult','mediumClose']};if(specialFlow(s)){initializeTakeover(s);parts.mechanical=s.night===1?['mechanical','mechanicalLearn','mechanicalClose']:['mechanical','mechanicalKnifeState','mechanicalLearn','mechanicalSkill',...(s.nightAction.mechanicalInspect?['mechanicalResult']:[]),'mechanicalClose'];parts.fragrance=['fragrance',...(s.night===1?['fragranceKnown']:['fragranceKnifeState']),'bond','fragranceClose'];parts.mask=s.night===1?['mask','maskClose']:['mask','maskKnifeState','maskInspect','maskResult','maskAssign','maskClose'];parts.converted=['converted',...(s.night>1?['convertedKnifeState']:[]),'convertedClose'];}const b=boardOf(s);return ['dark',...(s.night===1&&b.firstNightOrder?b.firstNightOrder:b.nightOrder).filter(r=>s.night===1||r!=='converted'||specialFlow(s)).flatMap(r=>parts[r]),'dawn'];}
 export function phaseOf(s){return s.step==='confirm'||s.step==='candidates'||nightSteps(s).includes(s.step)&&s.step!=='dawn'?'夜晚':'白天';}
 const INTERRUPTIBLE=['draw','dayDraw','direction','sheriffResult','speeches','withdraw','sheriffVote','sheriffPK','sheriffRevote','discussion','voteIntro','exileVote','exilePK','exilePKStart','exileRevote'];
 export function canSelfDestruct(s){return !s.winner && INTERRUPTIBLE.includes(s.step) && s.players.some(p=>p.alive&&(infected(s,p)||['wolf','king','younger','nightmare','blood','gargoyle','seedWolf'].includes(p.role)));}
@@ -566,8 +572,9 @@ export function next(s) {
   if(step==='heartbreakAnnouncement'){s.charm.announcementIndex++;if(s.charm.announcementIndex<s.charm.announcements.length)enter(s,'heartbreakAnnouncement');else{s.charm.announcements=[];s.queue=s.queue.filter(d=>d.cause!=='heartbreak'&&d.id!==s.players.find(p=>p.role==='beauty')?.id);deathSteps(s);}return true;}
   if(step==='confirm') enter(s,'dark');
   else if(nightSteps(s).includes(step) && step!=='dawn') {
+    if(step==='stoneInspect')s.nightAction.stoneResult=livingRole(s,'stoneGargoyle')&&!skillBlocked(s,'stoneGargoyle')&&s.nightAction.stoneInspect?{target:s.nightAction.stoneInspect,role:roleResult(s,s.nightAction.stoneInspect)}:null;
     if(specialFlow(s)&&closeRole(s))commitSpecialRole(s,closeRole(s));
-    if(!(specialFlow(s)&&(['mechanicalLearn','mechanicalSkill','bond','maskInspect','maskAssign'].includes(step)||step==='attack'&&!originalKnifeActors(s).length)))recordStage(s,step,nightSteps(s).indexOf(step));
+    if(!(specialFlow(s)&&(['mechanicalLearn','mechanicalSkill','bond','maskInspect','maskAssign','stoneInspect'].includes(step)||step==='attack'&&!originalKnifeActors(s).length)))recordStage(s,step,nightSteps(s).indexOf(step));
     if(specialFlow(s)&&step==='attack'&&originalKnifeActors(s).length){s.nightAction.basicSubmitted=true;s.nightAction.basicActors=originalKnifeActors(s).map(p=>p.id);s.nightAction.basicActor=s.nightAction.basicActors[0]||null;}
     if(!specialFlow(s)&&step==='bond'&&bondAvailable(s)&&s.nightAction.bondTargets.length===2){s.nightAction.bondConfirmed=true;s.fragrance.binding={night:s.night,targets:[...s.nightAction.bondTargets]};syncMarks(s);}
     if(specialFlow(s)&&step==='mechanicalSkill'&&s.nightAction.mechanicalInspect)s.nightAction.mechanicalResult={target:s.nightAction.mechanicalInspect,role:roleResult(s,s.nightAction.mechanicalInspect)};
@@ -683,6 +690,7 @@ export function next(s) {
   return true;
 }
 export function subtitle(s) {
+ if(s.step==='discussion'&&!s.sheriff&&s.draw?.revealed)return s.draw.seat+'號玩家'+(s.draw.clockwise?'順':'逆')+'時針開始發言';
  if(s.step==='fragranceKnown')return '你的其中一位狼隊友是：'+s.fragrance.knownWolf+' 號玩家';
  if(s.step==='bond'&&!specialFlow(s)&&!fragranceActor(s))return '-';
  if(s.step==='fragranceAnnouncement')return s.fragrance.announcements[s.fragrance.announcementIndex]+'號玩家殉情出局，沒有遺言';

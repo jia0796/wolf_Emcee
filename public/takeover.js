@@ -1,9 +1,9 @@
-// Only the four approved special boards use this per-night input/ownership state.
+// Only approved special roles use this per-night input/ownership state.
 import {ROLE_DATA,BOARDS} from './data.js';
-export const specialBoard=s=>{const r=BOARDS[s.boardId]?.roles||{};return r.mechanical?'mechanical':r.gargoyle?'converted':r.mask?'mask':r.fragrance?'fragrance':null;};
+export const specialBoard=s=>{const r=BOARDS[s.boardId]?.roles||{};return r.stoneGargoyle?'stoneGargoyle':r.mechanical?'mechanical':r.gargoyle?'converted':r.mask?'mask':r.fragrance?'fragrance':null;};
 export const specialFlow=s=>!!s.takeover?.flow&&!!specialBoard(s);
 export const takeoverState=(flow=true)=>({flow,night:null,ready:false,actor:null,ordinaryIds:[],pane:'skill',kind:null});
-export const originalKnifeActors=s=>s.players.filter(p=>p.active&&p.alive&&ROLE_DATA[p.role]?.kind==='wolf'&&!['mechanical','mask','fragrance'].includes(p.role));
+export const originalKnifeActors=s=>s.players.filter(p=>p.active&&p.alive&&ROLE_DATA[p.role]?.kind==='wolf'&&!['mechanical','mask','fragrance','stoneGargoyle'].includes(p.role));
 export function initializeTakeover(s){
  if(!specialFlow(s)||s.takeover.ready&&s.takeover.night===s.night)return;
  if(!s.rolesConfirmed||s.night===1)return;
@@ -16,14 +16,14 @@ export const basicKnifeAvailable=s=>!!takeoverOwner(s)?.alive&&!s.winner;
 export const extraKnifeAvailable=s=>specialFlow(s)&&specialBoard(s)==='mechanical'&&s.night>1&&!s.winner&&s.players.some(p=>p.alive&&p.role==='mechanical')&&s.mechanical.role==='wolf'&&!s.mechanical.extraUsed&&(s.mechanical.extraUnlocked||(s.rules.mechanicalKnife==='allDead'?!originalKnifeActors(s).length:s.night>s.mechanical.night));
 // Knife controls handle basic takeover only; learned extra attack is a mechanical skill.
 export const knifeKinds=s=>basicKnifeAvailable(s)?['basic']:[];
-export const statusSteps=['mechanicalKnifeState','convertedKnifeState','maskKnifeState','fragranceKnifeState'];
-export const switchSteps=['mechanicalLearn','mechanicalSkill','maskInspect','maskAssign','bond'];
+export const statusSteps=['stoneGargoyleKnifeState','mechanicalKnifeState','convertedKnifeState','maskKnifeState','fragranceKnifeState'];
+export const switchSteps=['stoneInspect','mechanicalLearn','mechanicalSkill','maskInspect','maskAssign','bond'];
 export const knifeEntry=s=>specialFlow(s)&&(statusSteps.includes(s.step)||switchSteps.includes(s.step)&&!(s.night===1&&s.step==='bond'));
 export const knifeSelection=s=>knifeEntry(s)&&s.takeover.pane==='knife'&&knifeKinds(s).includes(s.takeover.kind);
 export function skillSelection(s){
  const n=s.nightAction;
  if(s.step==='bond')return [...n.bondTargets];
- const field={mechanicalLearn:'learnTarget',mechanicalSkill:s.operation,maskInspect:'maskInspect',maskAssign:'maskTarget'}[s.step];
+ const field={stoneInspect:'stoneInspect',mechanicalLearn:'learnTarget',mechanicalSkill:s.operation,maskInspect:'maskInspect',maskAssign:'maskTarget'}[s.step];
  return field&&n[field]?[n[field]]:[];
 }
 export function restoreTakeoverInput(s){
@@ -39,7 +39,7 @@ export function switchKnife(s,value){
  else return false;
  restoreTakeoverInput(s);return true;
 }
-export const closeRole=s=>({mechanicalClose:'mechanical',convertedClose:'converted',maskClose:'mask',fragranceClose:'fragrance'})[s.step];
+export const closeRole=s=>({stoneGargoyleClose:'stoneGargoyle',mechanicalClose:'mechanical',convertedClose:'converted',maskClose:'mask',fragranceClose:'fragrance'})[s.step];
 export function knifeSummary(s){
  const labels={basic:'基本狼刀',extra:'額外狼刀'},kinds=[...knifeKinds(s),...(extraKnifeAvailable(s)?['extra']:[])];
  return kinds.map(k=>labels[k]+'：'+(s.nightAction[k==='basic'?'attack':'extraAttack']?s.nightAction[k==='basic'?'attack':'extraAttack']+'號':'空刀')).join('；');
