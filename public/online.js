@@ -28,37 +28,56 @@ export function installOnline({show,onHostReady,onHome,onLibrary,onLibraryClose}
  async function api(action,body={},roomId=room){
   const session=await auth();
   const r=await fetch(URL+'/functions/v1/room',{method:'POST',cache:'no-store',headers:{apikey:KEY,Authorization:'Bearer '+session.access_token,'Content-Type':'application/json'},body:JSON.stringify({action,roomId,body})});
-  const data=await r.json();if(!r.ok||data.error)throw Error(data.message||({ROOM_FULL:'房間人數已滿，無法加入',NOT_FULL:'遊玩人數不足，無法發牌'}[data.error])||'操作未確認，請重新同步後再試');
+  const data=await r.json();if(!r.ok||data.error){const error=Error(data.message||({ROOM_FULL:'房間人數已滿，無法加入',NOT_FULL:'遊玩人數不足，無法發牌'}[data.error])||'操作未確認，請重新同步後再試');error.code=data.error;throw error;}
   return data;
  }
  function leaveView(){cover();active=false;++seq;clearInterval(interval);if(channel)client.removeChannel(channel);channel=null;library=false;}
  function home(){leaveView();onHome();}
+ function forgetRoom(id){
+  try{
+   if(read(HOST)?.roomId===id)localStorage.removeItem(HOST);
+   if(read(END)?.roomId===id)localStorage.removeItem(END);
+   const invites=read(INVITES);if(invites&&Object.hasOwn(invites,id)){delete invites[id];save(INVITES,invites);}
+  }catch{/* Storage failure must not keep an already closed role card visible. */}
+  const url=new globalThis.URL(location.href),hash=new URLSearchParams(url.hash.slice(1));
+  if(url.searchParams.get('room')===id){url.searchParams.delete('room');url.searchParams.delete('invite');}
+  if(hash.get('room')===id)url.hash='';
+  if(url.href!==location.href)history.replaceState(null,'',url);
+ }
+ function exitRoom(id=room){
+  if(room&&id!==room){forgetRoom(id);return;}
+  if(library)onLibraryClose?.();
+  leaveView();forgetRoom(id);room=null;state=null;isHost=false;pendingSeat=null;
+  for(const name of ['onlineCard','onlineQR','onlineDissolve','onlineDeal','onlineLeave'])$(name).hidden=true;
+  $('onlineRing').replaceChildren();$('onlineCount').textContent='';$('onlineCode').textContent='';$('onlineCardSeat').textContent='';
+  const canvas=document.querySelector('#onlineQR canvas');canvas.getContext('2d')?.clearRect(0,0,canvas.width,canvas.height);
+  $('onlineTitle').textContent='線上發牌（Beta版）';notice('');onHome();
+ }
+ function unavailable(error,id=room){if(error.code!=='ROOM_UNAVAILABLE')return false;exitRoom(id);return true;}
  async function refresh(){
   if(!active||document.hidden||busy)return;
   if(refreshing){refreshAgain=true;return;}
   refreshing=true;
   const n=++seq;
   try{const s=await api('state');if(n===seq&&active){await apply(s);}}
-  catch{if(n===seq&&active){cover();notice('連線中斷，正在重新同步…');}}
+  catch(e){if(n===seq&&active&&!unavailable(e)){cover();notice('連線中斷，正在重新同步…');}}
   finally{refreshing=false;if(refreshAgain){refreshAgain=false;queueMicrotask(refresh);}}
  }
  async function subscribe(){
   clearInterval(interval);if(channel)await client.removeChannel(channel);
   const session=await auth();await client.realtime.setAuth(session.access_token);
-  channel=client.channel('wolfcue:'+room,{config:{private:true}}).on('broadcast',{event:'changed'},()=>refresh())
+  channel=client.channel('wolfcue:'+room,{config:{private:true}}).on('broadcast',{event:'changed'},e=>{
+   if(active&&e.payload?.roomId===room&&closed(e.payload.status))exitRoom();else refresh();
+  })
    .subscribe(s=>{if(!active)return;if(s==='SUBSCRIBED')refresh();else if(['CHANNEL_ERROR','TIMED_OUT'].includes(s)){cover();notice('正在重新同步…');}});
   interval=setInterval(refresh,8000);
  }
  function link(s){const u=new globalThis.URL(location.href);u.search='';u.hash='room='+s.roomId+'&invite='+s.inviteToken;return u.href;}
  async function apply(s){
+  if(!active||!room||s?.roomId!==room)return;
+  if(s?.roomId===room&&closed(s.status)){exitRoom();return;}
   if(state?.roomId===s.roomId&&s.version<state.version)return;
   const prior=state;state=s;
-  if(closed(s.status)){
-   if(library){library=false;onLibraryClose?.();show('online');}
-   cover();notice(s.status==='ended'?'本局已結束':s.status==='expired'?'房間已逾時':'主持人已解散房間');
-   if(isHost)localStorage.removeItem(HOST);
-   clearInterval(interval);setTimeout(()=>{if(active&&state===s)home();},isHost?0:2000);return;
-  }
   if(s.status==='dealt'&&isHost){
    if(starting)return;starting=true;if(library){onLibraryClose?.();library=false;}
    try{const h=read(HOST);if(!h||h.roomId!==s.roomId)throw Error('房間恢復資料不存在');
@@ -113,7 +132,7 @@ export function installOnline({show,onHostReady,onHome,onLibrary,onLibraryClose}
   if(busy)return;if(confirmation&&!confirm(confirmation))return;
   busy=true;pendingSeat=action==='seat'||action==='clear'?body.seat:null;++seq;cover();paint();
   try{const s=await api(action,body);notice('');await apply(s);}
-  catch(e){notice(e.message);try{await apply(await api('state'));}catch{cover();}}
+  catch(e){if(unavailable(e))return;notice(e.message);try{await apply(await api('state'));}catch(error){if(!unavailable(error))cover();}}
   finally{busy=false;pendingSeat=null;paint();}
  }
  $('onlineDeal').onclick=()=>{const h=read(HOST);if(h)mutate('deal',{requestId:h.dealRequest});};
@@ -132,12 +151,13 @@ export function installOnline({show,onHostReady,onHome,onLibrary,onLibraryClose}
    const mine=state?.seats.find(s=>s.mine);if(!mine)return;
    const data=await api('my_role',{lease:mine.lease});
    if(ticket!==roleTicket||document.hidden||library||!active)return;
+   if(data.roomId===room&&closed(data.status)){exitRoom();return;}
    const role=ROLE_DATA[data.role];if(!role)throw Error('角色資料尚未同步');
    const img=document.createElement('img'),title=document.createElement('strong');img.src=role.image;img.alt=role.name;title.textContent=role.name;title.className=role.kind;
    const front=$('onlineCard').querySelector('.online-card-front');front.replaceChildren(img,title);front.setAttribute('aria-hidden','false');
    $('onlineCard').classList.remove('privacy-covered');$('onlineCard').classList.add('revealed');$('onlineCard').setAttribute('aria-label','點擊蓋牌');
    setTimeout(()=>{if(ticket===roleTicket)animating=false;},350);
-  }catch(e){cover();notice(e.message);}
+  }catch(e){cover();if(!unavailable(e))notice(e.message);}
  };
  async function host(config){
   leaveView();isHost=true;active=true;state=null;room=null;show('online');notice('正在建立房間…');
@@ -146,7 +166,7 @@ export function installOnline({show,onHostReady,onHome,onLibrary,onLibraryClose}
    const s=await api(h.roomId?'recover':'create',h.roomId?{}:{boardId:h.boardId,requestId:h.requestId},h.roomId||null);
    room=s.roomId;h={...h,...s};save(HOST,h);notice('');await apply(s);
    if(active){$('onlineCode').textContent='房號 '+s.roomCode;const canvas=document.querySelector('#onlineQR canvas');await toCanvas(canvas,link(h),{scale:4,margin:4});canvas.style.removeProperty('width');canvas.style.removeProperty('height');canvas.style.setProperty('--online-qr-size',(canvas.width/2)+'px');await subscribe();}
-  }catch(e){notice(e.message);const retry=document.createElement('button');retry.textContent='重新連線';retry.onclick=()=>host(config);$('onlineNotice').append(retry);}
+  }catch(e){if(unavailable(e,h?.roomId))return;notice(e.message);const retry=document.createElement('button');retry.textContent='重新連線';retry.onclick=()=>host(config);$('onlineNotice').append(retry);}
  }
  async function player(id,invite){
   leaveView();isHost=false;active=true;state=null;room=id;show('online');notice('正在加入房間…');
@@ -154,7 +174,7 @@ export function installOnline({show,onHostReady,onHome,onLibrary,onLibraryClose}
   try{
    const invites=read(INVITES)||{};if(invite){invites[id]=invite;save(INVITES,invites);}
    const s=await api('join',{inviteToken:invite||invites[id]||''});notice('');await apply(s);if(active)await subscribe();
-  }catch(e){cover();notice(e.message);$('onlineRing').replaceChildren();$('onlineCard').hidden=true;
+  }catch(e){if(unavailable(e,id))return;cover();notice(e.message);$('onlineRing').replaceChildren();$('onlineCard').hidden=true;
    if(!e.message.includes('房間人數已滿'))setTimeout(()=>{if(active&&!state&&room===id)player(id,invite);},8000);
   }
  }
@@ -164,10 +184,16 @@ export function installOnline({show,onHostReady,onHome,onLibrary,onLibraryClose}
   try{await api('end',{dealId:pending.dealId},pending.roomId);localStorage.removeItem(END);if(read(HOST)?.roomId===pending.roomId)localStorage.removeItem(HOST);}
   catch{/* Retain pending terminal notification for next connectivity event. */}finally{end.running=false;}
  }
+ async function dissolve(){
+  const h=read(HOST)||(isHost&&room?{roomId:room}:null);if(!h?.roomId)return;
+  const result=await api('dissolve',{},h.roomId);
+  if(result.roomId!==h.roomId||!closed(result.status)||!result.deleted)throw Error('房間刪除尚未確認，請重試');
+  forgetRoom(h.roomId);if(room===h.roomId)exitRoom(h.roomId);
+ }
  document.addEventListener('visibilitychange',()=>{cover();++seq;if(!document.hidden){refresh();end();}});
  window.addEventListener('online',()=>{refresh();end();});window.addEventListener('pagehide',cover);
  window.addEventListener('storage',e=>{if(e.key==='wolfcue-online-auth'){cover();refresh();}});
- return {host,end,closeLibrary(){library=false;cover();paint();show('online');refresh();},detach(){const h=read(HOST);if(h?.started)localStorage.removeItem(HOST);},async resume(){
+ return {host,end,dissolve,closeLibrary(){library=false;cover();paint();show('online');refresh();},detach(){const h=read(HOST);if(h?.started)localStorage.removeItem(HOST);},async resume(){
   const hash=new URLSearchParams(location.hash.slice(1)),u=new globalThis.URL(location.href),id=hash.get('room')||u.searchParams.get('room');
   if(id){const invite=hash.get('invite');u.hash='';u.searchParams.set('room',id);history.replaceState(null,'',u);await player(id,invite);return true;}
   const h=read(HOST);if(h&&!h.started){await host(h);return true;}end();return false;

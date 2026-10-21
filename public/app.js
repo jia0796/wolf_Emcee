@@ -278,7 +278,17 @@ $('infectionCancel').onclick=()=>$('infectionDialog').close();
 $('infectionDecline').onclick=()=>{if(choose(game,'declineInfection')&&next(game)){$('infectionDialog').close();render();}};
 $('infectionConfirm').onclick=()=>{if(choose(game,'confirmInfection')&&next(game)){ $('infectionDialog').close();render();}};
 $('back').onclick=()=>{previous(game);render();};
-$('reset').onclick=()=>$('resetDialog').showModal();$('resetCancel').onclick=()=>$('resetDialog').close();$('resetConfirm').onclick=()=>{$('resetDialog').close();online.detach();timerStop();clearTimeout(drawTimeout);drawAnimating=false;game=null;try{localStorage.removeItem(KEY);}catch{}show('home');};
+let resettingRoom=false;
+$('reset').onclick=()=>{$('resetError').hidden=true;$('resetDialog').showModal();};$('resetCancel').onclick=()=>$('resetDialog').close();
+$('resetDialog').addEventListener('cancel',e=>{if(resettingRoom)e.preventDefault();});
+$('resetConfirm').onclick=async()=>{
+ if(resettingRoom)return;resettingRoom=true;$('resetConfirm').disabled=true;$('resetCancel').disabled=true;$('resetError').hidden=true;
+ try{
+  await online.dissolve();
+  $('resetDialog').close();online.detach();timerStop();clearTimeout(drawTimeout);drawAnimating=false;game=null;try{localStorage.removeItem(KEY);}catch{}show('home');
+ }catch{$('resetError').textContent='尚未確認線上房間已解散，本局資料已保留，請重試。';$('resetError').hidden=false;}
+ finally{resettingRoom=false;$('resetConfirm').disabled=false;$('resetCancel').disabled=false;}
+};
 $('boardsNormal').onclick=()=>{selectedCategory='normal';drawBoards();};$('boardsSpecial').onclick=()=>{selectedCategory='special';drawBoards();};
 $('identityOpen').onclick=()=>{$('identityReview').showModal();$('identityReview').scrollTop=0;};$('identityReview').onclick=e=>{const r=$('identityReview').getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)$('identityReview').close();};
 $('start').onclick=()=>$('hostModeDialog').showModal();

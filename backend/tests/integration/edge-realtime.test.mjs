@@ -70,7 +70,7 @@ try{
   const rejoined=await subscribe(p,r.roomId);assert.equal(rejoined.status,'SUBSCRIBED');
   assert.equal((await edge(p,'state',r.roomId)).data.seats[0].mine,true);
   await edge(h,'dissolve',r.roomId);
-  assert.equal((await edge(p,'state',r.roomId)).data.status,'dissolved');
+  const removed=await edge(p,'state',r.roomId);assert.equal(removed.status,403);assert.equal(removed.data.error,'ROOM_UNAVAILABLE');
   await p.client.removeChannel(rejoined.ch);
   const revoked=await subscribe(p,r.roomId);assert.notEqual(revoked.status,'SUBSCRIBED');
  });

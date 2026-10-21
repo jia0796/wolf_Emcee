@@ -38,6 +38,7 @@ Deno.serve(async req => {
    p_action:body.action,p_room:body.roomId??null,p_body:body.body??{}
   });
   // Never expose database detail, request bodies, tokens, roles, stack traces.
+  if(error?.code==="42501"&&error.message==="ROOM_UNAVAILABLE")return reply(403,{error:"ROOM_UNAVAILABLE",message:"房間已關閉或無法存取"});
   if(error)return reply(error.code==="42501"?403:400,{error:"OPERATION_REJECTED"});
   return reply(data?.error?409:200,data);
  }catch{return reply(400,{error:"INVALID_REQUEST"});}

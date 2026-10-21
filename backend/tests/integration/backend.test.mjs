@@ -182,13 +182,13 @@ try{
  });
  await run('dissolved links invalid; official end idempotently closes own-role access',async()=>{
   const {h,room:r,players:p}=await setup();const d=await done(h,r);
-  assert.equal((await call(h,'dissolve',r.roomId)).error,'INVALID_ROOM_STATE');
   assert.equal((await call(p[0],'my_role',r.roomId,{lease:p[0].lease})).seat,1);
   const end=await call(h,'end',r.roomId,{dealId:d.dealId});assert.equal(end.status,'ended');
   assert.equal((await call(p[0],'my_role',r.roomId,{lease:p[0].lease})).role,undefined);
   assert.equal((await call(h,'end',r.roomId,{dealId:d.dealId})).status,'ended');
   const h2=await user(),r2=await create(h2);await close(h2,r2);
-  assert.equal((await call(await user(),'join',r2.roomId,{inviteToken:r2.inviteToken})).status,'dissolved');
+  assert.equal((await call(await user(),'join',r2.roomId,{inviteToken:r2.inviteToken})).error,'ROOM_UNAVAILABLE');
+  assert.equal((await pool.query('select count(*)::int n from wolfcue_private.rooms where id=any($1::uuid[])',[[r.roomId,r2.roomId]])).rows[0].n,0);
  });
 } finally {
  await pool.end();
