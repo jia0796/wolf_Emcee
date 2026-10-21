@@ -1,0 +1,17 @@
+{
+  "commit": "2549ac5408d717587699b9d13543c03ed56e6ec1",
+  "workflow": "https://github.com/jia0796/wolf_Emcee/actions/runs/39562629553",
+  "verifiedAt": "2026-10-21T07:35:04.813Z",
+  "files": [
+    {
+      "path": "b3.css",
+      "sha256": "0356dcc2df90ff2746e8241c24db4be8807dbe8d65ea6a0c84130c8cede90caa",
+      "match": true
+    },
+    {
+      "path": "recap.js",
+      "sha256": "50eed331490a3ecbc36707ad8a38516a4bec0a6be94520ebe12faa2078c687cd",
+      "match": true
+    }
+  ]
+}

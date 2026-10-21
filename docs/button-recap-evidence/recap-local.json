@@ -1,0 +1,29 @@
+{
+  "base": "http://127.0.0.1:5173/",
+  "completed": true,
+  "passed": 20,
+  "checks": [
+    "Decorative home inlays do not intercept buttons",
+    "10 setup and first identification use existing controls",
+    "12 setup and first identification use existing controls",
+    "320 stone skill/knife toggle, red SVG and two columns",
+    "320 independent result, refresh and close-submit undo",
+    "375 stone skill/knife toggle, red SVG and two columns",
+    "375 independent result, refresh and close-submit undo",
+    "390 stone skill/knife toggle, red SVG and two columns",
+    "390 independent result, refresh and close-submit undo",
+    "430 stone skill/knife toggle, red SVG and two columns",
+    "430 independent result, refresh and close-submit undo",
+    "844 stone skill/knife toggle, red SVG and two columns",
+    "844 independent result, refresh and close-submit undo",
+    "draw reveal only, ice-blue Done advances exactly once, undo and refresh preserve result",
+    "dayDraw reveal only, ice-blue Done advances exactly once, undo and refresh preserve result",
+    "Requested crouching art loads in original catalog card with exact skill copy",
+    "Actual self-knife ending hides status card, preserves stored history and shows inspection/basic attack once",
+    "Online mode preserves supported board list and makes no new backend request",
+    "New artwork is cached progressively and decodes after offline reload",
+    "No browser exceptions"
+  ],
+  "errors": [],
+  "devices": "Desktop Edge; real Safari/PWA/Android pending"
+}

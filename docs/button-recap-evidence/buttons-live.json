@@ -1,0 +1,15 @@
+{
+  "base": "https://jia0796.github.io/wolf_Emcee/",
+  "completed": true,
+  "passed": 6,
+  "checks": [
+    "320 home no dots, preserved hit area and no overflow",
+    "375 home no dots, preserved hit area and no overflow",
+    "390 home no dots, preserved hit area and no overflow",
+    "430 home no dots, preserved hit area and no overflow",
+    "Original colors, glass gradient, button shape and words unchanged",
+    "Library, start, mode and setup controls remain usable without decoration"
+  ],
+  "errors": [],
+  "device": "Desktop Edge; real iPhone pending"
+}

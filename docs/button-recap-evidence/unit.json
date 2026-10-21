@@ -1,0 +1,8 @@
+{
+  "command": "npm test",
+  "tests": 863,
+  "passed": 863,
+  "failed": 0,
+  "skipped": 0,
+  "initialFixtureCorrection": "New recap test initially inspected uncommitted attack before settlement. Advanced fixture through real engine settlement and preserved original expected attack assertion. Superseded full run interrupted; only completed final run counted."
+}
