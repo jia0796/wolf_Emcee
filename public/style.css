@@ -160,10 +160,10 @@ body[data-screen=boards] main,body[data-screen=setup] main,body[data-screen=coun
 .welcome{padding-bottom:16px}.home-brand{flex-shrink:0}.welcome .menu{flex-shrink:0;margin-bottom:12px}
 .problem-report{display:block;margin:0 auto;color:#c7d5e2;text-decoration:none;background:#26344a9c;border:1px solid #8497b657;border-radius:12px;padding:8px 22px;font-size:13px;min-height:36px}
 
-/* One persistent decorative shell. All pages vary only the overlay opacity. */
+/* Use only the current scene as fallback; before app initialization keep the navy canvas. */
 body{--background-mask:.45}
-body::before{z-index:-2;background-image:url('art/backgrounds/shared.png');background-size:cover;background-position:center;background-repeat:no-repeat}
-body[data-screen=home]::before,body[data-screen=host]::before{background-image:url('art/backgrounds/shared.png');background-position:center}
+body::before{z-index:-2;background-image:var(--page-background,none);background-size:cover;background-position:center;background-repeat:no-repeat}
+body[data-screen=home]::before,body[data-screen=host]::before{background-image:var(--page-background,none);background-position:center}
 body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:rgb(13 20 36 / var(--background-mask));transform:translateZ(0)}
 body[data-screen=home]{--background-mask:.15}body[data-screen=counts]{--background-mask:.25}body[data-screen=boards]{--background-mask:.35}body[data-screen=setup]{--background-mask:.45}body[data-screen=host]{--background-mask:.6}body[data-screen=encyclopedia],body[data-screen=finished]{--background-mask:.55}
 .recap-segment{margin:0 0 18px}.recap-section-title{margin:12px 0 8px;font-size:17px;color:#eadbbc}
