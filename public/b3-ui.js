@@ -1,5 +1,57 @@
 import {PAGE_BACKGROUNDS,HOST_BACKGROUNDS} from './data.js';
 
+// Targeting-stage classification only. Legality remains engine.selectable().
+export function skillTargetStage(step,knife=false){
+ return knife||['stoneInspect','bond','awakenedInspect','dance','maskInspect','maskAssign','exchange','attack','poison','inspect','skill','guardTarget','mediumInspect','mechanicalAction','mechanicalLearn','mechanicalSkill','revenge','trade','luckyAction','fear','sleep','roleModel','hunt','lastBlade','transform','charm','duel','selfDestruct'].includes(step);
+}
+
+// HOST-02: transient view of the existing timer, with no timer/save state of its own.
+export function createMiniTimer({read,pause,reset,restore}){
+ const root=document.createElement('div');root.id='miniTimer';root.className='mini-timer';root.hidden=true;root.setAttribute('role','group');root.setAttribute('aria-label','縮小發言計時器，長按拖曳');
+ const svg=path=>'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="'+path+'"/></svg>';
+ root.innerHTML='<span class="mini-time">'+svg('M9 2h6M12 2v3M18 5l2-2M12 9v5l3 2M21 14a9 9 0 1 1-18 0 9 9 0 0 1 18 0')+'<strong id="miniTimerDigits">01:00</strong></span>';
+ const button=(id,label,path,handler)=>{const b=document.createElement('button');b.type='button';b.id=id;b.setAttribute('aria-label',label);b.innerHTML=svg(path);b.onclick=handler;root.append(b);return b;};
+ const toggle=button('miniTimerPause','暫停計時器','M9 5v14M15 5v14',pause);
+ button('miniTimerReset','重置回原設定時長','M4 10a8 8 0 1 1 0 6M4 4v6h6',reset);
+ const expand=button('miniTimerExpand','還原完整計時器','M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5',()=>open());
+ const safe=document.createElement('span');safe.className='mini-safe-probe';safe.inert=true;document.body.append(root,safe);
+ const motion=matchMedia('(prefers-reduced-motion: reduce)');let owner=null,mini=false,position=null,screen=null,prior=null,drag=null,hold=null,animation=null;
+ function bounds(){
+  const v=window.visualViewport,c=getComputedStyle(safe),b={left:(v?.offsetLeft||0)+parseFloat(c.paddingLeft)+8,top:(v?.offsetTop||0)+parseFloat(c.paddingTop)+8,right:(v?.offsetLeft||0)+(v?.width||innerWidth)-parseFloat(c.paddingRight)-8,bottom:(v?.offsetTop||0)+(v?.height||innerHeight)-parseFloat(c.paddingBottom)-8};
+  // Keep the tools and original next/back hit areas reachable after a drag/rotation too.
+  const tools=document.querySelector('#host footer').getBoundingClientRect();if(tools.width&&tools.top>=b.top+root.offsetHeight+8)b.bottom=Math.min(b.bottom,tools.top-8);return b;
+ }
+ function place(initial=false){
+  if(root.hidden)return;const b=bounds();root.style.maxWidth=Math.max(0,b.right-b.left)+'px';const r={width:root.offsetWidth,height:root.offsetHeight};
+  if(initial||!position){const footer=document.querySelector('#host footer').getBoundingClientRect();position={x:(b.left+b.right-r.width)/2,y:Math.min(b.bottom,footer.top-8)-r.height};}
+  position={x:Math.max(b.left,Math.min(position.x,b.right-r.width)),y:Math.max(b.top,Math.min(position.y,b.bottom-r.height))};
+  root.style.left=position.x+'px';root.style.top=position.y+'px';
+ }
+ function enter(node){animation?.cancel();if(!motion.matches)animation=node.animate([{opacity:.3,transform:'translateY(5px) scale(.97)'},{opacity:1,transform:'none'}],{duration:200,easing:'ease-out'});}
+ function end(){clearTimeout(hold);hold=null;const priorDrag=drag;drag=null;if(priorDrag?.active&&root.hasPointerCapture(priorDrag.id))root.releasePointerCapture(priorDrag.id);root.classList.remove('dragging');}
+ function open(){if(!mini)return;end();mini=false;root.hidden=true;restore();enter(document.getElementById('timerDialog'));document.getElementById(read().mode==='countdown'?'timerMinimize':'timerStart').focus({preventScroll:true});}
+ root.addEventListener('pointerdown',e=>{
+  if(e.target.closest('button')||!e.isPrimary||e.button!==0)return;end();drag={id:e.pointerId,x:e.clientX,y:e.clientY,start:position&&{...position},active:false};
+  hold=setTimeout(()=>{if(!drag)return;drag.active=true;root.setPointerCapture(drag.id);root.classList.add('dragging');},200);
+ });
+ root.addEventListener('pointermove',e=>{if(!drag||drag.id!==e.pointerId)return;const dx=e.clientX-drag.x,dy=e.clientY-drag.y;if(!drag.active){if(Math.hypot(dx,dy)>8)end();return;}e.preventDefault();position={x:drag.start.x+dx,y:drag.start.y+dy};place();});
+ root.addEventListener('touchmove',e=>{if(drag?.active&&e.touches.length===1)e.preventDefault();},{passive:false});
+ for(const type of ['pointerup','pointercancel','lostpointercapture'])root.addEventListener(type,end);
+ const resize=()=>{if(drag)end();place();};window.addEventListener('resize',resize);window.visualViewport?.addEventListener('resize',resize);window.visualViewport?.addEventListener('scroll',resize);new ResizeObserver(()=>place()).observe(root);
+ return {
+  sync(nextScreen,nextOwner){if(owner!==nextOwner){end();owner=nextOwner;mini=false;position=null;prior=null;}screen=nextScreen;root.hidden=!mini||screen!=='host';if(!root.hidden)place();},
+  minimize(){if(read().mode!=='countdown')return;mini=true;document.getElementById('timerDialog').close();root.hidden=screen!=='host';place();enter(root);expand.focus({preventScroll:true});},
+  restore:open,
+  paint(state){
+   document.getElementById('timerMinimize').hidden=state.mode!=='countdown';document.getElementById('miniTimerDigits').textContent=String(Math.floor(state.seconds/60)).padStart(2,'0')+':'+String(state.seconds%60).padStart(2,'0');
+   toggle.setAttribute('aria-label',state.running?'暫停計時器':'繼續計時器');toggle.innerHTML=svg(state.running?'M9 5v14M15 5v14':'M8 4l12 8-12 8Z');toggle.disabled=state.mode!=='countdown'||state.seconds===0;
+   if(mini&&state.mode==='countdown'&&state.seconds===0&&prior?.seconds>0&&!motion.matches&&!root.hidden)root.animate([{boxShadow:'0 0 0 1px #B2DBE570'},{boxShadow:'0 0 18px 3px #B2DBE5b0'},{boxShadow:'0 0 0 1px #B2DBE570'}],{duration:900,easing:'ease-in-out'});
+   prior=state;
+  },
+  get minimized(){return mini;}
+ };
+}
+
 // Presentation state only: never receives or writes a game/save/history object.
 export function backgroundSource(screen,phase){
  return screen==='online'?'art/backgrounds/online-plaza-v3.png':screen==='host'?HOST_BACKGROUNDS[phase==='夜晚'?'night':'day']:PAGE_BACKGROUNDS[screen];

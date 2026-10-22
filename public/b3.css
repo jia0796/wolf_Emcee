@@ -264,3 +264,28 @@ body #home .menu button::before{inset:2px 8px auto;height:42%;border-radius:12px
 /* While the first lobby image decodes, expose only the neutral canvas. */
 body[data-screen=home][data-lobby-managed]::before{background-image:none}
 body[data-screen=home][data-lobby-managed]{background-image:none}
+/* HOST-01: visual projection of engine legality; dimensions and marks stay intact. */
+#host .seat.skill-unavailable{background-color:rgb(13 25 36 / .72);border-color:#7895a35c;box-shadow:none}
+#host .seat.skill-unavailable .role-name,#host .seat.skill-unavailable .seat-number{opacity:.48}
+.skill-unavailable-label{position:absolute;top:3px;right:5px;font-size:10px;line-height:1.2;color:#bdced6;align-self:center;white-space:nowrap}
+/* HOST-02: body-level panel stays below native dialog top layers. */
+.mini-safe-probe{position:fixed;visibility:hidden;pointer-events:none;padding:env(safe-area-inset-top,0px) env(safe-area-inset-right,0px) env(safe-area-inset-bottom,0px) env(safe-area-inset-left,0px)}
+.mini-timer{position:fixed;z-index:25;display:flex;align-items:center;gap:2px;width:286px;min-height:56px;box-sizing:border-box;padding:5px 6px;border:1px solid #b2dbe58f;border-radius:15px;background:linear-gradient(125deg,#426476b8,#13212de8);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 8px 26px #07121f70,inset 0 1px #e6f8ff38;color:#f4f8f9;user-select:none;touch-action:pan-y pinch-zoom}
+.mini-timer[hidden]{display:none}
+.mini-time{display:flex;align-items:center;justify-content:center;gap:7px;flex:1;min-width:0;cursor:grab}
+.mini-time strong{font-size:21px;line-height:1;font-variant-numeric:tabular-nums;white-space:nowrap}
+.mini-timer svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex:none;pointer-events:none}
+.mini-timer button{display:grid;place-items:center;flex:0 0 44px;min-width:44px;width:44px;min-height:44px;height:44px;padding:0;border:0;border-radius:9px;background:rgb(178 219 229 / .09);color:#f4f8f9;box-shadow:none}
+.mini-timer button:disabled{opacity:.4}
+.mini-timer.dragging{outline:1px solid #b2dbe5;box-shadow:0 12px 32px #07121f90;translate:0 -2px}
+#timerDialog .dialog-head h2{flex:1}
+#timerMinimize{flex:none;min-width:44px;min-height:44px;margin-left:auto}
+/* HOST-03: same voteGroups output, individual cancellation in the editing draft only. */
+.batch-records{grid-column:1/-1;min-width:0}
+.batch-records:has(.vote-people) {border-top:1px solid #b2dbe540;padding-top:8px}
+.batch-records .vote-people{display:flex;flex-wrap:wrap;gap:5px}
+.batch-records .vote-people button{min-width:44px;min-height:44px;padding:6px 10px;font-size:14px;background:rgb(178 219 229 / .1);border:1px solid #b2dbe55e;border-radius:9px;display:inline-flex;align-items:center;gap:3px}
+.batch-records .vote-people img{width:17px;height:17px}
+.batch-records>p:only-child{display:none}
+#exileVoters[data-complete="true"]{display:block}
+@media(prefers-reduced-motion:reduce){.mini-timer.dragging{translate:none}}

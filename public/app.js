@@ -1,5 +1,5 @@
 import {installOnline} from './online.js';
-import {backgroundSource,hostPresentation,createB3Backdrop,installB3ScrollHints,installWolfCueOpening} from './b3-ui.js';
+import {backgroundSource,hostPresentation,createB3Backdrop,installB3ScrollHints,installWolfCueOpening,skillTargetStage,createMiniTimer} from './b3-ui.js';
 import {originalKnifeActors,specialFlow,knifeEntry,knifeSelection,knifeKinds,statusSteps,switchSteps,knifeSummary,knifeStatus,closeRole} from './takeover.js';
 import {bondAvailable} from './fragrance.js';
 import {voteLocked} from './votes.js';
@@ -13,12 +13,13 @@ import {skillIcon,renderRecap,SKILL_LABELS} from './recap.js';
 import {clampSeconds,remainingSeconds,wheelSeconds,restoresSession,createSpeechTimer,timerProgress} from './timer.js';
 document.addEventListener('pointerdown',()=>{document.body.dataset.input='pointer';},true);document.addEventListener('keydown',e=>{if(e.key==='Tab')document.body.dataset.input='keyboard';},true);
 const $=id=>document.getElementById(id),KEY='eclipse-host-v1',PURE='照字幕主持，完成後按下一步';
+let miniTimer=null;
 let game=null,storageOK=true,screen='home',selectedBoard='12',selectedCount=12,libraryOrigin='home',libraryRoles=Object.keys(ROLE_DATA),libraryCamp='wolf',selectedCategory='normal';
 let previousScreen=null;try{previousScreen=sessionStorage.getItem(KEY+'-screen');}catch{}
 try{const saved=JSON.parse(localStorage.getItem(KEY));if(saved){game=upgradeGame(saved);if(restoresSession(performance.getEntriesByType('navigation')[0]?.type,previousScreen,saved.version))screen=saved.step==='finished'?'finished':'host';}}catch{storageOK=false;}
 function persist(){if(!game)return false;try{localStorage.setItem(KEY,JSON.stringify(game));storageOK=true;}catch{storageOK=false;}$('saveStatus').textContent=storageOK?'':'儲存失敗，重新整理可能遺失目前進度';return storageOK;}
 function cacheForeground(){navigator.serviceWorker?.controller?.postMessage({type:'SET_FOREGROUND',busy:['host','encyclopedia','finished'].includes(screen)});}
-function show(name){const entering=screen!==name;screen=name;for(const id of ['home','counts','boards','setup','encyclopedia','host','finished','online'])$(id).hidden=id!==name;document.body.dataset.screen=name;const visual=name==='host'&&game?hostPresentation(phaseOf(game),game.step,game.night):null;backdrop.setScreen(name,visual?.phase,visual||{});const image=backgroundSource(name,visual?.phase);document.body.style.setProperty('--page-background',image?`url('${image}')`:'none');if(entering){cacheForeground();for(const e of [$(name),...$(name).querySelectorAll('.board-window,.setup-content,.library,.preview-back,#nightRecap')])e.scrollTop=0;}try{sessionStorage.setItem(KEY+'-screen',name==='encyclopedia'&&libraryOrigin==='host'?'host':name);}catch{}}
+function show(name){const entering=screen!==name;screen=name;for(const id of ['home','counts','boards','setup','encyclopedia','host','finished','online'])$(id).hidden=id!==name;document.body.dataset.screen=name;miniTimer?.sync(name,game);const visual=name==='host'&&game?hostPresentation(phaseOf(game),game.step,game.night):null;backdrop.setScreen(name,visual?.phase,visual||{});const image=backgroundSource(name,visual?.phase);document.body.style.setProperty('--page-background',image?`url('${image}')`:'none');if(entering){cacheForeground();for(const e of [$(name),...$(name).querySelectorAll('.board-window,.setup-content,.library,.preview-back,#nightRecap')])e.scrollTop=0;}try{sessionStorage.setItem(KEY+'-screen',name==='encyclopedia'&&libraryOrigin==='host'?'host':name);}catch{}}
 function rulesText(b,r){return b.name+'\n警長：'+(r.sheriff?'開':'關')+'\n女巫自救：'+(r.selfRescue?'允許':'不允許')+'\n狼人勝利條件：'+(r.victory==='edge'?'屠邊':'屠城')+'\n'+(b.swallowThreshold===2?'雙爆':'單爆')+'吞警徽：'+(r.swallow?'啟用':'不啟用')+(b.roles.beauty?'\n女巫毒殺觸發殉情：'+(r.poisonRomance?'開':'關')+'\n最後一狼可殉情：'+(r.lastWolfRomance?'開':'關'):'')+(b.roles.mechanical?'\n學狼人：'+(r.mechanicalKnife==='next'?'下一晚可刀':'狼全死才有雙刀')+'\n機械守衛守護規則：'+((r.shieldMode||'once')==='once'?'只能使用一次':'成功守護一次後失效')+'\n機械守衛反彈毒藥：'+(r.reflectPoison?'開':'關'):'')+(b.roles.idiot?'\n白痴追刀：'+(r.idiotChase?'開啟':'關閉'):'')+(b.id==='evilKnight12'?'\n免疫獵人夜槍：'+(r.immuneNightGun?'開啟':'關閉'):'');}
 const backdrop=createB3Backdrop(),recapTitle=document.querySelector('#finished .recap-title');
 installB3ScrollHints();
@@ -212,9 +213,10 @@ function render(){
    const b=document.createElement('button'),r=converted(game,p)||infected(game,p)?{...ROLE_DATA[p.role],kind:'wolf'}:ROLE_DATA[p.role],selected=game.action.includes(p.id),candidate=['candidates','draw','speeches','withdraw','sheriffVote','sheriffPK','sheriffRevote'].includes(s)&&game.candidates.includes(p.id),withdrawn=['speeches','withdraw','sheriffVote','sheriffPK','sheriffRevote'].includes(s)&&game.nominees.includes(p.id)&&!game.candidates.includes(p.id),voteSelected=selected&&['sheriffVote','sheriffRevote','exileVote','exileRevote'].includes(s);
    const target=selected&&(knifeSelection(game)||['stoneInspect','bond','awakenedInspect','dance','maskInspect','maskAssign','exchange','attack','poison','inspect','skill','guardTarget','mediumInspect','mechanicalAction','mechanicalSkill','revenge','trade','luckyAction','fear','sleep','roleModel','hunt','lastBlade','transform','charm','duel'].includes(s)),speaking=s==='discussion'&&game.speaker===p.id;
    b.className='seat '+(roleName(game,p).length>4?'long-name ':'')+(r?.kind||'unknown')+(selected?(target?' target':' selected'):'')+(p.alive?'':' dead')+(p.active?'':' inactive')+(candidate?' candidate':'')+(withdrawn?' withdrawn':'')+(voteSelected?' vote-selected':'')+(speaking?' speaking':'')+(p.role==='idiot'&&game.idiot.revealed&&p.alive?' idiot-revealed':'');
-   b.disabled=!selectable(game,p.id);b.setAttribute('aria-pressed',String(selected));const count=markersForSeat(game,p.id).length;b.style.setProperty('--mark-space',(count?22+17*(count-1):0)+'px');
+   b.disabled=!selectable(game,p.id);const illegal=b.disabled&&skillTargetStage(s,knifeSelection(game));b.classList.toggle('skill-unavailable',illegal);b.setAttribute('aria-pressed',String(selected));const count=markersForSeat(game,p.id).length;b.style.setProperty('--mark-space',(count?22+17*(count-1):0)+'px');
    b.setAttribute('aria-label',p.id+'號 '+(!p.active?'未使用':roleName(game,p)+' '+(p.alive?'存活':'死亡'))+(candidate?' 警上':'')+(game.sheriff===p.id?' 警長':''));
    for(const [cls,text] of [['seat-number',p.id+'號'],['role-name',p.active?roleName(game,p):'未使用']]){const el=document.createElement('span');el.className=cls;el.textContent=text;b.append(el);}
+   if(illegal){const note=document.createElement('span');note.className='skill-unavailable-label';note.textContent='不可選取';b.append(note);}
    const tags=document.createElement('span');tags.className='seat-tags';
    for(const text of [candidate?'警上':withdrawn?'退水':'',voteSelected?'投票已選':'',p.active&&!p.alive?'死亡':'',speaking?'發言':''])if(text){const tag=document.createElement('span');tag.textContent=text;tags.append(tag);}b.append(tags);if(game.sheriff===p.id){const badge=document.createElement('img');badge.src='art/moon-eclipse-sheriff-badge.svg';badge.alt='警徽';badge.className='sheriff-badge';b.append(badge);}
    const marks=document.createElement('span');marks.className='skill-marks';for(const m of markersForSeat(game,p.id)){const wrap=document.createElement('span');wrap.className='skill-mark';wrap.style.zIndex=String(m.sequence);wrap.dataset.sequence=m.sequence;wrap.dataset.source=m.key;const icon=document.createElement('img');icon.src='skills/icon-'+m.type+'.svg';icon.alt=SKILL_LABELS[m.type];wrap.append(icon);const badge=m.type==='sleep'&&game.nightAction.repeatPending===m.id?'x2':m.partner;if(badge){const partner=document.createElement('span');partner.className='swap-partner'+(m.type==='sleep'?' sleep-repeat':'');partner.textContent=badge;if(m.type==='sleep')partner.setAttribute('aria-label','連續攝夢兩晚');wrap.append(partner);}marks.append(wrap);}b.append(marks);
@@ -231,6 +233,8 @@ function startDraw(){if(!choose(game,'draw'))return;render();if(!$('drawDialog')
 document.addEventListener('pointerdown',()=>{if(drawAnimating)finishDraw();});
 $('drawSkip').onclick=finishDraw;$('drawClose').onclick=()=>{if(!$('drawDialog').open||drawAnimating||!game.draw?.revealed||!['draw','dayDraw'].includes(game.step)||!canNext(game))return;$('drawDialog').close();if(next(game))render();};$('drawDialog').addEventListener('cancel',e=>{if(drawAnimating){e.preventDefault();finishDraw();}});
 const speechTimer=createSpeechTimer();let interval=null,paintingWheels=false,timerMode='setup',timerAnimation=null,timerGhost=null,timerGhostAnimation=null;
+miniTimer=createMiniTimer({read:()=>speechTimer.view(),pause:()=>$('timerPause').click(),reset:()=>$('timerRestore').click(),restore:()=>{$('timerDialog').showModal();timerPaint();if(speechTimer.view().mode==='setup')paintWheels(true);}});
+$('timerMinimize').onclick=()=>miniTimer.minimize();
 const wheels=[$('minuteWheel'),$('secondWheel')];
 function paintWheels(force=false){
  paintingWheels=true;const state=speechTimer.view(),values=[Math.floor(state.seconds/60),state.seconds%60];
@@ -243,7 +247,7 @@ function timerPaint(){
    const old=$(timerMode==='setup'?'timerSetup':'timerCountdown'),rect=old.getBoundingClientRect(),dialogRect=$('timerDialog').getBoundingClientRect(),ghost=old.cloneNode(true);ghost.removeAttribute('id');ghost.querySelectorAll('[id]').forEach(e=>e.removeAttribute('id'));ghost.setAttribute('aria-hidden','true');ghost.inert=true;Object.assign(ghost.style,{position:'absolute',left:(rect.left-dialogRect.left-$('timerDialog').clientLeft)+'px',top:(rect.top-dialogRect.top-$('timerDialog').clientTop)+'px',width:rect.width+'px',height:rect.height+'px',pointerEvents:'none',zIndex:'2'});$('timerDialog').append(ghost);ghost.querySelectorAll('.time-wheel').forEach((e,i)=>e.scrollTop=wheels[i].scrollTop);timerGhost=ghost;timerGhostAnimation=ghost.animate([{opacity:1,transform:'scale(1)'},{opacity:0,transform:'scale(.96)'}],{duration:300,easing:'ease-out'});timerGhostAnimation.onfinish=()=>{ghost.remove();if(timerGhost===ghost)timerGhost=null;};
   }
  }
- timerMode=state.mode;
+ timerMode=state.mode;miniTimer.paint(state);
  $('timerSetup').hidden=state.mode!=='setup';$('timerCountdown').hidden=state.mode!=='countdown';$('timerStart').hidden=state.mode!=='setup';$('timerPause').hidden=state.mode!=='countdown';
  $('timerPause').textContent=state.running?'暫停':'繼續';$('timerPause').disabled=state.seconds===0;
  $('timerDigits').textContent=String(Math.floor(state.seconds/60)).padStart(2,'0')+':'+String(state.seconds%60).padStart(2,'0');
@@ -261,7 +265,7 @@ wheels.forEach((wheel,i)=>{
  wheel.addEventListener('scroll',()=>{if(speechTimer.view().mode!=='setup'||paintingWheels||!$('timerDialog').open||$('timerSetup').hidden)return;const value=Math.min(i===0?10:59,Math.max(0,Math.round(wheel.scrollTop/40)));update(value);wheel.querySelectorAll('button').forEach((option,index)=>option.setAttribute('aria-selected',String(index===value)));});
  wheel.addEventListener('keydown',event=>{if(speechTimer.view().mode!=='setup'||!['ArrowUp','ArrowDown'].includes(event.key))return;event.preventDefault();const seconds=speechTimer.view().seconds,value=(i===0?Math.floor(seconds/60):seconds%60)+(event.key==='ArrowDown'?1:-1);if(value<0||value>(i===0?10:59))return;update(value);paintWheels(true);});
 });
-$('timerOpen').onclick=()=>{$('timerDialog').showModal();timerPaint();if(speechTimer.view().mode==='setup')paintWheels(true);};$('timerClose').onclick=()=>$('timerDialog').close();
+$('timerOpen').onclick=()=>{if(miniTimer.minimized){miniTimer.restore();return;}$('timerDialog').showModal();timerPaint();if(speechTimer.view().mode==='setup')paintWheels(true);};$('timerClose').onclick=()=>$('timerDialog').close();
 $('timerStart').onclick=()=>{speechTimer.start();ensureTimerInterval();$('timerNotice').textContent='';timerPaint();};
 $('timerPause').onclick=()=>{if(speechTimer.view().running)speechTimer.pause();else speechTimer.resume();ensureTimerInterval();timerPaint();};
 $('timerRestore').onclick=()=>{speechTimer.reset();ensureTimerInterval();$('timerNotice').textContent='';timerPaint();paintWheels(true);};
