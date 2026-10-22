@@ -35,6 +35,6 @@ for(const count of [10,12]){
   assert.equal(subtitle(s),w+'號玩家選擇自爆，請發表遺言');go(s);assert.equal(subtitle(s),v+'號玩家殉情出局，沒有遺言');
  });
 }
-test('fragrance 12 original exiled hunter announces before heartbreak and then can shoot',()=>{
- const s=ready(12),h=ids(s,'hunter')[0],v=ids(s,'villager')[0];bind(s,h,v);exile(s,h);assert.equal(s.step,'lastWords');assert.deepEqual(gunSources(s,s.queue[0]),['native']);go(s);assert.equal(s.step,'fragranceAnnouncement');go(s);assert.equal(s.step,'skill');assert.equal(s.queue[0].id,h);
+test('fragrance 12 exiled hunter decides gun on original notice before continuing heartbreak announcement',()=>{
+ const s=ready(12),h=ids(s,'hunter')[0],v=ids(s,'villager')[0];bind(s,h,v);exile(s,h);assert.equal(s.step,'lastWords');assert.deepEqual(gunSources(s,s.queue[0]),['native']);choose(s,'skip');go(s);assert.equal(s.step,'fragranceAnnouncement');go(s);assert.equal(s.step,'nextNight');
 });

@@ -66,10 +66,10 @@ test('exile PK restricts second ballot and second tie goes to next night',()=>{
  assert.equal(selectSeat(s,11),false);choose(s,'tie');advance(s);assert.equal(subtitle(s),'無人出局，進入下一晚');advance(s);assert.equal(s.step,'dark');assert.equal(s.night,2);assert.ok(s.players.every(p=>p.alive));
 });
 test('night-killed hunter shots have no last words, poison blocks skill, second-day deaths show elimination first',()=>{
- const s=ready();s.step='announcement';s.deaths=[{id:8,cause:'attack'}];advance(s);assert.equal(s.step,'lastWords');advance(s);assert.equal(s.step,'skill');
- assert.equal(next(s),false);selectSeat(s,2);advance(s);assert.equal(s.step,'eliminated');advance(s);assert.equal(s.step,'skill');assert.match(subtitle(s),/^2號玩家，啟動角色技能$/);choose(s,'skip');advance(s);assert.equal(s.step,'dayDraw');
+ const s=ready();s.step='announcement';s.deaths=[{id:8,cause:'attack'}];advance(s);assert.equal(s.step,'lastWords');
+ assert.equal(next(s),false);selectSeat(s,2);advance(s);assert.equal(s.step,'eliminated');assert.equal(subtitle(s),'2號玩家淘汰，沒有遺言。');choose(s,'skip');advance(s);assert.equal(s.step,'dayDraw');
  const p=ready();p.step='announcement';p.deaths=[{id:8,cause:'poison'}];advance(p);advance(p);assert.equal(p.step,'dayDraw');
- const n=ready();n.night=2;n.step='announcement';n.deaths=[{id:8,cause:'attack'}];advance(n);assert.equal(subtitle(n),'8號玩家，啟動角色技能');assert.equal(n.step,'skill');
+ const n=ready();n.night=2;n.step='announcement';n.deaths=[{id:8,cause:'attack'}];advance(n);assert.equal(subtitle(n),'8號玩家淘汰，沒有遺言。');assert.equal(n.step,'eliminated');
 });
 test('last god hunter and last wolf king end game before skill',()=>{
  for(const id of [8,2]){const s=ready();s.step='announcement';if(id===8)[1,6,7].forEach(n=>s.players[n-1].alive=false);else [3,4,5].forEach(n=>s.players[n-1].alive=false);
@@ -82,7 +82,7 @@ test('all required single targets and explicit opt-outs can be cancelled',()=>{
   if(step==='skill'){s.queue=[{id:8,cause:'shot',noticeDone:true}];s.continuation='direction';}
   selectSeat(s,9);assert.equal(canNext(s),true);selectSeat(s,9);assert.equal(canNext(s),false,step);assert.deepEqual(s.action,[]);
  }
- for(const step of ['exchange','attack','skill','badgeTransfer']){const s=ready();s.step=step;choose(s,'skip');assert.equal(canNext(s),true);choose(s,'skip');assert.equal(canNext(s),false);}
+ for(const step of ['exchange','attack','skill','badgeTransfer']){const s=ready();s.step=step;if(step==='skill')s.queue=[{id:8,cause:'attack',noticeDone:true}];choose(s,'skip');assert.equal(canNext(s),true);choose(s,'skip');assert.equal(canNext(s),false);}
  const s=firstNight();choose(s,'use');choose(s,'use');assert.equal(s.potions.antidote,true);assert.equal(canNext(s),false);
 });
 test('tie can be cancelled in both ballots, then corrected to a direct target',()=>{
@@ -123,7 +123,7 @@ test('sheriff direction is pure; full back restores the pre-death state and can 
 });
 test('second-night hunter shot creates its own no-last-words subtitle before continuing',()=>{
  const s=ready();s.night=2;s.sheriff=2;s.step='announcement';s.deaths=[{id:8,cause:'attack'}];advance(s);
- assert.equal(s.step,'skill');selectSeat(s,9);advance(s);
+ assert.equal(s.step,'eliminated');selectSeat(s,9);advance(s);
  assert.equal(s.step,'eliminated');assert.equal(subtitle(s),'9號玩家淘汰，沒有遺言。');assert.equal(s.players[8].alive,false);
  advance(s);assert.equal(s.step,'direction');assert.equal(s.log.length,2);previous(s);assert.equal(s.step,'eliminated');advance(s);assert.equal(s.log.length,2);
 });
@@ -133,7 +133,7 @@ test('last-words priority covers first-day all causes, later exile, later shots 
 });
 test('badge transfer waits for the entire hunter/king chain and only accepts final survivors',()=>{
  const s=ready();s.night=2;s.sheriff=8;s.step='announcement';s.deaths=[{id:8,cause:'attack'}];advance(s);selectSeat(s,2);advance(s);
- assert.equal(s.step,'eliminated');assert.equal(s.pendingBadge,8);advance(s);assert.equal(s.step,'skill');selectSeat(s,9);advance(s);assert.equal(s.step,'eliminated');advance(s);
+ assert.equal(s.step,'eliminated');assert.equal(s.pendingBadge,8);assert.equal(canNext(s),false);selectSeat(s,9);advance(s);assert.equal(s.step,'eliminated');advance(s);
  assert.equal(s.step,'badgeTransfer');assert.equal(subtitle(s),'請警長移交警徽');assert.equal(canNext(s),false);assert.equal(selectSeat(s,9),false);assert.equal(selectSeat(s,8),false);
  selectSeat(s,10);advance(s);assert.equal(s.sheriff,10);assert.equal(s.step,'direction');previous(s);assert.equal(s.step,'badgeTransfer');assert.equal(s.players[8].alive,false);
  choose(s,'skip');advance(s);assert.equal(s.sheriff,null);assert.equal(s.step,'dayDraw');

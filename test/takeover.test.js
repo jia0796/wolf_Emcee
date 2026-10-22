@@ -25,7 +25,7 @@ for(const board of ['mechanical10','mechanical12'])test(board+' extra knife belo
 for(const board of boards){
  test(board+' exact first/second-night stages and fixed captions even after role death',()=>{
   const s=ready(board);s.night=1;s.takeover.ready=false;const first=nightSteps(s);const role=specialBoard(s);
-  if(role==='mechanical')assert.deepEqual(first.slice(first.indexOf('mechanical'),first.indexOf('mechanicalClose')+1),['mechanical','mechanicalLearn','mechanicalClose']);
+  if(role==='mechanical')assert.deepEqual(first.slice(first.indexOf('mechanical'),first.indexOf('mechanicalClose')+1),['mechanical','mechanicalLearn',...(board==='mechanical12'?['mechanicalFirstGesture']:[]),'mechanicalClose']);
   if(role==='converted')assert.deepEqual(first.slice(-3,-1),['converted','convertedClose']);
   s.night=2;s.takeover.ready=false;const later=nightSteps(s);
   const expected={mechanical:['mechanical','mechanicalKnifeState','mechanicalLearn','mechanicalSkill','mechanicalClose'],converted:['converted','convertedKnifeState','convertedClose'],mask:['mask','maskKnifeState','maskInspect','maskResult','maskAssign','maskClose'],fragrance:['fragrance','fragranceKnifeState','bond','fragranceClose']}[role];
@@ -46,7 +46,7 @@ for(const board of boards){
  });
 }
 test('mechanical first-night learn remains draft until close; full rollback and no repeat learn',()=>{
- const s=ready('mechanical12');s.night=1;s.mechanical.role=null;s.mechanical.night=null;s.step='mechanicalLearn';selectSeat(s,id(s,'medium'));go(s);assert.equal(subtitle(s),'機械狼請閉眼');assert.equal(s.mechanical.role,null);assert.ok(!s.nightRecords.flatMap(r=>r.events).some(e=>e.key==='learn'));go(s);assert.equal(s.mechanical.role,'medium');assert.equal(s.nightRecords[0].events[0].key,'learn');previous(s);assert.equal(s.mechanical.role,null);previous(s);assert.equal(s.step,'mechanicalLearn');assert.deepEqual(s.action,[id(s,'medium')]);go(s);go(s);s.step='nextNight';go(s);s.step='mechanicalLearn';assert.equal(subtitle(s),'選擇你要學習的對象');assert.equal(selectSeat(s,id(s,'witch')),false);assert.equal(canNext(s),true);
+ const s=ready('mechanical12');s.night=1;s.mechanical.role=null;s.mechanical.night=null;s.step='mechanicalLearn';selectSeat(s,id(s,'medium'));go(s);assert.equal(subtitle(s),'若學獵人，今晚的開槍手勢');go(s);assert.equal(subtitle(s),'機械狼請閉眼');assert.equal(s.mechanical.role,null);assert.ok(!s.nightRecords.flatMap(r=>r.events).some(e=>e.key==='learn'));go(s);assert.equal(s.mechanical.role,'medium');assert.equal(s.nightRecords[0].events[0].key,'learn');previous(s);assert.equal(s.mechanical.role,null);previous(s);assert.equal(s.step,'mechanicalFirstGesture');previous(s);assert.equal(s.step,'mechanicalLearn');assert.deepEqual(s.action,[id(s,'medium')]);go(s);go(s);go(s);s.step='nextNight';go(s);s.step='mechanicalLearn';assert.equal(subtitle(s),'選擇你要學習的對象');assert.equal(selectSeat(s,id(s,'witch')),false);assert.equal(canNext(s),true);
 });
 for(const rule of ['next','allDead'])for(const defense of ['none','guard','antidote','both'])test('mechanical independent double knife '+rule+' '+defense,()=>{
  const s=ready('mechanical12',true);s.rules.mechanicalKnife=rule;const a=owner(s),v=victims(s)[0];s.step='mechanicalKnifeState';choose(s,'knifeKind:basic');selectSeat(s,v);s.step='mechanicalSkill';s.operation='extraAttack';s.takeover.pane='skill';s.action=[];selectSeat(s,v);assert.equal(s.mechanical.extraUsed,false);assert.equal(s.nightAction.basicSubmitted,false);assert.equal(markersForSeat(s,v).filter(m=>m.type==='wolf-attack').length,2);

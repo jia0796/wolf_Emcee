@@ -42,6 +42,19 @@ export function trueWinner(s){
  if(!live.some(p=>wolf(p)&&(!s.players.some(x=>x.role==='seedWolf')||p.role!=='hiddenWolf'))&&!s.blood?.lastPending)return '好人陣營';
  return null;
 }
+export function attackProtection(s,attack,defense){
+ const {shield,guard,cure,sleep,dance,shieldDamage}=defense;
+  let blocked=null;
+  if(s.players.find(p=>p.id===attack.id)?.role==='evilKnight')blocked='knightImmunity';
+  else if(dance.protected&&dance.people.some(p=>p.id===attack.id))blocked='danceProtection';
+  else if(sleep===attack.id)blocked='sleep';
+  else if(s.boardId==='brothers12'&&s.rules.revengeInvincible===true&&attack.source==='revenge')blocked=null;
+  else if(shield===attack.id){shieldDamage.push({...attack,sameSave:cure===attack.id});blocked=cure===attack.id?null:'shield';}
+  else if(guard===attack.id&&cure===attack.id)blocked=null;
+  else if(guard===attack.id&&!defense.guardUsed){defense.guardUsed=true;blocked='guard';}
+  else if(cure===attack.id&&!defense.cureUsed){defense.cureUsed=true;blocked='antidote';}
+ return blocked;
+}
 // Preserve independent attacks; defenses are spent per hit, never per target.
 export function settleNight(s,{phase='all'}={}){
  const n=s.nightAction,map=id=>mapTarget(s,id);
@@ -61,16 +74,9 @@ export function settleNight(s,{phase='all'}={}){
  if(revengeRecorded(s)&&n.revenge)attacks.push({id:n.revenge,cause:'attack',sourceActor:liveRole(s,'younger').id,sourceRole:'younger',source:'revenge'});
  const sleep=n.sleepApplied?n.sleep:null;
  const shield=ability==='shield'?n.shield:null,guard=(liveRole(s,'guard')||s.infection?.success&&s.infection.usedNight===s.night&&s.infection.originalRole==='guard')?n.guard:null,cure=n.antidote===true?map(n.attack):null;
- let guardUsed=false,cureUsed=false;const events=[],dead=new Map();
+ const defense={shield,guard,cure,sleep,dance,shieldDamage,guardUsed:false,cureUsed:false};const events=[],dead=new Map();
  for(const attack of attacks){
-  let blocked=null;
-  if(s.players.find(p=>p.id===attack.id)?.role==='evilKnight')blocked='knightImmunity';
-  else if(dance.protected&&dance.people.some(p=>p.id===attack.id))blocked='danceProtection';
-  else if(sleep===attack.id)blocked='sleep';
-  else if(shield===attack.id){shieldDamage.push({...attack,sameSave:cure===attack.id});blocked=cure===attack.id?null:'shield';}
-  else if(guard===attack.id&&cure===attack.id)blocked=null;
-  else if(guard===attack.id&&!guardUsed){guardUsed=true;blocked='guard';}
-  else if(cure===attack.id&&!cureUsed){cureUsed=true;blocked='antidote';}
+  const blocked=attackProtection(s,attack,defense);
   events.push({...attack,blocked});
   if(!blocked&&s.players.find(p=>p.id===attack.id)?.alive&&!dead.has(attack.id))dead.set(attack.id,{...attack});
  }

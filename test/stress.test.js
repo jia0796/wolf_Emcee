@@ -1,7 +1,7 @@
 import {knifeKinds,statusSteps} from '../public/takeover.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {createGame,selectable,selectSeat,choose,next,canNext,previous,upgradeGame,mechanicalModes,beginSelfDestruct,canSelfDestruct,restartGame,canInfect,needsInfectionDecision,canDuel,beginDuel,confirmDuel} from '../public/engine.js';
+import {deathSkill,createGame,selectable,selectSeat,choose,next,canNext,previous,upgradeGame,mechanicalModes,beginSelfDestruct,canSelfDestruct,restartGame,canInfect,needsInfectionDecision,canDuel,beginDuel,confirmDuel} from '../public/engine.js';
 import {BOARDS} from '../public/data.js';
 // Seeded API black-box games: only public commands mutate game state.
 function rng(seed){let x=seed;return ()=>{x=(Math.imul(x,1664525)+1013904223)>>>0;return x/4294967296;};}
@@ -38,7 +38,7 @@ for(const board of Object.keys(BOARDS))test('seeded complete-game stress '+board
    else if(['draw','dayDraw'].includes(step)){choose(s,'draw');choose(s,'revealDraw');}
    else if(['antidote','poison'].includes(step)){if(!canNext(s)){choose(s,random()<.35?'use':'skip');if(step==='poison'&&legal().length)selectSeat(s,pick(legal()));}}
    else if(step==='exchange'){if(random()<.3||legal().length<2)choose(s,'skip');else{const a=pick(legal());selectSeat(s,a);selectSeat(s,pick(legal().filter(id=>id!==a)));}}
-   else if(['hunt','fear','attack','revenge','luckyAction','guardTarget','skill','badgeTransfer'].includes(step)){
+   else if(deathSkill(s)||['hunt','fear','attack','revenge','luckyAction','guardTarget','skill','badgeTransfer'].includes(step)){
     if(!canNext(s)){if(!legal().length||random()<.2)choose(s,'skip');else if(legal().length)selectSeat(s,pick(legal()));}
    }else if(['transform','lastBlade','roleModel','sleep','inspect','stoneInspect','mediumInspect','sheriffVote','sheriffRevote','exileVote','exileRevote','selfDestruct'].includes(step)){if(!canNext(s)&&legal().length)selectSeat(s,pick(legal()));}
    if(canSelfDestruct(s)&&random()<.04){assert.equal(beginSelfDestruct(s),true);continue;}

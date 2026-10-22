@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {createGame,selectSeat,choose,next,canNext,upgradeGame,previous,inspection} from '../public/engine.js';
+import {deathSkill,createGame,selectSeat,choose,next,canNext,upgradeGame,previous,inspection} from '../public/engine.js';
 import {recapNights} from '../public/records.js';
 const go=s=>assert.equal(next(s),true,'blocked '+s.step);
 const plans={10:{guard:[1],wolf:[2,7],fragrance:[5],witch:[4],awakenedSeer:[9]},12:{guard:[1],wolf:[2,7,11],fragrance:[5],witch:[4],awakenedSeer:[9],hunter:[6]}};
@@ -17,7 +17,7 @@ function toDiscussion(s,count){const plan=plans[count];let steps=0;while(s.step!
  if(s.step==='candidates')selectSeat(s,count===10?9:10);
  if(['draw','dayDraw'].includes(s.step)){choose(s,'draw');choose(s,'revealDraw');}
  if(s.step==='badgeTransfer')selectSeat(s,9);
- if(s.step==='skill')selectSeat(s,11);
+ if(deathSkill(s))selectSeat(s,11);
  const before=JSON.stringify(s);const loaded=upgradeGame(JSON.parse(before));assert.deepEqual(loaded,JSON.parse(before));
  go(s);
  }return steps;

@@ -1,11 +1,11 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {BOARDS,ROLE_DATA} from '../public/data.js';
-import {createGame,selectSeat,selectable,choose,next,previous,winner,subtitle,potionBlocked,nightDeaths,beginSelfDestruct,canSelfDestruct,skillTarget,canNext,drawResult} from '../public/engine.js';
+import {deathSkill,createGame,selectSeat,selectable,choose,next,previous,winner,subtitle,potionBlocked,nightDeaths,beginSelfDestruct,canSelfDestruct,skillTarget,canNext,drawResult} from '../public/engine.js';
 const go=s=>{assert.equal(next(s),true,'cannot leave '+s.step);if(['wolvesClose','mixedResult'].includes(s.step))assert.equal(next(s),true,s.step);};
 function ready(board='12',rules={}){const s=createGame(board,rules);let id=0;for(const [role,count] of Object.entries(BOARDS[board].roles))for(let i=0;i<count;i++)s.players[id++].role=role;s.rolesConfirmed=true;return s;}
 const seat=(s,r)=>s.players.find(p=>p.role===r).id;
-function drain(s,stop){for(let i=0;i<80&&!stop.includes(s.step);i++){if(s.step==='skill'||s.step==='badgeTransfer')choose(s,'skip');go(s);}assert.ok(stop.includes(s.step));}
+function drain(s,stop){for(let i=0;i<80&&!stop.includes(s.step);i++){if(deathSkill(s)||s.step==='badgeTransfer')choose(s,'skip');go(s);}assert.ok(stop.includes(s.step));}
 test('boards share role data and exactly count 10/12 players',()=>{for(const b of Object.values(BOARDS)){assert.equal(Object.values(b.roles).reduce((a,c)=>a+c,0),b.playerCount);for(const r of Object.keys(b.roles))assert.ok(ROLE_DATA[r]);}});
 test('10-player first night has no hunter, correct wolf count, inactive seats locked, election before dawn',()=>{
  const s=createGame('10');go(s);go(s);selectSeat(s,1);go(s);choose(s,'skip');go(s);go(s);[2,3,4].forEach(id=>selectSeat(s,id));go(s);choose(s,'skip');go(s);selectSeat(s,5);go(s);go(s);choose(s,'skip');go(s);go(s);selectSeat(s,6);go(s);selectSeat(s,7);go(s);go(s);go(s);
@@ -16,7 +16,7 @@ test('sheriff off bypasses first-night election and second-night wolves omit ide
  const s=ready('10',{sheriff:false});s.step='seerClose';go(s);assert.equal(s.step,'dawn');go(s);assert.equal(s.step,'announcement');s.night=2;s.step='wolves';assert.equal(subtitle(s),'狼人請睜眼');
 });
 test('edge and city victories control last-god shooting differently',()=>{
- for(const victory of ['edge','city']){const s=ready('12',{victory});const hunter=seat(s,'hunter');s.players.filter(p=>ROLE_DATA[p.role]?.kind==='god'&&p.role!=='hunter').forEach(p=>p.alive=false);s.night=2;s.step='announcement';s.deaths=[{id:hunter,cause:'attack'}];go(s);assert.equal(s.step,victory==='edge'?'finished':'skill');if(victory==='city'){assert.equal(s.step,'skill');}}
+ for(const victory of ['edge','city']){const s=ready('12',{victory});const hunter=seat(s,'hunter');s.players.filter(p=>ROLE_DATA[p.role]?.kind==='god'&&p.role!=='hunter').forEach(p=>p.alive=false);s.night=2;s.step='announcement';s.deaths=[{id:hunter,cause:'attack'}];go(s);assert.equal(s.step,victory==='edge'?'finished':'eliminated');if(victory==='city'){assert.equal(s.step,'eliminated');}}
  const s=ready('10',{victory:'city'});s.players.filter(p=>ROLE_DATA[p.role]?.kind==='god').forEach(p=>p.alive=false);assert.equal(winner(s),null);s.players.filter(p=>p.role==='villager').forEach(p=>p.alive=false);assert.equal(winner(s),'狼人陣營');
 });
 test('self-rescue uses original knife even when witch is exchanged',()=>{
@@ -31,7 +31,7 @@ test('night hunter shot maps through exchange; exile shot does not; mapped dead 
  const s=ready();const hunter=seat(s,'hunter'),a=seat(s,'villager'),b=a+1;s.players[hunter-1].alive=false;s.step='skill';s.queue=[{id:hunter,cause:'attack',noticeDone:true}];s.continuation='direction';s.nightAction.exchange=[a,b];assert.equal(skillTarget(s,a),b);selectSeat(s,a);go(s);assert.equal(s.players[b-1].alive,false);assert.equal(s.players[a-1].alive,true);previous(s);assert.equal(s.players[b-1].alive,true);s.queue[0].cause='exile';assert.equal(skillTarget(s,a),a);s.queue[0].cause='attack';s.players[b-1].alive=false;assert.equal(selectable(s,a),false);
 });
 test('simultaneous first-day deaths are sorted and chains are depth-first',()=>{
- const s=ready(),king=seat(s,'king'),hunter=seat(s,'hunter'),civil=seat(s,'villager');s.step='announcement';s.deaths=[{id:hunter,cause:'attack'},{id:king,cause:'attack'}];assert.equal(subtitle(s),'昨晚'+king+'號、'+hunter+'號玩家被殺死');go(s);assert.equal(subtitle(s),'請'+king+'號玩家發表遺言');go(s);selectSeat(s,civil);go(s);assert.equal(s.queue[0].id,civil);go(s);assert.equal(s.queue[0].id,hunter);assert.equal(s.step,'lastWords');
+ const s=ready(),king=seat(s,'king'),hunter=seat(s,'hunter'),civil=seat(s,'villager');s.step='announcement';s.deaths=[{id:hunter,cause:'attack'},{id:king,cause:'attack'}];assert.equal(subtitle(s),'昨晚'+king+'號、'+hunter+'號玩家被殺死');go(s);assert.equal(subtitle(s),'請'+king+'號玩家發表遺言');selectSeat(s,civil);go(s);assert.equal(s.queue[0].id,civil);go(s);assert.equal(s.queue[0].id,hunter);assert.equal(s.step,'lastWords');
 });
 test('self-destruct selects wolves only, is undoable, suppresses king skill and counts only pending election',()=>{
  const s=ready();s.step='speeches';s.candidates=[2,3];s.nominees=[2,3];assert.equal(canSelfDestruct(s),true);beginSelfDestruct(s);assert.equal(selectSeat(s,seat(s,'villager')),false);const king=seat(s,'king');selectSeat(s,king);go(s);assert.equal(s.preSheriffExplosions,1);assert.equal(subtitle(s),king+'號玩家選擇自爆，請發表遺言');go(s);assert.equal(s.step,'announcement');assert.notEqual(s.step,'skill');previous(s);previous(s);assert.equal(s.players[king-1].alive,true);assert.equal(s.preSheriffExplosions,0);

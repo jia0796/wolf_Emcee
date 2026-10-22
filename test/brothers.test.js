@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {createGame,selectSeat,selectable,choose,next,previous,canNext,nightSteps,subtitle,inspection,potionBlocked,upgradeGame,restartGame,gunSources,canSelfDestruct,beginSelfDestruct} from '../public/engine.js';
+import {deathSkill,createGame,selectSeat,selectable,choose,next,previous,canNext,nightSteps,subtitle,inspection,potionBlocked,upgradeGame,restartGame,gunSources,canSelfDestruct,beginSelfDestruct} from '../public/engine.js';
 import {BOARDS} from '../public/data.js';
 import {ordinaryWolves,basicActor,revengeAvailable,settleNight,trueWinner,luckyAbility} from '../public/night.js';
 import {recapNights} from '../public/records.js';
@@ -9,7 +9,7 @@ function ready(rules={}){const s=createGame('brothers12',rules);let i=0;for(cons
 const seat=(s,r)=>s.players.find(p=>p.role===r).id;
 function trade(s,target,ability){s.step='trade';choose(s,'gift:'+ability);selectSeat(s,target);go(s);}
 function elderDeath(s,cause){s.step=cause==='exile'?'exileVote':'announcement';if(cause==='exile'){s.votePool=[1];selectSeat(s,1);}else s.deaths=[{id:1,cause,context:cause==='shot'?'day':'night'}];go(s);}
-function drain(s){for(let i=0;i<40&&!['nextNight','dayDraw','finished'].includes(s.step);i++){if(s.step==='skill'||s.step==='badgeTransfer')choose(s,'skip');go(s);}}
+function drain(s){for(let i=0;i<40&&!['nextNight','dayDraw','finished'].includes(s.step);i++){if(deathSkill(s)||s.step==='badgeTransfer')choose(s,'skip');go(s);}}
 test('new board exact counts, required identities once, exact first/later captions',()=>{
  const s=createGame('brothers12',{sheriff:false});go(s);go(s);assert.equal(s.step,'brothers');assert.equal(subtitle(s),'狼兄狼弟請睜眼，請確認彼此身分');assert.equal(canNext(s),false);selectSeat(s,1);assert.equal(canNext(s),false);selectSeat(s,2);assert.equal(canNext(s),true);go(s);go(s);[3,4].forEach(id=>selectSeat(s,id));go(s);choose(s,'skip');go(s);selectSeat(s,6);go(s);go(s);choose(s,'skip');go(s);go(s);selectSeat(s,5);go(s);selectSeat(s,9);go(s);go(s);go(s);selectSeat(s,7);go(s);go(s);go(s);selectSeat(s,8);go(s);choose(s,'skip');go(s);go(s);assert.equal(s.step,'lucky');go(s);go(s);assert.equal(s.step,'dawn');assert.equal(s.rolesConfirmed,true);assert.equal(s.players.filter(p=>p.role==='villager').length,4);
  assert.ok(!nightSteps(s).includes('luckyAction'));s.night=2;assert.deepEqual(nightSteps(s).slice(0,6),['dark','younger','revenge','youngerClose','wolves','attack']);
@@ -40,11 +40,11 @@ test('lucky poison deferred and independent of witch restriction, two poison sou
  const a=ready();trade(a,6,'poison');a.step='nextNight';go(a);a.step='antidote';a.nightAction.attack=9;choose(a,'use');go(a);assert.match(potionBlocked(a,'poison'),/解藥/);a.step='luckyAction';selectSeat(a,3);go(a);assert.equal(settleNight(a).events.filter(e=>e.cause==='poison').length,1);
 });
 test('lucky gun unlocks day1, native/gift two independent shots, poisoned suppresses both, day shots absent from recap',()=>{
- const s=ready();trade(s,7,'gun');assert.equal(gunSources(s,{id:7,cause:'attack',context:'night'}).length,1);s.deaths=[{id:7,cause:'attack'}];s.step='announcement';go(s);go(s);assert.equal(s.step,'skill');assert.deepEqual(gunSources(s,s.queue[0]),['native','lucky']);selectSeat(s,3);go(s);assert.equal(s.step,'eliminated');go(s);assert.equal(s.step,'skill');assert.equal(s.operation,'lucky');selectSeat(s,4);go(s);go(s);assert.equal(s.lucky.remaining,0);assert.equal(s.dayEvents.length,2);assert.deepEqual(s.nightRecords[0].deaths.map(d=>d.id),[7]);assert.equal(s.nightRecords[0].events.some(e=>e.skill==='gun'),false);
+ const s=ready();trade(s,7,'gun');assert.equal(gunSources(s,{id:7,cause:'attack',context:'night'}).length,1);s.deaths=[{id:7,cause:'attack'}];s.step='announcement';go(s);assert.equal(s.step,'lastWords');assert.deepEqual(gunSources(s,s.queue[0]),['native','lucky']);selectSeat(s,3);go(s);assert.equal(s.step,'eliminated');go(s);assert.equal(s.step,'lastWords');assert.equal(s.operation,'lucky');selectSeat(s,4);go(s);go(s);assert.equal(s.lucky.remaining,0);assert.equal(s.dayEvents.length,2);assert.deepEqual(s.nightRecords[0].deaths.map(d=>d.id),[7]);assert.equal(s.nightRecords[0].events.some(e=>e.skill==='gun'),false);
  const poisoned=ready();trade(poisoned,7,'gun');poisoned.deathsCommitted=true;assert.deepEqual(gunSources(poisoned,{id:7,cause:'poison'}),[]);
 });
 test('each gun checks victory before remaining gun; wolf attacks terminate poison and failure',()=>{
- const s=ready();trade(s,7,'gun');s.players.filter(p=>['elder','younger','wolf'].includes(p.role)&&p.id!==3).forEach(p=>p.alive=false);s.step='announcement';s.deaths=[{id:7,cause:'attack'}];go(s);go(s);selectSeat(s,3);go(s);assert.equal(s.step,'finished');assert.equal(s.lucky.remaining,1);assert.equal(s.winner,'好人陣營');
+ const s=ready();trade(s,7,'gun');s.players.filter(p=>['elder','younger','wolf'].includes(p.role)&&p.id!==3).forEach(p=>p.alive=false);s.step='announcement';s.deaths=[{id:7,cause:'attack'}];go(s);selectSeat(s,3);go(s);assert.equal(s.step,'finished');assert.equal(s.lucky.remaining,1);assert.equal(s.winner,'好人陣營');
  const k=ready();trade(k,2,'poison');k.players.filter(p=>p.role==='villager'&&p.id!==9).forEach(p=>p.alive=false);k.nightAction.attack=9;k.nightAction.poison=true;k.nightAction.poisonTarget=3;const r=settleNight(k);assert.equal(r.winner,'狼人陣營');assert.equal(r.poisonSkipped,true);assert.deepEqual(r.deaths.map(d=>d.id),[9]);
 });
 test('restart preserves all room rules, purges identities/inventory/records/history; refresh stable recap expansion',()=>{
@@ -54,9 +54,9 @@ test('revenge can hit another wolf independently while basic antidote saves its 
  const s=ready();elderDeath(s,'poison');s.step='nextNight';go(s);s.step='revenge';assert.equal(selectSeat(s,3),true);go(s);assert.equal(s.players[2].alive,true);s.step='attack';selectSeat(s,9);go(s);s.step='antidote';choose(s,'use');const r=settleNight(s);assert.deepEqual(r.deaths.map(d=>d.id),[3]);assert.deepEqual(r.events.filter(e=>e.cause==='attack').map(e=>e.source),['basic','revenge']);
 });
 test('civilian lucky gun waits for daytime, deceased inspection recipient cannot act next night',()=>{
- const s=ready();trade(s,9,'gun');assert.deepEqual(gunSources(s,{id:9,cause:'attack',context:'night'}),[]);s.deaths=[{id:9,cause:'attack'}];s.step='announcement';go(s);go(s);assert.equal(s.step,'skill');assert.deepEqual(gunSources(s,s.queue[0]),['lucky']);choose(s,'skip');go(s);assert.equal(s.lucky.remaining,0);
+ const s=ready();trade(s,9,'gun');assert.deepEqual(gunSources(s,{id:9,cause:'attack',context:'night'}),[]);s.deaths=[{id:9,cause:'attack'}];s.step='announcement';go(s);assert.equal(s.step,'lastWords');assert.deepEqual(gunSources(s,s.queue[0]),['lucky']);choose(s,'skip');go(s);assert.equal(s.lucky.remaining,0);
  const gone=ready();trade(gone,9,'inspect');gone.deaths=[{id:9,cause:'attack'}];gone.step='announcement';go(gone);gone.step='nextNight';go(gone);gone.step='luckyAction';assert.equal(luckyAbility(gone),null);assert.equal(selectSeat(gone,2),false);assert.equal(canNext(gone),true);
 });
 test('badge transfer waits for both native and lucky guns and their child deaths',()=>{
- const s=ready();trade(s,7,'gun');s.sheriff=7;s.deaths=[{id:7,cause:'attack'}];s.step='announcement';go(s);go(s);selectSeat(s,3);go(s);assert.equal(s.pendingBadge,7);assert.equal(s.step,'eliminated');go(s);assert.equal(s.step,'skill');choose(s,'skip');go(s);assert.equal(s.step,'badgeTransfer');assert.equal(s.pendingBadge,7);selectSeat(s,5);go(s);assert.equal(s.sheriff,5);assert.equal(s.pendingBadge,null);
+ const s=ready();trade(s,7,'gun');s.sheriff=7;s.deaths=[{id:7,cause:'attack'}];s.step='announcement';go(s);selectSeat(s,3);go(s);assert.equal(s.pendingBadge,7);assert.equal(s.step,'eliminated');go(s);assert.equal(s.step,'lastWords');choose(s,'skip');go(s);assert.equal(s.step,'badgeTransfer');assert.equal(s.pendingBadge,7);selectSeat(s,5);go(s);assert.equal(s.sheriff,5);assert.equal(s.pendingBadge,null);
 });

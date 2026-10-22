@@ -30,7 +30,7 @@ for(const board of ['mechanical10','mechanical12']){
  });
 }
 test('learning legal targets, defer, one total learning, same-night disguise and true camp',()=>{
- const s=ready();s.step='mechanical';go(s);assert.equal(subtitle(s),'-');assert.equal(canNext(s),false);assert.equal(selectSeat(s,1),false);s.players[11].alive=false;assert.equal(selectSeat(s,12),false);choose(s,'skip');assert.equal(canNext(s),true);choose(s,'skip');assert.equal(canNext(s),false);
+ const s=ready();s.step='mechanical';go(s);assert.equal(subtitle(s),'選擇你要學習的對象');assert.equal(canNext(s),false);assert.equal(selectSeat(s,1),false);s.players[11].alive=false;assert.equal(selectSeat(s,12),false);choose(s,'skip');assert.equal(canNext(s),true);choose(s,'skip');assert.equal(canNext(s),false);
  const witch=seat(s,'witch');selectSeat(s,witch);go(s);assert.equal(roleResult(s,1),'witch');assert.equal(roleResult(s,1,true),'mechanical');assert.equal(roleName(s,s.players[0]),'機械狼（巫）');assert.equal(s.players[0].role,'mechanical');assert.equal(ROLE_DATA[s.players[0].role].kind,'wolf');assert.equal(mechanicalAbility(s),null);
  previous(s);selectSeat(s,witch);assert.equal(canNext(s),false);selectSeat(s,seat(s,'guard'));go(s);assert.equal(s.mechanical.role,'guard');s.step='mechanical';s.night=2;go(s);assert.equal(s.operation,'shield');assert.equal(choose(s,'mode:learnTarget'),false);
  s.players.filter(p=>p.role==='wolf').forEach(p=>p.alive=false);assert.equal(winner(s),null);
@@ -87,7 +87,7 @@ test('nonterminal wolf death then poison can end for good; no forced wolf priori
  const s=ready();s.players.filter(p=>p.role==='wolf').forEach(p=>p.alive=false);s.nightAction.attack=seat(s,'villager');s.nightAction.guard=s.nightAction.attack;s.nightAction.poison=true;s.nightAction.poisonTarget=1;const r=settleNight(s);assert.equal(r.winner,'好人陣營');assert.equal(r.poisonSkipped,false);assert.deepEqual(r.deaths.map(d=>d.id),[1]);
 });
 test('learned hunter shoots same learning night, poison/terminal block, depth-first chain and badge waits',()=>{
- const s=ready();learn(s,'hunter');s.step='announcement';s.deaths=[{id:1,cause:'attack'}];s.sheriff=1;go(s);assert.equal(s.sheriff,1);go(s);assert.equal(s.step,'skill');selectSeat(s,seat(s,'hunter'));go(s);assert.equal(s.step,'lastWords');go(s);assert.equal(s.step,'skill');choose(s,'skip');go(s);assert.equal(s.step,'badgeTransfer');assert.equal(s.sheriff,1);selectSeat(s,seat(s,'villager'));go(s);assert.equal(s.pendingBadge,null);previous(s);assert.equal(s.sheriff,1);assert.equal(s.pendingBadge,1);
+ const s=ready();learn(s,'hunter');s.step='announcement';s.deaths=[{id:1,cause:'attack'}];s.sheriff=1;go(s);assert.equal(s.sheriff,1);assert.equal(s.step,'lastWords');selectSeat(s,seat(s,'hunter'));go(s);assert.equal(s.step,'lastWords');choose(s,'skip');go(s);assert.equal(s.step,'badgeTransfer');assert.equal(s.sheriff,1);selectSeat(s,seat(s,'villager'));go(s);assert.equal(s.pendingBadge,null);previous(s);assert.equal(s.sheriff,1);assert.equal(s.pendingBadge,1);
  const poison=ready();learn(poison,'hunter');poison.step='announcement';poison.deaths=[{id:1,cause:'poison'}];go(poison);go(poison);assert.notEqual(poison.step,'skill');
 });
 test('v4 refresh and back retain learned role, defense inventory, and true identity',()=>{
