@@ -2,7 +2,6 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {batchVoteView} from '../public/vote-ui.js';
 import {setBallot,tallyVotes} from '../public/votes.js';
-import {skillTargetStage} from '../public/b3-ui.js';
 const round=()=>({kind:'exile',sheriff:2,voters:[1,2,3,4],targets:[1,2,3,4],ballots:{}});
 test('HOST03 current target keeps selected voter; other target hides without changing draft',()=>{const r=round();setBallot(r,2,3);const before=structuredClone(r);assert.deepEqual(batchVoteView(r,3),{complete:false,voters:[1,2,3,4]});assert.deepEqual(batchVoteView(r,4),{complete:false,voters:[1,3,4]});assert.deepEqual(r,before);});
 test('HOST03 original toggle cancellation restores compact ordered candidates',()=>{const r=round();setBallot(r,2,3);setBallot(r,2,3,true);assert.deepEqual(batchVoteView(r,4).voters,[1,2,3,4]);});
@@ -10,6 +9,3 @@ test('HOST03 all recorded collapses; cancelling one restores selection without s
 test('HOST03 explicit abstention recorded; missing or invalid votes never imply complete',()=>{const r=round();for(const id of [1,2,3])setBallot(r,id,'abstain');assert.equal(batchVoteView(r,1).complete,false);assert.deepEqual(batchVoteView(r,1).voters,[4]);r.ballots[4]=99;assert.equal(batchVoteView(r,1).complete,false);assert.deepEqual(batchVoteView(r,1).voters,[4]);setBallot(r,4,'abstain');assert.equal(batchVoteView(r,1).complete,true);assert.equal(tallyVotes(r).groups.length,0);});
 test('HOST03 zero voters never collapses into a fictional completed vote',()=>{const r=round();r.voters=[];assert.equal(batchVoteView(r,1).complete,false);});
 test('HOST03 projection leaves sheriff 1.5 weights and sorted groups untouched',()=>{const r=round();setBallot(r,2,4);setBallot(r,1,3);const before=tallyVotes(r);batchVoteView(r,3);assert.deepEqual(tallyVotes(r),before);assert.equal(before.groups[0].target,4);assert.equal(before.groups[0].votes,1.5);});
-for(const step of ['guardTarget','mechanicalLearn','mechanicalSkill','stoneInspect','sleep','bond','duel','selfDestruct'])test('HOST01 targeting stage '+step,()=>assert.equal(skillTargetStage(step),true));
-for(const step of ['confirm','dark','dawn','wolves','candidates','sheriffVote','exileVote','discussion','inspectResult'])test('HOST01 non-targeting stage '+step+' retains original appearance',()=>assert.equal(skillTargetStage(step),false));
-test('HOST01 takeover targeting uses existing knifeSelection result',()=>assert.equal(skillTargetStage('maskAssign',true),true));

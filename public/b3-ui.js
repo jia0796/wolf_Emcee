@@ -1,10 +1,5 @@
 import {PAGE_BACKGROUNDS,HOST_BACKGROUNDS} from './data.js';
 
-// Targeting-stage classification only. Legality remains engine.selectable().
-export function skillTargetStage(step,knife=false){
- return knife||['stoneInspect','bond','awakenedInspect','dance','maskInspect','maskAssign','exchange','attack','poison','inspect','skill','guardTarget','mediumInspect','mechanicalAction','mechanicalLearn','mechanicalSkill','revenge','trade','luckyAction','fear','sleep','roleModel','hunt','lastBlade','transform','charm','duel','selfDestruct'].includes(step);
-}
-
 // HOST-02: transient view of the existing timer, with no timer/save state of its own.
 export function createMiniTimer({read,pause,reset,restore}){
  const root=document.createElement('div');root.id='miniTimer';root.className='mini-timer';root.hidden=true;root.setAttribute('role','group');root.setAttribute('aria-label','縮小發言計時器，長按拖曳');
