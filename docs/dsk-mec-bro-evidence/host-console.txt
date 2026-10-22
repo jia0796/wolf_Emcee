@@ -1,0 +1,42 @@
+Original seat appearance guardTarget; engine legality unchanged
+Original seat appearance fear; engine legality unchanged
+Original seat appearance sleep; engine legality unchanged
+Original seat appearance hunt; engine legality unchanged
+Original seat appearance stoneInspect; engine legality unchanged
+Original seat appearance charm; engine legality unchanged
+Original seat appearance bond; engine legality unchanged
+Original seat appearance inspect; engine legality unchanged
+Original seat appearance mechanicalSkill; engine legality unchanged
+Original seat appearance selfDestruct; engine legality unchanged
+Original seat appearance discussion; engine legality unchanged
+Original seat appearance exileVote; engine legality unchanged
+HOST02 same timer minimizes; three 44px buttons, pause/resume
+HOST02 immediate pointer drag, no hold delay
+HOST02 release retains position without edge snapping
+HOST02 next/back and native modal priority keep timer/position
+HOST02 library hides, original entry restores, mini reset preserves setup semantics
+HOST02 zero stays mini; time-up cue ends without repeat
+HOST02 visual viewport clamp 320x568
+HOST02 visual viewport clamp 375x667
+HOST02 visual viewport clamp 390x844
+HOST02 visual viewport clamp 430x932
+HOST02 visual viewport clamp 844x390
+HOST02 visual viewport clamp 768x1024
+HOST02 refresh restores game, no fictional timer state
+HOST03 exileVote hide/toggle/compact/all-complete without auto-submit
+HOST03 exileVote individual cancellation, formal submission/reload and draft isolation
+HOST03 sheriffVote hide/toggle/compact/all-complete without auto-submit
+HOST03 sheriffVote individual cancellation, formal submission/reload and draft isolation
+HOST03 sheriffRevote hide/toggle/compact/all-complete without auto-submit
+HOST03 sheriffRevote individual cancellation, formal submission/reload and draft isolation
+HOST03 exileRevote hide/toggle/compact/all-complete without auto-submit
+HOST03 exileRevote individual cancellation, formal submission/reload and draft isolation
+HOST03 abstention vs missing vs valid count stay distinct
+HOST02 new-game/home clears transient mini UI
+HOST02 reduced motion and 200% root font
+HOST02 touch-emulated immediate drag
+HOST02 quick touch motion drags immediately
+HOST02 emulated pinch zoom keeps panel in visual viewport
+HOST02 simulated safe-area insets
+HOST02 dragged bar cannot cover tools or next/back
+{"passed":41,"failed":0,"errors":[]}

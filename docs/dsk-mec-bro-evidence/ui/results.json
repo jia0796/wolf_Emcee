@@ -1,0 +1,113 @@
+{
+  "base": "http://127.0.0.1:5173/",
+  "passed": 26,
+  "failed": 0,
+  "results": [
+    {
+      "name": "DSK 320px night1: modes, target, cancel, reload, undo",
+      "pass": true
+    },
+    {
+      "name": "DSK 320px night2: modes, target, cancel, reload, undo",
+      "pass": true
+    },
+    {
+      "name": "DSK 320px legacy skill recovery",
+      "pass": true
+    },
+    {
+      "name": "DSK 375px night1: modes, target, cancel, reload, undo",
+      "pass": true
+    },
+    {
+      "name": "DSK 375px night2: modes, target, cancel, reload, undo",
+      "pass": true
+    },
+    {
+      "name": "DSK 375px legacy skill recovery",
+      "pass": true
+    },
+    {
+      "name": "DSK 390px night1: modes, target, cancel, reload, undo",
+      "pass": true
+    },
+    {
+      "name": "DSK 390px night2: modes, target, cancel, reload, undo",
+      "pass": true
+    },
+    {
+      "name": "DSK 390px legacy skill recovery",
+      "pass": true
+    },
+    {
+      "name": "DSK 430px night1: modes, target, cancel, reload, undo",
+      "pass": true
+    },
+    {
+      "name": "DSK 430px night2: modes, target, cancel, reload, undo",
+      "pass": true
+    },
+    {
+      "name": "DSK 430px legacy skill recovery",
+      "pass": true
+    },
+    {
+      "name": "MEC night1 learned null: fixed subtitle and conditional gesture",
+      "pass": true
+    },
+    {
+      "name": "MEC night1 learned hunter: fixed subtitle and conditional gesture",
+      "pass": true
+    },
+    {
+      "name": "MEC night1 learned medium: fixed subtitle and conditional gesture",
+      "pass": true
+    },
+    {
+      "name": "MEC night2 learned null: fixed subtitle and conditional gesture",
+      "pass": true
+    },
+    {
+      "name": "MEC night2 learned hunter: fixed subtitle and conditional gesture",
+      "pass": true
+    },
+    {
+      "name": "MEC night2 learned medium: fixed subtitle and conditional gesture",
+      "pass": true
+    },
+    {
+      "name": "MEC night3 learned null: fixed subtitle and conditional gesture",
+      "pass": true
+    },
+    {
+      "name": "MEC night3 learned hunter: fixed subtitle and conditional gesture",
+      "pass": true
+    },
+    {
+      "name": "MEC night3 learned medium: fixed subtitle and conditional gesture",
+      "pass": true
+    },
+    {
+      "name": "MEC night4 learned null: fixed subtitle and conditional gesture",
+      "pass": true
+    },
+    {
+      "name": "MEC night4 learned hunter: fixed subtitle and conditional gesture",
+      "pass": true
+    },
+    {
+      "name": "MEC night4 learned medium: fixed subtitle and conditional gesture",
+      "pass": true
+    },
+    {
+      "name": "MEC dead learned hunter keeps subtitle, no gesture",
+      "pass": true
+    },
+    {
+      "name": "BRO setup OFF default, ON persists through refresh and rule summary",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "realDevice": "未驗收"
+}

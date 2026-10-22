@@ -1,0 +1,27 @@
+{
+  "baseline": "b4b7a3d9584698a6600dde74a840c91a89ec5ad3",
+  "implementation": "af34f209a51d98918e378f680c7d8fda89b28c9d",
+  "branch": "feat/eclipse-host-app",
+  "backup": "backup/pre-dsk-mec-bro-20261023",
+  "protectedPaths": [
+    "public/skills",
+    "public/art",
+    "public/sw.js",
+    "public/cache-manifest.js",
+    "public/takeover.js",
+    "public/records.js",
+    "public/recap.js",
+    "public/timer.js",
+    "public/votes.js",
+    "public/vote-ui.js",
+    "public/online.js",
+    "public/online.css",
+    "backend",
+    "DESIGN.md"
+  ],
+  "protectedChanged": [],
+  "skillSvgCount": 26,
+  "saveVersion": 22,
+  "serviceWorkerChanged": false,
+  "deployed": false
+}
