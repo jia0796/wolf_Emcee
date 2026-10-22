@@ -27,7 +27,7 @@ export function createMiniTimer({read,pause,reset,restore}){
  function open(){if(!mini)return;end();mini=false;root.hidden=true;restore();enter(document.getElementById('timerDialog'));document.getElementById(read().mode==='countdown'?'timerMinimize':'timerStart').focus({preventScroll:true});}
  root.addEventListener('pointerdown',e=>{
   if(e.target.closest('button')||!e.isPrimary||e.button!==0)return;end();drag={id:e.pointerId,x:e.clientX,y:e.clientY,start:position&&{...position},active:false};
-  hold=setTimeout(()=>{if(!drag)return;drag.active=true;root.setPointerCapture(drag.id);root.classList.add('dragging');},200);
+  hold=setTimeout(()=>{if(!drag)return;drag.active=true;root.setPointerCapture(drag.id);root.classList.add('dragging');},250);
  });
  root.addEventListener('pointermove',e=>{if(!drag||drag.id!==e.pointerId)return;const dx=e.clientX-drag.x,dy=e.clientY-drag.y;if(!drag.active){if(Math.hypot(dx,dy)>8)end();return;}e.preventDefault();position={x:drag.start.x+dx,y:drag.start.y+dy};place();});
  root.addEventListener('touchmove',e=>{if(drag?.active&&e.touches.length===1)e.preventDefault();},{passive:false});
