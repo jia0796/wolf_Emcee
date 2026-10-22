@@ -1,0 +1,181 @@
+{
+  "base": "http://127.0.0.1:5173/",
+  "passed": 41,
+  "failed": 0,
+  "results": [
+    {
+      "name": "Original seat appearance guardTarget; engine legality unchanged",
+      "pass": true
+    },
+    {
+      "name": "Original seat appearance fear; engine legality unchanged",
+      "pass": true
+    },
+    {
+      "name": "Original seat appearance sleep; engine legality unchanged",
+      "pass": true
+    },
+    {
+      "name": "Original seat appearance hunt; engine legality unchanged",
+      "pass": true
+    },
+    {
+      "name": "Original seat appearance stoneInspect; engine legality unchanged",
+      "pass": true
+    },
+    {
+      "name": "Original seat appearance charm; engine legality unchanged",
+      "pass": true
+    },
+    {
+      "name": "Original seat appearance bond; engine legality unchanged",
+      "pass": true
+    },
+    {
+      "name": "Original seat appearance inspect; engine legality unchanged",
+      "pass": true
+    },
+    {
+      "name": "Original seat appearance mechanicalSkill; engine legality unchanged",
+      "pass": true
+    },
+    {
+      "name": "Original seat appearance selfDestruct; engine legality unchanged",
+      "pass": true
+    },
+    {
+      "name": "Original seat appearance discussion; engine legality unchanged",
+      "pass": true
+    },
+    {
+      "name": "Original seat appearance exileVote; engine legality unchanged",
+      "pass": true
+    },
+    {
+      "name": "HOST02 same timer minimizes; three 44px buttons, pause/resume",
+      "pass": true
+    },
+    {
+      "name": "HOST02 scroll before long-press does not drag",
+      "pass": true
+    },
+    {
+      "name": "HOST02 249ms not dragging; 250ms starts dragging; release without edge snapping",
+      "pass": true
+    },
+    {
+      "name": "HOST02 next/back and native modal priority keep timer/position",
+      "pass": true
+    },
+    {
+      "name": "HOST02 library hides, original entry restores, mini reset preserves setup semantics",
+      "pass": true
+    },
+    {
+      "name": "HOST02 zero stays mini; time-up cue ends without repeat",
+      "pass": true
+    },
+    {
+      "name": "HOST02 visual viewport clamp 320x568",
+      "pass": true
+    },
+    {
+      "name": "HOST02 visual viewport clamp 375x667",
+      "pass": true
+    },
+    {
+      "name": "HOST02 visual viewport clamp 390x844",
+      "pass": true
+    },
+    {
+      "name": "HOST02 visual viewport clamp 430x932",
+      "pass": true
+    },
+    {
+      "name": "HOST02 visual viewport clamp 844x390",
+      "pass": true
+    },
+    {
+      "name": "HOST02 visual viewport clamp 768x1024",
+      "pass": true
+    },
+    {
+      "name": "HOST02 refresh restores game, no fictional timer state",
+      "pass": true
+    },
+    {
+      "name": "HOST03 exileVote hide/toggle/compact/all-complete without auto-submit",
+      "pass": true
+    },
+    {
+      "name": "HOST03 exileVote individual cancellation, formal submission/reload and draft isolation",
+      "pass": true
+    },
+    {
+      "name": "HOST03 sheriffVote hide/toggle/compact/all-complete without auto-submit",
+      "pass": true
+    },
+    {
+      "name": "HOST03 sheriffVote individual cancellation, formal submission/reload and draft isolation",
+      "pass": true
+    },
+    {
+      "name": "HOST03 sheriffRevote hide/toggle/compact/all-complete without auto-submit",
+      "pass": true
+    },
+    {
+      "name": "HOST03 sheriffRevote individual cancellation, formal submission/reload and draft isolation",
+      "pass": true
+    },
+    {
+      "name": "HOST03 exileRevote hide/toggle/compact/all-complete without auto-submit",
+      "pass": true
+    },
+    {
+      "name": "HOST03 exileRevote individual cancellation, formal submission/reload and draft isolation",
+      "pass": true
+    },
+    {
+      "name": "HOST03 abstention vs missing vs valid count stay distinct",
+      "pass": true
+    },
+    {
+      "name": "HOST02 new-game/home clears transient mini UI",
+      "pass": true
+    },
+    {
+      "name": "HOST02 reduced motion and 200% root font",
+      "pass": true
+    },
+    {
+      "name": "HOST02 touch-emulated long-press drag",
+      "pass": true
+    },
+    {
+      "name": "HOST02 early touch swipe does not drag",
+      "pass": true
+    },
+    {
+      "name": "HOST02 emulated pinch zoom keeps panel in visual viewport",
+      "pass": true,
+      "left": 8,
+      "top": 498.65625,
+      "right": 252,
+      "bottom": 554.65625,
+      "x": 0,
+      "y": 0,
+      "width": 260,
+      "height": 562.6666870117188,
+      "scale": 1.5
+    },
+    {
+      "name": "HOST02 simulated safe-area insets",
+      "pass": true
+    },
+    {
+      "name": "HOST02 dragged bar cannot cover tools or next/back",
+      "pass": true
+    }
+  ],
+  "errors": []
+}
