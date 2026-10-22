@@ -1,0 +1,68 @@
+{
+  "sha": "c87e0ae97febf8e06afaad00ee7b7212e8061c04",
+  "base": "https://jia0796.github.io/wolf_Emcee/",
+  "verifiedAt": "2026-10-22T00:21:16.515Z",
+  "files": [
+    {
+      "path": "app.js",
+      "status": 200,
+      "expected": "5ca7595611eda8703a438096e8d0f979afbf8233a0ee77958fa6af06c248e96f",
+      "actual": "5ca7595611eda8703a438096e8d0f979afbf8233a0ee77958fa6af06c248e96f",
+      "match": true
+    },
+    {
+      "path": "b3-ui.js",
+      "status": 200,
+      "expected": "87a12f10e333e50b4da41ff578fe7a1abfece4243fcce7fd95be61759c4c4a66",
+      "actual": "87a12f10e333e50b4da41ff578fe7a1abfece4243fcce7fd95be61759c4c4a66",
+      "match": true
+    },
+    {
+      "path": "b3.css",
+      "status": 200,
+      "expected": "c0444ceaa847c5cc8284cb1f0982ee8e9ea075dfb7a4ee0bd8c4985da33dbd2a",
+      "actual": "c0444ceaa847c5cc8284cb1f0982ee8e9ea075dfb7a4ee0bd8c4985da33dbd2a",
+      "match": true
+    },
+    {
+      "path": "index.html",
+      "status": 200,
+      "expected": "edec009f20a29de3e306b70151fe3862967022ad12ffd0a87fd99ea39f351e63",
+      "actual": "edec009f20a29de3e306b70151fe3862967022ad12ffd0a87fd99ea39f351e63",
+      "match": true
+    },
+    {
+      "path": "vote-ui.js",
+      "status": 200,
+      "expected": "93248d1e6845e8007ae3edb17578d9efb48af38959b33f31a975340a986289f8",
+      "actual": "93248d1e6845e8007ae3edb17578d9efb48af38959b33f31a975340a986289f8",
+      "match": true
+    }
+  ],
+  "workflows": [
+    {
+      "id": 39698872095,
+      "name": "Host flow tests",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/jia0796/wolf_Emcee/actions/runs/39698872095",
+      "head_branch": "feat/host01-03-20261022"
+    },
+    {
+      "id": 39698872089,
+      "name": "Host flow tests",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/jia0796/wolf_Emcee/actions/runs/39698872089",
+      "head_branch": "feat/eclipse-host-app"
+    },
+    {
+      "id": 39698872094,
+      "name": "Deploy moderator app",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/jia0796/wolf_Emcee/actions/runs/39698872094",
+      "head_branch": "feat/eclipse-host-app"
+    }
+  ]
+}

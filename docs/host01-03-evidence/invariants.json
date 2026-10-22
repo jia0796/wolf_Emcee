@@ -1,0 +1,159 @@
+{
+  "baseline": "dec4fea4ad9729f8aeb431b510e1009ff406d78c",
+  "skills": [
+    {
+      "path": "public/skills/icon-antidote.svg",
+      "unchanged": true,
+      "sha256": "56881638a36c1ec98ed480f2da0a617f83dbe03e5228c9db081ad4a4e4630a07"
+    },
+    {
+      "path": "public/skills/icon-bond.svg",
+      "unchanged": true,
+      "sha256": "f48b96a26db32838df12bb77430e2b80ffb34b84e4fc086d8342cb31dde03b37"
+    },
+    {
+      "path": "public/skills/icon-charm.svg",
+      "unchanged": true,
+      "sha256": "5aff4c715517e3ae64a315bfd1e9aa0e95708f7900da6568e0900b8336baba5e"
+    },
+    {
+      "path": "public/skills/icon-dance.svg",
+      "unchanged": true,
+      "sha256": "cf771203ca8c984ff8daa29108f3c320099e08d3655c1e635a1f06585f70021a"
+    },
+    {
+      "path": "public/skills/icon-duel.svg",
+      "unchanged": true,
+      "sha256": "eec5cc1cff7608e97c27848b2e9321308e5cfc208576a1cada7727c8d2a02b5c"
+    },
+    {
+      "path": "public/skills/icon-evil-knight-reflect.svg",
+      "unchanged": true,
+      "sha256": "9782a05d4e2bebd77e9df869abd227a7b3a8d2b48ae2eef02c106bc8bfec418c"
+    },
+    {
+      "path": "public/skills/icon-fear.svg",
+      "unchanged": true,
+      "sha256": "ebb15653f0eaa8c423ea8605021c9964abf6887c7b9ac2b167ee0a90cf477fbf"
+    },
+    {
+      "path": "public/skills/icon-gravekeeper.svg",
+      "unchanged": true,
+      "sha256": "27cb6baa1c862ebc7b6e79445fc341c2a06c25221b744a73c295612aff64ae60"
+    },
+    {
+      "path": "public/skills/icon-gun.svg",
+      "unchanged": true,
+      "sha256": "eff907366ca0bab126727eb35533d4451e354aa9a630d01f543afcf2aeab91e5"
+    },
+    {
+      "path": "public/skills/icon-heartbreak.svg",
+      "unchanged": true,
+      "sha256": "97233180381368c9168cbbd1c2e5a4af66fa455bfe3acf62bd3485c125f0140d"
+    },
+    {
+      "path": "public/skills/icon-hunt.svg",
+      "unchanged": true,
+      "sha256": "29f37aad71a83abaf77fe94181e6624b6331ec77434d6fb14cb11f5d2c3d46cf"
+    },
+    {
+      "path": "public/skills/icon-infect.svg",
+      "unchanged": true,
+      "sha256": "60d7fc7418ecfe1dd698d2f6634ff8cbddd101bb36df7e5c2e3ad211f07ce2ee"
+    },
+    {
+      "path": "public/skills/icon-inspect.svg",
+      "unchanged": true,
+      "sha256": "c19df40007f6656a4072df354e5536c3824308b5962f32cd7e34866910f8dfb8"
+    },
+    {
+      "path": "public/skills/icon-learn.svg",
+      "unchanged": true,
+      "sha256": "3ef58790b371d24dc18234f29b5af75a515a8be31be34c3708f02bb6ec4eebf9"
+    },
+    {
+      "path": "public/skills/icon-mask.svg",
+      "unchanged": true,
+      "sha256": "624a852658acdfbafd0df28ac577435126613191d6e1bd3724389ce178fc2e68"
+    },
+    {
+      "path": "public/skills/icon-poison.svg",
+      "unchanged": true,
+      "sha256": "0671a137fdf9269b607331f6643a77f58051f57048d7bdc1e457e561642d79d2"
+    },
+    {
+      "path": "public/skills/icon-role-model.svg",
+      "unchanged": true,
+      "sha256": "4a9a8851e05c4c9c7ddd5ddeb3d68d03a787599f14a2807fce2ef607adab1469"
+    },
+    {
+      "path": "public/skills/icon-sheriff-badge.svg",
+      "unchanged": true,
+      "sha256": "f1629595c84c4e459ad5e96dc4c6b4070796a2798410148e381f3bce05d23068"
+    },
+    {
+      "path": "public/skills/icon-shield.svg",
+      "unchanged": true,
+      "sha256": "fb78c16062432e25a3a013f3a51680f208bd007eacf77c96e9d69a4366f34902"
+    },
+    {
+      "path": "public/skills/icon-sleep.svg",
+      "unchanged": true,
+      "sha256": "8f8e79c723396401cd35867fb2e22abfb8f40cec06e24a733d3132a4a2ac60dd"
+    },
+    {
+      "path": "public/skills/icon-swap.svg",
+      "unchanged": true,
+      "sha256": "cc8c12d39adb71d4c03fe1204008f0ed55008e8d59320c704e19647ff2a9b710"
+    },
+    {
+      "path": "public/skills/icon-trade.svg",
+      "unchanged": true,
+      "sha256": "f48b0d3d3c8907aa4009286d5c644da702cd902d38cb8b0a0017747fb12e4c1f"
+    },
+    {
+      "path": "public/skills/icon-transform.svg",
+      "unchanged": true,
+      "sha256": "555098208df997fb16ff4885f3d834abc9391e225cbdc9412827ee83c8749887"
+    },
+    {
+      "path": "public/skills/icon-vote.svg",
+      "unchanged": true,
+      "sha256": "13cb4fba33d60ad8c6c747b3bcc84b19177ad9398066f0f8755cd8b3b6995fc7"
+    },
+    {
+      "path": "public/skills/icon-wolf-attack.svg",
+      "unchanged": true,
+      "sha256": "613d844185591de9499771448ecb999f164a35961a4df91e345a8749bb7ec4be"
+    },
+    {
+      "path": "public/skills/icon-wolf-inspect.svg",
+      "unchanged": true,
+      "sha256": "ba4cf9f6be94e69fcfad26aeb8434daa7a086d342d03f7981a4fe3d5b1d1de96"
+    }
+  ],
+  "count": 26,
+  "allUnchanged": true,
+  "protectedFiles": [
+    "public/engine.js",
+    "public/data.js",
+    "public/night.js",
+    "public/identity.js",
+    "public/takeover.js",
+    "public/records.js",
+    "public/recap.js",
+    "public/timer.js",
+    "public/sw.js",
+    "public/online.js",
+    "public/cache-manifest.js"
+  ],
+  "protectedChanged": "",
+  "preexisting": {
+    "check": "scripts/update-cache-manifest.mjs --check",
+    "status": "fails before and after HOST",
+    "extraKeys": [
+      "art/backgrounds/online-coastal-v2.png"
+    ],
+    "changed": ""
+  }
+}

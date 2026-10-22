@@ -1,0 +1,15 @@
+{
+  "command": "npm test",
+  "node": "v24.21.0",
+  "tests": 899,
+  "pass": 899,
+  "fail": 0,
+  "cancelled": 0,
+  "skipped": 0,
+  "stress": {
+    "boards": 28,
+    "seedsPerBoard": 18,
+    "games": 504
+  },
+  "note": "Full output: npm-test.txt"
+}

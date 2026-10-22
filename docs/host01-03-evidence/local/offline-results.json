@@ -1,0 +1,20 @@
+{
+  "base": "http://127.0.0.1:5173/",
+  "passed": 3,
+  "failed": 0,
+  "results": [
+    {
+      "test": "Service Worker controlled page has latest mini timer",
+      "pass": true
+    },
+    {
+      "test": "Offline reload retains original game and loads new HOST presentation",
+      "pass": true
+    },
+    {
+      "test": "Offline existing timer controls remain functional",
+      "pass": true
+    }
+  ],
+  "errors": []
+}
