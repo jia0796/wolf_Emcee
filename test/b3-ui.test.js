@@ -7,7 +7,7 @@ import {backgroundSource} from '../public/b3-ui.js';
 test('B3 uses only lobby for non-host screens and the current host phase',()=>{
  for(const screen of ['home','counts','boards','setup','encyclopedia','finished'])for(const phase of ['夜晚','白天',null])assert.equal(backgroundSource(screen,phase),'art/backgrounds/lobby-shared.png');
  assert.equal(backgroundSource('host','夜晚'),'art/backgrounds/host-night.png');assert.equal(backgroundSource('host','白天'),'art/backgrounds/host-day.png');
- assert.equal(backgroundSource('online'),'art/backgrounds/online-plaza-v4.png');
+ assert.equal(backgroundSource('online'),'art/backgrounds/online-plaza-v3.png');
 });
 test('B3 official PNG bytes and all 26 pre-B3 skill originals remain exact',async()=>{
  const assets=JSON.parse(await readFile(new URL('../docs/b3-assets.json',import.meta.url),'utf8'));

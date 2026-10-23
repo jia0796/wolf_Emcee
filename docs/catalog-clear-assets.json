@@ -1,0 +1,250 @@
+[
+  {
+    "id": "evilKnight",
+    "name": "惡靈騎士",
+    "image": "art/catalog/evilKnight.png",
+    "derived": "art/catalog-clear/evilKnight-v1.png",
+    "bytes": 2359285,
+    "sha256": "72a8c56eab689d84694774d517edc99fdb6a9b1637c60353ea512af0703044f5"
+  },
+  {
+    "id": "gargoyle",
+    "name": "覺醒石像鬼",
+    "image": "art/catalog/gargoyle-v04.png",
+    "derived": "art/catalog-clear/gargoyle-v1.png",
+    "bytes": 2530113,
+    "sha256": "847e6bd2fa07ae9c43b6592e6880726d61f2dca7b98ca182c09aebdb39ba2cd2"
+  },
+  {
+    "id": "gravekeeper",
+    "name": "守墓人",
+    "image": "art/catalog/gravekeeper.png",
+    "derived": "art/catalog-clear/gravekeeper-v1.png",
+    "bytes": 2390852,
+    "sha256": "5deb2aab7eed1224d5f2d786beaf6183c484aa91ded84af776fb813458ff4c06"
+  },
+  {
+    "id": "blood",
+    "name": "血月使者",
+    "image": "art/blood-moon-messenger-approved.png",
+    "derived": "art/catalog-clear/blood-v1.png",
+    "bytes": 2479700,
+    "sha256": "699a4a43d85ffc83e7018bff14bca88811136184e8d89a2fc87dc3ae5ea96ff2"
+  },
+  {
+    "id": "demon",
+    "name": "獵魔人",
+    "image": "art/demon-hunter-approved.png",
+    "derived": "art/catalog-clear/demon-v1.png",
+    "bytes": 2689562,
+    "sha256": "d34070093cfd409fad3d7dd47b6cc2bcc8e05c5c170ea507c39eb30b682019eb"
+  },
+  {
+    "id": "idiot",
+    "name": "白痴",
+    "image": "art/catalog/idiot.png",
+    "derived": "art/catalog-clear/idiot-v1.png",
+    "bytes": 1949736,
+    "sha256": "058f6eab9e69e002bc15b02ff36369a6eace98315acb879ffc1c852d52c49058"
+  },
+  {
+    "id": "mixed",
+    "name": "混血兒",
+    "image": "art/mixed-blood-dual-approved.jpeg",
+    "derived": "art/catalog-clear/mixed-v1.png",
+    "bytes": 2289787,
+    "sha256": "9d10a5a9711ebc16624d23b4479957510d82557df50493cd5520f7d7d6796aec"
+  },
+  {
+    "id": "nightmare",
+    "name": "夢魘",
+    "image": "art/catalog/nightmare.png",
+    "derived": "art/catalog-clear/nightmare-v1.png",
+    "bytes": 2191657,
+    "sha256": "0a63870d1d148e25756cccff0f16f24ba346e318ad732c5c884cb06edd26b729"
+  },
+  {
+    "id": "dream",
+    "name": "攝夢人",
+    "image": "art/catalog/dream.png",
+    "derived": "art/catalog-clear/dream-v1.png",
+    "bytes": 2272369,
+    "sha256": "b473b04e632484b79b4ddf71655f8b3f11f286c1a7e566f2a1bd83f12526cb78"
+  },
+  {
+    "id": "elder",
+    "name": "狼兄",
+    "image": "art/catalog/elder.png",
+    "derived": "art/catalog-clear/elder-v1.png",
+    "bytes": 2208590,
+    "sha256": "699a5f498f3c428467608560367276e3eba7c3afa95bd6f527980c8bb4a20671"
+  },
+  {
+    "id": "younger",
+    "name": "狼弟",
+    "image": "art/catalog/younger.png",
+    "derived": "art/catalog-clear/younger-v1.png",
+    "bytes": 2044508,
+    "sha256": "2ac8965af72525d9d7c7664fa80b774340525e256380db02ba48305d560e5dcc"
+  },
+  {
+    "id": "merchant",
+    "name": "黑市商人",
+    "image": "art/catalog/merchant.png",
+    "derived": "art/catalog-clear/merchant-v1.png",
+    "bytes": 2239501,
+    "sha256": "b0a5f51d63c355db289d1dcf51453d6cca793b035f22a0c3f8407d286b6a8d4c"
+  },
+  {
+    "id": "king",
+    "name": "黑狼王",
+    "image": "art/catalog/king.png",
+    "derived": "art/catalog-clear/king-v1.png",
+    "bytes": 2157478,
+    "sha256": "31e1d0e2e96387277f4860848e0708e95c06e310129d623c2f894ea767bcdc99"
+  },
+  {
+    "id": "wolf",
+    "name": "狼人",
+    "image": "art/catalog/wolf.png",
+    "derived": "art/catalog-clear/wolf-v1.png",
+    "bytes": 2219646,
+    "sha256": "20bc3323eb6ec651a417c00bbabce268df318eb5f4b5851dfc2470664cc68b24"
+  },
+  {
+    "id": "seer",
+    "name": "預言家",
+    "image": "art/catalog/seer.png",
+    "derived": "art/catalog-clear/seer-v1.png",
+    "bytes": 2079063,
+    "sha256": "533e54f8b8cc96cb2e46067336e58d0c959f4bd3a4918c60cad46487c02b9889"
+  },
+  {
+    "id": "witch",
+    "name": "女巫",
+    "image": "art/catalog/witch.png",
+    "derived": "art/catalog-clear/witch-v1.png",
+    "bytes": 2067162,
+    "sha256": "9400c6a44832f0205f889d9f4249afda7d6991ede62bb159a45b1edc59f62d83"
+  },
+  {
+    "id": "hunter",
+    "name": "獵人",
+    "image": "art/catalog/hunter.png",
+    "derived": "art/catalog-clear/hunter-v2.png",
+    "bytes": 2274700,
+    "sha256": "d52d14f9f15da5426896f481c84f5c35a7c141c0a491b5e74b92ceb49543b4c6"
+  },
+  {
+    "id": "magician",
+    "name": "魔術師",
+    "image": "art/catalog/magician.png",
+    "derived": "art/catalog-clear/magician-v1.png",
+    "bytes": 2209599,
+    "sha256": "3ac2e556b8bc820bf8a36ec024ce3b5290cc026c138f2d80ed532c6047dffbbb"
+  },
+  {
+    "id": "villager",
+    "name": "平民",
+    "image": "art/catalog/villager.png",
+    "derived": "art/catalog-clear/villager-v2.png",
+    "bytes": 1972310,
+    "sha256": "af7ec5e6803a663015a36ac135bc4d4dd33ad8ea4e07322ec1798dfd38f85588"
+  },
+  {
+    "id": "mechanical",
+    "name": "機械狼",
+    "image": "art/catalog/mechanical.png",
+    "derived": "art/catalog-clear/mechanical-v1.png",
+    "bytes": 2188840,
+    "sha256": "53d3f6938277341a0fe11b5cf08d0deecd265c5d8d61c9102b2fc0fa49fd97d6"
+  },
+  {
+    "id": "medium",
+    "name": "通靈師",
+    "image": "art/catalog/medium.png",
+    "derived": "art/catalog-clear/medium-v1.png",
+    "bytes": 2224084,
+    "sha256": "33a0cd14b3b17a611d75f68bb085a50b30133fcf78eeb0f30ba1449479ea136e"
+  },
+  {
+    "id": "guard",
+    "name": "守衛",
+    "image": "art/catalog/guard.png",
+    "derived": "art/catalog-clear/guard-v1.png",
+    "bytes": 2055244,
+    "sha256": "11c0aa36c89d6d5c8866ebfdcd4993e8fa063b8c8a569b5d5e997923c580b89e"
+  },
+  {
+    "id": "seedWolf",
+    "name": "種狼",
+    "image": "art/catalog/seedWolf.png",
+    "derived": "art/catalog-clear/seedWolf-v1.png",
+    "bytes": 2145892,
+    "sha256": "855a3572bc0dbe9ec1b0e2061b320b52cffd7b07faf40d20843f2627147e2835"
+  },
+  {
+    "id": "hiddenWolf",
+    "name": "隱狼",
+    "image": "art/catalog/hiddenWolf.png",
+    "derived": "art/catalog-clear/hiddenWolf-v1.png",
+    "bytes": 2110144,
+    "sha256": "06fcd5081c11fd946c8fbba09903de0387f8d64f1731104d819e48e963606b85"
+  },
+  {
+    "id": "beauty",
+    "name": "狼美人",
+    "image": "art/catalog/beauty.png",
+    "derived": "art/catalog-clear/beauty-v1.png",
+    "bytes": 2294692,
+    "sha256": "068737dadf509e76327f46bddf424589fc52839c44bcc18278969f7495a94f27"
+  },
+  {
+    "id": "duelist",
+    "name": "騎士",
+    "image": "art/catalog/duelist.png",
+    "derived": "art/catalog-clear/duelist-v1.png",
+    "bytes": 2405214,
+    "sha256": "1a73e35f14baf756981f4b5186082f0918bc00417847f7d3ff0f7a6d1800ed96"
+  },
+  {
+    "id": "dancer",
+    "name": "舞者",
+    "image": "art/catalog/dancer.png",
+    "derived": "art/catalog-clear/dancer-v1.png",
+    "bytes": 2319203,
+    "sha256": "61a54b4f5cf82fde7636e70fbf41dfaaaff565cb8d3d5db18d815f883eeac16b"
+  },
+  {
+    "id": "mask",
+    "name": "假面",
+    "image": "art/catalog/mask.png",
+    "derived": "art/catalog-clear/mask-v1.png",
+    "bytes": 2299530,
+    "sha256": "6a9aad45eecdd40e396483e6ec5d52fff3c22fe7aa1d15c1d4a2c7bdb3dda040"
+  },
+  {
+    "id": "fragrance",
+    "name": "尋香魅影",
+    "image": "art/catalog/fragrance.png",
+    "derived": "art/catalog-clear/fragrance-v1.png",
+    "bytes": 2357085,
+    "sha256": "0bb35c1b7203ba85db6ba92278093d50cbc56fe501cefbd34e85b603f8358210"
+  },
+  {
+    "id": "awakenedSeer",
+    "name": "覺醒預言家",
+    "image": "art/catalog/awakenedSeer.png",
+    "derived": "art/catalog-clear/awakenedSeer-v1.png",
+    "bytes": 2615035,
+    "sha256": "6fedcf31342a4324a42e7ab47de1955adb839b0cbf572d28a99c4207cfb8348e"
+  },
+  {
+    "id": "stoneGargoyle",
+    "name": "石像鬼",
+    "image": "art/catalog/stoneGargoyle-crouch-v3.png",
+    "derived": "art/catalog-clear/stoneGargoyle-v1.png",
+    "bytes": 2313101,
+    "sha256": "b80c465a9ca7622ef4f2d4331ebe24899948dcd4cfcf3b9522d189f09857587a"
+  }
+]

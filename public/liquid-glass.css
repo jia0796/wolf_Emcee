@@ -1,0 +1,58 @@
+/* Approved liquid-glass material layer. All sizes, typography, spacing and layout inherit the original App CSS. */
+:root{
+ --v-ink:#f4f8f9;--v-muted:#c8dbe6;--v-blue:#b2dbe5;--v-line:rgb(178 219 229 / .45);
+ --v-sheen:radial-gradient(ellipse at 10% 0%,rgb(229 248 252 / .23),transparent 60%),linear-gradient(155deg,rgb(178 219 229 / .08),transparent 45%,rgb(178 219 229 / .13));
+ --v-edge:inset 0 1px 1px rgb(244 248 249 / .6),inset 1px 0 1px rgb(219 243 247 / .2),inset 0 -1px 1px rgb(178 219 229 / .35),0 6px 18px rgb(4 19 31 / .24);
+}
+html.wolfcue-glass button:not(:where(.seat,.role-card,.preview-card,.time-wheel button,.online-ring button,.online-card,#actions button)){
+ border-radius:22px;background:var(--v-sheen),rgb(21 46 62 / .5);border-color:var(--v-line);color:var(--v-ink);
+ box-shadow:var(--v-edge);backdrop-filter:blur(12px) saturate(125%);-webkit-backdrop-filter:blur(12px) saturate(125%);
+ transition:box-shadow .16s ease-out,border-color .16s ease-out;text-shadow:0 1px 3px rgb(4 15 25 / .6);
+}
+html.wolfcue-glass button.primary:not(:where(.online-ring button)),html.wolfcue-glass :is(#setupStart,#voteDone,#exileVoteDone,#timerStart,#drawClose,#next){
+ background:linear-gradient(145deg,rgb(239 251 253 / .38),transparent 65%),rgb(178 219 229 / .76);
+ color:#102b3a;border-color:#c5e7ed;text-shadow:none;box-shadow:var(--v-edge);
+}
+html.wolfcue-glass button:disabled:not(.seat):not(.online-ring button){background:rgb(29 48 61 / .74);color:#a4b7c2;box-shadow:inset 0 1px 0 rgb(178 219 229 / .16)}
+html.wolfcue-glass :is(button,summary,a,select):focus-visible{outline:2px solid #e5f6fa;outline-offset:-3px}
+html.wolfcue-glass button:active:not(:disabled):not(.seat):not(.online-ring button):not(.preview-card):not(.online-card){box-shadow:inset 0 2px 10px rgb(4 16 27 / .35),inset 0 0 0 1px var(--v-blue)}
+html.wolfcue-glass body #home .menu button{background:var(--v-sheen),rgb(14 36 52 / .4);border-color:rgb(178 219 229 / .66);box-shadow:var(--v-edge)}
+html.wolfcue-glass body #home #start{background:radial-gradient(ellipse at 15% 0%,rgb(244 253 255 / .6),transparent 65%),linear-gradient(145deg,rgb(178 219 229 / .62),rgb(116 177 200 / .42));color:#fff;text-shadow:0 1px 4px #102b3a;border-color:#dbf3f8;box-shadow:inset 0 1px 2px #effcff,inset 0 -1px 2px rgb(203 239 248 / .65),0 8px 24px rgb(4 19 31 / .3)}
+html.wolfcue-glass body #home #problemReport{background:var(--v-sheen),rgb(14 36 52 / .4);color:var(--v-muted)}
+html.wolfcue-glass #counts .count-choices button{background:var(--v-sheen),rgb(18 40 56 / .5);border-radius:24px}
+html.wolfcue-glass body #boards #boardChoices button{background:var(--v-sheen),rgb(17 41 58 / .42);border-color:var(--v-line);border-radius:22px;box-shadow:var(--v-edge)}
+html.wolfcue-glass :is(.board-tabs,.library-tabs,.vote-modes) button{border-radius:16px!important;background:var(--v-sheen),rgb(15 35 51 / .5);box-shadow:var(--v-edge)}
+html.wolfcue-glass :is(.board-tabs,.library-tabs,.vote-modes) button[aria-pressed=true]{border-color:#b2dbe5;background:linear-gradient(135deg,rgb(178 219 229 / .22),transparent),rgb(32 66 86 / .65);box-shadow:inset 0 1px 1px rgb(235 250 255 / .6),inset 0 0 0 1px rgb(178 219 229 / .45)}
+html.wolfcue-glass .setup-grid section{background:var(--v-sheen),rgb(17 37 51 / .65);border-color:var(--v-line);border-radius:24px;box-shadow:var(--v-edge)}
+html.wolfcue-glass :is(.rules-form,.night-order){background:var(--v-sheen),rgb(17 37 51 / .65);border-color:var(--v-line);border-radius:16px;box-shadow:inset 0 1px 0 rgb(232 248 251 / .16)}
+html.wolfcue-glass #setup select{background:#1d3a4e;border-color:var(--v-line);color:var(--v-ink)}
+html.wolfcue-glass #host :is(#phase,#boardName){background:var(--v-sheen),rgb(14 35 51 / .6);border-color:var(--v-line);box-shadow:inset 0 1px 0 rgb(232 248 251 / .15)}
+html.wolfcue-glass #host .host-center{border-radius:24px;background:var(--v-sheen),rgb(16 37 53 / .68);border-color:var(--v-line);box-shadow:var(--v-edge);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+html.wolfcue-glass #host .judge-box{background:none;box-shadow:none}
+html.wolfcue-glass #host .seat{border-radius:18px;background:var(--v-sheen),rgb(17 39 55 / .48);box-shadow:inset 0 1px 0 rgb(232 248 251 / .25),0 3px 8px rgb(4 16 27 / .14);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+html.wolfcue-glass #host .seat:is(.selected,.target,.vote-selected){background:linear-gradient(125deg,rgb(178 219 229 / .22),transparent),rgb(30 62 81 / .8);box-shadow:inset 0 0 0 1px #b2dbe5,0 0 12px rgb(178 219 229 / .1)}
+html.wolfcue-glass #host .operation-row button::before{border-radius:12px;box-shadow:inset 0 1px 0 rgb(239 251 253 / .4);border-color:rgb(178 219 229 / .5)}
+html.wolfcue-glass dialog:not(#rolePreview){border-radius:26px;background:var(--v-sheen),rgb(14 33 48 / .84);border-color:var(--v-line);box-shadow:var(--v-edge),0 24px 70px rgb(2 10 17 / .6);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+html.wolfcue-glass dialog::backdrop{background:rgb(5 18 30 / .76)}
+html.wolfcue-glass #exileVoteDialog :is(#exileTargetSummary,.exile-candidates){background:var(--v-sheen),rgb(32 62 80 / .65);border-color:var(--v-line);border-radius:16px}
+html.wolfcue-glass #exileVoteDialog .exile-voters button{border-radius:18px!important;box-shadow:inset 0 1px 0 rgb(244 248 249 / .3)!important;background:var(--v-sheen),rgb(26 52 68 / .65)!important}
+html.wolfcue-glass #exileVoteDialog .exile-voters button.ballot-selected{background:var(--v-sheen),rgb(57 95 112 / .8)!important;box-shadow:inset 0 0 0 1px #b2dbe5!important}
+html.wolfcue-glass .time-wheels{background:rgb(8 27 41 / .4);border-color:var(--v-line);border-radius:16px}
+html.wolfcue-glass .time-wheel button{background:none;box-shadow:none;backdrop-filter:none}
+html.wolfcue-glass .mini-timer{background:var(--v-sheen),rgb(14 35 51 / .75);border-color:var(--v-line)}
+html.wolfcue-glass #roleLibrary .role-card{background:transparent;border-color:transparent;box-shadow:none;backdrop-filter:none}
+html.wolfcue-glass .preview-back{background:rgb(16 36 51 / .95);border-color:var(--v-line)}
+html.wolfcue-glass #finished .victory{background:var(--v-sheen),rgb(16 37 53 / .65);border-color:var(--v-line);border-radius:24px;box-shadow:var(--v-edge)}
+html.wolfcue-glass #finished :is(.recap-event,.final-identity-card){border-radius:20px;background:var(--v-sheen),rgb(20 44 60 / .65);border-color:var(--v-line);box-shadow:var(--v-edge)}
+html.wolfcue-glass #finished :is(.recap-night>summary,.night-result){background:var(--v-sheen),rgb(18 42 59 / .65);border-color:var(--v-line);color:var(--v-ink)}
+html.wolfcue-glass #online #onlineQR{background:var(--v-sheen),rgb(17 39 55 / .58);border-color:var(--v-line);border-radius:24px;backdrop-filter:blur(8px)}
+html.wolfcue-glass #onlineRing button{border-radius:18px;background:var(--v-sheen),rgb(18 42 59 / .55);box-shadow:var(--v-edge)}
+html.wolfcue-glass #onlineRing button.mine{background:linear-gradient(135deg,rgb(241 251 252 / .45),transparent),rgb(178 219 229 / .85);color:#102b3a;text-shadow:none}
+html.wolfcue-glass #onlineRing button.occupied:not(.mine){border-color:var(--god);background:var(--v-sheen),rgb(47 65 75 / .7)}
+@media(hover:hover) and (pointer:fine){html.wolfcue-glass button:hover:not(:disabled):not(.seat):not(.role-card){border-color:#c5e7ed}}
+@media(prefers-reduced-motion:reduce){html.wolfcue-glass *,html.wolfcue-glass *::before,html.wolfcue-glass *::after{animation:none!important;transition:none!important}}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){html.wolfcue-glass button,html.wolfcue-glass #host .seat,html.wolfcue-glass #host .host-center,html.wolfcue-glass body #boards #boardChoices button{background-color:#1b394e}html.wolfcue-glass button.primary{background-color:#b2dbe5}}
+
+/* Preserve destructive-action semantics; only material changes. */
+html.wolfcue-glass :is(#resetCancel,#finishCancel,#voteClearCancel,#voteAbandonCancel,#exileClearCancel,#exileAbandonCancel){background:var(--v-sheen),rgb(178 219 229 / .7);color:#13212d}
+html.wolfcue-glass :is(#resetConfirm,#finishConfirm,#voteClearConfirm,#voteAbandonConfirm,#exileClearConfirm,#exileAbandonConfirm){background:var(--v-sheen),rgb(145 95 113 / .46);border-color:#c09aa7;color:#f4e8ed}

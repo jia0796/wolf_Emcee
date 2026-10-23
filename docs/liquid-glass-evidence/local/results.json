@@ -1,0 +1,285 @@
+{
+  "base": "http://127.0.0.1:5386/",
+  "passed": 47,
+  "failed": 0,
+  "errors": [],
+  "results": [
+    {
+      "type": "geometry",
+      "scene": "home",
+      "width": 320,
+      "elements": 4
+    },
+    {
+      "type": "geometry",
+      "scene": "counts",
+      "width": 320,
+      "elements": 5
+    },
+    {
+      "type": "geometry",
+      "scene": "boards",
+      "width": 320,
+      "elements": 16
+    },
+    {
+      "type": "geometry",
+      "scene": "setup",
+      "width": 320,
+      "elements": 12
+    },
+    {
+      "type": "geometry",
+      "scene": "host",
+      "width": 320,
+      "elements": 22
+    },
+    {
+      "type": "geometry",
+      "scene": "timer",
+      "width": 320,
+      "elements": 101
+    },
+    {
+      "type": "geometry",
+      "scene": "vote",
+      "width": 320,
+      "elements": 62
+    },
+    {
+      "type": "geometry",
+      "scene": "recap",
+      "width": 320,
+      "elements": 5
+    },
+    {
+      "type": "geometry",
+      "scene": "home",
+      "width": 375,
+      "elements": 4
+    },
+    {
+      "type": "geometry",
+      "scene": "counts",
+      "width": 375,
+      "elements": 5
+    },
+    {
+      "type": "geometry",
+      "scene": "boards",
+      "width": 375,
+      "elements": 16
+    },
+    {
+      "type": "geometry",
+      "scene": "setup",
+      "width": 375,
+      "elements": 12
+    },
+    {
+      "type": "geometry",
+      "scene": "host",
+      "width": 375,
+      "elements": 22
+    },
+    {
+      "type": "geometry",
+      "scene": "timer",
+      "width": 375,
+      "elements": 101
+    },
+    {
+      "type": "geometry",
+      "scene": "vote",
+      "width": 375,
+      "elements": 62
+    },
+    {
+      "type": "geometry",
+      "scene": "recap",
+      "width": 375,
+      "elements": 5
+    },
+    {
+      "type": "geometry",
+      "scene": "home",
+      "width": 390,
+      "elements": 4
+    },
+    {
+      "type": "geometry",
+      "scene": "counts",
+      "width": 390,
+      "elements": 5
+    },
+    {
+      "type": "geometry",
+      "scene": "boards",
+      "width": 390,
+      "elements": 16
+    },
+    {
+      "type": "geometry",
+      "scene": "setup",
+      "width": 390,
+      "elements": 12
+    },
+    {
+      "type": "geometry",
+      "scene": "host",
+      "width": 390,
+      "elements": 22
+    },
+    {
+      "type": "geometry",
+      "scene": "timer",
+      "width": 390,
+      "elements": 101
+    },
+    {
+      "type": "geometry",
+      "scene": "vote",
+      "width": 390,
+      "elements": 62
+    },
+    {
+      "type": "geometry",
+      "scene": "recap",
+      "width": 390,
+      "elements": 5
+    },
+    {
+      "type": "geometry",
+      "scene": "home",
+      "width": 430,
+      "elements": 4
+    },
+    {
+      "type": "geometry",
+      "scene": "counts",
+      "width": 430,
+      "elements": 5
+    },
+    {
+      "type": "geometry",
+      "scene": "boards",
+      "width": 430,
+      "elements": 16
+    },
+    {
+      "type": "geometry",
+      "scene": "setup",
+      "width": 430,
+      "elements": 12
+    },
+    {
+      "type": "geometry",
+      "scene": "host",
+      "width": 430,
+      "elements": 22
+    },
+    {
+      "type": "geometry",
+      "scene": "timer",
+      "width": 430,
+      "elements": 101
+    },
+    {
+      "type": "geometry",
+      "scene": "vote",
+      "width": 430,
+      "elements": 62
+    },
+    {
+      "type": "geometry",
+      "scene": "recap",
+      "width": 430,
+      "elements": 5
+    },
+    {
+      "type": "geometry",
+      "scene": "home",
+      "width": 844,
+      "elements": 4
+    },
+    {
+      "type": "geometry",
+      "scene": "counts",
+      "width": 844,
+      "elements": 5
+    },
+    {
+      "type": "geometry",
+      "scene": "boards",
+      "width": 844,
+      "elements": 16
+    },
+    {
+      "type": "geometry",
+      "scene": "setup",
+      "width": 844,
+      "elements": 12
+    },
+    {
+      "type": "geometry",
+      "scene": "host",
+      "width": 844,
+      "elements": 22
+    },
+    {
+      "type": "geometry",
+      "scene": "timer",
+      "width": 844,
+      "elements": 101
+    },
+    {
+      "type": "geometry",
+      "scene": "vote",
+      "width": 844,
+      "elements": 62
+    },
+    {
+      "type": "geometry",
+      "scene": "recap",
+      "width": 844,
+      "elements": 5
+    },
+    {
+      "type": "geometry",
+      "scene": "library",
+      "width": 320,
+      "elements": 22
+    },
+    {
+      "type": "catalog",
+      "width": 320,
+      "roles": 31,
+      "listAndFlip": true
+    },
+    {
+      "type": "geometry",
+      "scene": "library",
+      "width": 390,
+      "elements": 22
+    },
+    {
+      "type": "catalog",
+      "width": 390,
+      "roles": 31,
+      "listAndFlip": true
+    },
+    {
+      "type": "assetIntegrity",
+      "files": 31
+    },
+    {
+      "type": "originalImageFallback"
+    },
+    {
+      "type": "offline",
+      "cachedRoles": 31,
+      "appShell": true,
+      "flipFront": true
+    }
+  ]
+}

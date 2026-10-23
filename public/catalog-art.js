@@ -1,0 +1,36 @@
+// Catalog-only derivatives. ROLE_DATA originals remain authoritative for recap and online cards.
+export const CATALOG_CLEAR=Object.freeze({
+  "evilKnight": "art/catalog-clear/evilKnight-v1.png",
+  "gargoyle": "art/catalog-clear/gargoyle-v1.png",
+  "gravekeeper": "art/catalog-clear/gravekeeper-v1.png",
+  "blood": "art/catalog-clear/blood-v1.png",
+  "demon": "art/catalog-clear/demon-v1.png",
+  "idiot": "art/catalog-clear/idiot-v1.png",
+  "mixed": "art/catalog-clear/mixed-v1.png",
+  "nightmare": "art/catalog-clear/nightmare-v1.png",
+  "dream": "art/catalog-clear/dream-v1.png",
+  "elder": "art/catalog-clear/elder-v1.png",
+  "younger": "art/catalog-clear/younger-v1.png",
+  "merchant": "art/catalog-clear/merchant-v1.png",
+  "king": "art/catalog-clear/king-v1.png",
+  "wolf": "art/catalog-clear/wolf-v1.png",
+  "seer": "art/catalog-clear/seer-v1.png",
+  "witch": "art/catalog-clear/witch-v1.png",
+  "hunter": "art/catalog-clear/hunter-v2.png",
+  "magician": "art/catalog-clear/magician-v1.png",
+  "villager": "art/catalog-clear/villager-v2.png",
+  "mechanical": "art/catalog-clear/mechanical-v1.png",
+  "medium": "art/catalog-clear/medium-v1.png",
+  "guard": "art/catalog-clear/guard-v1.png",
+  "seedWolf": "art/catalog-clear/seedWolf-v1.png",
+  "hiddenWolf": "art/catalog-clear/hiddenWolf-v1.png",
+  "beauty": "art/catalog-clear/beauty-v1.png",
+  "duelist": "art/catalog-clear/duelist-v1.png",
+  "dancer": "art/catalog-clear/dancer-v1.png",
+  "mask": "art/catalog-clear/mask-v1.png",
+  "fragrance": "art/catalog-clear/fragrance-v1.png",
+  "awakenedSeer": "art/catalog-clear/awakenedSeer-v1.png",
+  "stoneGargoyle": "art/catalog-clear/stoneGargoyle-v1.png"
+});
+export function catalogImage(role,fallback){return CATALOG_CLEAR[role]||fallback;}
+export function catalogFallback(image,fallback){image.addEventListener('error',()=>{if(image.getAttribute('src')!==fallback)image.src=fallback;},{once:true});}
