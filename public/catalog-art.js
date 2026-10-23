@@ -1,4 +1,4 @@
-// Catalog-only derivatives. ROLE_DATA originals remain authoritative for recap and online cards.
+// Approved frame-clear derivatives for the catalog and online card artwork. Recap retains ROLE_DATA originals.
 export const CATALOG_CLEAR=Object.freeze({
   "evilKnight": "art/catalog-clear/evilKnight-v1.png",
   "gargoyle": "art/catalog-clear/gargoyle-v1.png",
