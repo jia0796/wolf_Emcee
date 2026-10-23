@@ -5,13 +5,14 @@
 [開啟 App](https://jia0796.github.io/wolf_Emcee/) · [現行設計](DESIGN.md) · [本輪測試與回退報告](docs/liquid-glass-catalog-report.md)
 
 
-## 2026-10-24｜液態玻璃與完整角色卡去黑邊
+## 2026-10-24｜液態玻璃與完整角色卡去黑邊（已實作、已部署）
 
 - 已核准的獨立預覽正式整合：保留原背景、按鍵大小、位置、字體、行高、字距及間距，只更新玻璃填色、圓角、高光、陰影與模糊材質。
 - 31 個角色圖鑑清單與翻卡正面採獨立透明衍生圖，移除卡框外黑底；完整保留金框／紫框、月亮、人物、框內背景與角色原文。原圖及歷史縮圖不覆寫；復盤與線上角色牌仍使用原圖。
 - 圖鑑衍生圖失敗時退回原圖，沿用清單懶載入與既有每批兩張的漸進快取。新素材約 66.7 MiB，首次快取所需流量增加；不阻塞進入 App。存檔仍 v22，快取資源版號 council-v22-16。
 - 現行視覺規格只看 [DESIGN.md](DESIGN.md)；被取代的首頁 20% 透明度、金色下一步、舊圖鑑外框與「待施工」敘述已自現行文件移除。既有遊戲規則、投票、計時器與開場動畫仍保留。
-- 測試及部署狀態以 [本輪報告](docs/liquid-glass-catalog-report.md) 為準，未測真機不視為通過。
+- 發布 Commit `2b07b7ae49829f155b4647f677a0d3366dccd23a`，[Pages 發布成功](https://github.com/jia0796/wolf_Emcee/actions/runs/39999799560)。未合併 main。
+- 實測：`npm test` 949 通過／0 失敗／0 跳過；28 板完整瀏覽器回歸共 38 組、材質／圖鑑專項 47 組、投票／模擬房間 30 組通過。正式站完整重跑 47 組通過，19 程式／背景及31新圖雜湊一致。首次正式站載圖 fallback 失敗、重跑及限制均記錄於 [本輪報告](docs/liquid-glass-catalog-report.md)；iPhone Safari／PWA／Android 仍待真機驗收。
 - 回退保護：線上原版 backup/live-before-liquid-glass-20261024 → 063c432b3a98eb202823d8aa3e5f0c050afff90f；本機預覽基準 backup/pre-liquid-glass-catalog-20261024 → 4ea1fe934d7ac6f5b15b2ea738e707c2a1dad38f。兩者均已推送及核對。
 
 ## 2026-10-23｜多人死亡技能頁字幕補正（已實作、已部署）

@@ -1,0 +1,188 @@
+[
+  {
+    "id": "evilKnight",
+    "status": 200,
+    "bytes": 2359285,
+    "match": true
+  },
+  {
+    "id": "gargoyle",
+    "status": 200,
+    "bytes": 2530113,
+    "match": true
+  },
+  {
+    "id": "gravekeeper",
+    "status": 200,
+    "bytes": 2390852,
+    "match": true
+  },
+  {
+    "id": "blood",
+    "status": 200,
+    "bytes": 2479700,
+    "match": true
+  },
+  {
+    "id": "demon",
+    "status": 200,
+    "bytes": 2689562,
+    "match": true
+  },
+  {
+    "id": "idiot",
+    "status": 200,
+    "bytes": 1949736,
+    "match": true
+  },
+  {
+    "id": "mixed",
+    "status": 200,
+    "bytes": 2289787,
+    "match": true
+  },
+  {
+    "id": "nightmare",
+    "status": 200,
+    "bytes": 2191657,
+    "match": true
+  },
+  {
+    "id": "dream",
+    "status": 200,
+    "bytes": 2272369,
+    "match": true
+  },
+  {
+    "id": "elder",
+    "status": 200,
+    "bytes": 2208590,
+    "match": true
+  },
+  {
+    "id": "younger",
+    "status": 200,
+    "bytes": 2044508,
+    "match": true
+  },
+  {
+    "id": "merchant",
+    "status": 200,
+    "bytes": 2239501,
+    "match": true
+  },
+  {
+    "id": "king",
+    "status": 200,
+    "bytes": 2157478,
+    "match": true
+  },
+  {
+    "id": "wolf",
+    "status": 200,
+    "bytes": 2219646,
+    "match": true
+  },
+  {
+    "id": "seer",
+    "status": 200,
+    "bytes": 2079063,
+    "match": true
+  },
+  {
+    "id": "witch",
+    "status": 200,
+    "bytes": 2067162,
+    "match": true
+  },
+  {
+    "id": "hunter",
+    "status": 200,
+    "bytes": 2274700,
+    "match": true
+  },
+  {
+    "id": "magician",
+    "status": 200,
+    "bytes": 2209599,
+    "match": true
+  },
+  {
+    "id": "villager",
+    "status": 200,
+    "bytes": 1972310,
+    "match": true
+  },
+  {
+    "id": "mechanical",
+    "status": 200,
+    "bytes": 2188840,
+    "match": true
+  },
+  {
+    "id": "medium",
+    "status": 200,
+    "bytes": 2224084,
+    "match": true
+  },
+  {
+    "id": "guard",
+    "status": 200,
+    "bytes": 2055244,
+    "match": true
+  },
+  {
+    "id": "seedWolf",
+    "status": 200,
+    "bytes": 2145892,
+    "match": true
+  },
+  {
+    "id": "hiddenWolf",
+    "status": 200,
+    "bytes": 2110144,
+    "match": true
+  },
+  {
+    "id": "beauty",
+    "status": 200,
+    "bytes": 2294692,
+    "match": true
+  },
+  {
+    "id": "duelist",
+    "status": 200,
+    "bytes": 2405214,
+    "match": true
+  },
+  {
+    "id": "dancer",
+    "status": 200,
+    "bytes": 2319203,
+    "match": true
+  },
+  {
+    "id": "mask",
+    "status": 200,
+    "bytes": 2299530,
+    "match": true
+  },
+  {
+    "id": "fragrance",
+    "status": 200,
+    "bytes": 2357085,
+    "match": true
+  },
+  {
+    "id": "awakenedSeer",
+    "status": 200,
+    "bytes": 2615035,
+    "match": true
+  },
+  {
+    "id": "stoneGargoyle",
+    "status": 200,
+    "bytes": 2313101,
+    "match": true
+  }
+]

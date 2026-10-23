@@ -1,0 +1,103 @@
+{
+  "base": "https://jia0796.github.io/wolf_Emcee/",
+  "passed": 19,
+  "failed": 0,
+  "textNormalization": "CRLF to LF",
+  "results": [
+    {
+      "file": "index.html",
+      "sha256": "00e1400b2fa5a4ef379a98ac60f1cb2776dc9d4ed2858dd82ea7dad6bd0eaa14",
+      "passed": true
+    },
+    {
+      "file": "style.css",
+      "sha256": "d85f10e86aa42026721a67be75290f55728c570d98c916a13f34c4bdd92745db",
+      "passed": true
+    },
+    {
+      "file": "b3.css",
+      "sha256": "dfb549d732e8172e95b367e01060c5356ffb3b47a509560145ef77ff2371cdad",
+      "passed": true
+    },
+    {
+      "file": "online.css",
+      "sha256": "962d4346dbad66694c0abb9bddaea748907898ce37dbb530af8b9c3482026f80",
+      "passed": true
+    },
+    {
+      "file": "liquid-glass.css",
+      "sha256": "ef575e2623bb9a1fa03e9e560e8ad7ba51558804d4fd9febb6766ebfa32c6afe",
+      "passed": true
+    },
+    {
+      "file": "app.js",
+      "sha256": "4e2398ea85c7a8b42834af5f7e393fd45bdb848a5eb9e5997f510043a591a500",
+      "passed": true
+    },
+    {
+      "file": "catalog-art.js",
+      "sha256": "e72e4f3ab81ab32df21d70ee01febb02e8c304ea7ed1d703eac301e26137dd5b",
+      "passed": true
+    },
+    {
+      "file": "b3-ui.js",
+      "sha256": "25632407eb674993738623702056b5063047ffc02b58a51369197455ace664d7",
+      "passed": true
+    },
+    {
+      "file": "sw.js",
+      "sha256": "424656a19a6baee689110fba856fe395f939cc324829027435a6b63c50ff2686",
+      "passed": true
+    },
+    {
+      "file": "cache-manifest.js",
+      "sha256": "33a86d01da4966ff4de18fb198347d0ad1deb38b557e5b76c4e1bc0fb4c1eb5a",
+      "passed": true
+    },
+    {
+      "file": "engine.js",
+      "sha256": "bd0b630d15f53ece174a64afbb78845ff601c27f39793b613a23a5991904174f",
+      "passed": true
+    },
+    {
+      "file": "data.js",
+      "sha256": "b0e0bd79f3218f05ee35fddaf4f4a1848fb75f32ab6bd4e71117adfd6b9ae3ec",
+      "passed": true
+    },
+    {
+      "file": "night.js",
+      "sha256": "c0713438e0d2691720b9027649129e9de0138c29aa6d2503df5706fb37ae9c13",
+      "passed": true
+    },
+    {
+      "file": "recap.js",
+      "sha256": "50eed331490a3ecbc36707ad8a38516a4bec0a6be94520ebe12faa2078c687cd",
+      "passed": true
+    },
+    {
+      "file": "online.js",
+      "sha256": "45e2cb93b7d5e80d7f2d4be66dc3dac1fb2dd4c6b80f982066592216f559b474",
+      "passed": true
+    },
+    {
+      "file": "art/backgrounds/lobby-shared.png",
+      "sha256": "6699db53e978d46013b758a87163f28f4ccd8140344f43c07cb1162138ca4688",
+      "passed": true
+    },
+    {
+      "file": "art/backgrounds/host-day.png",
+      "sha256": "67e471501c6db58889cf1850ad6cd84eebfb204ca3db2c801ef543fbb23678f3",
+      "passed": true
+    },
+    {
+      "file": "art/backgrounds/host-night.png",
+      "sha256": "4f06f805be0552605f8802df4148e31eb45fbd7a10e3edf0558ca5b3ad5222b3",
+      "passed": true
+    },
+    {
+      "file": "art/backgrounds/online-plaza-v3.png",
+      "sha256": "17b43325dbe3eeb7cd9298249b6c61326d87cc187009700103b2cbb7275fd035",
+      "passed": true
+    }
+  ]
+}

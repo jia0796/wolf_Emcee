@@ -1,0 +1,126 @@
+[
+  {
+    "id": "evilKnight",
+    "src": "art/catalog-clear/evilKnight-v1.png"
+  },
+  {
+    "id": "gargoyle",
+    "src": "art/catalog-clear/gargoyle-v1.png"
+  },
+  {
+    "id": "blood",
+    "src": "art/catalog-clear/blood-v1.png"
+  },
+  {
+    "id": "nightmare",
+    "src": "art/catalog-clear/nightmare-v1.png"
+  },
+  {
+    "id": "elder",
+    "src": "art/catalog-clear/elder-v1.png"
+  },
+  {
+    "id": "younger",
+    "src": "art/catalog-clear/younger-v1.png"
+  },
+  {
+    "id": "king",
+    "src": "art/catalog-clear/king-v1.png"
+  },
+  {
+    "id": "wolf",
+    "src": "art/catalog-clear/wolf-v1.png"
+  },
+  {
+    "id": "mechanical",
+    "src": "art/catalog-clear/mechanical-v1.png"
+  },
+  {
+    "id": "seedWolf",
+    "src": "art/catalog-clear/seedWolf-v1.png"
+  },
+  {
+    "id": "hiddenWolf",
+    "src": "art/catalog-clear/hiddenWolf-v1.png"
+  },
+  {
+    "id": "beauty",
+    "src": "art/catalog-clear/beauty-v1.png"
+  },
+  {
+    "id": "mask",
+    "src": "art/catalog-clear/mask-v1.png"
+  },
+  {
+    "id": "fragrance",
+    "src": "art/catalog-clear/fragrance-v1.png"
+  },
+  {
+    "id": "stoneGargoyle",
+    "src": "art/catalog-clear/stoneGargoyle-v1.png"
+  },
+  {
+    "id": "gravekeeper",
+    "src": "art/catalog-clear/gravekeeper-v1.png"
+  },
+  {
+    "id": "demon",
+    "src": "art/catalog-clear/demon-v1.png"
+  },
+  {
+    "id": "idiot",
+    "src": "art/catalog-clear/idiot-v1.png"
+  },
+  {
+    "id": "dream",
+    "src": "art/catalog-clear/dream-v1.png"
+  },
+  {
+    "id": "merchant",
+    "src": "art/catalog-clear/merchant-v1.png"
+  },
+  {
+    "id": "seer",
+    "src": "art/catalog-clear/seer-v1.png"
+  },
+  {
+    "id": "witch",
+    "src": "art/catalog-clear/witch-v1.png"
+  },
+  {
+    "id": "hunter",
+    "src": "art/catalog-clear/hunter-v2.png"
+  },
+  {
+    "id": "magician",
+    "src": "art/catalog-clear/magician-v1.png"
+  },
+  {
+    "id": "medium",
+    "src": "art/catalog-clear/medium-v1.png"
+  },
+  {
+    "id": "guard",
+    "src": "art/catalog-clear/guard-v1.png"
+  },
+  {
+    "id": "duelist",
+    "src": "art/catalog-clear/duelist-v1.png"
+  },
+  {
+    "id": "dancer",
+    "src": "art/catalog-clear/dancer-v1.png"
+  },
+  {
+    "id": "awakenedSeer",
+    "src": "art/catalog-clear/awakenedSeer-v1.png"
+  },
+  {
+    "id": "mixed",
+    "src": "art/catalog-clear/mixed-v1.png"
+  },
+  {
+    "id": "villager",
+    "src": "art/catalog-clear/villager-v2.png"
+  }
+]

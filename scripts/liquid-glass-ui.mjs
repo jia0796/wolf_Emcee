@@ -11,12 +11,12 @@ if(server)await new Promise((resolve,reject)=>{server.stdout.once('data',resolve
 const out=new URL(process.env.UI_OUTPUT||'../docs/liquid-glass-evidence/local/',import.meta.url);
 const assets=JSON.parse(await readFile(new URL('../docs/catalog-clear-assets.json',import.meta.url),'utf8'));
 await mkdir(out,{recursive:true});
-const browser=await chromium.launch({channel:'msedge',headless:true}),results=[],errors=[];
+const browser=await chromium.launch({channel:'msedge',headless:true}),results=[],errors=[],networkFailures=[];
 const shot=(p,name)=>p.screenshot({path:fileURLToPath(new URL(name+'.png',out)),animations:'disabled'});
 async function context(viewport,sw='block'){
  const c=await browser.newContext({viewport,reducedMotion:'reduce',serviceWorkers:sw});
  await c.route('**/*.supabase.co/**',r=>r.abort());
- const p=await c.newPage();p.on('pageerror',e=>errors.push(String(e)));await p.goto(base);
+ const p=await c.newPage();p.on('pageerror',e=>errors.push(String(e)));p.on('requestfailed',r=>networkFailures.push({url:r.url(),failure:r.failure()}));await p.goto(base);
  await p.locator('#start').waitFor();return {c,p};
 }
 async function fixture(p,step){
@@ -50,8 +50,8 @@ try{
   let checked=0;for(const camp of ['#libraryWolves','#libraryGood']){
    await p.locator(camp).click();const cards=p.locator('#roleLibrary [data-role]');
    for(let i=0;i<await cards.count();i++){
-    const card=cards.nth(i),id=await card.getAttribute('data-role'),asset=assets.find(a=>a.id===id);assert.ok(asset);
-    await card.scrollIntoViewIfNeeded();await card.locator('img').evaluate(img=>img.decode());assert.ok((await card.locator('img').getAttribute('src')).endsWith(asset.derived));
+    const card=cards.nth(i),id=await card.getAttribute('data-role'),asset=assets.find(a=>a.id===id);assert.ok(asset);console.log(`catalog ${width} ${id}`);
+    await card.scrollIntoViewIfNeeded();await card.locator('img').evaluate(img=>img.decode());assert.ok((await card.locator('img').getAttribute('src')).endsWith(asset.derived),`${id}/${width}: ${await card.locator('img').getAttribute('src')}`);
     await card.click();await p.locator('#previewFront img').evaluate(img=>img.decode());assert.ok((await p.locator('#previewFront img').getAttribute('src')).endsWith(asset.derived));
     if(width===390&&id==='seer')await shot(p,'seer-card');
     await p.locator('#previewCard').click();assert.equal(await p.locator('#previewCard').getAttribute('aria-pressed'),'true');await p.keyboard.press('Escape');checked++;
@@ -70,5 +70,5 @@ try{
  await offline.setOffline(true);await o.reload();await o.locator('#encyclopediaOpen').click();await o.locator('#libraryGood').click();await o.locator('[data-role="seer"]').click();await o.locator('#previewFront img').evaluate(img=>img.decode());assert.ok((await o.locator('#previewFront img').getAttribute('src')).includes('catalog-clear'));
  results.push({type:'offline',cachedRoles:31,appShell:true,flipFront:true});await offline.close();
  assert.deepEqual(errors,[]);
- await writeFile(new URL('results.json',out),JSON.stringify({base,passed:results.length,failed:0,errors,results},null,2));console.log(JSON.stringify({base,passed:results.length,failed:0}));
-}catch(error){await writeFile(new URL('failure.json',out),JSON.stringify({base,completed:results.length,error:String(error),errors,results},null,2));throw error;}finally{await browser.close();server?.kill();}
+ await writeFile(new URL('results.json',out),JSON.stringify({base,passed:results.length,failed:0,errors,networkFailures,results},null,2));console.log(JSON.stringify({base,passed:results.length,failed:0}));
+}catch(error){await writeFile(new URL('failure.json',out),JSON.stringify({base,completed:results.length,error:String(error),errors,networkFailures,results},null,2));throw error;}finally{await browser.close();server?.kill();}
