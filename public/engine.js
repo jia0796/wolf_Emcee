@@ -724,6 +724,7 @@ export function subtitle(s) {
   if(s.step==='announcement'){if(!s.deaths.length)return '昨晚是平安夜';const ids=[...s.deaths].sort((a,b)=>a.id-b.id).map(d=>d.id+'號').join('、');return s.night>1?'昨晚'+ids+'玩家被殺死，沒有遺言':s.deaths.length>1?'昨晚'+ids+'玩家被殺死':'昨晚'+s.deaths[0].id+'號被殺死';}
   if(s.step==='lastWords') return s.queue[0].cause==='selfDestruct'?`${s.queue[0].id}號玩家選擇自爆，請發表遺言`:s.queue[0].multi?`請${s.queue[0].id}號玩家發表遺言`:`${s.queue[0].id}號玩家出局，請發表遺言`;
   if(s.step==='bloodExile')return s.blood.lastActor+'號玩家出局';
+  if(s.step==='eliminated'&&s.night>1&&s.queue[0].multi&&deathSkill(s))return `${s.queue[0].id}號玩家，是否發動技能`;
   if(s.step==='eliminated') return `${s.queue[0].id}號玩家淘汰，沒有遺言。`;
   if(s.step==='skill') return subtitle({...s,step:hasLastWords(s,s.queue[0])?'lastWords':'eliminated'});
   // 沒有定稿台詞的頁面不新增主持字幕。

@@ -8,7 +8,7 @@ const pass=name=>{results.push({name,pass:true});console.log(name);};
 let context;
 async function fixture(p,options={}){await p.evaluate(async o=>{const {createGame,next}=await import('./engine.js'),{BOARDS}=await import('./data.js');const s=createGame(o.board||'classic12');let i=0;for(const[r,n]of Object.entries(BOARDS[s.boardId].roles))for(let j=0;j<n;j++)s.players[i++].role=r;s.rolesConfirmed=true;s.night=o.night||1;
  if(o.gesture){s.step=o.night===1?'mechanicalFirstGesture':'mechanicalHunterGesture';s.mechanical.role=o.learned;s.players.find(p=>p.role==='mechanical').alive=!o.dead;}
- else{s.step='announcement';s.deaths=[{id:s.players.find(p=>p.role==='hunter').id,cause:'attack'}];next(s);if(o.legacy)s.step='skill';}
+ else{s.step='announcement';s.deaths=[{id:s.players.find(p=>p.role==='hunter').id,cause:'attack'},...(o.multi?[{id:s.players.find(p=>p.role==='villager').id,cause:'poison'}]:[])];if(!o.announcement)next(s);if(o.legacy)s.step='skill';}
  localStorage.setItem('eclipse-host-v1',JSON.stringify(s));sessionStorage.setItem('eclipse-host-v1-screen','host');},options);await p.reload({waitUntil:'domcontentloaded'});await p.locator('#host').waitFor({state:'visible'});}
 try{
  for(const width of [320,375,390,430]){
@@ -19,6 +19,7 @@ try{
    const boxes=await p.locator('#actions button').evaluateAll(es=>es.map(e=>{const r=e.getBoundingClientRect();return {left:r.left,right:r.right,height:r.height};}));assert.ok(boxes.every(r=>r.left>=0&&r.right<=width+1));
    await p.screenshot({path:new URL(`death-${width}-${night}.png`,out).pathname.slice(1)});pass(`DSK ${width}px night${night}: modes, target, cancel, reload, undo`);
   }
+  await fixture(p,{night:2,multi:true,announcement:true});assert.match(await p.locator('#subtitle').textContent(),/昨晚.*玩家被殺死，沒有遺言/);await p.locator('#next').click();const actor=await p.evaluate(()=>JSON.parse(localStorage.getItem('eclipse-host-v1')).queue[0].id);const question=actor+'號玩家，是否發動技能';assert.equal(await p.locator('#subtitle').textContent(),question);assert.equal(await p.locator('#next').isDisabled(),true);await p.getByRole('button',{name:'不開槍',exact:true}).click();assert.equal(await p.locator('#next').isDisabled(),false);await p.getByRole('button',{name:'開槍',exact:true}).click();assert.equal(await p.locator('#next').isDisabled(),true);await p.locator('.seat:not(:disabled)').first().click();await p.reload();assert.equal(await p.locator('#subtitle').textContent(),question);assert.equal(await p.locator('#next').isDisabled(),false);await p.locator('#next').click();await p.locator('#back').click();assert.equal(await p.locator('#subtitle').textContent(),question);await p.screenshot({path:new URL(`multi-death-${width}.png`,out).pathname.slice(1)});pass(`DSK ${width}px multi-death question, original announcement and gun controls`);
   await fixture(p,{legacy:true,night:2});assert.match(await p.locator('#subtitle').textContent(),/淘汰，沒有遺言/);assert.equal(await p.locator('#next').isDisabled(),true);pass(`DSK ${width}px legacy skill recovery`);
   await context.close();
  }

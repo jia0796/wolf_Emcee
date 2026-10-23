@@ -70,3 +70,12 @@ for(const on of [false,true])for(const protection of ['shield','guard','cure','s
 test('MEC legacy first-night action retains controls with the fixed learning caption',()=>{const s=ready('mechanical12');s.takeover.flow=false;s.step='mechanicalAction';s.operation='learnTarget';assert.equal(subtitle(s),'選擇你要學習的對象');assert.equal(canNext(s),false);selectSeat(s,id(s,'hunter'));go(s);assert.equal(s.step,'mechanicalFirstGesture');assert.equal(mechanicalGunGesture(s),'可以開槍');});
 
 test('BRO ON preserves knight immunity in isolated damage projection',()=>{const s={boardId:'brothers12',rules:{revengeInvincible:true},players:[{id:1,role:'evilKnight'}]};assert.equal(attackProtection(s,{id:1,source:'revenge'},{dance:{protected:false,people:[]},shieldDamage:[]}), 'knightImmunity');});
+
+for(const night of [2,3])for(const source of ['hunter','mechanical','lucky'])test(`DSK multi-death skill question night ${night} ${source}`,()=>{
+ const s=ready(source==='mechanical'?'mechanical12':source==='lucky'?'brothers12':'classic12'),role=source==='lucky'?'villager':source,actor=id(s,role),other=s.players.find(p=>p.role==='villager'&&p.id!==actor).id;
+ if(source==='mechanical')s.mechanical.role='hunter';if(source==='lucky')s.lucky={seat:actor,ability:'gun',remaining:1,unlockDay:1};
+ s.night=night;s.step='announcement';s.deaths=[{id:actor,cause:'attack'},{id:other,cause:'poison'}];const announcement=subtitle(s);assert.match(announcement,/沒有遺言/);go(s);assert.equal(s.step,'eliminated');assert.equal(subtitle(s),actor+'號玩家，是否發動技能');assert.equal(canNext(s),false);assert.equal(subtitle(reload(s)),subtitle(s));choose(s,'skip');assert.equal(canNext(s),true);go(s);previous(s);assert.equal(subtitle(s),actor+'號玩家，是否發動技能');assert.equal(s.choice,'skip');
+});
+test('DSK multi-death question does not replace first-night, single-death or non-skill subtitles',()=>{
+ const s=ready(),hunter=id(s,'hunter'),civil=id(s,'villager');s.step='announcement';s.deaths=[{id:hunter,cause:'attack'},{id:civil,cause:'poison'}];go(s);assert.equal(subtitle(s),'請'+hunter+'號玩家發表遺言');s.night=2;s.step='eliminated';s.queue[0].multi=false;assert.equal(subtitle(s),hunter+'號玩家淘汰，沒有遺言。');s.queue[0].multi=true;s.queue[0].cause='poison';assert.equal(subtitle(s),hunter+'號玩家淘汰，沒有遺言。');
+});
