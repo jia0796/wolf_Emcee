@@ -1,0 +1,46 @@
+{
+  "publishedCommit": "83fd353f2efa272ba50f8f69388893b8d9aebf83",
+  "implementation": "af34f209a51d98918e378f680c7d8fda89b28c9d",
+  "url": "https://jia0796.github.io/wolf_Emcee/",
+  "workflow": "https://github.com/jia0796/wolf_Emcee/actions/runs/39889689411",
+  "conclusion": "success",
+  "verifiedAt": "2026-10-23T02:31:06.233Z",
+  "files": [
+    {
+      "file": "engine.js",
+      "status": 200,
+      "sha256": "256f2b3c21778746c139be2c70f593738f58406ece9a925b2106e26932e4f787",
+      "matchesCommit": true
+    },
+    {
+      "file": "app.js",
+      "status": 200,
+      "sha256": "4c880dd2eb84274e25c59b919057e31e28d7c253f3523dfe93f867f35547042a",
+      "matchesCommit": true
+    },
+    {
+      "file": "night.js",
+      "status": 200,
+      "sha256": "c0713438e0d2691720b9027649129e9de0138c29aa6d2503df5706fb37ae9c13",
+      "matchesCommit": true
+    },
+    {
+      "file": "data.js",
+      "status": 200,
+      "sha256": "b0e0bd79f3218f05ee35fddaf4f4a1848fb75f32ab6bd4e71117adfd6b9ae3ec",
+      "matchesCommit": true
+    },
+    {
+      "file": "b3-ui.js",
+      "status": 200,
+      "sha256": "25632407eb674993738623702056b5063047ffc02b58a51369197455ace664d7",
+      "matchesCommit": true
+    },
+    {
+      "file": "index.html",
+      "status": 200,
+      "sha256": "da6742b039ec1ee9dd680bb49b38b367cbae7e8c6df94700b72fd4ed963c3bfb",
+      "matchesCommit": true
+    }
+  ]
+}

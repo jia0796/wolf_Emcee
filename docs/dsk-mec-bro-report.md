@@ -1,6 +1,6 @@
 # WolfCue｜2026-10-23 實作與測試報告
 
-本輪完成 DSK-01、MEC-HUNTER-01、BRO-REVENGE-01，以及使用者施工中追加的縮小計時器直接拖曳／重置後開始。以下為本機驗證結果，**尚未部署，也未推送 App 開發分支**。只有施工前備份已推送並確認遠端 SHA。
+本輪完成 DSK-01、MEC-HUNTER-01、BRO-REVENGE-01，以及使用者施工中追加的縮小計時器直接拖曳／重置後開始。已依使用者後續明確授權推送 `feat/eclipse-host-app` 並部署 GitHub Pages，正式站驗收完成。保留以下本機結果，並補充部署後結果；未合併 main 或修改遠端資料服務。
 
 ## Git 基準與版本
 
@@ -8,6 +8,9 @@
 - 原始 Commit：`b4b7a3d9584698a6600dde74a840c91a89ec5ad3`。
 - 遠端備份：`backup/pre-dsk-mec-bro-20261023`，`git ls-remote` 已確認指向原始 Commit。
 - 實作 Commit：`af34f209a51d98918e378f680c7d8fda89b28c9d`。
+- 實際發布 Commit：`83fd353f2efa272ba50f8f69388893b8d9aebf83`。
+- [GitHub Pages 發布成功](https://github.com/jia0796/wolf_Emcee/actions/runs/39889689411)：CI 的 `npm test`、build、deploy 均成功。
+- 正式網址：[WolfCue](https://jia0796.github.io/wolf_Emcee/)。
 - 存檔仍為 v22；未刪除歷史快照、角色資料或正式復盤資料。
 - Service Worker、快取版本及策略未改動。既有 JavaScript 網路優先／離線回退機制仍適用。
 
@@ -25,7 +28,7 @@
 
 ## 實際執行結果
 
-環境：Windows、Node.js 24.21.0、Playwright＋Microsoft Edge headless。本機網站為 `http://127.0.0.1:5173/`；全站腳本另開本機服務。沒有對 Supabase、線上房間或正式站寫入資料。
+環境：Windows、Node.js 24.21.0、Playwright＋Microsoft Edge headless。本機網站為 `http://127.0.0.1:5173/`；全站腳本另開本機服務。沒有對 Supabase 或線上房間寫入資料。正式站測試只在獨立瀏覽器儲存虛構測試局，雲端連線以路由封鎖。
 
 | 指令 | 通過 | 失敗 | 跳過 |
 |---|---:|---:|---:|
@@ -34,6 +37,15 @@
 | `node scripts/host01-03-ui.mjs` | 41 組 | 0 | 0 |
 | `node scripts/ui-regression.mjs` | 38 組 | 0 | 0 |
 | `node scripts/host01-03-offline.mjs` | 3 組 | 0 | 0 |
+
+### 正式站部署後驗收
+
+- `UI_BASE=https://jia0796.github.io/wolf_Emcee/ node scripts/dsk-mec-bro-ui.mjs`：**26 通過、0 失敗、0 跳過**。
+- 同網址 `node scripts/host01-03-ui.mjs`：**41 通過、0 失敗、0 跳過**。
+- 同網址 `node scripts/host01-03-offline.mjs`：**3 通過、0 失敗、0 跳過**。
+- 六個正式站檔案 `engine.js`、`app.js`、`night.js`、`data.js`、`b3-ui.js`、`index.html` 均 HTTP 200，SHA256 與發布 Commit 完全一致。證據：[deployment.json](dsk-mec-bro-evidence/deployment.json)。
+- 實際擷取首夜「若學獵人，今晚的開槍手勢」及第二晚「今晚的開槍手勢」；正式站手勢提示正確。截圖為虛構測試存檔，沒有建立線上房間。
+- 未把本機 38 組全站 UI 算成部署後重跑；發布後實際重跑的是以上 70 組。
 
 上述各套件有重疊涵蓋範圍，不把組數視為互不重複的獨立案例。瀏覽器輸出均有最終結果檔，錯誤清單為空。
 
@@ -72,7 +84,7 @@
 - 比對基準：26 個技能 SVG、人物插畫、背景、`takeover.js`、`records.js`、`recap.js`、`timer.js`、`votes.js`、`vote-ui.js`、線上發牌檔案、backend、Service Worker 與快取清單均無修改；詳見 [scope.json](dsk-mec-bro-evidence/scope.json)。
 - 原要求不動 HOST-02，之後使用者明確追加直接拖曳與縮小視窗開始，因此本輪包含這兩項呈現／操作修正；HOST-03 投票邏輯未修改。
 - **iPhone Safari、安裝版 iOS PWA、Android、低階裝置真機：未驗收**。尤其直接拖曳與 Safari 網址列伸縮、真實雙指手勢仍需實機確認；桌面觸控模擬不代表真機通過。
-- **正式站部署後驗收：未執行**。依本輪 README 交付邊界，目前先保存實作與測試；沒有合併 main、部署網站或變更遠端資料服務。
+- **正式站已部署並完成 70 組驗收**。後續使用者明確授權部署，取代原本等待發布的狀態；未合併 main 或變更 Supabase／Google Drive。
 - 未發現本輪已執行測試仍失敗的項目。未執行所有歷史專項腳本，不能宣稱所有未執行腳本也通過。
 
 ## 證據與畫面
@@ -86,6 +98,14 @@
 - [320px 遺言開槍頁](dsk-mec-bro-evidence/ui/death-320-1.png)
 - [狼弟當局房規摘要](dsk-mec-bro-evidence/ui/brothers-rule.png)
 - [縮小計時器觸控模擬](dsk-mec-bro-evidence/host/mini-touch.png)
+
+### 正式站證據
+
+- [新功能 26 組](dsk-mec-bro-evidence/live-ui/results.json)
+- [計時器／投票 41 組](dsk-mec-bro-evidence/live-host/results.json)
+- [離線 3 組](dsk-mec-bro-evidence/live-host/offline-results.json)
+- [首夜機械狼新字幕](dsk-mec-bro-evidence/live-ui/mechanical-night-1.png)
+- [第二晚機械狼手勢字幕](dsk-mec-bro-evidence/live-ui/mechanical-night-2.png)
 
 ## 安全回退
 

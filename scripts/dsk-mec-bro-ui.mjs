@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import {mkdir,writeFile} from 'node:fs/promises';
 process.env.PW_TEST_SCREENSHOT_NO_FONTS_READY='1';
 const {chromium}=await import(process.env.COUNCIL_PLAYWRIGHT_MODULE||'playwright');
-const base=process.env.UI_BASE||'http://127.0.0.1:5173/',out=new URL('../docs/dsk-mec-bro-evidence/ui/',import.meta.url);await mkdir(out,{recursive:true});
+const base=process.env.UI_BASE||'http://127.0.0.1:5173/',out=new URL(process.env.DSK_OUTPUT||'../docs/dsk-mec-bro-evidence/ui/',import.meta.url);await mkdir(out,{recursive:true});
 const browser=await chromium.launch({channel:'msedge',headless:true}),results=[],errors=[];
 const pass=name=>{results.push({name,pass:true});console.log(name);};
 let context;
