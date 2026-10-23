@@ -56,3 +56,36 @@ body[data-screen=online]::before{background-image:none}
 #hostModeDialog .primary,#online .primary{background:linear-gradient(135deg,#b2dbe5d9,#638caaa6);border:1px solid #d4f1fa;color:#102b3c;box-shadow:inset 0 1px 0 #ffffff75,0 4px 18px #82c6df18;font-weight:700}
 @media(max-width:340px){.online-ring button{width:46px;height:54px;font-size:12px}.online-ring button strong{font-size:18px}.online-head h1{font-size:17px}}
 @media(prefers-reduced-motion:reduce){.online-card-inner{transition:none}}
+
+/* Glass review, stage 3: stable seat geometry, original card faces and room behavior. */
+#online :is(.online-head,.online-footer,.online-qr-info)>button{
+ position:relative;
+ background-image:linear-gradient(115deg,rgb(178 219 229 / .16),transparent 48%),linear-gradient(170deg,transparent 58%,rgb(232 208 155 / .045));
+ border-color:var(--review-edge);box-shadow:var(--review-shadow);
+ backdrop-filter:blur(10px) saturate(110%);-webkit-backdrop-filter:blur(10px) saturate(110%);
+}
+/* Reflect the plaza's cool sky and restrained lantern light without painting over labels. */
+#online :is(#onlineLibrary,#onlineCopy,#onlineLeave,#onlineHome){background-color:rgb(27 49 66 / .56);text-shadow:0 1px 3px rgb(8 20 32 / .8)}
+#online :is(.online-head,.online-footer,.online-qr-info)>button::before{content:'';position:absolute;top:2px;left:14px;right:14px;height:1px;background:linear-gradient(90deg,transparent,rgb(244 248 249 / .48),transparent);pointer-events:none}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){#online :is(#onlineLibrary,#onlineCopy,#onlineLeave,#onlineHome){background-color:rgb(27 49 66 / .88)}}
+#online #onlineDeal:not(.not-full){
+ background-image:linear-gradient(135deg,rgb(237 249 250 / .47),transparent 50%,rgb(74 133 153 / .18));
+ background-color:rgb(178 219 229 / .7);border-color:rgb(210 238 244 / .8);color:var(--b3-on-primary);
+}
+#online #onlineDeal.not-full{background-color:rgb(27 49 66 / .78);background-image:var(--review-sheen);color:var(--b3-text-secondary);box-shadow:inset 0 1px 0 rgb(244 248 249 / .12)}
+#onlineQR{background-image:var(--review-sheen);box-shadow:inset 0 1px 0 rgb(244 248 249 / .18),0 6px 16px rgb(3 12 23 / .12)}
+#online .online-qr-frame{box-shadow:inset 0 1px 0 rgb(244 248 249 / .35),0 6px 16px rgb(3 12 23 / .16)}
+#onlineRing button{
+ background-image:linear-gradient(120deg,rgb(178 219 229 / .065),transparent 65%);
+ box-shadow:inset 0 1px 0 rgb(244 248 249 / .22),inset 0 -1px 0 rgb(8 20 32 / .24),0 4px 10px rgb(3 12 23 / .2);
+}
+#onlineRing button.occupied{background-image:linear-gradient(120deg,rgb(232 208 155 / .07),transparent 65%)}
+#onlineRing button.mine{background-image:linear-gradient(135deg,rgb(237 249 250 / .47),transparent 50%,rgb(74 133 153 / .18));box-shadow:inset 0 1px 0 rgb(244 248 249 / .45),0 0 0 2px rgb(178 219 229 / .15),0 6px 16px rgb(3 12 23 / .18)}
+/* Only opacity animates; never move a seat or delay server-confirmed state. */
+#onlineRing button::after{content:'';position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 1px var(--b3-primary),inset 0 0 18px rgb(178 219 229 / .14);opacity:0;transition:opacity .14s ease-out;pointer-events:none}
+#onlineRing button:active:not(:disabled)::after,#onlineRing button.pending::after{opacity:1}
+#onlineRing button.pending{border-color:var(--b3-text)}
+#online :is(button:not(.online-card)):focus-visible{outline:2px solid var(--b3-text);outline-offset:-3px}
+#online :is(.online-head,.online-footer,.online-qr-info)>button:active:not(:disabled){box-shadow:inset 0 2px 8px rgb(8 20 32 / .22),inset 0 0 0 1px var(--b3-primary)}
+@media(hover:hover) and (pointer:fine){#onlineRing button:hover:not(:disabled)::after{opacity:.65}}
+@media(prefers-reduced-motion:reduce){#onlineRing button::after{transition:none}}

@@ -48,7 +48,7 @@ export function createMiniTimer({read,pause,start,reset,restore}){
 
 // Presentation state only: never receives or writes a game/save/history object.
 export function backgroundSource(screen,phase){
- return screen==='online'?'art/backgrounds/online-plaza-v3.png':screen==='host'?HOST_BACKGROUNDS[phase==='夜晚'?'night':'day']:PAGE_BACKGROUNDS[screen];
+ return screen==='online'?'art/backgrounds/online-plaza-v4.png':screen==='host'?HOST_BACKGROUNDS[phase==='夜晚'?'night':'day']:PAGE_BACKGROUNDS[screen];
 }
 export function hostPresentation(phase,step,night){
  const preparing=step==='confirm';return {phase:preparing?'白天':phase,label:'第'+night+'天・'+(preparing?'準備階段':phase),preparing};

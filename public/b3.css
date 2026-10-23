@@ -287,7 +287,7 @@ body[data-screen=home][data-lobby-managed]{background-image:none}
 @media(prefers-reduced-motion:reduce){.mini-timer.dragging{translate:none}}
 
 /* Glass review, stage 2: home and host paint only. Keep geometry, states and assets. */
-:is(#home,#host){
+:is(#home,#host,#voteDialog,#exileVoteDialog,#online){
  --review-sheen:linear-gradient(120deg,rgb(244 248 249 / .12),transparent 40%,rgb(178 219 229 / .025) 72%);
  --review-edge:rgb(178 219 229 / .38);
  --review-shadow:inset 0 1px 0 rgb(244 248 249 / .3),inset 0 -1px 0 rgb(8 20 32 / .24),0 6px 16px rgb(3 12 23 / .15);
@@ -334,3 +334,44 @@ body #host :is(.host-top>div,footer,nav)>button:disabled{
 }
 body #home :is(button,a):active:not(:disabled),body #host :is(.host-top>div,footer,nav)>button:active:not(:disabled){box-shadow:inset 0 2px 8px rgb(8 20 32 / .22),inset 0 0 0 1px rgb(178 219 229 / .2)}
 /* Background alpha and existing blur fallback are inherited, not replaced. */
+
+/* Glass review, stage 3. R03/R12 structure and ballot state remain authoritative. */
+:is(#voteDialog,#exileVoteDialog){
+ background-image:var(--review-sheen);border-color:var(--review-edge);
+ box-shadow:inset 0 1px 0 rgb(244 248 249 / .24),0 18px 48px rgb(3 14 25 / .4);
+}
+:is(#voteDialog,#exileVoteDialog) button{
+ background-image:var(--review-sheen);box-shadow:var(--review-shadow);
+}
+:is(#voteDialog,#exileVoteDialog) .vote-modes button[aria-pressed=true]{
+ background-image:linear-gradient(120deg,rgb(178 219 229 / .13),transparent 70%);
+ box-shadow:inset 0 -2px 0 var(--b3-primary),inset 0 1px 0 rgb(244 248 249 / .28);
+}
+#exileVoteDialog #exileTargetSummary,#voteDialog .vote-step,#exileVoteDialog #exileCurrentVoter{
+ background-image:linear-gradient(110deg,rgb(178 219 229 / .1),transparent 68%);
+ box-shadow:inset 3px 0 0 rgb(178 219 229 / .55),inset 0 1px 0 rgb(244 248 249 / .16);
+}
+#exileVoteDialog .exile-voter-section{border-top-color:var(--review-edge)}
+#exileVoteDialog .exile-section-title{color:var(--b3-text)}
+#exileVoteDialog .exile-section-help{color:var(--b3-text-secondary)}
+#exileVoteDialog .exile-candidates{box-shadow:inset 0 1px 0 rgb(244 248 249 / .12),0 8px 20px rgb(3 12 23 / .2)}
+#exileVoteDialog .exile-voters button:not(.ballot-selected),#voteDialog #voteVoters button:not(.ballot-selected){
+ background-image:linear-gradient(120deg,rgb(244 248 249 / .055),transparent 65%);
+ box-shadow:inset 0 1px 0 rgb(244 248 249 / .15),inset 0 -1px 0 rgb(8 20 32 / .24);
+}
+/* Keep the existing checkmark, text labels and actual selection conditions. */
+#exileVoteDialog .exile-voters button.ballot-selected{
+ background-image:linear-gradient(120deg,rgb(178 219 229 / .13),transparent 70%)!important;
+ box-shadow:inset 0 0 0 1px rgb(178 219 229 / .3),inset 0 1px 0 rgb(244 248 249 / .28)!important;
+}
+#voteDialog #voteVoters button.ballot-selected{background-image:linear-gradient(120deg,rgb(178 219 229 / .13),transparent 70%);box-shadow:inset 0 0 0 1px rgb(178 219 229 / .3),inset 0 1px 0 rgb(244 248 249 / .28)}
+:is(#voteDialog,#exileVoteDialog) :is(#voteDone,#voteNext,#exileVoteDone,#exileNext){
+ background-image:linear-gradient(135deg,rgb(237 249 250 / .47),transparent 50%,rgb(74 133 153 / .18));
+ box-shadow:var(--review-shadow);
+}
+:is(#voteDialog,#exileVoteDialog) :is(button,summary):focus-visible{outline:2px solid var(--b3-text);outline-offset:-3px}
+:is(#voteDialog,#exileVoteDialog) :is(#voteProgress,#exileProgress,#voteStepCount,small){font-variant-numeric:tabular-nums}
+:is(#voteDialog,#exileVoteDialog) button:active:not(:disabled){box-shadow:inset 0 2px 8px rgb(8 20 32 / .22),inset 0 0 0 1px var(--b3-primary)}
+@media(hover:hover) and (pointer:fine){
+ :is(#voteDialog,#exileVoteDialog) button:hover:not(:disabled){outline:1px solid rgb(178 219 229 / .55);outline-offset:-2px}
+}
