@@ -5,6 +5,13 @@
 [開啟App](https://jia0796.github.io/wolf_Emcee/) · [R10～R16完成／部署報告](docs/b3-r10-r16-report.md) · [本輪逐項驗證](docs/b3-r10-r16-validation.json) · [前輪報告](docs/b3-r01-r09-report.md) · [票型報告](docs/vote62-report.md) · [接刀報告](docs/takeover-nightknife-report.md)
 
 
+## 2026-10-23｜多人死亡技能頁字幕補正（已實作、已部署）
+
+- 第二天起多人夜間死亡，名單中有合法槍技能的玩家，其原無遺言技能操作頁字幕改為 **「X號玩家，是否發動技能」**，不另加流程步驟。多人死亡公告與原開槍／不開槍、目標、下一步阻擋、消耗及結算照舊。
+- 首夜、單人死亡及沒有合法技能者維持原字幕。
+- 驗證：完整 `npm test` **946 通過／0 失敗／0 跳過**；本機及正式站相關 UI 各 **30 組通過**。Safari／PWA／Android 真機仍待驗收。
+- 程式 Commit `7ebb9e3b331a82d27b68cfc12bff2283ab96ffcc`；[Pages 發布成功](https://github.com/jia0796/wolf_Emcee/actions/runs/39893615825)。[測試報告及回退方式](docs/multi-death-cue-report.md)。
+
 ## 2026-10-23｜死亡技能併頁／機通獵人手勢／狼弟復仇刀特殊房規（已實作、已部署、正式站驗證通過）
 
 > **施工狀態**：三項規格與本輪追加的縮小計時器優化已完成，程式提交 `af34f209a51d98918e378f680c7d8fda89b28c9d`。`npm test` **939 通過／0 失敗／0 跳過**；新功能 UI 26、HOST UI 41、全站 UI 38、離線 3 組均通過。已依使用者後續授權推送並部署至 GitHub Pages（發布版本 `83fd353f2efa272ba50f8f69388893b8d9aebf83`）；正式站新功能 UI 26、HOST UI 41、離線 3 組均通過，六個發布檔案 SHA256 與提交一致。[部署成功紀錄](https://github.com/jia0796/wolf_Emcee/actions/runs/39889689411)。main、Supabase 與 Google Drive 未變更。Safari／PWA／Android 真機待驗收。
