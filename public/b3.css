@@ -285,3 +285,52 @@ body[data-screen=home][data-lobby-managed]{background-image:none}
 .batch-records>p:only-child{display:none}
 #exileVoters[data-complete="true"]{display:block}
 @media(prefers-reduced-motion:reduce){.mini-timer.dragging{translate:none}}
+
+/* Glass review, stage 2: home and host paint only. Keep geometry, states and assets. */
+:is(#home,#host){
+ --review-sheen:linear-gradient(120deg,rgb(244 248 249 / .12),transparent 40%,rgb(178 219 229 / .025) 72%);
+ --review-edge:rgb(178 219 229 / .38);
+ --review-shadow:inset 0 1px 0 rgb(244 248 249 / .3),inset 0 -1px 0 rgb(8 20 32 / .24),0 6px 16px rgb(3 12 23 / .15);
+}
+body #home :is(button#start,button#encyclopediaOpen,a#problemReport){
+ background-image:var(--review-sheen);border-color:var(--review-edge);box-shadow:var(--review-shadow);
+}
+body #home button#start{
+ background-image:linear-gradient(118deg,rgb(178 219 229 / .3),rgb(178 219 229 / .06) 58%,rgb(178 219 229 / .15));
+ border-color:var(--b3-primary);
+ box-shadow:inset 0 1px 0 rgb(244 248 249 / .45),inset 0 -1px 0 rgb(178 219 229 / .22),0 0 0 3px rgb(178 219 229 / .05),0 8px 20px rgb(3 12 23 / .2);
+}
+body #home .menu button::before{
+ content:'';inset:3px 12px auto;height:1px;border-radius:0;
+ background:linear-gradient(90deg,transparent,rgb(244 248 249 / .55),transparent);
+}
+body #home :is(.menu button,#problemReport)::after{
+ background:none;box-shadow:inset 1px 0 0 rgb(178 219 229 / .12),inset -1px 0 0 rgb(178 219 229 / .08);
+}
+#host .host-center{
+ background-image:var(--review-sheen);border-color:var(--review-edge);
+ box-shadow:inset 0 1px 0 rgb(244 248 249 / .2),0 10px 28px rgb(4 14 25 / .14);
+}
+#host :is(#phase,#boardName){background-image:var(--review-sheen);border-color:var(--review-edge);box-shadow:inset 0 1px 0 rgb(244 248 249 / .14)}
+#host .script-box::after{background:linear-gradient(90deg,transparent,rgb(178 219 229 / .45) 22%,rgb(178 219 229 / .45) 78%,transparent)}
+#host .seat{background-image:linear-gradient(120deg,rgb(178 219 229 / .065),transparent 65%);box-shadow:inset 0 1px 0 rgb(244 248 249 / .12)}
+#host :is(#left,#right) .seat:is(.selected,.target,.vote-selected){
+ background-image:linear-gradient(120deg,rgb(178 219 229 / .13),transparent 70%);
+ box-shadow:inset 0 0 0 1px rgb(178 219 229 / .22),inset 0 1px 0 rgb(244 248 249 / .45);
+}
+#host .seat:active:not(:disabled){transform:none}
+body #host :is(.host-top>div,footer,nav)>button{
+ background-image:var(--review-sheen);border-color:var(--review-edge);box-shadow:var(--review-shadow);
+}
+body #host>nav #next{
+ background-image:linear-gradient(135deg,rgb(237 249 250 / .47),transparent 50%,rgb(74 133 153 / .18));
+ border-color:rgb(210 238 244 / .8);
+}
+#host .operation-row button::before{background-image:var(--review-sheen);border-color:var(--review-edge);box-shadow:inset 0 1px 0 rgb(244 248 249 / .14)}
+#host .operation-row button[aria-pressed=true]::before{border-color:var(--b3-primary);background-color:rgb(178 219 229 / .2)}
+body #host :is(.host-top>div,footer,nav)>button:disabled{
+ background-image:none;background-color:rgb(43 61 76 / .7);color:var(--b3-text-secondary);
+ border-color:rgb(140 166 181 / .22);box-shadow:inset 0 1px 0 rgb(244 248 249 / .07);text-shadow:none;
+}
+body #home :is(button,a):active:not(:disabled),body #host :is(.host-top>div,footer,nav)>button:active:not(:disabled){box-shadow:inset 0 2px 8px rgb(8 20 32 / .22),inset 0 0 0 1px rgb(178 219 229 / .2)}
+/* Background alpha and existing blur fallback are inherited, not replaced. */
