@@ -1,0 +1,31 @@
+{
+  "passed": 5,
+  "failed": 0,
+  "results": [
+    {
+      "file": "online.js",
+      "sha256": "5aba9e5994109738c0666fa61f4fa61381dfc55fb3e4f00a85bd30a6008a1fa1",
+      "passed": true
+    },
+    {
+      "file": "catalog-art.js",
+      "sha256": "930cd826a10c994b8cc8931fd945e93b40ac978e70ab23c796e6664909e0076d",
+      "passed": true
+    },
+    {
+      "file": "sw.js",
+      "sha256": "854e29f27af5d6fd527fbbcfd5be11526c7c1dbf0d601141e0d180544fdf97fd",
+      "passed": true
+    },
+    {
+      "file": "online.css",
+      "sha256": "962d4346dbad66694c0abb9bddaea748907898ce37dbb530af8b9c3482026f80",
+      "passed": true
+    },
+    {
+      "file": "liquid-glass.css",
+      "sha256": "ef575e2623bb9a1fa03e9e560e8ad7ba51558804d4fd9febb6766ebfa32c6afe",
+      "passed": true
+    }
+  ]
+}

@@ -21,6 +21,8 @@
 
 發布後可用 `git revert <本輪程式提交>` 撤銷此輪，不重置或覆寫後續歷史。若之後已有其他修改，處理衝突後再測試、提交。PWA 回退發布時使用新的快取版號，不清除玩家儲存資料。
 
+本輪程式提交：`14986af7a80ddf47d1a01a1cd1db97925cd84530`；撤銷指令 `git revert 14986af7a80ddf47d1a01a1cd1db97925cd84530`。
+
 ## 實際驗證
 
 - 本機線上卡 UI：**37 組通過、0 失敗、0 頁面例外**。390px 檢查全部31角色，320／430px 額外驗證預言家；33組圖片／原樣／蓋牌檢查、3組角色權限不明維持蓋牌、1組新圖失敗回原圖。
@@ -28,6 +30,15 @@
 - 原 CSS 與卡背保留；每張卡驗證原1px外框、18px圓角、漸層底色、contain圖片、90%圖片高度及下方職業名稱。
 - 完整 `npm test`：**949 通過、0 失敗、0 跳過、0 取消**；資源雜湊清單128項核對及 `git diff --check` 通過。
 - 390px 卡背修改前後截圖 SHA256 完全相同，見 `online-card-art-evidence/back-comparison.json`。所有 CSS 檔無修改。
-- 部署後結果於完成後補記；真機 Safari／iOS PWA／Android **未驗收**。
+- 部署後以同一腳本完整重跑：**37 組通過、0 失敗、0 頁面例外**。真機 Safari／iOS PWA／Android **未驗收**。
 
 本機結果：`online-card-art-evidence/local/results.json`。
+
+## 部署
+
+- [GitHub Pages 發布成功](https://github.com/jia0796/wolf_Emcee/actions/runs/40003558663)，build 與 deploy 均成功。
+- [Host flow tests 通過](https://github.com/jia0796/wolf_Emcee/actions/runs/40003558673)。
+- 正式站 online.js、catalog-art.js、sw.js、online.css、liquid-glass.css 共5檔 SHA256 與發布版本一致；文字僅正規化 CRLF／LF。見 `online-card-art-evidence/deployed-files.json`。
+- 正式站完整37組結果：`online-card-art-evidence/live/results.json`，涵蓋全部31角色圖片、原外框及職業名、蓋牌、手機尺寸、未確認角色與原圖 fallback。
+- 正式站截圖：[卡背](online-card-art-evidence/live/back.png)、[預言家](online-card-art-evidence/live/seer.png)、[狼人](online-card-art-evidence/live/wolf.png)、[平民](online-card-art-evidence/live/villager.png)。
+- 未合併 main、未修改雲端房間／Supabase／Google Drive。完成後只補上文件及測試證據，不再次改動 App。
