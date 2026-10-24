@@ -1,7 +1,7 @@
 {
   "environment": "Actual local Supabase Auth/Edge/Postgres/Realtime; in-memory URL/key substitution only",
   "fixture": "Terminal state is a transport fixture in a new test room, not a gameplay victory test",
-  "passed": 12,
+  "passed": 14,
   "failed": 0,
   "errors": [],
   "results": [
@@ -34,6 +34,10 @@
       "passed": true
     },
     {
+      "name": "server keeps full deal host-only and rejects forged identity, player end and premature recap",
+      "passed": true
+    },
+    {
       "name": "12 players immediately close room and render the exact host recap with home only",
       "passed": true
     },
@@ -51,6 +55,10 @@
     },
     {
       "name": "host recap keeps both original buttons and original confirmation flow",
+      "passed": true
+    },
+    {
+      "name": "manual dissolution still exits players to home without a fabricated recap; cross-room reads denied",
       "passed": true
     }
   ]

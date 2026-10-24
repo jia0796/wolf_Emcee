@@ -1,6 +1,6 @@
 # 線上主持身分與玩家復盤、淺色文字及縮小計時器測試報告
 
-日期：2026-10-24。儲存庫 jia0796/wolf_Emcee；施工分支 feat/eclipse-host-app。網站發布及發布後驗證結果於本報告末尾補記。
+日期：2026-10-24。儲存庫 jia0796/wolf_Emcee；施工分支 feat/eclipse-host-app。本輪已完成實作、本機測試、Supabase／網站部署及正式站驗證。
 
 ## 範圍與完成事項
 
@@ -40,12 +40,13 @@ public/engine.js、night.js、data.js、identity.js、records.js、recap.js、ti
 | backend：npm test | 1 | 0 | 0 |
 | backend：npm run test:integration | 41 | 0 | 0 |
 | node scripts/ui-regression.mjs | 38 組 | 0 | 0 |
-| node scripts/host-recap-ui.mjs | 12 組 | 0 | 0 |
+| node scripts/host-recap-ui.mjs（含補驗手動解散／跨房權限） | 14 組 | 0 | 0 |
 | node scripts/update-cache-manifest.mjs --check | 128 筆一致 | 0 | 0 |
 
 - 真實本機 Supabase：Auth、Postgres、Edge Runtime、私有 Realtime，不以假 API 代替。CLI 本機 reset 成功重建 migration 與 seed；其後驗證主持人 FK 索引。雲端 migration 與檔案版本統一為 20261024082212。
 - 全站瀏覽器回歸包含 28 板完整既有遊戲、刷新／上一步／重開、圖鑑、選人與投票，以及窄／短畫面及離線資源。結果共 38 組，不能把組數視為每項細節都已真機驗收。
 - 新連線介面驗證：12 位獨立 Auth 身分入座／個別角色、主持匯入／刷新／回退、淺色字、大小計時器同紅、全部玩家即時取得相同復盤、玩家只留回首頁、刷新恢復及不覆寫另一局存檔；主持原兩個按鈕與確認保留。
+- 補驗：玩家不得取得完整分配表／發動終局／偽造主持人；正式終局前不可取得復盤。另開 10 人測試房間，確認跨房讀取拒絕、手動解散讓玩家回首頁且不補造復盤。兩個本機與正式站測試房間均經正常終局／解散清除；正式站合成復盤按既定 24 小時到期機制清理。
 - 新後端 10 項定向測試包含 10／12 人、發牌前不公開復盤、未入座／跨房／偽造身分阻擋、錯誤復盤原子拒絕、重複／同時終局冪等、六張活動表級聯刪除、原角色 API 終局拒絕、手動解散不補復盤、過期與直接讀表／RPC 阻擋。
 - 新功能測試的 finished 狀態是專用測試房間的**傳輸用 fixture**，不是宣稱真人跑完整局獲勝；完整玩法回歸由原 28 板腳本另行執行。
 - 截圖與 JSON：host-recap-evidence/local/、host-recap-evidence/regression/。使用桌面 Edge／Playwright，不是真機 Safari。
@@ -72,11 +73,24 @@ iPhone Safari、安裝版 iOS PWA、Android／低階手機、動態網址列、�
 - 施工前完整 Commit：e0bea8cb60cb2c8593611fe7ec946b66eb91e376。
 - 遠端備份：backup/pre-online-host-recap-20261024，重新 ls-remote 核對相同 SHA。
 - 不重置分支、不覆蓋後續提交。回退本輪 App 可對本輪實作 Commit 執行 git revert，再正常 push 同一發布分支；先處理衝突並跑測試。文件結果提交可另行 revert，不影響後續其他提交。
+
+```powershell
+git switch feat/eclipse-host-app
+git revert aa889271302418a2f74116e2ca558145be6772ee
+npm test
+git push origin feat/eclipse-host-app
+```
+
+以上僅在工作樹已妥善保存、審查 revert 差異後執行。若已有後續同檔修改，以保留那些修改為前提解決衝突；不要使用 reset --hard 或 force push。
 - 新後端向後相容，**通常僅回退 App 即可，後端可暫時保留**。如確需完整回退，先發布舊 App，再以 rollback/20261024-room-v2.ts 還原 room；透過新 migration 套用 rollback/20261024-pre-host-recap.sql，恢復原 command／close_room／snapshot。保留 finished_recaps 表與已存資料，不 DROP、不清空使用者資料；expire_rooms 保留本輪的過期清理，直至暫存清理完成。不要把歷史 migration 刪除或標成未執行。
 - 後端回退檔案只供明確需要時使用，本輪未實際執行回退。
 
 ## 發布紀錄
 
 - Supabase wolfcue-online：migration 20261024082212 host_roles_player_recap 已成功；room Edge Function **v3 ACTIVE**，保留既有 verify_jwt=false 並由 auth.getUser() 驗證真正使用者。
-- GitHub Pages：發布中，部署後測試結果待補。
+- 程式 Commit：aa889271302418a2f74116e2ca558145be6772ee。
+- GitHub Pages：[發布成功](https://github.com/jia0796/wolf_Emcee/actions/runs/40078066699)；[同 SHA CI 通過](https://github.com/jia0796/wolf_Emcee/actions/runs/40078066719)。未合併 main。
+- 正式網址：https://jia0796.github.io/wolf_Emcee/ 。app.js／online.js／online-state.js／b3-ui.js／liquid-glass.css／sw.js 六檔 SHA256 全數與本機一致，證據 [deployed-files.json](host-recap-evidence/deployed-files.json)。
+- 部署後執行 HOST_RECAP_LIVE=1 node scripts/host-recap-ui.mjs：**14 組通過、0 失敗、0 頁面例外**。實際使用正式 Pages 與雲端 Auth／Edge／Postgres／Realtime，未替換 API、未使用真人房間。測試終局仍為明確標示的專用房間傳輸 fixture。
+- [正式站結果 JSON](host-recap-evidence/live/results.json)、[主持身分自動帶入](host-recap-evidence/live/host-imported.png)、[玩家復盤](host-recap-evidence/live/player-recap.png)、[米白按鈕](host-recap-evidence/live/ivory-confirmation.png)、[縮小計時器紅字](host-recap-evidence/live/mini-timer-red.png)。截圖等待原人物插畫載入後擷取；不是去背或更換復盤原圖。
 

@@ -1,0 +1,40 @@
+{
+  "results": [
+    {
+      "path": "app.js",
+      "status": 200,
+      "same": true,
+      "sha256": "0ecb189a6aece8748ed2673adfea16264e3fae459e9c3c050e8350dd5bd6a52d"
+    },
+    {
+      "path": "online.js",
+      "status": 200,
+      "same": true,
+      "sha256": "03864d088efbb8afd9108092dbcfe8327e7bb3d71e4d5a54e83007d78b3ccb89"
+    },
+    {
+      "path": "online-state.js",
+      "status": 200,
+      "same": true,
+      "sha256": "589eb21efce33beb8f4ee258a77ae857ece66d3c662c464af766af5c6e745e1d"
+    },
+    {
+      "path": "b3-ui.js",
+      "status": 200,
+      "same": true,
+      "sha256": "4fbe5025e5c30cc70cd37d6e40ef4ab4fdbed9828dd13d8c1f00cd6db0e8caf1"
+    },
+    {
+      "path": "liquid-glass.css",
+      "status": 200,
+      "same": true,
+      "sha256": "a1efa2691d90e24a02166fdedef1dc32eee2b13b53d6837f6df69a4f04462e5d"
+    },
+    {
+      "path": "sw.js",
+      "status": 200,
+      "same": true,
+      "sha256": "a6b499158cc849c247b52ef69f7a16208eabe733cc2e2c0d35a3f626bd3a8903"
+    }
+  ]
+}
