@@ -13,7 +13,7 @@ export function createDealtGame(config,receipt){
 }
 
 // The recap renderer needs these fields, not the host's nested undo snapshots.
-const recapKeys=['version','recapVersion','legacyRecap','boardId','step','night','players','winner','winnerReason','nightRecords','dayEvents','nightState','nightResolution','infection','gargoyle','mechanical','blood'];
+const recapKeys=['version','recapVersion','legacyRecap','boardId','step','night','players','winner','winnerReason','nightRecords','dayEvents','nightState','nightResolution','infection','gargoyle','mechanical','blood','awb'];
 export function recapSnapshot(game){
  if(game?.step!=='finished'||!game.winner)throw Error('尚未正式終局');
  const snapshot=Object.fromEntries(recapKeys.filter(k=>game[k]!==undefined).map(k=>[k,structuredClone(game[k])]));

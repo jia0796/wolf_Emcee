@@ -52,7 +52,7 @@ try{
   assert.equal((await create(h,'12',id)).error,'CREATE_CONFLICT');
   await close(h,rs[0]);
  });
- await run('10 and 12 capacities; all 26 authoritative role compositions exactly preserved',async()=>{
+ await run('10 and 12 capacities; all 27 authoritative role compositions exactly preserved',async()=>{
   const catalogue=JSON.parse(readFileSync('references/board-catalog.json'));
   for(const b of catalogue.boards){
    const {h,room,players}=await setup(b.id);

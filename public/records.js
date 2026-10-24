@@ -41,6 +41,7 @@ export function recordStage(s,stage,order){
  if(stage==='dance'&&n.danceTargets?.length===3)add('dance','dancer','dance',n.danceTargets,{unmapped:true,executed:false});
  if(stage==='maskInspect'&&n.maskInspect)add('maskInspect','mask','wolf-inspect',[n.maskInspect],{unmapped:true,result:n.maskResult,participated:n.danceTargets.includes(n.maskInspect)});
  if(stage==='maskAssign'&&(n.maskTarget||n.maskSkip))add('maskAssign','mask','mask',n.maskTarget?[n.maskTarget]:[],{unmapped:true,allowEmpty:true,executed:false,participated:n.danceTargets.includes(n.maskTarget)});
+ if(stage==='awakenedCharm'&&n.charm)add('awakenedCharm','awakenedBeauty','charm',[n.charm],{unmapped:true});
  if(stage==='charm'&&n.charm)add('charm','beauty','charm',[n.charm],{unmapped:true});
  if(stage==='transform'&&n.transform)add('transform','gargoyle','transform',[n.transform],{unmapped:true});
  if(stage==='graveResult'&&graveResult(s)&&nativeAllowed(s,s.players.find(p=>p.role==='gravekeeper'))){const e=graveResult(s);add('gravekeeper','gravekeeper','gravekeeper',[e.id],{unmapped:true,result:e.wolf?'狼人':'好人'});}

@@ -56,6 +56,8 @@ export const BOARD_ORDER=['classic12','classicMixed12','12','10','kingGuard12','
 export const availableBoards=(count,category)=>Object.values(BOARDS).filter(b=>b.enabled&&b.playerCount===count&&b.category===category).sort((a,b)=>BOARD_ORDER.indexOf(a.id)-BOARD_ORDER.indexOf(b.id));
 export const REPORT_URL='https://docs.google.com/forms/d/e/1FAIpQLSe2idVT9QZON5Dlgu4YlB1xiNnzmo5mk1-MFi9UUuUovTjz3w/viewform?usp=publish-editor';
 
+
+
 ROLE_DATA.beauty={name:'狼美人',kind:'wolf',camp:'狼隊陣營',image:'art/catalog/beauty.png',recapCrop:[90,170,880,960],artSize:[1060,1484],canShoot:false,skill:'夜晚與其他狼人共同睜眼並參與狼刀，不能自刀或自爆。每晚可魅惑一名其他存活玩家，但不能連續兩晚魅惑同一名玩家。當狼美人死亡時，當晚被魅惑的玩家將隨之殉情。',goal:'欺騙好人，帶領狼人陣營取得勝利。'};
 ROLE_DATA.duelist={name:'騎士',kind:'god',camp:'好人陣營',image:'art/catalog/duelist.png',recapCrop:[90,170,874,968],artSize:[1054,1492],canShoot:false,skill:'每局可在白天正式放逐投票前，指定一名其他存活玩家發動決鬥。若決鬥對象為狼人，則該狼人出局；若決鬥對象為好人，則騎士以死謝罪。',goal:'找出並解決所有狼人。'};
 for(const count of [10,12]){const id='beauty'+count;BOARDS[id]={id,name:count+'人 狼美人／騎士',canonicalName:count+'人 狼美人／騎士',shortLabel:'狼美人／騎士',category:'normal',enabled:true,playerCount:count,roles:{beauty:1,wolf:count===12?3:2,seer:1,witch:1,...(count===12?{hunter:1}:{}),duelist:1,villager:4},firstNightOrder:['wolves','beauty','witch','seer',...(count===12?['hunter']:[]),'duelist'],nightOrder:['wolves','beauty','witch','seer',...(count===12?['hunter']:[])],defaults:{...defaults,swallow:count===12,poisonRomance:true,lastWolfRomance:true},adjustable:['sheriff','selfRescue','victory','swallow','poisonRomance','lastWolfRomance'],swallowThreshold:count===12?2:1};}
@@ -108,3 +110,8 @@ for(const count of [10,12]){const id='stoneGargoyle'+count,label='石像鬼 / �
 BOARD_ORDER.splice(BOARD_ORDER.indexOf('evilKnight12'),0,'stoneGargoyle12','stoneGargoyle10');
 
 CATALOG_ART.stoneGargoyle={image:ROLE_DATA.stoneGargoyle.image,driveId:'1s4HQg3vz0vBvS8RaD5Q33K3DDuveqD18',sourceKind:'user-requested-pose-edit',crop:ROLE_DATA.stoneGargoyle.recapCrop};
+
+ROLE_DATA.awakenedBeauty={name:'覺醒狼美人',kind:'wolf',camp:'狼隊陣營',image:'art/catalog/awakenedBeauty-v1.png',recapCrop:[90,190,880,960],recapAlign:'xMidYMin slice',artSize:[1060,1484],canShoot:false,skill:'夜晚與其他狼人共同睜眼並參與狼刀，不能自刀或自爆。夜晚可魅惑一名其他存活玩家，當自己即將出局時，由當晚被魅惑的玩家替死。發動魅惑後下一晚無法再次魅惑。一旦觸發替死，魅惑能力將永久失效。',goal:ROLE_DATA.beauty.goal};
+ROLE_DATA.awakenedHunter={name:'覺醒獵人',kind:'god',camp:'好人陣營',image:'art/catalog/awakenedHunter-v1.png',recapCrop:[90,190,880,960],recapAlign:'xMidYMin slice',artSize:[1060,1484],canShoot:true,skill:'遭放逐、狼刀出局時，可選擇自身左右方向發動巡獵，帶走該方向最近的一名狼人。',goal:ROLE_DATA.hunter.goal};
+BOARDS.awakenedBeauty12={id:'awakenedBeauty12',name:'12人 覺醒狼美人 / 覺醒獵人',canonicalName:'12人 覺醒狼美人 / 覺醒獵人',shortLabel:'覺醒狼美人 / 覺醒獵人',category:'special',enabled:true,playerCount:12,roles:{awakenedBeauty:1,wolf:3,seer:1,witch:1,guard:1,awakenedHunter:1,villager:4},nightOrder:['guard','wolves','awakenedBeauty','witch','seer','awakenedHunter'],defaults:{...defaults,swallow:true},adjustable:['sheriff','selfRescue','victory','swallow'],swallowThreshold:2};
+BOARD_ORDER.push('awakenedBeauty12');

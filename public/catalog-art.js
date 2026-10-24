@@ -1,5 +1,7 @@
 // Approved frame-clear derivatives for the catalog and online card artwork. Recap retains ROLE_DATA originals.
 export const CATALOG_CLEAR=Object.freeze({
+  awakenedBeauty:'art/catalog/awakenedBeauty-v1.png',
+  awakenedHunter:'art/catalog/awakenedHunter-v1.png',
   "evilKnight": "art/catalog-clear/evilKnight-v1.png",
   "gargoyle": "art/catalog-clear/gargoyle-v1.png",
   "gravekeeper": "art/catalog-clear/gravekeeper-v1.png",

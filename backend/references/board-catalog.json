@@ -1072,6 +1072,49 @@
         "awakenedSeer",
         "hunter"
       ]
+    },
+    {
+      "id": "awakenedBeauty12",
+      "name": "12人 覺醒狼美人 / 覺醒獵人",
+      "capacity": 12,
+      "roles": {
+        "awakenedBeauty": 1,
+        "wolf": 3,
+        "seer": 1,
+        "witch": 1,
+        "guard": 1,
+        "awakenedHunter": 1,
+        "villager": 4
+      },
+      "defaults": {
+        "sheriff": true,
+        "selfRescue": false,
+        "victory": "edge",
+        "swallow": true
+      },
+      "adjustable": [
+        "sheriff",
+        "selfRescue",
+        "victory",
+        "swallow"
+      ],
+      "firstNightOrder": [
+        "guard",
+        "wolves",
+        "awakenedBeauty",
+        "witch",
+        "seer",
+        "awakenedHunter"
+      ],
+      "nightOrder": [
+        "guard",
+        "wolves",
+        "awakenedBeauty",
+        "witch",
+        "seer",
+        "awakenedHunter"
+      ],
+      "catalogHash": "2ad4285d7dad6647cab8122b0be5d6d1ba75b240f0da0f9046c910f9fc3d7e27"
     }
   ],
   "roles": {
@@ -1224,6 +1267,24 @@
       "name": "覺醒預言家",
       "kind": "god",
       "image": "art/catalog/awakenedSeer.png"
+    },
+    "awakenedBeauty": {
+      "name": "覺醒狼美人",
+      "kind": "wolf",
+      "image": "art/catalog/awakenedBeauty-v1.png"
+    },
+    "awakenedHunter": {
+      "name": "覺醒獵人",
+      "kind": "god",
+      "image": "art/catalog/awakenedHunter-v1.png"
     }
-  }
+  },
+  "additions": [
+    {
+      "boardId": "awakenedBeauty12",
+      "specCommit": "5a14fb8d947499388cd5787673b7cef66aa29692",
+      "catalogHash": "2ad4285d7dad6647cab8122b0be5d6d1ba75b240f0da0f9046c910f9fc3d7e27",
+      "note": "Append-only AWB catalogue; preceding 26 records and hashes preserved"
+    }
+  ]
 }

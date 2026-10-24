@@ -1,3 +1,4 @@
+import {isAwb,substituteBatch} from './awakening.js';
 import {specialFlow,originalKnifeActors,takeoverOwner} from './takeover.js';
 import {fragranceActor,bindingBatch} from './fragrance.js';
 import {maskActor,danceInfo} from './masquerade.js';
@@ -81,12 +82,15 @@ export function settleNight(s,{phase='all'}={}){
   if(!blocked&&s.players.find(p=>p.id===attack.id)?.alive&&!dead.has(attack.id))dead.set(attack.id,{...attack});
  }
  if(infection){events.push({id:infection.target,cause:'infection',source:'infection',sourceActor:s.players.find(p=>p.role==='seedWolf')?.id,sourceRole:'seedWolf',blocked:infection.success?null:infection.reason});if(infection.reason==='guardAndAntidote')dead.set(infection.target,{id:infection.target,cause:'attack',source:'guardAndAntidote',sourceRole:'seedWolf'});}
+ const awbReceipts=[];
+ const wolfSub=substituteBatch(s,[...dead.values()],events,{batch:`night:${s.night}:wolf`});
+ if(wolfSub.receipt){dead.clear();for(const d of wolfSub.deaths)dead.set(d.id,d);events.splice(0,events.length,...wolfSub.events);awbReceipts.push(wolfSub.receipt);}
  const bindingEnabled=!!s.fragrance?.binding&&(!s.fragrance.used||s.fragrance.consumedNight===s.night&&s.fragrance.consumedContext==='night');
  const wolfBond=bindingBatch(s,[...dead.values()],{enabled:bindingEnabled});for(const d of wolfBond.linked){dead.set(d.id,d);events.push(d);}
  const projected={...s,infection:infection?.success?{...s.infection,...infection,usedNight:s.night}:s.infection,players:structuredClone(s.players)};
  for(const id of dead.keys())projected.players.find(p=>p.id===id).alive=false;
  const attackWinner=trueWinner(projected);
- if(attackWinner||phase==='wolf')return {deaths:[...dead.values()],events,winner:attackWinner,poisonSkipped:!!attackWinner,batch:'wolf',bondConsumed:wolfBond.consumed,infection,shieldDamage,dance:{...dance,deaths:[],settled:false}};
+ if(attackWinner||phase==='wolf')return {deaths:[...dead.values()],events,winner:attackWinner,poisonSkipped:!!attackWinner,batch:'wolf',bondConsumed:wolfBond.consumed,...(isAwb(s)?{awbReceipts}:{}),infection,shieldDamage,dance:{...dance,deaths:[],settled:false}};
  const wolfIds=new Set(dead.keys());
  for(const id of dance.deaths){const d={id,cause:'dance',sourceActor:s.players.find(p=>p.role==='dancer')?.id,sourceRole:'dancer',source:'dance'};events.push({...d,blocked:null});if(s.players.find(p=>p.id===id)?.alive&&!dead.has(id))dead.set(id,d);}
  const poisons=[];
@@ -112,9 +116,11 @@ export function settleNight(s,{phase='all'}={}){
  if(n.sleepApplied&&dream&&dead.has(dream.id)){const link={id:n.sleep,cause:'dreamLink',sourceActor:dream.id,sourceRole:'dream',source:'dreamLink'};events.push({...link,blocked:null});if(!dead.has(link.id))dead.set(link.id,link);}
  if(phase==='dawn'&&n.huntApplied&&n.huntDeath){const hunt={id:n.huntDeath,cause:'hunt',sourceActor:s.players.find(p=>p.role==='demon')?.id,sourceRole:'demon',source:'hunt'};events.push({...hunt,blocked:null});if(!dead.has(hunt.id))dead.set(hunt.id,hunt);}
  const postBond=bindingBatch(projected,[...dead.values()].filter(d=>!wolfIds.has(d.id)),{enabled:bindingEnabled&&!wolfBond.consumed});for(const d of postBond.linked){dead.set(d.id,d);events.push(d);}
+ const postSub=substituteBatch(s,[...dead.values()].filter(d=>!wolfIds.has(d.id)),events.filter(e=>e.cause!=='attack'),{batch:`night:${s.night}:post`,prior:[...dead.values()].filter(d=>wolfIds.has(d.id))});
+ if(postSub.receipt){for(const id of [...dead.keys()])if(!wolfIds.has(id))dead.delete(id);for(const d of postSub.deaths)if(!dead.has(d.id))dead.set(d.id,d);const attackEvents=events.filter(e=>e.cause==='attack');events.splice(0,events.length,...attackEvents,...postSub.events);awbReceipts.push(postSub.receipt);}
  const romance=heartbreakBatch(s,[...dead.values()]);for(const d of romance.linked){dead.set(d.id,d);events.push(d);}
- for(const id of dead.keys())projected.players.find(p=>p.id===id).alive=false;
- return {deaths:[...dead.values()],events,winner:trueWinner(projected),poisonSkipped:false,batch:'nonWolf',bondConsumed:wolfBond.consumed||postBond.consumed,infection,romanceBlocked:romance.blocked,shieldDamage,dance:{...dance,settled:true}};
+ projected.players=structuredClone(s.players);for(const id of dead.keys())projected.players.find(p=>p.id===id).alive=false;
+ return {deaths:[...dead.values()],events,winner:trueWinner(projected),poisonSkipped:false,batch:'nonWolf',bondConsumed:wolfBond.consumed||postBond.consumed,...(isAwb(s)?{awbReceipts}:{}),infection,romanceBlocked:romance.blocked,shieldDamage,dance:{...dance,settled:true}};
 }
 
 function danceInfoSafe(s){return s.masquerade?danceInfo(s):{people:[],protected:false,deaths:[]};}

@@ -1,0 +1,20 @@
+[
+  {
+    "id": "awakenedBeauty",
+    "path": "public/art/catalog/awakenedBeauty-v1.png",
+    "bytes": 2744571,
+    "sha256": "c0dc6a4354b16725978f97acad5617cfe1801656efb51d40bf01aecd70329f69",
+    "approved": "2026-10-24",
+    "source": "Built-in ImageGen; user-approved awakened frame/character draft",
+    "transparentOuterFrame": true
+  },
+  {
+    "id": "awakenedHunter",
+    "path": "public/art/catalog/awakenedHunter-v1.png",
+    "bytes": 2790818,
+    "sha256": "cae59326f072bceced4a36277c90900a95e6755d790c54726c9aca543b579a12",
+    "approved": "2026-10-24",
+    "source": "Built-in ImageGen; user-approved awakened frame/character draft",
+    "transparentOuterFrame": true
+  }
+]

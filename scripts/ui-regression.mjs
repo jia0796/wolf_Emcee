@@ -24,7 +24,7 @@ async function begin(board,viewport={width:390,height:844},sheriff=false,immuneN
  const assigned={};let id=1;for(const [r,n]of Object.entries(BOARDS[board].roles)){assigned[r]=Array.from({length:n},()=>id++);}
  return {context,page,assigned};
 }
-const identity={'石像鬼請睜眼':'stoneGargoyle','尋香魅影請睜眼':'fragrance','覺醒預言家請睜眼':'awakenedSeer','舞者請睜眼':'dancer','假面請睜眼':'mask','騎士請睜眼':'duelist','魔術師請睜眼':'magician','女巫請睜眼':'witch','預言家請睜眼':'seer','獵人請睜眼':'hunter','守衛請睜眼':'guard','機械狼請睜眼':'mechanical','通靈師請舉手':'medium','黑市商人請睜眼':'merchant','夢魘請睜眼':'nightmare','攝夢人請睜眼':'dream','獵魔人請睜眼':'demon','白痴請睜眼':'idiot','混血兒請睜眼':'mixed','守墓人請睜眼':'gravekeeper'};
+const identity={'覺醒獵人請睜眼':'awakenedHunter','石像鬼請睜眼':'stoneGargoyle','尋香魅影請睜眼':'fragrance','覺醒預言家請睜眼':'awakenedSeer','舞者請睜眼':'dancer','假面請睜眼':'mask','騎士請睜眼':'duelist','魔術師請睜眼':'magician','女巫請睜眼':'witch','預言家請睜眼':'seer','獵人請睜眼':'hunter','守衛請睜眼':'guard','機械狼請睜眼':'mechanical','通靈師請舉手':'medium','黑市商人請睜眼':'merchant','夢魘請睜眼':'nightmare','攝夢人請睜眼':'dream','獵魔人請睜眼':'demon','白痴請睜眼':'idiot','混血兒請睜眼':'mixed','守墓人請睜眼':'gravekeeper'};
 const seat=(p,id)=>p.locator('.seat[aria-label^="'+id+'號 "]');
 async function runBoard(board,{flip=false,reflect=null,nightGun=false,immuneNightGun=false,infect=false,infectPoison=false,mechanicalMedium=false}={}){
  const {context,page,assigned}=await begin(board,{width:390,height:844},false,immuneNightGun);let actions=0,refresh=false,flipped=false;
@@ -40,11 +40,11 @@ async function runBoard(board,{flip=false,reflect=null,nightGun=false,immuneNigh
    if(board==='12'&&day===2&&sub==='選擇你今晚要交換的對象')await promoShot(page,'05-host');
    if(!await next.isEnabled()){
     if(sub==='隱狼請睜眼'&&assigned.hiddenWolf){await seat(page,assigned.hiddenWolf[0]).click();}
-    else if(sub==='狼人請睜眼，確認彼此身分'){if(assigned.beauty)assert.ok((await page.locator('#hint').textContent()).startsWith('依序點狼美人，再點'));for(const id of [...(assigned.king||[]),...(assigned.blood||[]),...(assigned.gargoyle||[]),...(assigned.evilKnight||[]),...(assigned.seedWolf||[]),...(assigned.beauty||[]),...(assigned.mask||[]),...(assigned.nightmare||[]),...assigned.wolf]){if(await seat(page,id).isEnabled())await seat(page,id).click();}}
+    else if(sub==='狼人請睜眼，確認彼此身分'){if(assigned.beauty)assert.ok((await page.locator('#hint').textContent()).startsWith('依序點狼美人，再點'));for(const id of [...(assigned.king||[]),...(assigned.blood||[]),...(assigned.gargoyle||[]),...(assigned.evilKnight||[]),...(assigned.seedWolf||[]),...(assigned.beauty||[]),...(assigned.awakenedBeauty||[]),...(assigned.mask||[]),...(assigned.nightmare||[]),...assigned.wolf]){if(await seat(page,id).isEnabled())await seat(page,id).click();}}
     else if(sub==='狼兄狼弟請睜眼，請確認彼此身分'){for(const id of [...assigned.elder,...assigned.younger])await seat(page,id).click();}
     else if(identity[sub]){await seat(page,assigned[identity[sub]][0]).click();}
     else if(sub==='請選擇你要轉化的玩家'){await seat(page,assigned.villager.at(-1)).click();}
-    else if(sub==='請選擇今晚要魅惑的對象')await page.getByRole('button',{name:'空魅惑',exact:true}).click();
+    else if(['請選擇今晚要魅惑的對象','選擇你今晚要魅惑的對象'].includes(sub))await page.getByRole('button',{name:'空魅惑',exact:true}).click();
     else if(sub==='選擇你今晚要交換的對象')await page.getByRole('button',{name:'不交換',exact:true}).click();
     else if(sub==='選擇你今晚要夢遊的對象'){await seat(page,assigned.villager[(day-1)%assigned.villager.length]).click();}
     else if(sub==='選擇你要跟隨的榜樣'){await seat(page,assigned.wolf[0]).click();}
@@ -66,9 +66,10 @@ async function runBoard(board,{flip=false,reflect=null,nightGun=false,immuneNigh
     else if(await page.getByRole('button',{name:'抽籤',exact:true}).isVisible()){await page.getByRole('button',{name:'抽籤',exact:true}).click();if(await page.locator('#drawSkip').isVisible())await page.locator('#drawSkip').click();await page.locator('#drawClose').click();actions++;await checkpoint();continue;}
     else if(['現在進行投票，3、2、1請投票','再次進行投票，3、2、1請投票'].includes(sub)){
      let target=null;if(flip&&!flipped){target=assigned.idiot[0];flipped=true;}else{
-      for(const id of [...assigned.wolf,...(assigned.elder||[]),...(assigned.younger||[]),...(assigned.king||[]),...(assigned.nightmare||[]),...(assigned.mechanical||[]),...(assigned.blood||[]),...(assigned.gargoyle||[]),...(assigned.evilKnight||[]),...(assigned.seedWolf||[]),...(assigned.beauty||[]),...(assigned.mask||[]),...(assigned.fragrance||[]),...(assigned.stoneGargoyle||[]),...(infect?[assigned.villager[0]]:[]),...(assigned.gargoyle?[assigned.villager.at(-1)]:[])])if(await seat(page,id).isEnabled()){target=id;break;}}
+      for(const id of [...assigned.wolf,...(assigned.elder||[]),...(assigned.younger||[]),...(assigned.king||[]),...(assigned.nightmare||[]),...(assigned.mechanical||[]),...(assigned.blood||[]),...(assigned.gargoyle||[]),...(assigned.evilKnight||[]),...(assigned.seedWolf||[]),...(assigned.beauty||[]),...(assigned.awakenedBeauty||[]),...(assigned.mask||[]),...(assigned.fragrance||[]),...(assigned.stoneGargoyle||[]),...(infect?[assigned.villager[0]]:[]),...(assigned.gargoyle?[assigned.villager.at(-1)]:[])])if(await seat(page,id).isEnabled()){target=id;break;}}
      assert.ok(target,'no legal exile target '+board);await seat(page,target).click();
     }else if((await page.locator('#hint').textContent()).startsWith('最後一刀')){await seat(page,assigned.villager[0]).click();}
+    else if(await page.getByRole('button',{name:'不巡獵',exact:true}).isVisible())await page.getByRole('button',{name:'不巡獵',exact:true}).click();
     else if(await page.getByRole('button',{name:'不開槍',exact:true}).isVisible()){if(nightGun&&day===1){await seat(page,assigned.evilKnight[0]).click();fired=true;}else await page.getByRole('button',{name:'不開槍',exact:true}).click();}
     else throw Error(board+' blocked UI: '+sub+' / '+await page.locator('#hint').textContent());
    }

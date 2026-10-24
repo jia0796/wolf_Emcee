@@ -1,0 +1,88 @@
+{
+  "environment": "local browser UI with synthetic game fixtures",
+  "passed": 20,
+  "failed": 0,
+  "errors": [],
+  "results": [
+    {
+      "name": "new special board retains original setup and does not inherit ordinary beauty rules",
+      "passed": true
+    },
+    {
+      "name": "awakenedBeauty approved artwork, exact description, flip and close",
+      "passed": true
+    },
+    {
+      "name": "awakenedHunter approved artwork, exact description, flip and close",
+      "passed": true
+    },
+    {
+      "name": "direction preview, 44px controls, commit, refresh and undo {\"width\":320,\"height\":568}",
+      "passed": true
+    },
+    {
+      "name": "direction preview, 44px controls, commit, refresh and undo {\"width\":375,\"height\":667}",
+      "passed": true
+    },
+    {
+      "name": "direction preview, 44px controls, commit, refresh and undo {\"width\":390,\"height\":844}",
+      "passed": true
+    },
+    {
+      "name": "direction preview, 44px controls, commit, refresh and undo {\"width\":430,\"height\":932}",
+      "passed": true
+    },
+    {
+      "name": "direction preview, 44px controls, commit, refresh and undo {\"width\":844,\"height\":390}",
+      "passed": true
+    },
+    {
+      "name": "direction preview, 44px controls, commit, refresh and undo {\"width\":768,\"height\":1024}",
+      "passed": true
+    },
+    {
+      "name": "direction preview, 44px controls, commit, refresh and undo {\"width\":390,\"height\":844,\"big\":true}",
+      "passed": true
+    },
+    {
+      "name": "awakened hunter fixed night gesture up",
+      "passed": true
+    },
+    {
+      "name": "awakened hunter fixed night gesture down",
+      "passed": true
+    },
+    {
+      "name": "awakened hunter fixed night gesture dead",
+      "passed": true
+    },
+    {
+      "name": "night-source patrol bypasses beauty even though operated after dawn",
+      "passed": true
+    },
+    {
+      "name": "charm UI ready",
+      "passed": true
+    },
+    {
+      "name": "charm UI cooldown",
+      "passed": true
+    },
+    {
+      "name": "charm UI used",
+      "passed": true
+    },
+    {
+      "name": "charm UI dead",
+      "passed": true
+    },
+    {
+      "name": "exile retains selected vote but announces actual substitute and inherited last words",
+      "passed": true
+    },
+    {
+      "name": "recap preserves separate poison and substitute cards, original SVG semantics and 12 identities",
+      "passed": true
+    }
+  ]
+}

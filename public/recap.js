@@ -26,8 +26,9 @@ function basicKnifeName(e){
  return '狼人';
 }
 
-const reasonNames={danceProtection:'共舞免刀',masqueradeImmunity:'免疫毒藥',guard:'守護抵擋',antidote:'解藥救回',guardAndAntidote:'同守同救',wolfTarget:'狼人目標',knightImmunity:'免疫',demonImmunity:'免疫',immuneNightGun:'免疫',sleep:'夢遊免疫',shield:'守護抵擋'};
+const reasonNames={awakenedSubstitute:'替死抵擋',danceProtection:'共舞免刀',masqueradeImmunity:'免疫毒藥',guard:'守護抵擋',antidote:'解藥救回',guardAndAntidote:'同守同救',wolfTarget:'狼人目標',knightImmunity:'免疫',demonImmunity:'免疫',immuneNightGun:'免疫',sleep:'夢遊免疫',shield:'守護抵擋'};
 export function outcomeLabel(e){
+ if(e.key==='awakenedPatrol'&&!e.rawTargets.length)return '';
  if(e.key==='learn'||e.skill==='learn'||e.type==='badge'&&!e.rawTargets.length)return '';
  if(e.key==='dance'||e.key==='bond')return '';
  if(e.key==='danceDeath')return '共舞死亡';
@@ -61,7 +62,8 @@ export function eventCard(e){
  let left=actorModel(e);const vote=['sheriff','exile'].includes(e.type);
  if(vote)left={name:e.type==='sheriff'?'警長競選':'放逐投票',image:e.type==='sheriff'?'art/recap-sheriff.png':'art/recap-vote.png',tone:'neutral'};
  card.append(portrait(left),personText(left,{noNumber:vote||e.key==='basic'&&!['fragrance','stoneGargoyle'].includes(e.actorRole)}));
- const center=el('div','recap-effect'),label=outcomeLabel(e);if(label&&!vote)center.append(el('span','recap-outcome',label));if(e.key==='extraAttack')center.append(el('span','recap-outcome','額外狼刀'));if(e.skill)center.append(skillIcon(e.key==='maskInspect'?'wolf-inspect':e.skill));else center.append(el('span','recap-arrow','→'));card.append(center);
+ const center=el('div','recap-effect'),label=outcomeLabel(e);if(label&&!vote)center.append(el('span','recap-outcome',label));if(e.key==='extraAttack')center.append(el('span','recap-outcome','額外狼刀'));if(e.skill){const icon=skillIcon(e.key==='maskInspect'?'wolf-inspect':e.skill);if(e.type==='awakenedSubstitute'||e.key?.startsWith('awakenedSubstitute:'))icon.alt='替死';if(e.key==='awakenedPatrol')icon.alt='巡獵';center.append(icon);}else center.append(el('span','recap-arrow','→'));card.append(center);
+ if(e.key==='awakenedPatrol'&&!e.rawTargets.length){card.append(el('span','recap-no-target','不巡獵'));return card;}
  if(e.key==='stoneKnifeState'){card.append(el('span','recap-no-target','帶刀狀態'));return card;}
  if(e.key==='maskAssign'&&!e.rawTargets.length){card.append(el('strong','recap-no-target',e.unsettled?'未結算（遊戲已結束）':'空過'));return card;}
  if(e.type==='badge'&&!e.rawTargets.length){card.append(el('strong','badge-destroyed','X'),el('span','recap-event-label','撕毀警徽'));return card;}

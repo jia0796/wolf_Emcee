@@ -1,0 +1,19 @@
+{
+  "completed": 3,
+  "error": "TimeoutError: locator.waitFor: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#host') to be visible\u001b[22m\n\u001b[2m    63 × locator resolved to hidden <section id=\"host\" hidden=\"\">…</section>\u001b[22m\n",
+  "errors": [],
+  "results": [
+    {
+      "name": "new special board retains original setup and does not inherit ordinary beauty rules",
+      "passed": true
+    },
+    {
+      "name": "awakenedBeauty approved artwork, exact description, flip and close",
+      "passed": true
+    },
+    {
+      "name": "awakenedHunter approved artwork, exact description, flip and close",
+      "passed": true
+    }
+  ]
+}

@@ -1,11 +1,11 @@
 import {knifeKinds,statusSteps} from '../public/takeover.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {deathSkill,createGame,selectable,selectSeat,choose,next,canNext,previous,upgradeGame,mechanicalModes,beginSelfDestruct,canSelfDestruct,restartGame,canInfect,needsInfectionDecision,canDuel,beginDuel,confirmDuel} from '../public/engine.js';
+import {isPatrol,deathSkill,createGame,selectable,selectSeat,choose,next,canNext,previous,upgradeGame,mechanicalModes,beginSelfDestruct,canSelfDestruct,restartGame,canInfect,needsInfectionDecision,canDuel,beginDuel,confirmDuel} from '../public/engine.js';
 import {BOARDS} from '../public/data.js';
 // Seeded API black-box games: only public commands mutate game state.
 function rng(seed){let x=seed;return ()=>{x=(Math.imul(x,1664525)+1013904223)>>>0;return x/4294967296;};}
-const identities={stoneIdentify:'stoneGargoyle',fragrance:'fragrance',awakenedSeer:'awakenedSeer',dancer:'dancer',mask:'mask',magician:'magician',wolves:'wolf',witch:'witch',seer:'seer',hunter:'hunter',guard:'guard',mechanical:'mechanical',mediumIdentify:'medium',merchant:'merchant',brothers:'elder',nightmare:'nightmare',dream:'dream',idiot:'idiot',mixed:'mixed',demon:'demon',gravekeeper:'gravekeeper',duelist:'duelist'};
+const identities={awakenedHunter:'awakenedHunter',stoneIdentify:'stoneGargoyle',fragrance:'fragrance',awakenedSeer:'awakenedSeer',dancer:'dancer',mask:'mask',magician:'magician',wolves:'wolf',witch:'witch',seer:'seer',hunter:'hunter',guard:'guard',mechanical:'mechanical',mediumIdentify:'medium',merchant:'merchant',brothers:'elder',nightmare:'nightmare',dream:'dream',idiot:'idiot',mixed:'mixed',demon:'demon',gravekeeper:'gravekeeper',duelist:'duelist'};
 for(const board of Object.keys(BOARDS))test('seeded complete-game stress '+board,()=>{
  let actions=0,finished=0,maxBytes=0;
  for(let seed=1;seed<=Number(process.env.STRESS_SEEDS||18);seed++){
@@ -18,14 +18,14 @@ for(const board of Object.keys(BOARDS))test('seeded complete-game stress '+board
    const step=s.step,legal=()=>s.players.filter(p=>selectable(s,p.id)).map(p=>p.id);
    if(step==='hiddenWolf'&&!s.rolesConfirmed){assert.equal(selectSeat(s,assigned.hiddenWolf[0]),true);}
    else if(!s.rolesConfirmed&&identities[step]){
-    const targets=step==='wolves'?[...(assigned.king||[]),...(assigned.blood||[]),...(assigned.gargoyle||[]),...(assigned.evilKnight||[]),...(assigned.seedWolf||[]),...(assigned.beauty||[]),...assigned.wolf]:step==='brothers'?[...assigned.elder,...assigned.younger]:assigned[identities[step]];
+    const targets=step==='wolves'?[...(assigned.king||[]),...(assigned.blood||[]),...(assigned.gargoyle||[]),...(assigned.evilKnight||[]),...(assigned.seedWolf||[]),...(assigned.beauty||[]),...(assigned.awakenedBeauty||[]),...assigned.wolf]:step==='brothers'?[...assigned.elder,...assigned.younger]:assigned[identities[step]];
     for(const id of targets)assert.equal(selectSeat(s,id),true);
    }else if(step==='bond'){if(!canNext(s)){if(random()<.3)choose(s,'skip');else{const pool=legal();const a=pick(pool);selectSeat(s,a);selectSeat(s,pick(pool.filter(id=>id!==a)));}}
    }else if(step==='awakenedInspect'){if(!canNext(s)){const pool=legal(),a=pick(pool);selectSeat(s,a);selectSeat(s,pick(pool.filter(id=>id!==a)));}
    }else if(step==='dance'){for(const id of legal().slice(0,3))selectSeat(s,id);
    }else if(step==='maskInspect'){if(legal().length)selectSeat(s,pick(legal()));
    }else if(step==='maskAssign'){if(legal().length&&random()>.3)selectSeat(s,pick(legal()));else choose(s,'skip');
-   }else if(step==='charm'){if(random()<.4)choose(s,'skip');else{const pool=legal();if(pool.length)selectSeat(s,pick(pool));else choose(s,'skip');}
+   }else if(['charm','awakenedCharm'].includes(step)){if(random()<.4)choose(s,'skip');else{const pool=legal();if(pool.length)selectSeat(s,pick(pool));else choose(s,'skip');}
    }else if(statusSteps.includes(step)){
     for(const kind of knifeKinds(s)){choose(s,'knifeKind:'+kind);const pool=legal();if(pool.length&&random()>.3)selectSeat(s,pick(pool));else choose(s,'skip');}
    }else if(['mechanicalLearn','mechanicalSkill'].includes(step)){
@@ -38,6 +38,7 @@ for(const board of Object.keys(BOARDS))test('seeded complete-game stress '+board
    else if(['draw','dayDraw'].includes(step)){choose(s,'draw');choose(s,'revealDraw');}
    else if(['antidote','poison'].includes(step)){if(!canNext(s)){choose(s,random()<.35?'use':'skip');if(step==='poison'&&legal().length)selectSeat(s,pick(legal()));}}
    else if(step==='exchange'){if(random()<.3||legal().length<2)choose(s,'skip');else{const a=pick(legal());selectSeat(s,a);selectSeat(s,pick(legal().filter(id=>id!==a)));}}
+   else if(isPatrol(s)){assert.equal(choose(s,random()<.2?'skip':'patrol:'+(random()<.5?-1:1)),true);}
    else if(deathSkill(s)||['hunt','fear','attack','revenge','luckyAction','guardTarget','skill','badgeTransfer'].includes(step)){
     if(!canNext(s)){if(!legal().length||random()<.2)choose(s,'skip');else if(legal().length)selectSeat(s,pick(legal()));}
    }else if(['transform','lastBlade','roleModel','sleep','inspect','stoneInspect','mediumInspect','sheriffVote','sheriffRevote','exileVote','exileRevote','selfDestruct'].includes(step)){if(!canNext(s)&&legal().length)selectSeat(s,pick(legal()));}
