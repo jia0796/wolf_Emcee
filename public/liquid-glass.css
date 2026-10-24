@@ -10,8 +10,8 @@ html.wolfcue-glass button:not(:where(.seat,.role-card,.preview-card,.time-wheel 
  transition:box-shadow .16s ease-out,border-color .16s ease-out;text-shadow:0 1px 3px rgb(4 15 25 / .6);
 }
 html.wolfcue-glass button.primary:not(:where(.online-ring button)),html.wolfcue-glass :is(#setupStart,#voteDone,#exileVoteDone,#timerStart,#drawClose,#next){
- background:linear-gradient(145deg,rgb(239 251 253 / .38),transparent 65%),rgb(178 219 229 / .76);
- color:#102b3a;border-color:#c5e7ed;text-shadow:none;box-shadow:var(--v-edge);
+ background:linear-gradient(145deg,rgb(239 251 253 / .14),transparent 65%),rgb(57 96 115 / .88);
+ color:#f4f1e9;border-color:#c5e7ed;text-shadow:0 1px 3px #071923;box-shadow:var(--v-edge);
 }
 html.wolfcue-glass button:disabled:not(.seat):not(.online-ring button){background:rgb(29 48 61 / .74);color:#a4b7c2;box-shadow:inset 0 1px 0 rgb(178 219 229 / .16)}
 html.wolfcue-glass :is(button,summary,a,select):focus-visible{outline:2px solid #e5f6fa;outline-offset:-3px}
@@ -51,8 +51,20 @@ html.wolfcue-glass #onlineRing button.mine{background:linear-gradient(135deg,rgb
 html.wolfcue-glass #onlineRing button.occupied:not(.mine){border-color:var(--god);background:var(--v-sheen),rgb(47 65 75 / .7)}
 @media(hover:hover) and (pointer:fine){html.wolfcue-glass button:hover:not(:disabled):not(.seat):not(.role-card){border-color:#c5e7ed}}
 @media(prefers-reduced-motion:reduce){html.wolfcue-glass *,html.wolfcue-glass *::before,html.wolfcue-glass *::after{animation:none!important;transition:none!important}}
-@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){html.wolfcue-glass button,html.wolfcue-glass #host .seat,html.wolfcue-glass #host .host-center,html.wolfcue-glass body #boards #boardChoices button{background-color:#1b394e}html.wolfcue-glass button.primary{background-color:#b2dbe5}}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){html.wolfcue-glass button,html.wolfcue-glass #host .seat,html.wolfcue-glass #host .host-center,html.wolfcue-glass body #boards #boardChoices button{background-color:#1b394e}html.wolfcue-glass button.primary{background-color:#396073}}
 
 /* Preserve destructive-action semantics; only material changes. */
-html.wolfcue-glass :is(#resetCancel,#finishCancel,#voteClearCancel,#voteAbandonCancel,#exileClearCancel,#exileAbandonCancel){background:var(--v-sheen),rgb(178 219 229 / .7);color:#13212d}
+html.wolfcue-glass :is(#resetCancel,#finishCancel,#voteClearCancel,#voteAbandonCancel,#exileClearCancel,#exileAbandonCancel){background:var(--v-sheen),rgb(57 96 115 / .88);color:#f4f1e9;text-shadow:0 1px 3px #071923}
 html.wolfcue-glass :is(#resetConfirm,#finishConfirm,#voteClearConfirm,#voteAbandonConfirm,#exileClearConfirm,#exileAbandonConfirm){background:var(--v-sheen),rgb(145 95 113 / .46);border-color:#c09aa7;color:#f4e8ed}
+
+/* Ivory foreground with a shaded ice-blue fill: keep the existing geometry. */
+html.wolfcue-glass button.primary:not(:where(.online-ring button)),
+html.wolfcue-glass #host #next,
+html.wolfcue-glass #timerDialog :is(#timerStart,#timerPause),
+html.wolfcue-glass #online #onlineDeal:not(.not-full){background:linear-gradient(145deg,rgb(239 251 253 / .14),transparent 65%),rgb(57 96 115 / .88);color:#f4f1e9;text-shadow:0 1px 3px #071923}
+html.wolfcue-glass :is(#hostModeDialog,#setup,#voteDialog,#exileVoteDialog,#timerDialog,#drawDialog,#finished,#online) :is(button.primary,#setupStart,#voteDone,#exileVoteDone,#drawClose,#timerStart,#timerPause,#playAgain,#onlineDeal):not(:where(:disabled,.not-full,#resetConfirm,#finishConfirm,#voteClearConfirm,#voteAbandonConfirm,#exileClearConfirm,#exileAbandonConfirm)){background:linear-gradient(145deg,rgb(239 251 253 / .14),transparent 65%),rgb(57 96 115 / .88);color:#f4f1e9;text-shadow:0 1px 3px #071923}
+html.wolfcue-glass #onlineRing button.mine{background:var(--v-sheen),rgb(57 96 115 / .88);color:#f4f1e9;text-shadow:0 1px 3px #071923}
+html.wolfcue-glass #host #next:disabled{background:rgb(29 48 61 / .74);color:#bccbd3}
+.mini-timer[data-tone=warm] #miniTimerDigits{color:#F3E9D2}
+.mini-timer[data-tone=urgent] #miniTimerDigits{color:#E9A095}
+#finished[data-player-recap=true] .finish-actions{grid-template-columns:1fr}

@@ -1,0 +1,57 @@
+{
+  "environment": "Actual local Supabase Auth/Edge/Postgres/Realtime; in-memory URL/key substitution only",
+  "fixture": "Terminal state is a transport fixture in a new test room, not a gameplay victory test",
+  "passed": 12,
+  "failed": 0,
+  "errors": [],
+  "results": [
+    {
+      "name": "12 independent players join and retain unique seats",
+      "passed": true
+    },
+    {
+      "name": "committed server roles populate original host confirm page automatically",
+      "passed": true
+    },
+    {
+      "name": "host refresh retains imported roles without another deal",
+      "passed": true
+    },
+    {
+      "name": "host undo retains imported roles and original step",
+      "passed": true
+    },
+    {
+      "name": "next and continue buttons use ivory text without geometry changes",
+      "passed": true
+    },
+    {
+      "name": "10-second urgency matches full and mini timer, with ivory pause button",
+      "passed": true
+    },
+    {
+      "name": "each player retrieves their own actual locally dealt role",
+      "passed": true
+    },
+    {
+      "name": "12 players immediately close room and render the exact host recap with home only",
+      "passed": true
+    },
+    {
+      "name": "player recap does not overwrite an unrelated local host save",
+      "passed": true
+    },
+    {
+      "name": "player refresh reauthenticates and restores final recap after room deletion",
+      "passed": true
+    },
+    {
+      "name": "player home clears room link without deleting an unrelated game",
+      "passed": true
+    },
+    {
+      "name": "host recap keeps both original buttons and original confirmation flow",
+      "passed": true
+    }
+  ]
+}

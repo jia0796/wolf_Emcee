@@ -1,4 +1,5 @@
 import {PAGE_BACKGROUNDS,HOST_BACKGROUNDS} from './data.js';
+import {timerProgress} from './timer.js';
 
 // HOST-02: transient view of the existing timer, with no timer/save state of its own.
 export function createMiniTimer({read,pause,start,reset,restore}){
@@ -37,6 +38,7 @@ export function createMiniTimer({read,pause,start,reset,restore}){
   minimize(){if(read().mode!=='countdown')return;mini=true;document.getElementById('timerDialog').close();root.hidden=screen!=='host';place();enter(root);expand.focus({preventScroll:true});},
   restore:open,
   paint(state){
+   root.dataset.tone=timerProgress(state).tone;
    document.getElementById('timerMinimize').hidden=state.mode!=='countdown';document.getElementById('miniTimerDigits').textContent=String(Math.floor(state.seconds/60)).padStart(2,'0')+':'+String(state.seconds%60).padStart(2,'0');
    toggle.setAttribute('aria-label',state.running?'暫停計時器':state.mode==='setup'?'開始計時器':'繼續計時器');toggle.innerHTML=svg(state.running?'M9 5v14M15 5v14':'M8 4l12 8-12 8Z');toggle.disabled=state.seconds===0;
    if(mini&&state.mode==='countdown'&&state.seconds===0&&prior?.seconds>0&&!motion.matches&&!root.hidden)root.animate([{boxShadow:'0 0 0 1px #B2DBE570'},{boxShadow:'0 0 18px 3px #B2DBE5b0'},{boxShadow:'0 0 0 1px #B2DBE570'}],{duration:900,easing:'ease-in-out'});

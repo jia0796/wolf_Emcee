@@ -1,5 +1,6 @@
 import {catalogImage,catalogFallback} from './catalog-art.js';
 import {installOnline} from './online.js';
+import {createDealtGame,validateRecap} from './online-state.js';
 import {backgroundSource,hostPresentation,createB3Backdrop,installB3ScrollHints,installWolfCueOpening,createMiniTimer} from './b3-ui.js';
 import {originalKnifeActors,specialFlow,knifeEntry,knifeSelection,knifeKinds,statusSteps,switchSteps,knifeSummary,knifeStatus,closeRole} from './takeover.js';
 import {bondAvailable} from './fragrance.js';
@@ -14,7 +15,7 @@ import {skillIcon,renderRecap,SKILL_LABELS} from './recap.js';
 import {clampSeconds,remainingSeconds,wheelSeconds,restoresSession,createSpeechTimer,timerProgress} from './timer.js';
 document.addEventListener('pointerdown',()=>{document.body.dataset.input='pointer';},true);document.addEventListener('keydown',e=>{if(e.key==='Tab')document.body.dataset.input='keyboard';},true);
 const $=id=>document.getElementById(id),KEY='eclipse-host-v1',PURE='照字幕主持，完成後按下一步';
-let miniTimer=null;
+let miniTimer=null,playerRecap=null;
 let game=null,storageOK=true,screen='home',selectedBoard='12',selectedCount=12,libraryOrigin='home',libraryRoles=Object.keys(ROLE_DATA),libraryCamp='wolf',selectedCategory='normal';
 let previousScreen=null;try{previousScreen=sessionStorage.getItem(KEY+'-screen');}catch{}
 try{const saved=JSON.parse(localStorage.getItem(KEY));if(saved){game=upgradeGame(saved);if(restoresSession(performance.getEntriesByType('navigation')[0]?.type,previousScreen,saved.version))screen=saved.step==='finished'?'finished':'host';}}catch{storageOK=false;}
@@ -25,8 +26,12 @@ function rulesText(b,r){return b.name+'\n警長：'+(r.sheriff?'開':'關')+'\n�
 const backdrop=createB3Backdrop(),recapTitle=document.querySelector('#finished .recap-title');
 installB3ScrollHints();
 let hostMode='traditional';
-const online=installOnline({show,onHome:()=>show('home'),onLibrary:boardId=>library('online',boardId),onLibraryClose:()=>$('rolePreview').close(),onHostReady:(h,s)=>{
- if(!h.started||!game){game=createGame(h.boardId,h.rules);timerStop();setSeconds(60);if(!persist())throw Error('儲存失敗，尚未進入主持');}
+const online=installOnline({show,onHome:()=>show('home'),onLibrary:boardId=>library('online',boardId),onLibraryClose:()=>$('rolePreview').close(),onPlayerRecap:s=>{
+ playerRecap=validateRecap(s);timerStop();show('finished');$('finished').dataset.playerRecap='true';$('finished').className='finished-screen '+(s.winner==='狼人陣營'?'wolves-win':'good-win');
+ $('playAgain').hidden=true;$('identityOpen').hidden=true;$('mixedOutcome').hidden=true;document.querySelector('#finished > .victory').hidden=true;
+ const recap=$('nightRecap');renderRecap(recap,playerRecap);recap.insertBefore(recapTitle,recap.children[1]||null);recap.scrollTop=0;
+},onHostReady:(h,s)=>{
+ if(!h.started||!game){game=createDealtGame(h,s);timerStop();setSeconds(60);if(!persist())throw Error('儲存失敗，尚未進入主持');}
  render();
 }});
 const voteDialog=createVoteDialog({getGame:()=>game,save:persist,render});
@@ -174,6 +179,7 @@ function renderOperation(){
  const control=document.createElement('div');control.className='operation-control';control.append(skillIcon(skill));const label=document.createElement('span');label.textContent=SKILL_LABELS[skill];control.append(label);if(specialFlow(game)&&switchSteps.includes(step)&&knifeKinds(game).length){const toggle=document.createElement('button');toggle.type='button';toggle.id='knifeToggle';toggle.textContent=knifeSelection(game)?'技能':'狼刀';toggle.style.marginLeft='auto';toggle.onclick=()=>{choose(game,knifeSelection(game)?'skill':'knife');render();};control.append(toggle);}$('operationCard').append(control);
 }
 function renderFinished(){
+ playerRecap=null;delete $('finished').dataset.playerRecap;$('playAgain').hidden=false;
  online.end(game);
  const wasFinished=screen==='finished';
  $('identityCards').replaceChildren();for(const p of game.players.filter(p=>p.active)){const card=document.createElement('article');card.className='identity-card '+(realWolf(game,p)?'wolf':ROLE_DATA[p.role]?.kind);const img=document.createElement('img');img.src=ROLE_DATA[p.role].image;img.alt='';const text=document.createElement('p');text.textContent=p.id+'號｜'+roleName(game,p)+(infected(game,p)?'｜第'+game.infection.usedNight+'晚感染成功｜狼人陣營｜'+(game.winner==='狼人陣營'?'勝利':'失敗'):game.infection.target===p.id&&game.infection.result?'｜第'+game.infection.usedNight+'晚感染失敗':'');card.append(img,text);$('identityCards').append(card);}
@@ -276,7 +282,7 @@ function adjustSeconds(delta){if(speechTimer.view().mode!=='setup')return;speech
 $('timerMinus').onclick=()=>adjustSeconds(-10);$('timerPlus').onclick=()=>adjustSeconds(10);
 let finishIntent=null;
 function confirmFinish(intent){finishIntent=intent;$('finishDialogTitle').textContent=intent==='restart'?'重新一局':'回首頁';$('finishDialogText').textContent=intent==='restart'?'保留本局板子與房規，清除全部前局紀錄並重新開始？':'清除本局全部紀錄並返回首頁？';$('finishDialog').showModal();}
-$('playAgain').onclick=()=>confirmFinish('restart');$('finishHome').onclick=()=>confirmFinish('home');$('finishCancel').onclick=()=>$('finishDialog').close();
+$('playAgain').onclick=()=>confirmFinish('restart');$('finishHome').onclick=()=>{if(playerRecap){playerRecap=null;online.clearPlayerRecap();delete $('finished').dataset.playerRecap;$('playAgain').hidden=false;show('home');return;}confirmFinish('home');};$('finishCancel').onclick=()=>$('finishDialog').close();
 $('finishConfirm').onclick=()=>{$('finishDialog').close();timerStop();setSeconds(60);$('nightRecap').replaceChildren();$('winnerTitle').textContent='';$('winnerReason').textContent='';if(finishIntent==='restart'){game=restartGame(game);render();}else{game=null;try{localStorage.removeItem(KEY);}catch{}show('home');}};
 $('duelOpen').onclick=()=>{if(beginDuel(game))render();};$('duelCancel').onclick=()=>$('duelDialog').close();$('duelConfirm').onclick=()=>{if(confirmDuel(game)){$('duelDialog').close();render();}};
 $('next').onclick=()=>{if(game.step==='duel'){if(canNext(game))$('duelDialog').showModal();return;}if(needsInfectionDecision(game)){$('infectionDialog').showModal();return;}if(next(game))render();};

@@ -1,5 +1,6 @@
 import {createClient,toCanvas} from './online-vendor.js';
 import {catalogImage,catalogFallback} from './catalog-art.js';
+import {recapSnapshot} from './online-state.js';
 import {BOARDS,ROLE_DATA} from './data.js';
 const URL='https://cnseutkrrjkdkpikjcdz.supabase.co';
 const KEY='sb_publishable_Ss6qWldmmSVAuFgdqp1ooQ_v5ukr-n8';
@@ -8,8 +9,9 @@ const read=k=>{try{return JSON.parse(localStorage.getItem(k));}catch{return null
 const save=(k,v)=>localStorage.setItem(k,JSON.stringify(v));
 const client=createClient(URL,KEY,{auth:{storageKey:'wolfcue-online-auth',persistSession:true,autoRefreshToken:true,detectSessionInUrl:false}});
 const closed=s=>['ended','expired','dissolved'].includes(s);
-export function installOnline({show,onHostReady,onHome,onLibrary,onLibraryClose}){
+export function installOnline({show,onHostReady,onHome,onLibrary,onLibraryClose,onPlayerRecap}){
  let room=null,state=null,isHost=false,busy=false,channel=null,interval=null,seq=0,roleTicket=0,animating=false,library=false,active=false,starting=false,refreshing=false,refreshAgain=false,pendingSeat=null;
+ let endingRoom=null,recapRoom=null;
  const root=document.createElement('section');root.id='online';root.className='screen online-screen';root.hidden=true;
  root.innerHTML='<header class="online-head"><h1 id="onlineTitle">線上發牌（Beta版）</h1><button id="onlineLibrary">圖鑑</button><button id="onlineDissolve" hidden>解散房間</button></header><p id="onlineNotice" role="status" aria-live="polite"></p><div id="onlineScroll" class="online-scroll"><div id="onlineQR" hidden><div class="online-qr-frame"><canvas aria-label="房間邀請 QR Code"></canvas></div><div class="online-qr-info"><p id="onlineCode"></p><button id="onlineCopy">複製連結</button></div></div><p id="onlineCount"></p><div id="onlineRing" class="online-ring" aria-label="選擇座位"></div><button id="onlineCard" class="online-card" hidden aria-label="點擊翻牌"><span class="online-card-inner"><span class="online-card-back"><span class="online-moons" aria-hidden="true"><i></i><i></i><i></i></span><img src="wolfcue-mark.svg" alt="WolfCue 狼序"><strong>WolfCue 狼序</strong><strong id="onlineCardSeat"></strong><span>點擊翻牌</span></span><span class="online-card-front" aria-hidden="true"></span></span></button></div><footer class="online-footer"><button id="onlineDeal" class="primary" hidden>開始發牌</button><button id="onlineLeave" hidden>離開座位</button><button id="onlineHome">回首頁</button></footer>';
  document.querySelector('main').append(root);
@@ -33,13 +35,14 @@ export function installOnline({show,onHostReady,onHome,onLibrary,onLibraryClose}
   return data;
  }
  function leaveView(){cover();active=false;++seq;clearInterval(interval);if(channel)client.removeChannel(channel);channel=null;library=false;}
- function home(){leaveView();onHome();}
- function forgetRoom(id){
+ function home(){endingRoom=null;leaveView();onHome();}
+ function forgetRoom(id,keepAddress=false){
   try{
    if(read(HOST)?.roomId===id)localStorage.removeItem(HOST);
    if(read(END)?.roomId===id)localStorage.removeItem(END);
    const invites=read(INVITES);if(invites&&Object.hasOwn(invites,id)){delete invites[id];save(INVITES,invites);}
   }catch{/* Storage failure must not keep an already closed role card visible. */}
+  if(keepAddress)return;
   const url=new globalThis.URL(location.href),hash=new URLSearchParams(url.hash.slice(1));
   if(url.searchParams.get('room')===id){url.searchParams.delete('room');url.searchParams.delete('invite');}
   if(hash.get('room')===id)url.hash='';
@@ -48,13 +51,29 @@ export function installOnline({show,onHostReady,onHome,onLibrary,onLibraryClose}
  function exitRoom(id=room){
   if(room&&id!==room){forgetRoom(id);return;}
   if(library)onLibraryClose?.();
-  leaveView();forgetRoom(id);room=null;state=null;isHost=false;pendingSeat=null;
+  endingRoom=null;leaveView();forgetRoom(id);room=null;state=null;isHost=false;pendingSeat=null;
   for(const name of ['onlineCard','onlineQR','onlineDissolve','onlineDeal','onlineLeave'])$(name).hidden=true;
   $('onlineRing').replaceChildren();$('onlineCount').textContent='';$('onlineCode').textContent='';$('onlineCardSeat').textContent='';
   const canvas=document.querySelector('#onlineQR canvas');canvas.getContext('2d')?.clearRect(0,0,canvas.width,canvas.height);
   $('onlineTitle').textContent='線上發牌（Beta版）';notice('');onHome();
  }
- function unavailable(error,id=room){if(error.code!=='ROOM_UNAVAILABLE')return false;exitRoom(id);return true;}
+ async function finishPlayer(id){
+  if(!id||endingRoom===id)return;endingRoom=id;
+  if(library)onLibraryClose?.();leaveView();state=null;
+  for(const name of ['onlineCard','onlineQR','onlineDissolve','onlineDeal','onlineLeave','onlineLibrary'])$(name).hidden=true;
+  $('onlineRing').replaceChildren();$('onlineCount').textContent='';show('online');notice('本局已結束，正在載入復盤…');
+  try{
+   const result=await api('recap',{},id);if(endingRoom!==id)return;
+   if(result.roomId!==id||result.status!=='ended'||!result.recap)throw Error('復盤資料尚未確認');
+   onPlayerRecap(result.recap);recapRoom=id;forgetRoom(id,true);room=null;
+  }catch(error){
+   if(endingRoom!==id)return;
+   if(error.code==='ROOM_UNAVAILABLE'){exitRoom(id);return;}
+   notice('本局已結束，復盤載入失敗，請重新連線後再試');
+   const retry=document.createElement('button');retry.textContent='重新載入復盤';retry.onclick=()=>{endingRoom=null;finishPlayer(id);};$('onlineNotice').append(retry);
+  }
+ }
+ function unavailable(error,id=room){if(error.code!=='ROOM_UNAVAILABLE')return false;if(isHost)exitRoom(id);else finishPlayer(id);return true;}
  async function refresh(){
   if(!active||document.hidden||busy)return;
   if(refreshing){refreshAgain=true;return;}
@@ -68,7 +87,7 @@ export function installOnline({show,onHostReady,onHome,onLibrary,onLibraryClose}
   clearInterval(interval);if(channel)await client.removeChannel(channel);
   const session=await auth();await client.realtime.setAuth(session.access_token);
   channel=client.channel('wolfcue:'+room,{config:{private:true}}).on('broadcast',{event:'changed'},e=>{
-   if(active&&e.payload?.roomId===room&&closed(e.payload.status))exitRoom();else refresh();
+   if(active&&e.payload?.roomId===room&&closed(e.payload.status)){if(e.payload.status==='ended'&&!isHost)finishPlayer(room);else exitRoom();}else refresh();
   })
    .subscribe(s=>{if(!active)return;if(s==='SUBSCRIBED')refresh();else if(['CHANNEL_ERROR','TIMED_OUT'].includes(s)){cover();notice('正在重新同步…');}});
   interval=setInterval(refresh,8000);
@@ -76,7 +95,7 @@ export function installOnline({show,onHostReady,onHome,onLibrary,onLibraryClose}
  function link(s){const u=new globalThis.URL(location.href);u.search='';u.hash='room='+s.roomId+'&invite='+s.inviteToken;return u.href;}
  async function apply(s){
   if(!active||!room||s?.roomId!==room)return;
-  if(s?.roomId===room&&closed(s.status)){exitRoom();return;}
+  if(s?.roomId===room&&closed(s.status)){if(s.status==='ended'&&!isHost)await finishPlayer(room);else exitRoom();return;}
   if(state?.roomId===s.roomId&&s.version<state.version)return;
   const prior=state;state=s;
   if(s.status==='dealt'&&isHost){
@@ -180,9 +199,9 @@ export function installOnline({show,onHostReady,onHome,onLibrary,onLibraryClose}
   }
  }
  async function end(game){
-  const h=read(HOST);if(game?.step==='finished'&&h?.started&&h.dealId){save(END,{roomId:h.roomId,dealId:h.dealId});}
+  const h=read(HOST);if(game?.step==='finished'&&h?.started&&h.dealId){try{const pending=read(END);if(pending?.roomId!==h.roomId||pending?.dealId!==h.dealId||!pending.recap)save(END,{roomId:h.roomId,dealId:h.dealId,recap:recapSnapshot(game)});}catch{return;}}
   const pending=read(END);if(!pending||end.running)return;end.running=true;
-  try{await api('end',{dealId:pending.dealId},pending.roomId);localStorage.removeItem(END);if(read(HOST)?.roomId===pending.roomId)localStorage.removeItem(HOST);}
+  try{await api('end',{dealId:pending.dealId,...(pending.recap?{recap:pending.recap}:{})},pending.roomId);localStorage.removeItem(END);if(read(HOST)?.roomId===pending.roomId)localStorage.removeItem(HOST);}
   catch{/* Retain pending terminal notification for next connectivity event. */}finally{end.running=false;}
  }
  async function dissolve(){
@@ -194,7 +213,7 @@ export function installOnline({show,onHostReady,onHome,onLibrary,onLibraryClose}
  document.addEventListener('visibilitychange',()=>{cover();++seq;if(!document.hidden){refresh();end();}});
  window.addEventListener('online',()=>{refresh();end();});window.addEventListener('pagehide',cover);
  window.addEventListener('storage',e=>{if(e.key==='wolfcue-online-auth'){cover();refresh();}});
- return {host,end,dissolve,closeLibrary(){library=false;cover();paint();show('online');refresh();},detach(){const h=read(HOST);if(h?.started)localStorage.removeItem(HOST);},async resume(){
+ return {host,end,dissolve,clearPlayerRecap(){endingRoom=null;if(recapRoom)forgetRoom(recapRoom);recapRoom=null;},closeLibrary(){library=false;cover();paint();show('online');refresh();},detach(){const h=read(HOST);if(h?.started)localStorage.removeItem(HOST);},async resume(){
   const hash=new URLSearchParams(location.hash.slice(1)),u=new globalThis.URL(location.href),id=hash.get('room')||u.searchParams.get('room');
   if(id){const invite=hash.get('invite');u.hash='';u.searchParams.set('room',id);history.replaceState(null,'',u);await player(id,invite);return true;}
   const h=read(HOST);if(h&&!h.started){await host(h);return true;}end();return false;

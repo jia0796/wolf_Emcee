@@ -1,0 +1,46 @@
+{
+  "environment": "local Supabase Auth/Postgres RPC",
+  "passed": 10,
+  "results": [
+    {
+      "name": "10: only owner receives complete committed seats, including on recover",
+      "passed": true
+    },
+    {
+      "name": "10: formal end deletes active room data while every seated player gets identical recap",
+      "passed": true
+    },
+    {
+      "name": "fragrance12: only owner receives complete committed seats, including on recover",
+      "passed": true
+    },
+    {
+      "name": "fragrance12: formal end deletes active room data while every seated player gets identical recap",
+      "passed": true
+    },
+    {
+      "name": "unseated visitors, outsiders and other hosts cannot read final recap",
+      "passed": true
+    },
+    {
+      "name": "players cannot end/publish and a bad recap rolls back without closing the room",
+      "passed": true
+    },
+    {
+      "name": "simultaneous end and retry publish one immutable recap",
+      "passed": true
+    },
+    {
+      "name": "manual dissolution does not invent a recap",
+      "passed": true
+    },
+    {
+      "name": "expired recap is inaccessible and existing expiry job removes it",
+      "passed": true
+    },
+    {
+      "name": "raw archive, private reader and forged host/role inputs are denied",
+      "passed": true
+    }
+  ]
+}
