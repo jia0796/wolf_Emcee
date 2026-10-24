@@ -1,0 +1,44 @@
+{
+  "environment": "Deployed website, synthetic local game fixtures, no cloud mutations",
+  "passed": 9,
+  "failed": 0,
+  "errors": [],
+  "results": [
+    {
+      "name": "rules placement, keyboard, 44px target, numbered hierarchy and hanging wrap {\"width\":320,\"height\":568,\"big\":false}",
+      "passed": true
+    },
+    {
+      "name": "rules placement, keyboard, 44px target, numbered hierarchy and hanging wrap {\"width\":375,\"height\":667,\"big\":false}",
+      "passed": true
+    },
+    {
+      "name": "rules placement, keyboard, 44px target, numbered hierarchy and hanging wrap {\"width\":390,\"height\":844,\"big\":false}",
+      "passed": true
+    },
+    {
+      "name": "board isolation and reset closed after switching boards",
+      "passed": true
+    },
+    {
+      "name": "rules placement, keyboard, 44px target, numbered hierarchy and hanging wrap {\"width\":430,\"height\":932,\"big\":false}",
+      "passed": true
+    },
+    {
+      "name": "rules placement, keyboard, 44px target, numbered hierarchy and hanging wrap {\"width\":844,\"height\":390,\"big\":false}",
+      "passed": true
+    },
+    {
+      "name": "rules placement, keyboard, 44px target, numbered hierarchy and hanging wrap {\"width\":390,\"height\":844,\"big\":true}",
+      "passed": true
+    },
+    {
+      "name": "saved recap hides only outcome text and preserves SVG, target and data; skip=false",
+      "passed": true
+    },
+    {
+      "name": "saved recap hides only outcome text and preserves SVG, target and data; skip=true",
+      "passed": true
+    }
+  ]
+}
