@@ -1,0 +1,30 @@
+{
+  "commit": "24c4512f0ca221ec1335ffc0afea306cd28c21f7",
+  "results": [
+    {
+      "path": "app.js",
+      "sha256": "611d65c70745a3c02a6c41e546ca8212eec88dfcbbbaefaf7c099e7a56221b61",
+      "matched": true
+    },
+    {
+      "path": "index.html",
+      "sha256": "fe2cda96f10e3071693ea4a412285b741908eafbb0eb5507039cbdbed36e46f7",
+      "matched": true
+    },
+    {
+      "path": "liquid-glass.css",
+      "sha256": "7c89a621e35e7a06f7c9fdad0069e3ca29ace4c82761574603851eecb7b8eaf6",
+      "matched": true
+    },
+    {
+      "path": "recap.js",
+      "sha256": "758268e98065cc3d5d5ab9b21eb4e9e0c9bd030c8a238c036258e1d2181f9c1e",
+      "matched": true
+    },
+    {
+      "path": "sw.js",
+      "sha256": "09d1190a44a5f6811c3d47fd1d187a21a322c090c17954bc082783c66bfd7f65",
+      "matched": true
+    }
+  ]
+}

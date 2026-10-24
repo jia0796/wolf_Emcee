@@ -2,6 +2,8 @@
 
 日期：2026-10-24。分支：`feat/eclipse-host-app`。
 
+**最新樣式修訂**：使用者要求沿用 App 風格，首版紫晶書頁樣式已改為 App 共用冰藍液態玻璃；下方首版實作與截圖作歷史紀錄。最新規格以 README／DESIGN 及文末修訂為準。
+
 ## 已完成內容
 
 1. 覺醒獵人復盤不再顯示槍圖示上方的巡獵起點／命中小字。人物、座號、槍圖示、目標與「不巡獵」維持；原始 result、direction、targets 與存檔資料完全不刪除。
@@ -54,3 +56,13 @@
 - [移除小字後復盤](patrol-rules-evidence/local/recap-patrol.png)
 - [不巡獵仍保留](patrol-rules-evidence/local/recap-skip.png)
 - [正式站收合區／層級](patrol-rules-evidence/live/rules-390x844.png) · [正式站復盤](patrol-rules-evidence/live/recap-patrol.png)
+
+## 後續修訂：改回 App 冰藍液態玻璃
+
+- 修改前基準：`9bb6ca24a0e4c9737fd92b3c2349da303ca51de6`，Git 歷史保留。
+- 收合區改用共用 v-blue／v-line／v-sheen／v-edge／v-ink／v-muted，底色、漸層、16px 圓角、邊框、文字與字體均與現有夜間順序區一致；保留液態高光與模糊材質。
+- 標題、文字、編號與子層級、換行對齊、熱區、收合行為與遊戲規則不變；沒有修改角色插畫的紫色外框。
+- 只修改新收合區材質、快取識別 council-v22-21，以及測試／文件；素材清單與存檔版本不變。README、DESIGN 與 current-rules 同步採用最新要求，首版證據不覆寫。
+- 本機 UI 9 組通過，包含以 getComputedStyle 核對新區塊與 App 夜間順序區的實際材質，以及六種 viewport、文字縮排、鍵盤收合、切板與復盤；[結果](patrol-style-evidence/local/results.json) · [新畫面](patrol-style-evidence/local/rules-390x844.png)。
+- 材質修正後再次完整 `npm test`：987 通過、0 失敗／跳過／取消，[原始輸出](patrol-style-evidence/npm-test.txt)。程式提交 `24c4512f0ca221ec1335ffc0afea306cd28c21f7`；單獨回退本次材質採 `git revert 24c4512f0ca221ec1335ffc0afea306cd28c21f7`、重新測試後推送，不覆蓋後續歷史。
+- 已發布：[GitHub Pages 成功](https://github.com/jia0796/wolf_Emcee/actions/runs/40089574274)。正式站 UI 9 組通過、0 失敗，五個檔案雜湊與已測版本一致；[正式站結果](patrol-style-evidence/live/results.json) · [雜湊](patrol-style-evidence/live/hashes.json) · [最新畫面](patrol-style-evidence/live/rules-390x844.png)。真機 Safari／PWA／Android 仍未驗收。
