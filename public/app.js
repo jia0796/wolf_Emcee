@@ -41,6 +41,7 @@ const OP_LABEL={learnTarget:'學習身分',extraAttack:'額外狼刀',mechanical
 function setupBoard(id){
  selectedBoard=id;const b=BOARDS[id];$('beautyRules').hidden=!b.roles.beauty;$('rulePoisonRomance').value=String(b.defaults.poisonRomance??true);$('ruleLastWolfRomance').value=String(b.defaults.lastWolfRomance??true);$('ruleShieldMode').value=b.defaults.shieldMode||'once';$('setupTitle').textContent=b.name;$('setupWolves').replaceChildren();$('setupGood').replaceChildren();document.querySelectorAll('#setup details').forEach(d=>d.open=false);
  for(const [role,count] of Object.entries(b.roles)){const li=document.createElement('li');li.textContent=ROLES[role]+' ×'+count;li.className=ROLE_DATA[role].kind;$(ROLE_DATA[role].kind==='wolf'?'setupWolves':'setupGood').append(li);}
+ $('awakenedPatrolRules').hidden=b.id!=='awakenedBeauty12';
  $('brothersRules').hidden=b.id!=='brothers12';$('ruleRevengeInvincible').value=String(b.defaults.revengeInvincible===true);
  $('knightRules').hidden=b.id!=='evilKnight12';$('ruleImmuneNightGun').value=String(b.defaults.immuneNightGun||false);
  $('setupOrder').textContent=(b.firstNightOrder?'第一晚：'+b.firstNightOrder.map(r=>r==='stoneIdentify'?'石像鬼身分確認':r==='mediumIdentify'?'通靈師舉手':r==='wolves'?'狼人':r==='brothers'?'狼兄狼弟':r==='lucky'?'幸運兒':(r==='converted'?'轉化者':ROLES[r])).join(' → ')+'\n第二晚起：':'')+b.nightOrder.map(r=>r==='infectionNotice'?'感染者身分確認':r==='wolves'?'狼人':r==='lucky'?'幸運兒':r==='converted'?'轉化者':ROLES[r]).join(' → ');
