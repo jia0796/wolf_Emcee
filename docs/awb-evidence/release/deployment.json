@@ -1,0 +1,23 @@
+{
+  "implementation": "940acf4a27a384f59a2076e07737f5d53b723819",
+  "branch": "feat/eclipse-host-app",
+  "pages": {
+    "runId": 40085542457,
+    "conclusion": "success",
+    "url": "https://github.com/jia0796/wolf_Emcee/actions/runs/40085542457"
+  },
+  "ci": {
+    "runId": 40085542443,
+    "conclusion": "success"
+  },
+  "afterDeployment": {
+    "npmTest": {"passed": 986, "failed": 0, "skipped": 0, "cancelled": 0},
+    "uiGroups": {"passed": 20, "failed": 0},
+    "onlineTwelvePlayersGroups": {"passed": 14, "failed": 0},
+    "offlineGroups": {"passed": 3, "failed": 0},
+    "publishedFilesMatched": 13,
+    "unchangedSkillSvg": 26,
+    "unchangedOriginalIllustrations": 31
+  },
+  "physicalDevices": "Not tested: iPhone Safari, installed iOS PWA, Android, low-end devices"
+}

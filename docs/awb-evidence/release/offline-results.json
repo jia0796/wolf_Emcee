@@ -1,0 +1,10 @@
+{
+  "environment": "Deployed GitHub Pages in desktop Edge, actual Service Worker; synthetic local game fixture",
+  "passed": 3,
+  "failed": 0,
+  "checks": [
+    "Progressive cache contains the new module and both approved PNGs",
+    "Offline refresh, direction selection, substitute commitment and undo preserve the new board",
+    "Both approved images decode offline at original size"
+  ]
+}

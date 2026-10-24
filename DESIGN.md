@@ -66,11 +66,12 @@ material-source: "public/liquid-glass.css"
 
 ## 角色圖鑑
 
-- 31 個角色的列表與翻卡正面使用 art/catalog-clear/ 下核准的透明 PNG，對應 catalog-art.js。
+- 33 個角色的列表與翻卡正面使用 catalog-art.js 的核准透明 PNG；原 31 張位於 art/catalog-clear/，新增覺醒狼美人／覺醒獵人使用 art/catalog/ 下已核准的紫框透明原檔。
 - 只去除最外卡框之外的黑底；保留金框或紫框、頂部月亮、突出框線的人物衣飾與槍托、全部框內背景及文字。不裁切金框。
 - 原始檔、歷史縮圖與 ROLE_DATA.image 不修改。衍生圖清單及 SHA256 見 docs/catalog-clear-assets.json。
 - 沿用既有 5:7 顯示框、contain、卡片大小、名稱位置、雙面翻卡、長文捲動與關閉操作。
 - 沿用懶載入；新圖無法載入時只嘗試一次原圖 fallback，避免錯誤循環。
+- 覺醒狼美人保留普通狼美人的銀髮、紅眼與人物建模，以不同動作、服裝、紫色絲線及水晶區分；覺醒獵人採核准紫框稿。兩張均僅框外透明，不去除框內背景；原其他插畫不改。巡獵沿用原三行操作區，方向鍵文字為「從X號」，選定後同列顯示「巡獵 → X號」，不改按鈕尺寸及間距。
 - 生成式衍生圖不宣稱逐像素無損；部分畫布尺寸不同，原圖完整留存。
 
 線上角色卡共用相同圖片映射與原圖 fallback；仍先向伺服器確認自己的角色，才建立圖片與職業名稱。蓋牌依原流程移除內容，不能預先下載或預選玩家角色。
@@ -79,8 +80,8 @@ material-source: "public/liquid-glass.css"
 
 沿用既有開場、日夜及翻卡流程；按鍵材質約 .16 秒回饋，Reduce Motion 停止額外動畫。保留鍵盤、雙指縮放、原生捲動、動態 viewport、安全區及最後一列可點擊。
 
-Service Worker 仍先裝 CORE，再每批兩資產背景快取。liquid-glass.css／catalog-art.js 為核心；31 PNG 是非阻塞選用資源。首次下載約新增 66.7 MiB；舊素材及失敗 fallback 保留。存檔版本不變。
+Service Worker 仍先裝 CORE，再每批兩資產背景快取。liquid-glass.css／catalog-art.js／awakening.js 為核心；33 張透明角色 PNG 是非阻塞選用資源。原 31 張約 66.7 MiB，本輪兩張新增 5.28 MiB；舊素材及失敗 fallback 保留。存檔版本維持 v22，僅新板子帶有可選 awb 狀態；快取識別為 council-v22-19。
 
 ## 驗收與發布
 
-需執行完整 npm test、既有 UI 回歸、31 角色載入與翻卡、原尺寸比對、離線與正式站雜湊核對。Safari／iOS PWA／Android／低階裝置的實體測試不得以桌面模擬取代。最新結果、提交與安全回退見 docs/liquid-glass-catalog-report.md。
+需執行完整 npm test、既有 UI 回歸、33 角色載入與翻卡、原尺寸比對、離線與正式站雜湊核對。Safari／iOS PWA／Android／低階裝置的實體測試不得以桌面模擬取代。最新新板子結果、提交與安全回退見 docs/awb-implementation-report.md；材質／原 31 張衍生圖歷史結果見 docs/liquid-glass-catalog-report.md。

@@ -1,0 +1,16 @@
+{
+  "project": "wolfcue-online",
+  "migration": "20261024101833_awakened_beauty_board",
+  "originalCount": 26,
+  "newCount": 27,
+  "originalDigestBefore": "de49e38019cc0001d508cf7d16d71b6b",
+  "originalDigestAfter": "de49e38019cc0001d508cf7d16d71b6b",
+  "digestExpression": "md5(string_agg(id || ':' || capacity::text || ':' || roles::text || ':' || catalog_hash, E'\\n' order by id)) excluding awakenedBeauty12",
+  "newBoard": {
+    "id": "awakenedBeauty12",
+    "capacity": 12,
+    "roles": ["awakenedBeauty", "wolf", "wolf", "wolf", "seer", "witch", "guard", "awakenedHunter", "villager", "villager", "villager", "villager"],
+    "catalogHash": "2ad4285d7dad6647cab8122b0be5d6d1ba75b240f0da0f9046c910f9fc3d7e27"
+  },
+  "scope": "Append-only catalogue row. No existing rooms, grants, RLS, RPC, Edge, Auth or Realtime settings changed."
+}

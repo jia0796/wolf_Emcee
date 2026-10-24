@@ -1,0 +1,13 @@
+
+> test
+> node --test tests/*.test.mjs
+
+✔ private channel refetches authority, ignores stale responses and covers cards on background/cleanup (1.3068ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 67.7158
