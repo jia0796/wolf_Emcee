@@ -69,20 +69,20 @@ html.wolfcue-glass #host #next:disabled{background:rgb(29 48 61 / .74);color:#bc
 .mini-timer[data-tone=urgent] #miniTimerDigits{color:#E9A095}
 #finished[data-player-recap=true] .finish-actions{grid-template-columns:1fr}
 
-/* Board-specific rule folio: native disclosure, crystal accent, hanging lists. */
-html.wolfcue-glass #setup .patrol-rules{--patrol-accent:#d5bcf4;padding:0;border:1px solid rgb(213 188 244 / .42);border-inline-start:3px solid var(--patrol-accent);border-radius:6px 18px 18px 6px;background:linear-gradient(135deg,rgb(118 86 164 / .18),transparent 60%),rgb(18 32 49 / .88);box-shadow:inset 0 1px 0 rgb(232 218 252 / .15),0 5px 15px rgb(4 15 25 / .18);color:var(--v-ink)}
+/* Board-specific disclosure using the shared App glass and hanging lists. */
+html.wolfcue-glass #setup .patrol-rules{--patrol-accent:var(--v-blue);padding:0;border:1px solid var(--v-line);border-radius:16px;background:var(--v-sheen),rgb(17 37 51 / .65);box-shadow:var(--v-edge);color:var(--v-ink);backdrop-filter:blur(12px) saturate(125%);-webkit-backdrop-filter:blur(12px) saturate(125%)}
 #setup .patrol-rules>summary{display:flex;align-items:center;gap:12px;min-height:52px;padding:12px 16px;list-style:none;line-height:1.5}
 #setup .patrol-rules>summary::-webkit-details-marker{display:none}
 #setup .patrol-rules-title{flex:1;min-width:0}
 #setup .patrol-rules-toggle{color:var(--patrol-accent);font-size:1.4rem;line-height:1;transition:transform .16s ease-out}
 #setup .patrol-rules[open] .patrol-rules-toggle{transform:rotate(45deg)}
-#setup .patrol-rules-body{padding:0 16px 16px;border-top:1px solid rgb(213 188 244 / .18);font-size:.9375rem;line-height:1.8;overflow-wrap:anywhere}
-#setup .patrol-rules-source{display:inline-block;margin:14px 0 4px;padding:2px 9px;border-radius:5px;background:rgb(213 188 244 / .1);color:#e0d2f4;font-size:.8125rem}
+#setup .patrol-rules-body{padding:0 16px 16px;border-top:1px solid rgb(178 219 229 / .18);font-size:.9375rem;line-height:1.8;overflow-wrap:anywhere}
+#setup .patrol-rules-source{display:inline-block;margin:14px 0 4px;padding:2px 9px;border-radius:5px;background:rgb(178 219 229 / .1);color:var(--v-muted);font-size:.8125rem}
 #setup .patrol-rules-list{list-style:decimal outside;margin:10px 0 0;padding-inline-start:1.55em}
 #setup .patrol-rules-list>li{margin-block:12px;padding-inline-start:.2em}
 #setup .patrol-rules-list>li::marker{color:var(--patrol-accent);font-weight:600}
 #setup .patrol-rules-list ul{list-style:disc outside;margin:8px 0 0;padding-inline-start:1.35em}
 #setup .patrol-rules-list ul>li{margin-block:10px;padding-inline-start:.15em}
-#setup .patrol-rules-list strong{color:#f1e8fc;font-weight:600}
+#setup .patrol-rules-list strong{color:var(--v-ink);font-weight:600}
 #setup .patrol-rules-note{margin:6px 0 0;color:var(--v-muted);font-size:.875rem}
 @media(prefers-reduced-motion:reduce){#setup .patrol-rules-toggle{transition:none}}
