@@ -29,7 +29,7 @@
 
 首輪插畫／UI 提交 ff0522d 已以 Git 與施工前基準比對：data.js、engine.js、night.js、identity.js、takeover.js、records.js、recap.js、timer.js、online.js、online-state.js、catalog-art.js、全部既有插畫、背景、技能 SVG 均未修改。
 
-線上發牌卡保留既有 catalog-art.js 映射、卡背與外框；復盤仍使用 ROLE_DATA 原圖。本次不改遊戲機制、存檔 v22、回退、後端、Supabase、Realtime 或 Google Drive 的其他文件。Service Worker 的核心優先／每批兩素材／舊資產復用策略不變。
+首輪圖鑑提交的線上發牌卡保留既有 catalog-art.js 映射、卡背與外框，復盤當時仍使用 ROLE_DATA 原圖；後續依使用者要求同步復盤新人物，現況見 [追加更新報告](recap-vote-refresh-report.md)。本次不改遊戲機制、存檔 v22、回退、後端、Supabase、Realtime 或 Google Drive 的其他文件。Service Worker 的核心優先／每批兩素材／舊資產復用策略不變。
 
 ## 本機測試
 
@@ -91,4 +91,4 @@ Node.js v24.21.0，Edge／Playwright 桌面無頭瀏覽器。
 
 首次測試為 989 通過、1 失敗：R16 歷史基準把分類文字也納入整份資料雜湊。已明確斷言新標籤必須為「好人陣營」，只將該欄還原為舊標籤進行歷史雜湊比對；其餘角色欄位與板子規則仍逐一完整核對。重跑完整 990 項後全數通過，沒有降低遊戲規則斷言。
 
-[本機結果](catalog-v2-evidence/mixed-local-results.json) · [混血兒背面截圖](catalog-v2-evidence/mixed-local-390.png)。此補正部署後會再次驗證正式站。
+[本機結果](catalog-v2-evidence/mixed-local-results.json) · [混血兒背面截圖](catalog-v2-evidence/mixed-local-390.png)。此補正提交為 `5ea393ec12d98444344993ae399982066e77e332`，[Pages 部署成功](https://github.com/jia0796/wolf_Emcee/actions/runs/40170085763)。後續依使用者指示，復盤也同步新人物並精簡投票摘要，最新結果及截圖見 [追加更新報告](recap-vote-refresh-report.md)。

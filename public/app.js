@@ -7,7 +7,7 @@ import {createDealtGame,validateRecap} from './online-state.js';
 import {backgroundSource,hostPresentation,createB3Backdrop,installB3ScrollHints,installWolfCueOpening,createMiniTimer} from './b3-ui.js';
 import {originalKnifeActors,specialFlow,knifeEntry,knifeSelection,knifeKinds,statusSteps,switchSteps,knifeSummary,knifeStatus,closeRole} from './takeover.js';
 import {bondAvailable} from './fragrance.js';
-import {voteLocked} from './votes.js';
+import {voteLocked,voteRound} from './votes.js';
 import {createVoteDialog} from './vote-ui.js';
 import {dancerAvailable,danceCandidates,maskInspectCandidates,maskAvailable} from './masquerade.js';
 import {realWolf,converted,convertedName,nativeAllowed,graveResult,infected} from './identity.js';
@@ -201,7 +201,7 @@ function renderFinished(){
 function render(){
  if(!game){show('home');return;}if(game.step==='finished'){timerStop();renderFinished();return;}persist();show('host');const s=game.step;
  $('phase').textContent=hostPresentation(phaseOf(game),s,game.night).label;$('boardName').textContent=boardOf(game).name;$('boardName').title=boardOf(game).name;
- $('stepLabel').hidden=true;$('subtitle').textContent=subtitle(game);backdrop.script(s);$('hint').textContent=hintText();$('hint').style.whiteSpace=specialFlow(game)&&statusSteps.includes(s)?'pre-line':'';renderGesture();renderOperation();
+ $('stepLabel').hidden=true;$('subtitle').textContent=subtitle(game);backdrop.script(s);$('hint').textContent=['sheriffVote','sheriffRevote','exileVote','exileRevote'].includes(s)&&voteRound(game)?.submitted?'':hintText();$('hint').style.whiteSpace=specialFlow(game)&&statusSteps.includes(s)?'pre-line':'';renderGesture();renderOperation();
  $('selection').textContent=game.action.length?'已選：'+game.action.map(id=>id+'號').join('、'):game.draw?.revealed&&['draw','dayDraw','speeches'].includes(s)?game.draw.seat+'號開始，'+(game.draw.clockwise?'順':'逆')+'時針發言':'';
  if(s==='discussion'&&!game.sheriff&&game.draw?.revealed)$('selection').textContent='發言順序：'+game.draw.order.map(id=>id+'號').join(' → ');
  $('actions').replaceChildren();
@@ -227,7 +227,7 @@ function render(){
  if(['antidote','poison'].includes(s)){const blocked=!!potionBlocked(game,s);action(s==='antidote'?'不使用解藥':'不用毒藥','skip',blocked);action(s==='antidote'?'使用解藥':'使用毒藥','use',blocked);}
  if(s==='candidates'){action('全員上警','all');action('無人上警','none');}if(['draw','dayDraw'].includes(s))action(game.draw?.revealed?'查看抽籤結果':'抽籤','draw');
  if(s==='badgeTransfer')action('撕掉／不移交','skip');
- if(['sheriffVote','sheriffRevote','exileVote','exileRevote'].includes(s)){action(game.choice==='tie'?'取消平票':'平票','tie');$('actions').lastElementChild.disabled=voteLocked(game);const button=document.createElement('button');button.textContent=s==='exileVote'?'紀錄票型':'紀錄票型（選用）';button.className='quiet';button.id='voteNotesOpen';button.onclick=()=>voteDialog.open();$('actions').append(button);}
+ if(['sheriffVote','sheriffRevote','exileVote','exileRevote'].includes(s)){action(game.choice==='tie'?'取消平票':'平票','tie');$('actions').lastElementChild.disabled=voteLocked(game);const button=document.createElement('button');const submitted=voteRound(game)?.submitted;button.textContent=submitted?'修改票型':s==='exileVote'?'紀錄票型':'紀錄票型（選用）';button.className='quiet';button.id=submitted&&s==='exileVote'?'exileResultEdit':'voteNotesOpen';button.onclick=()=>voteDialog.open();$('actions').append(button);}
  }
  for(const [container,offset] of [['left',0],['right',6]]){
   $(container).replaceChildren();for(const p of game.players.slice(offset,offset+6)){

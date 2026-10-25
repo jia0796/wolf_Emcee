@@ -1,5 +1,6 @@
 import {voteDetails} from './votes.js';
 import {ROLE_DATA} from './data.js';
+import {CATALOG_ART_V2} from './catalog-v2.js';
 import {recapNights,personSnapshot} from './records.js';
 import {realWolf,infected,converted} from './identity.js';
 export const SKILL_LABELS={bond:'綁定','wolf-inspect':'狼人查驗',dance:'共舞',mask:'面具',charm:'魅惑',heartbreak:'殉情',duel:'決鬥',vote:'放逐投票','sheriff-badge':'警徽',infect:'感染','wolf-attack':'狼刀',antidote:'解藥',poison:'毒藥',shield:'守護',inspect:'查驗',swap:'交換',gun:'槍',learn:'學習',trade:'交易',fear:'恐懼',sleep:'夢遊','role-model':'榜樣',hunt:'狩獵',transform:'轉化',gravekeeper:'守墓查驗','evil-knight-reflect':'反傷'};
@@ -52,7 +53,21 @@ function knownPerson(e,actor,index=0){
  const id=(actor?e.actors:e.effectiveTargets||e.rawTargets)?.[index],role=actor?e.actorRole:null,r=ROLE_DATA[role];
  return {id,role,name:r?.name||'未記錄',tone:r?.kind,image:r?.image};
 }
-function portrait(p){const box=el('div','recap-image');if(p?.image){const r=ROLE_DATA[p.role],crop=r?.recapCrop||(p.role==='mixed'?[80,120,930,1020]:null),size=r?.artSize||(p.role==='mixed'?[1089,1445]:[1060,1484]);if(crop){const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');svg.classList.add('recap-portrait','recap-fused-art');svg.setAttribute('viewBox',crop.join(' '));svg.setAttribute('preserveAspectRatio',r.recapAlign||'xMidYMid slice');svg.setAttribute('role','img');svg.setAttribute('aria-label',p.name||'');const img=document.createElementNS('http://www.w3.org/2000/svg','image');img.setAttribute('href',p.image);img.setAttribute('width',String(size[0]));img.setAttribute('height',String(size[1]));svg.append(img);box.append(svg);}else{const img=el('img','recap-portrait');img.src=p.image;img.alt=p.name||'';img.loading='lazy';box.append(img);}}return box;}
+function portrait(p){
+ const box=el('div','recap-image');if(!p?.image)return box;
+ const r=ROLE_DATA[p.role],current=CATALOG_ART_V2[p.role]?.full;
+ // Resolve art from the event's recorded role, never from the player's final identity.
+ // Keep historical snapshots intact; a failed new asset falls back to that snapshot's image.
+ const draw=modern=>{
+  const source=modern?current:p.image,crop=modern?[90,160,880,1040]:r?.recapCrop||(p.role==='mixed'?[80,120,930,1020]:null),size=modern?[1060,1484]:r?.artSize||(p.role==='mixed'?[1089,1445]:[1060,1484]);
+  let node,img;
+  if(crop){node=document.createElementNS('http://www.w3.org/2000/svg','svg');node.classList.add('recap-portrait','recap-fused-art');node.setAttribute('viewBox',crop.join(' '));node.setAttribute('preserveAspectRatio',modern?'xMidYMid slice':r?.recapAlign||'xMidYMid slice');node.setAttribute('role','img');node.setAttribute('aria-label',p.name||'');img=document.createElementNS('http://www.w3.org/2000/svg','image');img.setAttribute('href',source);img.setAttribute('width',String(size[0]));img.setAttribute('height',String(size[1]));node.append(img);}
+  else{node=img=el('img','recap-portrait');img.src=source;img.alt=p.name||'';img.loading='lazy';}
+  if(modern)img.onerror=()=>{img.onerror=null;box.replaceChildren();draw(false);};
+  box.append(node);
+ };
+ draw(!!current);return box;
+}
 function personText(p,{noNumber=false}={}){const text=el('div','recap-person '+(p?.tone||'neutral'));text.append(el('strong',null,p?.name||'未記錄'));if(!noNumber&&p?.id)text.append(el('span',null,p.id+'號'));return text;}
 function actorModel(e){const p=knownPerson(e,true);if(e.displayRole==='lucky'||e.skillSource==='lucky')p.name='幸運兒';if(e.key==='basic'){p.name=basicKnifeName(e);p.tone='wolf';p.role=e.portraitRole||e.actorRole;p.image=ROLE_DATA[p.role]?.image;}return p;}
 export function eventCard(e){

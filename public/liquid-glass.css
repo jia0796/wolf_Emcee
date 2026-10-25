@@ -44,6 +44,9 @@ html.wolfcue-glass #roleLibrary .role-card{background:transparent;border-color:t
 html.wolfcue-glass .preview-back{background:rgb(16 36 51 / .95);border-color:var(--v-line)}
 html.wolfcue-glass #finished .victory{background:var(--v-sheen),rgb(16 37 53 / .65);border-color:var(--v-line);border-radius:24px;box-shadow:var(--v-edge)}
 html.wolfcue-glass #finished :is(.recap-event,.final-identity-card){border-radius:20px;background:var(--v-sheen),rgb(20 44 60 / .65);border-color:var(--v-line);box-shadow:var(--v-edge)}
+/* Final identities use the same edge-to-glass portrait blend as recap events. */
+html.wolfcue-glass #finished .final-identity-card{overflow:hidden}
+html.wolfcue-glass #finished .final-identity-card>.recap-image{align-self:stretch;height:auto;width:calc(100% + 14px);margin:-7px;mask-image:linear-gradient(to right,#000 55%,transparent 100%);-webkit-mask-image:linear-gradient(to right,#000 55%,transparent 100%)}
 html.wolfcue-glass #finished :is(.recap-night>summary,.night-result){background:var(--v-sheen),rgb(18 42 59 / .65);border-color:var(--v-line);color:var(--v-ink)}
 html.wolfcue-glass #online #onlineQR{background:var(--v-sheen),rgb(17 39 55 / .58);border-color:var(--v-line);border-radius:24px;backdrop-filter:blur(8px)}
 html.wolfcue-glass #onlineRing button{border-radius:18px;background:var(--v-sheen),rgb(18 42 59 / .55);box-shadow:var(--v-edge)}
