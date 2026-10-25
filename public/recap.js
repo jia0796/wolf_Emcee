@@ -91,19 +91,27 @@ export function eventCard(e){
  if(e.rawTargets?.some((id,i)=>id!==e.effectiveTargets?.[i])){const raw=e.rawTargets.map((id,i)=>id+'號 → '+e.effectiveTargets[i]+'號').join('、');card.append(el('p','recap-mapping','原始 → 實際：'+raw));}
  return card;
 }
+// A patrol's stored target is the actual victim. For display, a paired saved
+// substitution receipt identifies the wolf beauty encountered before that death.
+export function patrolRecapEvent(event,next){
+ if(event.key!=='awakenedPatrol'||!event.encountered||next?.type!=='awakenedSubstitute'||next.executed===false||next.actors?.[0]!==event.encountered||event.rawTargets?.length!==1||event.rawTargets[0]!==next.rawTargets?.[0])return event;
+ const beauty=next.actorSnapshots?.find(p=>p.id===event.encountered&&p.role==='awakenedBeauty');if(!beauty)return event;
+ return {...event,rawTargets:[beauty.id],effectiveTargets:[beauty.id],targetSnapshots:[{...beauty}]};
+}
 export function recapTimeline(s){
  const nights=recapNights(s),days=s.dayEvents||[],numbers=[...new Set([...nights.map(r=>r.night),...days.map(e=>e.day)])].sort((a,b)=>a-b),sections=[];
- for(const n of numbers){const r=nights.find(x=>x.night===n);if(r)sections.push({kind:'night',number:n,record:r,events:r.events.filter(e=>!!e.skill&&!e.statusOnly&&e.key!=='stoneKnifeState')});const events=days.filter(e=>e.day===n&&e.executed!==false).map(e=>e.type?e:{...e,type:'shot',actors:[e.sourceActor],rawTargets:[e.id],effectiveTargets:[e.id]});if(events.length)sections.push({kind:'day',number:n,events});}
+ for(const n of numbers){const r=nights.find(x=>x.night===n);if(r)sections.push({kind:'night',number:n,record:r,events:r.events.filter(e=>!!e.skill&&!e.statusOnly&&e.key!=='stoneKnifeState')});const saved=days.filter(e=>e.day===n&&e.executed!==false).map(e=>e.type?e:{...e,type:'shot',actors:[e.sourceActor],rawTargets:[e.id],effectiveTargets:[e.id]}),events=saved.map((e,i)=>patrolRecapEvent(e,saved[i+1]));if(events.length)sections.push({kind:'day',number:n,events});}
  if(s.blood?.lastEvent?.executed&&!days.some(e=>e.type==='lastBlade')){let day=sections.find(r=>r.kind==='day'&&r.number===s.night);if(!day){day={kind:'day',number:s.night,events:[]};sections.push(day);}day.events.push(s.blood.lastEvent);}
  return sections;
 }
 export function finalIdentityModel(s){const deaths=s.nightState?.deaths||s.nightResolution?.deaths||[],camps=s.winner==='好人陣營'?['good','wolf']:['wolf','good'];return camps.map(camp=>({camp,players:s.players.filter(p=>p.active&&(realWolf(s,p)?'wolf':'good')===camp).sort((a,b)=>(camp==='good'?(ROLE_DATA[a.role]?.kind==='god'?0:1)-(ROLE_DATA[b.role]?.kind==='god'?0:1):0)||a.id-b.id).map(p=>{const snap=personSnapshot(s,p.id);snap.alive=p.alive&&!deaths.some(d=>d.id===p.id);snap.deathReason=snap.alive?'':identityDeathReason(s,p);if(infected(s,p))snap.name='感染者';if(converted(s,p))snap.name='轉化者';snap.tone=realWolf(s,p)?'wolf':ROLE_DATA[p.role]?.kind;snap.original=infected(s,p)||converted(s,p)?ROLE_DATA[p.role]?.name:null;return snap;})}));}
 export function recapDays(s){const groups=new Map();for(const segment of recapTimeline(s)){if(!groups.has(segment.number))groups.set(segment.number,[]);groups.get(segment.number).push(segment);}return [...groups].sort(([a],[b])=>a-b).map(([number,segments])=>({number,segments}));}
 export function recapDayLabel(number){const digits='零一二三四五六七八九';let text=String(number);if(Number.isInteger(number)&&number>0&&number<100)text=number<10?digits[number]:(number<20?'':digits[Math.floor(number/10)])+'十'+(number%10?digits[number%10]:'');return '第'+text+'天';}
+let recapViewId=0;
 export function renderRecap(container,s){
  container.replaceChildren();
  const result=el('section','victory recap-victory');result.append(el('h2',null,s.winner+'獲勝'),el('p',null,'勝利原因：'+(s.winnerReason||'')));container.append(result);
- const final=el('section','final-identities');final.append(el('h3','recap-section-title','身分回顧'));
+ const final=el('details','final-identities');final.open=true;final.append(el('summary','recap-section-title','身分回顧'));
  for(const group of finalIdentityModel(s)){
   final.append(el('h4',null,group.camp==='wolf'?'狼人陣營':'好人陣營'));const grid=el('div','final-identity-grid');grid.dataset.camp=group.camp;
   for(const p of group.players){
@@ -113,14 +121,20 @@ export function renderRecap(container,s){
   }final.append(grid);
  }container.append(final);
  if(s.legacyRecap||!s.recapVersion)container.append(el('p','small','舊版存檔僅顯示實際保存的事件；缺少的白天與身分快照不補造。'));
- const days=el('div','recap-days');
+ const view='recap-view-'+(++recapViewId),window=el('section','recap-window'),header=el('header','recap-window-header'),title=el('h3','recap-title','完整復盤'),tabs=el('div','recap-day-tabs'),days=el('div','recap-days'),entries=[];
+ title.id=view+'-title';window.setAttribute('aria-labelledby',title.id);tabs.setAttribute('role','tablist');tabs.setAttribute('aria-label','選擇復盤天數');days.setAttribute('role','region');days.setAttribute('aria-label','每日復盤事件');days.tabIndex=0;header.append(title,tabs);window.append(header,days);
+ const selectDay=index=>{entries.forEach(({tab,panel},i)=>{const selected=i===index;tab.setAttribute('aria-selected',String(selected));tab.tabIndex=selected?0:-1;panel.hidden=!selected;});days.scrollTop=0;};
  for(const day of recapDays(s)){
-  const disclosure=el('details','recap-day'),summary=el('summary','recap-day-summary',recapDayLabel(day.number)),body=el('div','recap-day-body');disclosure.dataset.day=String(day.number);disclosure.append(summary,body);
+  const tab=el('button','recap-day-tab',recapDayLabel(day.number)),panel=el('section','recap-day'),body=el('div','recap-day-body'),index=entries.length;
+  tab.type='button';tab.id=view+'-tab-'+day.number;tab.dataset.day=String(day.number);tab.setAttribute('role','tab');tab.setAttribute('aria-controls',view+'-day-'+day.number);panel.id=view+'-day-'+day.number;panel.dataset.day=String(day.number);panel.setAttribute('role','tabpanel');panel.setAttribute('aria-labelledby',tab.id);panel.append(body);entries.push({tab,panel});
+  tab.onclick=()=>selectDay(index);tab.onkeydown=e=>{let next;if(e.key==='ArrowRight')next=(index+1)%entries.length;else if(e.key==='ArrowLeft')next=(index+entries.length-1)%entries.length;else if(e.key==='Home')next=0;else if(e.key==='End')next=entries.length-1;else return;e.preventDefault();selectDay(next);entries[next].tab.focus();entries[next].tab.scrollIntoView({block:'nearest',inline:'nearest'});};tabs.append(tab);
   for(const segment of day.segments){
    const section=el('section','recap-segment '+segment.kind);section.setAttribute('aria-label',segment.kind==='night'?'夜晚':'白天');
    for(const event of segment.events){section.append(eventCard(event));const superseded=event.type==='exilePK'&&segment.events.some(e=>e!==event&&['exile','idiot'].includes(e.type)&&e.voteRounds?.some(r=>event.voteRounds?.some(first=>first.key===r.key)));if(!superseded){const details=voteDetails(event.voteRounds);if(details)section.append(details);}}
    if(segment.kind==='night'){const r=segment.record,result=el('article','night-result');result.append(el('h4',null,'當晚結果'),el('p',null,r.settled?(r.deaths.length?'死亡：'+[...r.deaths].sort((a,b)=>a.id-b.id).map(d=>d.id+'號').join('、'):'平安夜'):'本晚尚未結算'));section.append(result);}
    body.append(section);
-  }days.append(disclosure);
- }container.append(days);
+  }days.append(panel);
+ }
+ if(entries.length)selectDay(0);else{tabs.hidden=true;days.append(el('p','recap-empty','尚無可顯示的復盤紀錄。'));}
+ container.append(window);
 }
