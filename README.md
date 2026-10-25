@@ -9,14 +9,15 @@
 - 工作分支：`feat/eclipse-host-app`；不自動合併 main。
 - 傳統主持：**29 款板子、10／12 人、33 個角色**；線上發牌支援其中 **27 款**。
 - 存檔：**v22**，保留舊局相容與完整回退歷史，不補造舊存檔沒有的紀錄。
-- 快取：**council-v22-26**；沿用核心優先、素材每批兩張的漸進快取。
+- 快取：**council-v22-27**；沿用核心優先、素材每批兩張的漸進快取。
 - 規則以最新使用者裁定及 [詳細規格](docs/current-rules.md) 為準；外觀以 [DESIGN.md](DESIGN.md) 為準。歷史報告中的舊配色、版號及測試數不作現行施工要求。
 
 ## 最新更新
 
-### 2026-10-25｜完整復盤視窗、橫列天數與投票配色
+### 2026-10-25｜完整復盤視窗、橫列天數與投票配色（已完成、已部署）
 
 - 完整復盤改為內嵌玻璃視窗，「完整復盤」標題及天數列固定，只有下方事件內容捲動。第一天、第二天、第三天同列，超出可左右滑動；一次顯示一天，預設首個真實紀錄日，支援方向鍵／Home／End。
+- 採後續核准的「細線分頁＋深藍液態玻璃」精修，減少厚框與重複套框；視窗比預覽再向下延伸，390×844 約 658px，短螢幕保留底部按鍵空間。
 - 身分回顧可點標題收合，預設展開；四欄、勝方在前、死因與人物融合維持不變。
 - 復盤警長／放逐／PK 投票紀錄改用冰藍／深藍玻璃及白色系文字，最高票移除舊紫色填色；不改票權、結果或編輯介面。
 - 覺醒獵人命中覺醒狼美人並觸發替死時，依保存的相遇座號及替死快照分成「獵人 → 覺醒狼美人」及「覺醒狼美人替死 → XX號」兩卡。實際死者、結算、回退及存檔不改；舊局缺資料不補造。
@@ -62,11 +63,12 @@
 
 ## 近期部署紀錄（已核對並補齊）
 
-以下核對 2026-10-21～25 本分支近期的 16 次成功 Pages 發布，時間為台北時間；每列為實際發布的提交，包含先前未集中記錄的項目。歷史樣式已明列取代關係，不作現行設計指示。各輪測試數仍以各自報告為準，不視為本輪重測。
+以下核對 2026-10-21～25 本分支近期的 17 次成功 Pages 發布，時間為台北時間；每列為實際發布的提交，包含先前未集中記錄的項目。歷史樣式已明列取代關係，不作現行設計指示。各輪測試數仍以各自報告為準，不視為本輪重測。
 
 | 發布時間 | 更新內容與目前狀態 | 發布提交 | Pages |
 | --- | --- | --- | --- |
-| 2026-10-25 20:32 | 身分四欄、死因、每日收合與圖鑑固定工具列（現行） | [`7b2451a`](https://github.com/jia0796/wolf_Emcee/commit/7b2451aea77ce6508b76f0d726e3fb5112583004) | [成功](https://github.com/jia0796/wolf_Emcee/actions/runs/40193578038) |
+| 2026-10-25 21:13 | 完整復盤固定視窗／橫列天數、票型配色、身分收合、巡獵替死兩卡（現行） | [`961eeb6`](https://github.com/jia0796/wolf_Emcee/commit/961eeb6b9c3ee370cac90e2bc5fa3f0f8b09a721) | [成功](https://github.com/jia0796/wolf_Emcee/actions/runs/40196638842) |
+| 2026-10-25 20:32 | 身分四欄、死因與圖鑑固定工具列；每日收合已由本輪橫列天數取代 | [`7b2451a`](https://github.com/jia0796/wolf_Emcee/commit/7b2451aea77ce6508b76f0d726e3fb5112583004) | [成功](https://github.com/jia0796/wolf_Emcee/actions/runs/40193578038) |
 | 2026-10-25 14:59 | 新插畫同步復盤、投票完成提示精簡；兩欄身分樣式已由本輪四欄取代 | [`b7dd81f`](https://github.com/jia0796/wolf_Emcee/commit/b7dd81f8f7eedf6cb6a6bf619ee7564529143d01) | [成功](https://github.com/jia0796/wolf_Emcee/actions/runs/40171112946) |
 | 2026-10-25 14:43 | 混血兒圖鑑分類顯示「好人陣營」 | [`5ea393e`](https://github.com/jia0796/wolf_Emcee/commit/5ea393ec12d98444344993ae399982066e77e332) | [成功](https://github.com/jia0796/wolf_Emcee/actions/runs/40170085763) |
 | 2026-10-25 14:30 | 33 角色新圖鑑與三欄介面、魔術師霜藍銀框 | [`ff0522d`](https://github.com/jia0796/wolf_Emcee/commit/ff0522d726c7c2220b60461eddb66c099fab45f8) | [成功](https://github.com/jia0796/wolf_Emcee/actions/runs/40169346518) |
@@ -163,7 +165,7 @@ npm test
 - 線上身分／玩家復盤：[報告](docs/online-host-recap-report.md)；液態玻璃／圖鑑：[報告](docs/liquid-glass-catalog-report.md)。
 - 死亡技能／機通手勢／狼弟：[報告](docs/dsk-mec-bro-report.md)；石像鬼：[報告](docs/sk-gargoyle-report.md)；接刀：[報告](docs/takeover-nightknife-report.md)。
 - 整理前完整 README、各輪發布 SHA／測試數／既有索引保留於 [歷史快照](docs/archive/README-before-recap-cleanup-20261024.md)，不把當時版本當成目前狀態。
-- 本次修改前備份：`backup/pre-recap-tabs-20261025` → `3d0089e9ef5a15d07cd6ea8190ca58b933b82e0d`，已核對遠端。前輪 `backup/pre-recap-identity-days-20261025` 與功能提交 `7b2451aea77ce6508b76f0d726e3fb5112583004` 仍保留。
+- 本次修改前備份：`backup/pre-recap-tabs-20261025` → `3d0089e9ef5a15d07cd6ea8190ca58b933b82e0d`，已核對遠端；功能提交 `961eeb6b9c3ee370cac90e2bc5fa3f0f8b09a721`。前輪 `backup/pre-recap-identity-days-20261025` 與功能提交 `7b2451aea77ce6508b76f0d726e3fb5112583004` 仍保留。
 - 先前 `backup/pre-recap-readme-20261024`、`backup/pre-catalog-ui-20261025` 與 AWB 等全部基準備份仍保留，未覆寫。
 - 回退採新 `git revert` 提交與重測，不 reset、force push 或刪除備份；各輪報告列出適用 SHA 與限制。
 - **待真機驗收**：iPhone Safari、iOS PWA、Android、低階裝置、動態網址列、實際安全區與雙指縮放。桌面模擬不代表真機通過。

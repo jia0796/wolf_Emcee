@@ -22,26 +22,33 @@ html.wolfcue-glass #finished .final-identity-card>.recap-image{position:absolute
 html.wolfcue-glass #finished .final-identity-card.is-dead{background:linear-gradient(rgb(4 13 21 / .4),rgb(4 13 21 / .4)),var(--v-sheen),rgb(20 44 60 / .65);border-color:rgb(178 219 229 / .22)}
 #finished .final-identity-card.is-dead>.recap-image{filter:brightness(.52) saturate(.3)}
 html.wolfcue-glass #finished .final-identity-card.is-dead::before{filter:blur(6px) brightness(.38) saturate(.2)}
-html.wolfcue-glass #finished .recap-window{display:flex;flex-direction:column;height:min(640px,calc(var(--app-height,100dvh) * .72));min-height:min(320px,calc(var(--app-height,100dvh) * .72));min-width:0;margin:0 0 12px;border:1px solid var(--v-line);border-radius:22px;background:var(--v-sheen),rgb(18 42 59 / .65);box-shadow:var(--v-edge);overflow:hidden;isolation:isolate}
-#finished .recap-window-header{flex:none;min-width:0;padding:12px 12px 0;background:rgb(13 32 46 / .84);border-bottom:1px solid var(--v-line)}
-#finished .recap-window .recap-title{margin:0 0 10px;font-size:18px;color:var(--v-ink);line-height:1.5}
-#finished .recap-day-tabs{display:flex;flex-wrap:nowrap;align-items:center;gap:8px;overflow-x:auto;overflow-y:hidden;max-width:100%;padding:2px 2px 10px;touch-action:pan-x pinch-zoom;-webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:var(--v-line) transparent}
+html.wolfcue-glass #finished .recap-window{display:flex;flex-direction:column;height:min(680px,calc(var(--app-height,100dvh) * .78),calc(var(--app-height,100dvh) - 112px));min-height:min(300px,calc(var(--app-height,100dvh) - 112px));min-width:0;margin:0 0 12px;border:1px solid rgb(178 219 229 / .3);border-radius:22px;background:linear-gradient(135deg,rgb(178 219 229 / .055),transparent 45%),rgb(13 32 46 / .86);box-shadow:inset 0 1px 0 rgb(244 248 249 / .23),0 12px 30px rgb(4 19 31 / .2);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);overflow:hidden;isolation:isolate}
+#finished .recap-window-header{flex:none;min-width:0;padding:14px 14px 0;background:linear-gradient(120deg,rgb(178 219 229 / .06),transparent);border-bottom:1px solid rgb(178 219 229 / .18)}
+#finished .recap-window .recap-title{display:flex;align-items:center;gap:9px;margin:0 0 8px;font-size:17px;font-weight:650;letter-spacing:.04em;color:var(--v-ink);line-height:1.5}
+#finished .recap-window .recap-title::before{content:'';width:3px;height:16px;border-radius:3px;background:var(--v-blue);box-shadow:0 0 10px rgb(178 219 229 / .2)}
+#finished .recap-day-tabs{display:flex;flex-wrap:nowrap;align-items:center;gap:4px;overflow-x:auto;overflow-y:hidden;max-width:100%;padding:0 0 8px;touch-action:pan-x pinch-zoom;-webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:var(--v-line) transparent}
 #finished .recap-day-tabs[hidden]{display:none}
-html.wolfcue-glass #finished .recap-day-tab{flex:none;min-width:80px;min-height:44px;padding:8px 14px;border-radius:14px;white-space:nowrap;font-size:14px;line-height:1.5;background:var(--v-sheen),rgb(21 46 62 / .5);color:var(--v-muted);border:1px solid var(--v-line)}
-html.wolfcue-glass #finished .recap-day-tab[aria-selected=true]{background:var(--v-sheen),rgb(57 96 115 / .88);border-color:var(--v-blue);color:var(--v-ink);box-shadow:inset 0 -2px 0 var(--v-blue),var(--v-edge)}
+html.wolfcue-glass #finished .recap-day-tab{position:relative;flex:none;min-width:76px;min-height:44px;padding:8px 12px;border-radius:11px;white-space:nowrap;font-size:14px;line-height:1.5;background:transparent;box-shadow:none;color:var(--v-muted);border:1px solid transparent;backdrop-filter:none;-webkit-backdrop-filter:none;text-shadow:none}
+html.wolfcue-glass #finished .recap-day-tab[aria-selected=true]{background:linear-gradient(180deg,rgb(178 219 229 / .025),rgb(178 219 229 / .11));border-color:transparent;color:var(--v-ink);box-shadow:none}
+#finished .recap-day-tab[aria-selected=true]::after{content:'';position:absolute;height:2px;left:13px;right:13px;bottom:0;border-radius:2px;background:var(--v-blue);pointer-events:none}
 #finished :is(.recap-day-tab,.recap-days):focus-visible{outline:2px solid var(--v-ink);outline-offset:-3px}
 #finished .recap-days{flex:1;min-height:0;min-width:0;overflow-y:auto;overflow-x:hidden;overscroll-behavior-y:contain;touch-action:pan-y pinch-zoom;-webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:var(--v-line) transparent}
 #finished .recap-day{min-width:0;padding-top:12px}
 #finished .recap-day[hidden]{display:none}
-#finished .recap-day-body{padding:0 8px 12px}
+#finished .recap-day-body{padding:0 10px 12px}
+#finished .recap-day .recap-segment{margin-bottom:16px}
+html.wolfcue-glass #finished .recap-day .event-card{border-color:rgb(178 219 229 / .27);box-shadow:inset 0 1px 0 rgb(244 248 249 / .17);background:linear-gradient(135deg,rgb(178 219 229 / .045),transparent),rgb(20 44 60 / .5)}
+html.wolfcue-glass #finished .recap-day .night-result{border:0;border-bottom:1px solid rgb(178 219 229 / .16);border-radius:0;background:transparent;box-shadow:none;padding:10px 0 14px;margin:0 2px 12px}
 #finished .recap-day-body>.recap-segment:last-child{margin-bottom:0}
 #finished .recap-day-body>.recap-segment:last-child::before{bottom:20px}
 #finished .recap-empty{padding:16px;color:var(--v-muted)}
 /* Scope the modern ballot palette to recap only; election/editor rules stay unchanged. */
 #finished :is(.vote-records,.vote-result){--ink:var(--v-ink);--muted:var(--v-muted);--gold:var(--v-blue);--purple:rgb(18 42 59 / .65);--line:var(--v-line);color:var(--v-ink)}
-html.wolfcue-glass #finished .vote-records{border:1px solid var(--v-line);border-radius:16px;background:var(--v-sheen),rgb(20 44 60 / .65);box-shadow:inset 0 1px 0 rgb(244 248 249 / .18)}
+html.wolfcue-glass #finished .vote-records{border:0;border-top:1px solid rgb(178 219 229 / .18);border-radius:12px;background:rgb(20 44 60 / .25);box-shadow:none;padding:5px 10px 10px}
+#finished .vote-records>details{padding:0;border:0;background:transparent}
 #finished .vote-records :is(summary,h4,strong){color:var(--v-ink)}
-#finished .vote-records>.vote-result,#finished .vote-records .vote-result{border-color:var(--v-line);background:rgb(13 32 46 / .4);color:var(--v-ink)}
+#finished .vote-records .vote-result{border:0;background:transparent;padding:6px 0;color:var(--v-ink)}
+#finished .vote-records .vote-result-heading{color:var(--v-muted)}
 #finished .vote-records .vote-result-candidate{border-color:var(--v-line);background:rgb(21 46 62 / .42)}
 #finished .vote-records .vote-highest{border-color:var(--v-blue);background:linear-gradient(135deg,rgb(178 219 229 / .13),transparent),rgb(34 70 88 / .65)}
 #finished .vote-records :is(.vote-result-people,.vote-result-abstain,.vote-people){color:var(--v-muted)}
