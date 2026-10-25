@@ -71,4 +71,3 @@ iPhone Safari、安裝式 iOS PWA、Android、低階裝置、真機動態網址�
 - 本節與正式截圖為部署後文件提交，未再改 App；工作分支維持 feat/eclipse-host-app。
 
 只回退本批復盤／投票更新可執行 `git revert b7dd81f8f7eedf6cb6a6bf619ee7564529143d01`，測試後正常推送；混血兒與圖鑑新圖會保留在前一版。如與後續驗收文件衝突，先 revert 最後的文件提交再執行功能 revert。完整回到新圖鑑之前，請以保留的 backup/pre-catalog-ui-20261025 作比對基準逐筆反向撤銷，不使用強制推送。
-
