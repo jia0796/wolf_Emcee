@@ -1,0 +1,54 @@
+{
+  "commit": "7b2451aea77ce6508b76f0d726e3fb5112583004",
+  "base": "https://jia0796.github.io/wolf_Emcee/",
+  "files": [
+    {
+      "file": "index.html",
+      "expected": "93fb36584d3caf2d41fa1d03d642573603a3886432be7058707b15fbcd4f9622",
+      "deployed": "93fb36584d3caf2d41fa1d03d642573603a3886432be7058707b15fbcd4f9622",
+      "match": true
+    },
+    {
+      "file": "app.js",
+      "expected": "2e032e245e51c940a1a769c0983baeecc2c899611f3926a704b5d564cce4e57c",
+      "deployed": "2e032e245e51c940a1a769c0983baeecc2c899611f3926a704b5d564cce4e57c",
+      "match": true
+    },
+    {
+      "file": "recap.js",
+      "expected": "ed2e93ade781ce248e2963a6b2349943fc52e2ed1aca0465c7032eec2b5e0486",
+      "deployed": "ed2e93ade781ce248e2963a6b2349943fc52e2ed1aca0465c7032eec2b5e0486",
+      "match": true
+    },
+    {
+      "file": "recap-deaths.js",
+      "expected": "b2a645cf58639e39f1596502681617ba6a53cd0d78776e4e603f84d58b63f5ee",
+      "deployed": "b2a645cf58639e39f1596502681617ba6a53cd0d78776e4e603f84d58b63f5ee",
+      "match": true
+    },
+    {
+      "file": "recap-ui.css",
+      "expected": "ce9629b11ea0927832198f2d4fb15512ca7a71a1e27eb8e827ad8bc11db78b48",
+      "deployed": "ce9629b11ea0927832198f2d4fb15512ca7a71a1e27eb8e827ad8bc11db78b48",
+      "match": true
+    },
+    {
+      "file": "catalog-ui.css",
+      "expected": "582444c8952040af6e00712886e76fe372c6d1ec914d7b23c0a1b6a10daef62d",
+      "deployed": "582444c8952040af6e00712886e76fe372c6d1ec914d7b23c0a1b6a10daef62d",
+      "match": true
+    },
+    {
+      "file": "sw.js",
+      "expected": "2630e87058f8df93c4a7e8b62eca697e24b102dd4dea2987ce73aa9aa3443cf1",
+      "deployed": "2630e87058f8df93c4a7e8b62eca697e24b102dd4dea2987ce73aa9aa3443cf1",
+      "match": true
+    },
+    {
+      "file": "catalog-v2.js",
+      "expected": "0089d33a6d07a8acf1d7ea54b45c2547fc24477dbedd1a5e4265921879a8d4b7",
+      "deployed": "0089d33a6d07a8acf1d7ea54b45c2547fc24477dbedd1a5e4265921879a8d4b7",
+      "match": true
+    }
+  ]
+}

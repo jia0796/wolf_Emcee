@@ -14,13 +14,14 @@
 
 ## 最新更新
 
-### 2026-10-25｜身分回顧四欄、每日復盤與固定圖鑑工具列
+### 2026-10-25｜身分回顧四欄、每日復盤與固定圖鑑工具列（已完成、已部署）
 
 - 頂部只保留「XX陣營獲勝」及勝利原因；身分回顧先於完整復盤顯示，勝利陣營在前，好人內神職先、平民後，各組按座號遞增。
 - 身分回顧是完整展開的玻璃背景區塊，不設獨立捲軸。四欄卡片縮小間距、加長比例；圓框座號、直排職業、頂部存活／死因，角色背景延伸鋪滿全卡。死亡只弱化人物與背景，文字保留清晰。
 - 死因依正式保存的來源顯示；獵魔人區分「獵魔狩獵／狩獵失敗」，覺醒獵人統一「獵人開槍」。守衛或無敵盾＋解藥致死顯示「奶穿」。缺資料標「死因未記錄」，不重算傷害或補造歷史。
 - 完整復盤按「第一天、第二天…」分別展開；同一天保留夜晚／白天順序，左側月亮／太陽代表時段，移除重複的第幾晚／第幾天文字。整個復盤頁一起捲動。
 - 圖鑑標題、返回及陣營切換固定在上方，列表獨立捲動；保留三欄、既有插畫與正反翻卡。
+- 本輪完整測試 **1033／0 失敗／0 跳過**；本機全站 UI **39 組（29 板）**。正式站復盤 **10 組**、圖鑑 **107 組**全部通過，8 個發布檔案雜湊一致；未操作真實房間。真機仍待驗收。
 - [本輪修改、死因表、測試、截圖與回退](docs/recap-identity-days-report.md)。
 
 
@@ -50,6 +51,31 @@
 - 兩張核准覺醒紫框插畫已接入圖鑑、線上角色卡及復盤。巡獵方向按鈕為「從X號」，選定後預覽最終命中，下一步才提交。
 - 當輪驗收：App 986、後端整合 43、全站 UI 39 組；部署後新功能 UI 20、12 玩家連線 14、離線 3 組通過。[完整規則](docs/current-rules.md#awb) · [當輪報告](docs/awb-implementation-report.md)。
 
+## 近期部署紀錄（已核對並補齊）
+
+以下核對 2026-10-21～25 本分支近期的 16 次成功 Pages 發布，時間為台北時間；每列為實際發布的提交，包含先前未集中記錄的項目。歷史樣式已明列取代關係，不作現行設計指示。各輪測試數仍以各自報告為準，不視為本輪重測。
+
+| 發布時間 | 更新內容與目前狀態 | 發布提交 | Pages |
+| --- | --- | --- | --- |
+| 2026-10-25 20:32 | 身分四欄、死因、每日收合與圖鑑固定工具列（現行） | [`7b2451a`](https://github.com/jia0796/wolf_Emcee/commit/7b2451aea77ce6508b76f0d726e3fb5112583004) | [成功](https://github.com/jia0796/wolf_Emcee/actions/runs/40193578038) |
+| 2026-10-25 14:59 | 新插畫同步復盤、投票完成提示精簡；兩欄身分樣式已由本輪四欄取代 | [`b7dd81f`](https://github.com/jia0796/wolf_Emcee/commit/b7dd81f8f7eedf6cb6a6bf619ee7564529143d01) | [成功](https://github.com/jia0796/wolf_Emcee/actions/runs/40171112946) |
+| 2026-10-25 14:43 | 混血兒圖鑑分類顯示「好人陣營」 | [`5ea393e`](https://github.com/jia0796/wolf_Emcee/commit/5ea393ec12d98444344993ae399982066e77e332) | [成功](https://github.com/jia0796/wolf_Emcee/actions/runs/40170085763) |
+| 2026-10-25 14:30 | 33 角色新圖鑑與三欄介面、魔術師霜藍銀框 | [`ff0522d`](https://github.com/jia0796/wolf_Emcee/commit/ff0522d726c7c2220b60461eddb66c099fab45f8) | [成功](https://github.com/jia0796/wolf_Emcee/actions/runs/40169346518) |
+| 2026-10-24 19:21 | 巡獵規則改用 App 共用冰藍玻璃（現行） | [`24c4512`](https://github.com/jia0796/wolf_Emcee/commit/24c4512f0ca221ec1335ffc0afea306cd28c21f7) | [成功](https://github.com/jia0796/wolf_Emcee/actions/runs/40089574274) |
+| 2026-10-24 19:10 | 巡獵規則初版、復盤小字移除；初版紫色書頁樣式已被取代 | [`7c01ba2`](https://github.com/jia0796/wolf_Emcee/commit/7c01ba2a564d9326c4ab9f04c3159bec94d2ec2f) | [成功](https://github.com/jia0796/wolf_Emcee/actions/runs/40088864385) |
+| 2026-10-24 18:20 | 覺醒狼美人／覺醒獵人板、替死與巡獵 | [`940acf4`](https://github.com/jia0796/wolf_Emcee/commit/940acf4a27a384f59a2076e07737f5d53b723819) | [成功](https://github.com/jia0796/wolf_Emcee/actions/runs/40085542457) |
+| 2026-10-24 16:26 | 主持人帶入線上發牌身分、玩家終局共用復盤 | [`aa88927`](https://github.com/jia0796/wolf_Emcee/commit/aa889271302418a2f74116e2ca558145be6772ee) | [成功](https://github.com/jia0796/wolf_Emcee/actions/runs/40078066699) |
+| 2026-10-24 02:28 | 線上原卡片保留、內部人物換成透明底圖鑑素材 | [`14986af`](https://github.com/jia0796/wolf_Emcee/commit/14986af7a80ddf47d1a01a1cd1db97925cd84530) | [成功](https://github.com/jia0796/wolf_Emcee/actions/runs/40003558663) |
+| 2026-10-24 02:00 | 核准液態玻璃與透明底圖鑑框；背景保留原村莊版本 | [`2b07b7a`](https://github.com/jia0796/wolf_Emcee/commit/2b07b7ae49829f155b4647f677a0d3366dccd23a) | [成功](https://github.com/jia0796/wolf_Emcee/actions/runs/39999799560) |
+| 2026-10-23 11:10 | 第二天起多人死亡技能字幕修正 | [`7ebb9e3`](https://github.com/jia0796/wolf_Emcee/commit/7ebb9e3b331a82d27b68cfc12bff2283ab96ffcc) | [成功](https://github.com/jia0796/wolf_Emcee/actions/runs/39893615825) |
+| 2026-10-23 10:27 | 死亡技能整合、12 人機通手勢、狼弟房規、縮小計時器直接拖曳／重置後開始 | [`83fd353`](https://github.com/jia0796/wolf_Emcee/commit/83fd353f2efa272ba50f8f69388893b8d9aebf83) | [成功](https://github.com/jia0796/wolf_Emcee/actions/runs/39889689411) |
+| 2026-10-22 18:51 | 縮小計時器 0.25 秒長按拖曳；已由直接拖曳取代 | [`f920dd0`](https://github.com/jia0796/wolf_Emcee/commit/f920dd0ba9dddd9eb41e04b892658ada028bd277) | [成功](https://github.com/jia0796/wolf_Emcee/actions/runs/39766258443) |
+| 2026-10-22 08:40 | 撤回 HOST-01 座位樣式，保留 HOST-02／03 | [`4b6497a`](https://github.com/jia0796/wolf_Emcee/commit/4b6497a0e54bcfea1a034dfe54d16ef553571aa2) | [成功](https://github.com/jia0796/wolf_Emcee/actions/runs/39701046852) |
+| 2026-10-22 08:18 | HOST-01～03 初版；HOST-01 已撤回，計時器後續已優化 | [`c87e0ae`](https://github.com/jia0796/wolf_Emcee/commit/c87e0ae97febf8e06afaad00ee7b7212e8061c04) | [成功](https://github.com/jia0796/wolf_Emcee/actions/runs/39698872094) |
+| 2026-10-21 20:18 | 手動解散清除房間並退出玩家；正式終局後續改為玩家復盤 | [`4b06eb3`](https://github.com/jia0796/wolf_Emcee/commit/4b06eb3288262966ba81f1f5d8d0f931363bf196) | [成功](https://github.com/jia0796/wolf_Emcee/actions/runs/39598524191) |
+
+液態玻璃初期的 `04c48ed`、`4ea1fe9` 隨 `2b07b7a` 一併發布；死亡技能等功能提交 `af34f20` 隨 `83fd353` 發布，不另宣稱獨立部署。以上為可查證的近期紀錄，更早歷史保留於既有報告與 README 歷史快照。
+
 ## 目前功能
 
 | 區域 | 已完成行為 |
@@ -57,7 +83,7 @@
 | 主持流程 | 保留原主持字幕、角色身分確認、兩欄座位與既有 SVG 標記；死亡技能併入對應遺言／無遺言頁。 |
 | 投票 | 一般放逐雙模式；全部逐人投票選中後往後找未投票者，尾端再回最前面；取消停留、全部完成不自動提交。原警長／PK 規則保留。 |
 | 發言計時器 | 大小視窗、直接拖曳、縮小後重置並直接開始；剩餘 10 秒（含）數字顯示紅色。 |
-| 復盤 | 正式事件、票型、原始身分與最終陣營；人物使用新圖鑑插畫並融入玻璃卡。帶刀狀態不顯示復盤卡。 |
+| 復盤 | 勝利陣營與原因、四欄身分回顧、正式死因、按日展開事件與票型；全頁一起捲動。人物融入玻璃卡，帶刀狀態不顯示復盤卡。 |
 | 線上發牌 Beta | QR／邀請連結、選座、一次性發牌、個人翻牌與圖鑑；主持人自動帶入已確認分配。 |
 | 線上終局 | 活動房間刪除，原入座玩家進相同復盤、只留回首頁；主持頁保留原按鈕。授權復盤保留 24 小時。手動解散不補造復盤。 |
 | 視覺／素材 | 冰藍液態玻璃、米白主按鈕文字、原海邊村莊背景；圖鑑採新系列 33 張插畫與三欄閱讀介面，復盤同步新人物，線上發牌卡保留既有圖源。 |
@@ -128,6 +154,7 @@ npm test
 - 線上身分／玩家復盤：[報告](docs/online-host-recap-report.md)；液態玻璃／圖鑑：[報告](docs/liquid-glass-catalog-report.md)。
 - 死亡技能／機通手勢／狼弟：[報告](docs/dsk-mec-bro-report.md)；石像鬼：[報告](docs/sk-gargoyle-report.md)；接刀：[報告](docs/takeover-nightknife-report.md)。
 - 整理前完整 README、各輪發布 SHA／測試數／既有索引保留於 [歷史快照](docs/archive/README-before-recap-cleanup-20261024.md)，不把當時版本當成目前狀態。
-- 本次修改前備份：`backup/pre-recap-readme-20261024` → `7f44a7c15f684451cd1b372847106461fec5e2cb`；AWB 基準備份仍保留。
+- 本次修改前備份：`backup/pre-recap-identity-days-20261025` → `6cc92831a4a08e9836ff443212d8fcef819b3da1`，已核對遠端；本輪功能提交 `7b2451aea77ce6508b76f0d726e3fb5112583004`。
+- 先前 `backup/pre-recap-readme-20261024`、`backup/pre-catalog-ui-20261025` 與 AWB 等全部基準備份仍保留，未覆寫。
 - 回退採新 `git revert` 提交與重測，不 reset、force push 或刪除備份；各輪報告列出適用 SHA 與限制。
 - **待真機驗收**：iPhone Safari、iOS PWA、Android、低階裝置、動態網址列、實際安全區與雙指縮放。桌面模擬不代表真機通過。

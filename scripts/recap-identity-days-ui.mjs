@@ -8,6 +8,7 @@ const base=process.env.UI_BASE||'http://127.0.0.1:5398/';
 const server=process.env.UI_BASE?null:spawn(process.execPath,['server.mjs'],{cwd:fileURLToPath(new URL('../',import.meta.url)),env:{...process.env,PORT:'5398'},stdio:'pipe'});
 if(server)await new Promise((r,j)=>{server.stdout.once('data',r);server.once('error',j);});
 const browser=await chromium.launch({channel:'msedge',headless:true}),results=[],errors=[];
+browser.on('context',context=>context.setDefaultNavigationTimeout(90000));
 const pass=(name,data={})=>{results.push({name,...data});console.log(name);};
 const saved=p=>p.evaluate(()=>localStorage.getItem('eclipse-host-v1'));
 async function fixture(p,{winner='好人陣營',legacy=false}={}){

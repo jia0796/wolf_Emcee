@@ -1,0 +1,150 @@
+{
+  "range": "2026-10-21 to 2026-10-25",
+  "branch": "feat/eclipse-host-app",
+  "runs": [
+    {
+      "id": 40193578038,
+      "status": "completed",
+      "conclusion": "success",
+      "sha": "7b2451aea77ce6508b76f0d726e3fb5112583004",
+      "url": "https://github.com/jia0796/wolf_Emcee/actions/runs/40193578038",
+      "created": "2026-10-25T12:32:42Z",
+      "title": "ui: add identity overview with death reasons and daily recap"
+    },
+    {
+      "id": 40171112946,
+      "status": "completed",
+      "conclusion": "success",
+      "sha": "b7dd81f8f7eedf6cb6a6bf619ee7564529143d01",
+      "url": "https://github.com/jia0796/wolf_Emcee/actions/runs/40171112946",
+      "created": "2026-10-25T06:59:55Z",
+      "title": "ui: sync recap portraits and simplify completed vote controls"
+    },
+    {
+      "id": 40170085763,
+      "status": "completed",
+      "conclusion": "success",
+      "sha": "5ea393ec12d98444344993ae399982066e77e332",
+      "url": "https://github.com/jia0796/wolf_Emcee/actions/runs/40170085763",
+      "created": "2026-10-25T06:43:04Z",
+      "title": "ui: label mixed role as good camp in catalog"
+    },
+    {
+      "id": 40169346518,
+      "status": "completed",
+      "conclusion": "success",
+      "sha": "ff0522d726c7c2220b60461eddb66c099fab45f8",
+      "url": "https://github.com/jia0796/wolf_Emcee/actions/runs/40169346518",
+      "created": "2026-10-25T06:30:48Z",
+      "title": "ui: refresh role catalog art and simplify glass reading surface"
+    },
+    {
+      "id": 40089574274,
+      "status": "completed",
+      "conclusion": "success",
+      "sha": "24c4512f0ca221ec1335ffc0afea306cd28c21f7",
+      "url": "https://github.com/jia0796/wolf_Emcee/actions/runs/40089574274",
+      "created": "2026-10-24T11:21:25Z",
+      "title": "ui: align patrol rules disclosure with shared App glass"
+    },
+    {
+      "id": 40088864385,
+      "status": "completed",
+      "conclusion": "success",
+      "sha": "7c01ba2a564d9326c4ab9f04c3159bec94d2ec2f",
+      "url": "https://github.com/jia0796/wolf_Emcee/actions/runs/40088864385",
+      "created": "2026-10-24T11:10:59Z",
+      "title": "ui: add awakened patrol rule folio and simplify recap label"
+    },
+    {
+      "id": 40085542457,
+      "status": "completed",
+      "conclusion": "success",
+      "sha": "940acf4a27a384f59a2076e07737f5d53b723819",
+      "url": "https://github.com/jia0796/wolf_Emcee/actions/runs/40085542457",
+      "created": "2026-10-24T10:20:48Z",
+      "title": "feat: add awakened beauty and hunter board with substitute and patrol…"
+    },
+    {
+      "id": 40078066699,
+      "status": "completed",
+      "conclusion": "success",
+      "sha": "aa889271302418a2f74116e2ca558145be6772ee",
+      "url": "https://github.com/jia0796/wolf_Emcee/actions/runs/40078066699",
+      "created": "2026-10-24T08:26:47Z",
+      "title": "Share final online recap with players and import host deal roles"
+    },
+    {
+      "id": 40003558663,
+      "status": "completed",
+      "conclusion": "success",
+      "sha": "14986af7a80ddf47d1a01a1cd1db97925cd84530",
+      "url": "https://github.com/jia0796/wolf_Emcee/actions/runs/40003558663",
+      "created": "2026-10-23T18:28:24Z",
+      "title": "fix: reuse clear catalog artwork inside existing online role cards"
+    },
+    {
+      "id": 39999799560,
+      "status": "completed",
+      "conclusion": "success",
+      "sha": "2b07b7ae49829f155b4647f677a0d3366dccd23a",
+      "url": "https://github.com/jia0796/wolf_Emcee/actions/runs/39999799560",
+      "created": "2026-10-23T18:00:53Z",
+      "title": "feat: publish approved liquid glass UI and clear catalog frames"
+    },
+    {
+      "id": 39893615825,
+      "status": "completed",
+      "conclusion": "success",
+      "sha": "7ebb9e3b331a82d27b68cfc12bff2283ab96ffcc",
+      "url": "https://github.com/jia0796/wolf_Emcee/actions/runs/39893615825",
+      "created": "2026-10-23T03:10:51Z",
+      "title": "fix: clarify multi-death skill decision subtitle after first day"
+    },
+    {
+      "id": 39889689411,
+      "status": "completed",
+      "conclusion": "success",
+      "sha": "83fd353f2efa272ba50f8f69388893b8d9aebf83",
+      "url": "https://github.com/jia0796/wolf_Emcee/actions/runs/39889689411",
+      "created": "2026-10-23T02:27:45Z",
+      "title": "docs: record death skill, hunter cue, revenge and mini timer verifica…"
+    },
+    {
+      "id": 39766258443,
+      "status": "completed",
+      "conclusion": "success",
+      "sha": "f920dd0ba9dddd9eb41e04b892658ada028bd277",
+      "url": "https://github.com/jia0796/wolf_Emcee/actions/runs/39766258443",
+      "created": "2026-10-22T10:51:44Z",
+      "title": "fix: start mini timer dragging after a 250ms hold"
+    },
+    {
+      "id": 39701046852,
+      "status": "completed",
+      "conclusion": "success",
+      "sha": "4b6497a0e54bcfea1a034dfe54d16ef553571aa2",
+      "url": "https://github.com/jia0796/wolf_Emcee/actions/runs/39701046852",
+      "created": "2026-10-22T00:40:02Z",
+      "title": "fix: remove HOST-01 seat styling while retaining timer and voting"
+    },
+    {
+      "id": 39698872094,
+      "status": "completed",
+      "conclusion": "success",
+      "sha": "c87e0ae97febf8e06afaad00ee7b7212e8061c04",
+      "url": "https://github.com/jia0796/wolf_Emcee/actions/runs/39698872094",
+      "created": "2026-10-22T00:18:08Z",
+      "title": "feat: implement HOST skill targets, mini timer and batch vote present…"
+    },
+    {
+      "id": 39598524191,
+      "status": "completed",
+      "conclusion": "success",
+      "sha": "4b06eb3288262966ba81f1f5d8d0f931363bf196",
+      "url": "https://github.com/jia0796/wolf_Emcee/actions/runs/39598524191",
+      "created": "2026-10-21T12:18:15Z",
+      "title": "fix: delete closed online rooms and safely exit all players"
+    }
+  ]
+}

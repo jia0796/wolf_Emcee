@@ -79,6 +79,7 @@
 - 死因測試包括實際守衛／解藥、機械額外刀、機械毒與獵魔失敗結算；以及舊格式、未執行／抵擋、同目標後續事件與主持人／玩家相同輸出。不增加角色或修改原板子配置來測試。
 - 最初新 UI 檢查把設計內被裁切的人物裝飾計為橫向溢出，修正為檢查實際裁切、文字／座號邊界及整頁溢出，完整重跑 10 組通過。初次未完成結果沒有列為通過。
 - 較舊 complete-recap-ui、b3-ui、recap-vote-refresh-ui 等腳本仍描述舊版兩欄或無收合介面，本輪未執行；本輪執行的入口如上，不以歷史通過數當作本次結果。
+- 正式站第一次復盤檢查在頁面重新載入時超過原 30 秒導航等待上限，該次中斷未列為通過。測試程式只將導航上限改成 90 秒，全部功能及資料斷言保留，再從第一組重新完整執行；沒有為等待問題修改 App。
 
 原始結果：[復盤 UI](recap-identity-days-evidence/local-results.json) · [圖鑑 UI](recap-identity-days-evidence/catalog-local-results.json) · [全站 UI](recap-identity-days-evidence/regression-results.json)。
 
@@ -97,8 +98,27 @@ iPhone Safari、安裝式 iOS PWA、Android、低階裝置、實際動態網址�
 - 施工前 SHA：`6cc92831a4a08e9836ff443212d8fcef819b3da1`。
 - 新遠端備份：`backup/pre-recap-identity-days-20261025`。推送後以 git ls-remote 核對，指向相同完整 SHA。
 - 舊備份、素材及 Git 歷史完整保留；只在 feat/eclipse-host-app 施工。
-- 回退使用本輪功能提交的 git revert，測試後正常 push 重新發布，不 reset 或 force push，不清除使用者存檔。部署後補入功能提交 SHA。
+- 本輪功能提交：`7b2451aea77ce6508b76f0d726e3fb5112583004`。
+- 回退使用 `git revert 7b2451aea77ce6508b76f0d726e3fb5112583004`，測試後正常 push 重新發布，不 reset 或 force push，不清除使用者存檔。若後續報告提交使 README 產生衝突，可先回退該報告提交，再回退功能提交。
 
 ## 部署
 
-本機驗收後發布，正式站測試及截圖於部署完成後補入。
+功能已於台北時間 2026-10-25 20:32 發布至 [GitHub Pages](https://jia0796.github.io/wolf_Emcee/)。[Pages 工作流程 40193578038](https://github.com/jia0796/wolf_Emcee/actions/runs/40193578038) 與 [主持測試 40193578045](https://github.com/jia0796/wolf_Emcee/actions/runs/40193578045) 均已完成且成功。
+
+部署後以 `UI_BASE=https://jia0796.github.io/wolf_Emcee/` 執行：
+
+| 正式站檢查 | 通過 | 失敗 | 跳過 |
+| --- | ---: | ---: | ---: |
+| node scripts/recap-identity-days-ui.mjs（完整重跑） | 10 組 | 0 | 0 |
+| node scripts/catalog-v2-ui.mjs | 107 組 | 0 | 0 |
+| 公開來源檔 SHA-256 對照發布提交 | 8／8 | 0 | 0 |
+
+復盤檢查包含七種尺寸、舊局資料缺失、勝方排序、150% 根字級、鍵盤、Reduce Motion、離線重整；圖鑑另檢查 66 張圖片的 SHA-256。八個來源檔為 index.html、app.js、recap.js、recap-deaths.js、recap-ui.css、catalog-ui.css、sw.js、catalog-v2.js。全部與功能提交逐位元組相同。只在獨立瀏覽器使用虛構 localStorage；沒有建立或修改雲端房間。
+
+原始結果：[復盤正式站](recap-identity-days-evidence/live-results.json) · [圖鑑正式站](recap-identity-days-evidence/catalog-live-results.json) · [來源檔雜湊](recap-identity-days-evidence/live-file-integrity.json) · [第一次導航逾時，未計入通過](recap-identity-days-evidence/initial-live-timeout.json)。
+
+正式站截圖：[身分回顧](recap-identity-days-evidence/live-identity-top.png) · [第一天展開](recap-identity-days-evidence/live-day-one.png) · [圖鑑捲到底](recap-identity-days-evidence/live-catalog-fixed-good-bottom.png)。
+
+本次報告、README 歷史補記、證據及測試導航等待調整，以後續獨立提交保存；不再變更已驗證的 public 程式。
+
+另核對 2026-10-21～25 本分支近期 16 次成功發布，已補回 README 的「近期部署紀錄」：包括解散房間、HOST 撤回、計時器演進、死亡技能／機通手勢／狼弟、液態玻璃、線上卡片、共用復盤、覺醒板與圖鑑。已取代樣式及合併發布的提交分別標明，未把歷史測試當本輪重測。[部署查核原始資料](recap-identity-days-evidence/deployment-audit.json)。
