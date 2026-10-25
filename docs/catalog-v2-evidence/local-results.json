@@ -1,0 +1,650 @@
+{
+  "base": "http://127.0.0.1:5394/",
+  "passed": 107,
+  "failed": 0,
+  "skipped": 0,
+  "errors": [],
+  "results": [
+    {
+      "role": "evilKnight",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "gargoyle",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "blood",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "nightmare",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "elder",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "younger",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "king",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "wolf",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "mechanical",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "seedWolf",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "hiddenWolf",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "beauty",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "mask",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "fragrance",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "stoneGargoyle",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "awakenedBeauty",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "gravekeeper",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "demon",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "idiot",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "dream",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "merchant",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "seer",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "witch",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "hunter",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "magician",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "medium",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "guard",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "duelist",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "dancer",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "awakenedSeer",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "awakenedHunter",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "mixed",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "villager",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "viewport": [
+        320,
+        568
+      ],
+      "threeColumns": true,
+      "returnHome": true
+    },
+    {
+      "role": "evilKnight",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "awakenedBeauty",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "gravekeeper",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "villager",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "viewport": [
+        375,
+        667
+      ],
+      "threeColumns": true,
+      "returnHome": true
+    },
+    {
+      "role": "evilKnight",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "gargoyle",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "blood",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "nightmare",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "elder",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "younger",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "king",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "wolf",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "mechanical",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "seedWolf",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "hiddenWolf",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "beauty",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "mask",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "fragrance",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "stoneGargoyle",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "awakenedBeauty",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "gravekeeper",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "demon",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "idiot",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "dream",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "merchant",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "seer",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "witch",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "hunter",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "magician",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "medium",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "guard",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "duelist",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "dancer",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "awakenedSeer",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "awakenedHunter",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "mixed",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "villager",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "threeColumns": true,
+      "returnHome": true
+    },
+    {
+      "role": "evilKnight",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "awakenedBeauty",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "gravekeeper",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "villager",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "viewport": [
+        430,
+        932
+      ],
+      "threeColumns": true,
+      "returnHome": true
+    },
+    {
+      "role": "evilKnight",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "awakenedBeauty",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "gravekeeper",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "villager",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "viewport": [
+        390,
+        480
+      ],
+      "threeColumns": true,
+      "returnHome": true
+    },
+    {
+      "role": "evilKnight",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "awakenedBeauty",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "gravekeeper",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "villager",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "viewport": [
+        844,
+        390
+      ],
+      "threeColumns": true,
+      "returnHome": true
+    },
+    {
+      "role": "evilKnight",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "awakenedBeauty",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "gravekeeper",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "villager",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "viewport": [
+        768,
+        1024
+      ],
+      "threeColumns": true,
+      "returnHome": true
+    },
+    {
+      "role": "evilKnight",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "awakenedBeauty",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "gravekeeper",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "role": "villager",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "viewport": [
+        1440,
+        900
+      ],
+      "threeColumns": true,
+      "returnHome": true
+    },
+    {
+      "role": "awakenedBeauty",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "largeText150": true
+    },
+    {
+      "keyboardFlipAndBackdropClose": true,
+      "originalFlipAnimation": true
+    },
+    {
+      "newImageFailureOriginalFallback": true
+    },
+    {
+      "role": "elder",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "hostReturnAndSaveUnchanged": true
+    },
+    {
+      "servedAssetHashes": 66
+    },
+    {
+      "role": "seer",
+      "frontBack": true,
+      "textPreserved": true,
+      "lastContentReachable": true
+    },
+    {
+      "offlineCatalogAndFlip": true
+    }
+  ]
+}

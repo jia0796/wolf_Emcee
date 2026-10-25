@@ -1,0 +1,18 @@
+{
+  "name": "魔術師",
+  "palette": [
+    "霜藍銀",
+    "#B5BDD3"
+  ],
+  "source": "C:\\Users\\laptop\\.codex\\.chatgpt-projects\\g-p-6ab7d6c1ce448191aa4864889419a846\\output\\wolfcue-catalog-frame-colors-20261025-v2\\魔術師.png",
+  "output": "C:\\Users\\laptop\\.codex\\.chatgpt-projects\\g-p-6ab7d6c1ce448191aa4864889419a846\\output\\catalog-release-20261025\\magician-frame\\魔術師.png",
+  "width": 1060,
+  "height": 1484,
+  "mask_pixels": 389490,
+  "changed_pixels": 386273,
+  "outside_mask_changed_pixels": 0,
+  "protected_art_changed_pixels": 0,
+  "alpha_changed_pixels": 0,
+  "max_oklab_lightness_error": 0.0034914725839684108,
+  "sha256": "de42fffb9589f4063a326238df75969dd8187d007538c3abf279a83eb6420ead"
+}

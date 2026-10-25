@@ -1,0 +1,269 @@
+{
+  "base": "http://127.0.0.1:5388/",
+  "passed": 39,
+  "failed": 0,
+  "errors": [],
+  "backend": "Synthetic API/Auth/Realtime adapter; no cloud writes or real multiplayer claim",
+  "results": [
+    {
+      "width": 390,
+      "role": "evilKnight",
+      "approvedImage": true,
+      "originalFrameAndTitle": true,
+      "coverClearsRole": true
+    },
+    {
+      "width": 390,
+      "role": "gargoyle",
+      "approvedImage": true,
+      "originalFrameAndTitle": true,
+      "coverClearsRole": true
+    },
+    {
+      "width": 390,
+      "role": "gravekeeper",
+      "approvedImage": true,
+      "originalFrameAndTitle": true,
+      "coverClearsRole": true
+    },
+    {
+      "width": 390,
+      "role": "blood",
+      "approvedImage": true,
+      "originalFrameAndTitle": true,
+      "coverClearsRole": true
+    },
+    {
+      "width": 390,
+      "role": "demon",
+      "approvedImage": true,
+      "originalFrameAndTitle": true,
+      "coverClearsRole": true
+    },
+    {
+      "width": 390,
+      "role": "idiot",
+      "approvedImage": true,
+      "originalFrameAndTitle": true,
+      "coverClearsRole": true
+    },
+    {
+      "width": 390,
+      "role": "mixed",
+      "approvedImage": true,
+      "originalFrameAndTitle": true,
+      "coverClearsRole": true
+    },
+    {
+      "width": 390,
+      "role": "nightmare",
+      "approvedImage": true,
+      "originalFrameAndTitle": true,
+      "coverClearsRole": true
+    },
+    {
+      "width": 390,
+      "role": "dream",
+      "approvedImage": true,
+      "originalFrameAndTitle": true,
+      "coverClearsRole": true
+    },
+    {
+      "width": 390,
+      "role": "elder",
+      "approvedImage": true,
+      "originalFrameAndTitle": true,
+      "coverClearsRole": true
+    },
+    {
+      "width": 390,
+      "role": "younger",
+      "approvedImage": true,
+      "originalFrameAndTitle": true,
+      "coverClearsRole": true
+    },
+    {
+      "width": 390,
+      "role": "merchant",
+      "approvedImage": true,
+      "originalFrameAndTitle": true,
+      "coverClearsRole": true
+    },
+    {
+      "width": 390,
+      "role": "king",
+      "approvedImage": true,
+      "originalFrameAndTitle": true,
+      "coverClearsRole": true
+    },
+    {
+      "width": 390,
+      "role": "wolf",
+      "approvedImage": true,
+      "originalFrameAndTitle": true,
+      "coverClearsRole": true
+    },
+    {
+      "width": 390,
+      "role": "seer",
+      "approvedImage": true,
+      "originalFrameAndTitle": true,
+      "coverClearsRole": true
+    },
+    {
+      "width": 390,
+      "role": "witch",
+      "approvedImage": true,
+      "originalFrameAndTitle": true,
+      "coverClearsRole": true
+    },
+    {
+      "width": 390,
+      "role": "hunter",
+      "approvedImage": true,
+      "originalFrameAndTitle": true,
+      "coverClearsRole": true
+    },
+    {
+      "width": 390,
+      "role": "magician",
+      "approvedImage": true,
+      "originalFrameAndTitle": true,
+      "coverClearsRole": true
+    },
+    {
+      "width": 390,
+      "role": "villager",
+      "approvedImage": true,
+      "originalFrameAndTitle": true,
+      "coverClearsRole": true
+    },
+    {
+      "width": 390,
+      "role": "mechanical",
+      "approvedImage": true,
+      "originalFrameAndTitle": true,
+      "coverClearsRole": true
+    },
+    {
+      "width": 390,
+      "role": "medium",
+      "approvedImage": true,
+      "originalFrameAndTitle": true,
+      "coverClearsRole": true
+    },
+    {
+      "width": 390,
+      "role": "guard",
+      "approvedImage": true,
+      "originalFrameAndTitle": true,
+      "coverClearsRole": true
+    },
+    {
+      "width": 390,
+      "role": "seedWolf",
+      "approvedImage": true,
+      "originalFrameAndTitle": true,
+      "coverClearsRole": true
+    },
+    {
+      "width": 390,
+      "role": "hiddenWolf",
+      "approvedImage": true,
+      "originalFrameAndTitle": true,
+      "coverClearsRole": true
+    },
+    {
+      "width": 390,
+      "role": "beauty",
+      "approvedImage": true,
+      "originalFrameAndTitle": true,
+      "coverClearsRole": true
+    },
+    {
+      "width": 390,
+      "role": "duelist",
+      "approvedImage": true,
+      "originalFrameAndTitle": true,
+      "coverClearsRole": true
+    },
+    {
+      "width": 390,
+      "role": "dancer",
+      "approvedImage": true,
+      "originalFrameAndTitle": true,
+      "coverClearsRole": true
+    },
+    {
+      "width": 390,
+      "role": "mask",
+      "approvedImage": true,
+      "originalFrameAndTitle": true,
+      "coverClearsRole": true
+    },
+    {
+      "width": 390,
+      "role": "fragrance",
+      "approvedImage": true,
+      "originalFrameAndTitle": true,
+      "coverClearsRole": true
+    },
+    {
+      "width": 390,
+      "role": "awakenedSeer",
+      "approvedImage": true,
+      "originalFrameAndTitle": true,
+      "coverClearsRole": true
+    },
+    {
+      "width": 390,
+      "role": "stoneGargoyle",
+      "approvedImage": true,
+      "originalFrameAndTitle": true,
+      "coverClearsRole": true
+    },
+    {
+      "width": 390,
+      "role": "awakenedBeauty",
+      "approvedImage": true,
+      "originalFrameAndTitle": true,
+      "coverClearsRole": true
+    },
+    {
+      "width": 390,
+      "role": "awakenedHunter",
+      "approvedImage": true,
+      "originalFrameAndTitle": true,
+      "coverClearsRole": true
+    },
+    {
+      "width": 390,
+      "unconfirmedRoleRemainsCovered": true
+    },
+    {
+      "width": 320,
+      "role": "seer",
+      "approvedImage": true,
+      "originalFrameAndTitle": true,
+      "coverClearsRole": true
+    },
+    {
+      "width": 320,
+      "unconfirmedRoleRemainsCovered": true
+    },
+    {
+      "width": 430,
+      "role": "seer",
+      "approvedImage": true,
+      "originalFrameAndTitle": true,
+      "coverClearsRole": true
+    },
+    {
+      "width": 430,
+      "unconfirmedRoleRemainsCovered": true
+    },
+    {
+      "failedDerivativeFallsBack": true
+    }
+  ]
+}

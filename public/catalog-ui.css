@@ -1,0 +1,41 @@
+/* Catalog-only reading surface. Artwork supplies the decoration; controls retain App glass. */
+#encyclopedia{
+ --catalog-surface:rgb(12 28 42 / .84);--catalog-divider:rgb(178 219 229 / .16);
+ background:linear-gradient(160deg,rgb(178 219 229 / .055),transparent 34%),var(--catalog-surface);
+ border:1px solid var(--catalog-divider);border-radius:24px;
+ box-shadow:inset 0 1px 0 rgb(235 249 252 / .12),0 12px 36px rgb(3 12 21 / .2);
+ backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+ scrollbar-gutter:stable;scroll-padding-block:12px;
+}
+#encyclopedia .library-top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+#encyclopedia h1{font-size:clamp(24px,5.6vw,32px);letter-spacing:.06em;margin:0;line-height:1.4;color:var(--v-ink)}
+#encyclopedia .library-guide{font-size:.8125rem;line-height:1.6;color:var(--v-muted);margin:12px 0 0}
+#encyclopedia .library-tabs{margin-top:16px;padding-bottom:16px;border-bottom:1px solid var(--catalog-divider)}
+#encyclopedia .library-tabs button{flex:1;min-width:0}
+#encyclopedia .library{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px 12px;margin-top:20px;padding-bottom:16px;align-items:start}
+#encyclopedia .library-heading{margin:0 0 2px;font-size:1rem;font-weight:600;letter-spacing:.08em;line-height:1.5}
+#encyclopedia .library-divider{border-color:var(--catalog-divider);margin:8px 0}
+html.wolfcue-glass #roleLibrary .role-card{
+ padding:0;min-width:0;border:0;border-radius:6px;background:transparent;box-shadow:none;
+ backdrop-filter:none;-webkit-backdrop-filter:none;isolation:isolate;
+}
+#encyclopedia .role-card img{display:block;width:100%;height:auto;aspect-ratio:5/7;object-fit:contain;object-position:center}
+#encyclopedia .role-card span{font-size:.875rem;line-height:1.5;font-weight:600;letter-spacing:.025em;padding:8px 0 0;text-shadow:0 1px 2px #071520}
+html.wolfcue-glass #roleLibrary .role-card:focus-visible{outline:2px solid var(--v-blue);outline-offset:3px}
+html.wolfcue-glass #roleLibrary .role-card:active{transform:none;box-shadow:none;filter:brightness(1.08)}
+#rolePreview .preview-front{overflow:visible}
+#rolePreview .preview-front img{object-position:center}
+html.wolfcue-glass #rolePreview .preview-back{
+ background:linear-gradient(155deg,rgb(178 219 229 / .07),transparent 45%),#102433;
+ border:1px solid rgb(178 219 229 / .38);border-radius:20px;
+ box-shadow:inset 0 1px 0 rgb(232 248 251 / .18);overscroll-behavior:contain;
+}
+#rolePreview .preview-back h2{margin:0 0 8px;line-height:1.4}
+#rolePreview .preview-back p{line-height:1.75}
+#rolePreview .preview-back .description-row{margin-top:14px;padding-top:14px;border-top:1px solid rgb(178 219 229 / .14);gap:6px}
+#rolePreview .description-row>span:first-child{font-size:.75rem;color:var(--v-muted);letter-spacing:.1em}
+#rolePreview::backdrop{background:rgb(5 15 24 / .88)}
+@media(max-width:640px){#encyclopedia .library{gap:16px 8px}#encyclopedia .role-card span{font-size:.8125rem}}
+@media(hover:hover) and (pointer:fine){html.wolfcue-glass #roleLibrary .role-card:hover{filter:brightness(1.08);background:transparent;box-shadow:none}}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){#encyclopedia{background:#102433}}
+@media(prefers-reduced-motion:reduce){#encyclopedia .role-card{transition:none}}
