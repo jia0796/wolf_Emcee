@@ -60,8 +60,17 @@ iPhone Safari、安裝式 iOS PWA、Android、低階裝置的實際操作仍為 
 
 - 修改前完整 SHA：`72b2fd4ab82e2939ca200a9dae091c281588149d`。
 - 遠端備份：`backup/pre-awb-solo-knife-20261025`，已推送並核對指向上述 SHA，沒有覆寫既有備份。
-- 本輪獨立功能提交以 git revert 回退；先重測再正常 push／部署，不 reset、不 force push、不清空使用者存檔。發布後補入功能 SHA。
+- 功能提交：`6bf4a1edf08557d3356431b0b906221eca7d80ef`。使用 `git revert 6bf4a1edf08557d3356431b0b906221eca7d80ef` 建立回退提交，先重測再正常 push／部署，不 reset、不 force push、不清空使用者存檔。若後續報告提交使 README 套用衝突，可先回退該報告提交。
 
 ## 部署
 
-本機檢查完成後發布，正式站測試與發布紀錄於完成後補入。
+已發布至 [WolfCue](https://jia0796.github.io/wolf_Emcee/)。台北時間 2026-10-25 22:04 觸發的 [Pages 40200531579](https://github.com/jia0796/wolf_Emcee/actions/runs/40200531579) 已完成且成功；[GitHub 主持測試 40200531576](https://github.com/jia0796/wolf_Emcee/actions/runs/40200531576) 亦成功。
+
+正式站 night.js、sw.js、engine.js、awakening.js、records.js、app.js 共六個檔案，已核對與功能提交逐位元組及 SHA-256 相同。單狼 UI 正式站完整重跑結果如下。
+
+
+部署後 `UI_BASE=https://jia0796.github.io/wolf_Emcee/ node scripts/awb-solo-knife-ui.mjs`：**7 組通過、0 失敗、0 跳過**。三種魅惑狀態均能選刀，女巫取得 9 號基本刀口；取消、空刀切換、刷新、回退、共同參與者、已死停用與 SW 離線重開均通過。
+
+[正式站原始結果](awb-knife-evidence/live-results.json) · [六個檔案雜湊](awb-knife-evidence/live-integrity.json) · [單狼可刀截圖](awb-knife-evidence/live-solo.png) · [替死用完可刀](awb-knife-evidence/live-spent.png) · [女巫刀口](awb-knife-evidence/live-witch.png)。
+
+README 已記錄本輪部署，近期核對紀錄共 19 次。最後文件及證據以獨立提交保存，不再變更已驗證的遊戲程式；工作分支及完整回退歷史保留。

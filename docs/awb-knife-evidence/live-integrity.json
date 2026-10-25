@@ -1,0 +1,42 @@
+{
+  "commit": "6bf4a1edf08557d3356431b0b906221eca7d80ef",
+  "base": "https://jia0796.github.io/wolf_Emcee/",
+  "files": [
+    {
+      "file": "night.js",
+      "expected": "d3cc859702a1ee85a3b8136eb55f16f27e03b59f4f8b32411fca430add48d7d2",
+      "deployed": "d3cc859702a1ee85a3b8136eb55f16f27e03b59f4f8b32411fca430add48d7d2",
+      "match": true
+    },
+    {
+      "file": "sw.js",
+      "expected": "d372d3c998976209fb4b00229a3500afbe9a3c7b51d42a7691ece3e93f52b97f",
+      "deployed": "d372d3c998976209fb4b00229a3500afbe9a3c7b51d42a7691ece3e93f52b97f",
+      "match": true
+    },
+    {
+      "file": "engine.js",
+      "expected": "ba6f294f1c36bd2c880fc78ae43053ffa0e4e6babf445ba978b446410c309da0",
+      "deployed": "ba6f294f1c36bd2c880fc78ae43053ffa0e4e6babf445ba978b446410c309da0",
+      "match": true
+    },
+    {
+      "file": "awakening.js",
+      "expected": "e56e957e2d38761b0414006475cda72067214756fe222cd6aa9cb618f29aa6d1",
+      "deployed": "e56e957e2d38761b0414006475cda72067214756fe222cd6aa9cb618f29aa6d1",
+      "match": true
+    },
+    {
+      "file": "records.js",
+      "expected": "9698dab8456f158e65c0624c7c2df6a48e5731856e86a34b9252e77e2d969391",
+      "deployed": "9698dab8456f158e65c0624c7c2df6a48e5731856e86a34b9252e77e2d969391",
+      "match": true
+    },
+    {
+      "file": "app.js",
+      "expected": "cfa87275e348fe04c61f9f9685254ebc6b25f9c56e46e7157384e9c61665f34f",
+      "deployed": "cfa87275e348fe04c61f9f9685254ebc6b25f9c56e46e7157384e9c61665f34f",
+      "match": true
+    }
+  ]
+}
