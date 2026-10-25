@@ -11,7 +11,7 @@ export const eligibleVoters=s=>s.players.filter(p=>p.active&&p.alive&&!(p.role==
 export const eligibleExileTarget=(s,p)=>!!p?.active&&p.alive&&!(p.role==='idiot'&&s.idiot?.exileBanned);
 export function mixedResult(s){const m=s.mixed;if(!m?.chosen||!s.winner)return null;return {seat:m.seat,target:m.target,targetRole:m.targetRole,camp:m.camp,won:m.camp===s.winner};}
 const liveRole=(s,role)=>s.players.find(p=>p.alive&&p.role===role&&nativeAllowed(s,p));
-export const ordinaryWolves=s=>s.players.filter(p=>p.alive&&(['wolf','king','elder','nightmare','blood','gargoyle','evilKnight','seedWolf','beauty'].includes(p.role)||(infected(s,p)&&s.night>s.infection.usedNight||!specialFlow(s)&&converted(s,p)&&s.gargoyle.joinNight!=null&&s.night>=s.gargoyle.joinNight||(p.role==='younger'&&s.brothers?.joinNight!=null&&s.night>=s.brothers.joinNight))));
+export const ordinaryWolves=s=>s.players.filter(p=>p.alive&&(['wolf','king','elder','nightmare','blood','gargoyle','evilKnight','seedWolf','beauty','awakenedBeauty'].includes(p.role)||(infected(s,p)&&s.night>s.infection.usedNight||!specialFlow(s)&&converted(s,p)&&s.gargoyle.joinNight!=null&&s.night>=s.gargoyle.joinNight||(p.role==='younger'&&s.brothers?.joinNight!=null&&s.night>=s.brothers.joinNight))));
 export const revengeAvailable=s=>!!liveRole(s,'younger')&&s.brothers?.revengeNight===s.night&&!s.brothers.revengeUsed;
 export const revengeRecorded=s=>!!liveRole(s,'younger')&&s.brothers?.revengeNight===s.night&&(revengeAvailable(s)||s.brothers.revengeUsedNight===s.night);
 export const canTrade=s=>!!liveRole(s,'merchant')&&!s.merchant?.used;

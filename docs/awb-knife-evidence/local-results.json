@@ -1,0 +1,31 @@
+{
+  "base": "http://127.0.0.1:5391/",
+  "passed": 7,
+  "failed": 0,
+  "skipped": 0,
+  "errors": [],
+  "results": [
+    {
+      "name": "solo ready knife, cancel, empty toggle, refresh, undo and witch target 320x568"
+    },
+    {
+      "name": "solo cooldown knife, cancel, empty toggle, refresh, undo and witch target 390x844"
+    },
+    {
+      "name": "solo spent knife, cancel, empty toggle, refresh, undo and witch target 844x390"
+    },
+    {
+      "name": "joint wolf attack includes awakened beauty among four recorded participants"
+    },
+    {
+      "name": "solo empty knife creates no fake attack event"
+    },
+    {
+      "name": "dead beauty has no knife controls"
+    },
+    {
+      "name": "service worker offline restart uses corrected wolf eligibility"
+    }
+  ],
+  "realDevices": "待真機驗收"
+}

@@ -88,7 +88,7 @@ material-source: "public/liquid-glass.css"
 
 沿用既有開場、日夜及翻卡流程；按鍵材質約 .16 秒回饋，Reduce Motion 停止額外動畫。保留鍵盤、雙指縮放、原生捲動、動態 viewport、安全區及最後一列可點擊。
 
-Service Worker 仍先裝 CORE，再每批兩資產背景快取。`catalog-v2.js`／`catalog-ui.css`／`recap-deaths.js`／`recap-ui.css` 為核心檔；66 張 WebP（33 縮圖＋33 大圖）為非阻塞選用資源，保留舊資產與原有復用策略。存檔版本維持 v22，快取識別更新為 council-v22-27。
+Service Worker 仍先裝 CORE，再每批兩資產背景快取。`catalog-v2.js`／`catalog-ui.css`／`recap-deaths.js`／`recap-ui.css` 為核心檔；66 張 WebP（33 縮圖＋33 大圖）為非阻塞選用資源，保留舊資產與原有復用策略。存檔版本維持 v22，快取識別更新為 council-v22-28。
 
 ## 驗收與發布
 

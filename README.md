@@ -2,17 +2,26 @@
 
 真人法官 PWA，提供固定主持字幕、角色與技能標記、日夜結算、警長／放逐／PK 投票、發言計時、上一步與完整復盤；另有線上發牌（Beta 版）。
 
-[開啟網站](https://jia0796.github.io/wolf_Emcee/) · [現行設計](DESIGN.md) · [詳細規則](docs/current-rules.md) · [本次更新報告](docs/recap-tabs-report.md)
+[開啟網站](https://jia0796.github.io/wolf_Emcee/) · [現行設計](DESIGN.md) · [詳細規則](docs/current-rules.md) · [本次更新報告](docs/awb-solo-knife-report.md)
 
 ## 目前版本與維護原則
 
 - 工作分支：`feat/eclipse-host-app`；不自動合併 main。
 - 傳統主持：**29 款板子、10／12 人、33 個角色**；線上發牌支援其中 **27 款**。
 - 存檔：**v22**，保留舊局相容與完整回退歷史，不補造舊存檔沒有的紀錄。
-- 快取：**council-v22-27**；沿用核心優先、素材每批兩張的漸進快取。
+- 快取：**council-v22-28**；沿用核心優先、素材每批兩張的漸進快取。
 - 規則以最新使用者裁定及 [詳細規格](docs/current-rules.md) 為準；外觀以 [DESIGN.md](DESIGN.md) 為準。歷史報告中的舊配色、版號及測試數不作現行施工要求。
 
 ## 最新更新
+
+### 2026-10-25｜覺醒狼美人單狼可刀修復
+
+- 補上基本狼刀參與名單遺漏的 `awakenedBeauty`。普通狼人全部出局後，存活覺醒狼美人仍在原狼人襲擊頁下刀；魅惑冷卻或替死能力用完均不影響狼刀資格。
+- 同隊其他狼仍在時，新的共同狼刀參與快照也包含覺醒狼美人。已保存的舊事件不回補參與者、不重算傷害；目前對局重新載入後可沿原頁操作，過去已確認的空刀不擅自變成攻擊。
+- 自刀／自爆禁令、空刀、守衛、解藥、替死、勝負、票型、存檔 v22 與回退流程維持原規則。
+- 另核對全部 29 板的 59 種單狼／接刀情境；其他板子未發現相同名單遺漏。種狼依原流程確認是否感染、狼弟依加入夜、隱狼不可刀及特殊接刀規則保留。
+- 本機最終完整測試 **1108 項**、定向 **67 項**、單狼 UI **7 組**、全站 UI **39 組（29 板）**通過；0 失敗、0 跳過。正式站結果於部署後補入，真機待驗收。
+- [測試、截圖、部署及回退報告](docs/awb-solo-knife-report.md)。
 
 ### 2026-10-25｜完整復盤視窗、橫列天數與投票配色（已完成、已部署）
 
@@ -134,6 +143,7 @@ npm test
 | 全站主持 UI 回歸 | `node scripts/ui-regression.mjs` |
 | 覺醒角色 UI | `node scripts/awb-ui.mjs` |
 | 本次復盤視窗／天數頁籤 UI | `node scripts/recap-identity-days-ui.mjs` |
+| 覺醒狼美人單狼狼刀 UI | `node scripts/awb-solo-knife-ui.mjs` |
 | 圖鑑固定工具列／翻卡 | `node scripts/catalog-v2-ui.mjs` |
 | 後端本機測試 | [backend/README.md](backend/README.md)；必須使用本機虛構資料。 |
 
@@ -162,11 +172,11 @@ npm test
 
 ## 驗收、歷史與安全回退
 
-- 最新已執行結果與截圖：[本次報告](docs/recap-tabs-report.md)；[AWB 報告](docs/awb-implementation-report.md)。
+- 最新已執行結果與截圖：[狼刀修復報告](docs/awb-solo-knife-report.md)；[復盤精修報告](docs/recap-tabs-report.md)；[AWB 報告](docs/awb-implementation-report.md)。
 - 線上身分／玩家復盤：[報告](docs/online-host-recap-report.md)；液態玻璃／圖鑑：[報告](docs/liquid-glass-catalog-report.md)。
 - 死亡技能／機通手勢／狼弟：[報告](docs/dsk-mec-bro-report.md)；石像鬼：[報告](docs/sk-gargoyle-report.md)；接刀：[報告](docs/takeover-nightknife-report.md)。
 - 整理前完整 README、各輪發布 SHA／測試數／既有索引保留於 [歷史快照](docs/archive/README-before-recap-cleanup-20261024.md)，不把當時版本當成目前狀態。
-- 本次修改前備份：`backup/pre-recap-tabs-20261025` → `3d0089e9ef5a15d07cd6ea8190ca58b933b82e0d`，已核對遠端；功能提交 `961eeb6b9c3ee370cac90e2bc5fa3f0f8b09a721`、精修提交 `8dd05669aa087c26c54ce8bcc57f3b507e690d81`。前輪 `backup/pre-recap-identity-days-20261025` 與功能提交 `7b2451aea77ce6508b76f0d726e3fb5112583004` 仍保留。
+- 本次修改前備份：`backup/pre-awb-solo-knife-20261025` → `72b2fd4ab82e2939ca200a9dae091c281588149d`，已核對遠端。前輪 `backup/pre-recap-tabs-20261025`、`backup/pre-recap-identity-days-20261025` 與全部功能／精修提交仍保留；各輪報告列出對應 SHA。
 - 先前 `backup/pre-recap-readme-20261024`、`backup/pre-catalog-ui-20261025` 與 AWB 等全部基準備份仍保留，未覆寫。
 - 回退採新 `git revert` 提交與重測，不 reset、force push 或刪除備份；各輪報告列出適用 SHA 與限制。
 - **待真機驗收**：iPhone Safari、iOS PWA、Android、低階裝置、動態網址列、實際安全區與雙指縮放。桌面模擬不代表真機通過。

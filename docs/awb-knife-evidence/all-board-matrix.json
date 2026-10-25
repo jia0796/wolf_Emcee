@@ -1,0 +1,923 @@
+{
+  "summary": {
+    "readOnlyApp": true,
+    "boards": 29,
+    "scenarios": 59,
+    "issueScenarios": [],
+    "otherBoardIssues": [],
+    "variants": [
+      {
+        "mode": "normal team",
+        "ordinary": [
+          "awakenedBeauty",
+          "wolf",
+          "wolf",
+          "wolf"
+        ],
+        "basicActor": "awakenedBeauty",
+        "canSelect": true
+      },
+      {
+        "mode": "solo",
+        "ordinary": [
+          "awakenedBeauty"
+        ],
+        "basicActor": "awakenedBeauty",
+        "canSelect": true
+      },
+      {
+        "mode": "solo charm used",
+        "ordinary": [
+          "awakenedBeauty"
+        ],
+        "basicActor": "awakenedBeauty",
+        "canSelect": true
+      },
+      {
+        "mode": "solo cooldown",
+        "ordinary": [
+          "awakenedBeauty"
+        ],
+        "basicActor": "awakenedBeauty",
+        "canSelect": true
+      },
+      {
+        "mode": "dead beauty",
+        "ordinary": [],
+        "basicActor": null,
+        "canSelect": false
+      }
+    ]
+  },
+  "results": [
+    {
+      "board": "10",
+      "role": "king",
+      "name": "黑狼王",
+      "scenario": "only remaining wolf",
+      "expectedCanAttack": true,
+      "actor": "king",
+      "ordinary": [
+        "king"
+      ],
+      "selectable": true,
+      "submitted": true,
+      "actualBasicAttacks": 1,
+      "issues": []
+    },
+    {
+      "board": "10",
+      "role": "wolf",
+      "name": "狼人",
+      "scenario": "only remaining wolf",
+      "expectedCanAttack": true,
+      "actor": "wolf",
+      "ordinary": [
+        "wolf"
+      ],
+      "selectable": true,
+      "submitted": true,
+      "actualBasicAttacks": 1,
+      "issues": []
+    },
+    {
+      "board": "12",
+      "role": "king",
+      "name": "黑狼王",
+      "scenario": "only remaining wolf",
+      "expectedCanAttack": true,
+      "actor": "king",
+      "ordinary": [
+        "king"
+      ],
+      "selectable": true,
+      "submitted": true,
+      "actualBasicAttacks": 1,
+      "issues": []
+    },
+    {
+      "board": "12",
+      "role": "wolf",
+      "name": "狼人",
+      "scenario": "only remaining wolf",
+      "expectedCanAttack": true,
+      "actor": "wolf",
+      "ordinary": [
+        "wolf"
+      ],
+      "selectable": true,
+      "submitted": true,
+      "actualBasicAttacks": 1,
+      "issues": []
+    },
+    {
+      "board": "mechanical10",
+      "role": "mechanical",
+      "name": "機械狼",
+      "scenario": "only remaining wolf",
+      "expectedCanAttack": true,
+      "actor": "mechanical",
+      "ordinary": [],
+      "selectable": true,
+      "submitted": true,
+      "actualBasicAttacks": 1,
+      "issues": []
+    },
+    {
+      "board": "mechanical10",
+      "role": "wolf",
+      "name": "狼人",
+      "scenario": "only remaining wolf",
+      "expectedCanAttack": true,
+      "actor": "wolf",
+      "ordinary": [
+        "wolf"
+      ],
+      "selectable": true,
+      "submitted": true,
+      "actualBasicAttacks": 1,
+      "issues": []
+    },
+    {
+      "board": "mechanical12",
+      "role": "mechanical",
+      "name": "機械狼",
+      "scenario": "only remaining wolf",
+      "expectedCanAttack": true,
+      "actor": "mechanical",
+      "ordinary": [],
+      "selectable": true,
+      "submitted": true,
+      "actualBasicAttacks": 1,
+      "issues": []
+    },
+    {
+      "board": "mechanical12",
+      "role": "wolf",
+      "name": "狼人",
+      "scenario": "only remaining wolf",
+      "expectedCanAttack": true,
+      "actor": "wolf",
+      "ordinary": [
+        "wolf"
+      ],
+      "selectable": true,
+      "submitted": true,
+      "actualBasicAttacks": 1,
+      "issues": []
+    },
+    {
+      "board": "brothers12",
+      "role": "elder",
+      "name": "狼兄",
+      "scenario": "only remaining wolf",
+      "expectedCanAttack": true,
+      "actor": "elder",
+      "ordinary": [
+        "elder"
+      ],
+      "selectable": true,
+      "submitted": true,
+      "actualBasicAttacks": 1,
+      "issues": []
+    },
+    {
+      "board": "brothers12",
+      "role": "younger",
+      "name": "狼弟",
+      "scenario": "only younger after approved join night",
+      "expectedCanAttack": true,
+      "actor": "younger",
+      "ordinary": [
+        "younger"
+      ],
+      "selectable": true,
+      "submitted": true,
+      "actualBasicAttacks": 1,
+      "issues": []
+    },
+    {
+      "board": "brothers12",
+      "role": "wolf",
+      "name": "狼人",
+      "scenario": "only remaining wolf",
+      "expectedCanAttack": true,
+      "actor": "wolf",
+      "ordinary": [
+        "wolf"
+      ],
+      "selectable": true,
+      "submitted": true,
+      "actualBasicAttacks": 1,
+      "issues": []
+    },
+    {
+      "board": "nightmare10",
+      "role": "nightmare",
+      "name": "夢魘",
+      "scenario": "only remaining wolf",
+      "expectedCanAttack": true,
+      "actor": "nightmare",
+      "ordinary": [
+        "nightmare"
+      ],
+      "selectable": true,
+      "submitted": true,
+      "actualBasicAttacks": 1,
+      "issues": []
+    },
+    {
+      "board": "nightmare10",
+      "role": "wolf",
+      "name": "狼人",
+      "scenario": "only remaining wolf",
+      "expectedCanAttack": true,
+      "actor": "wolf",
+      "ordinary": [
+        "wolf"
+      ],
+      "selectable": true,
+      "submitted": true,
+      "actualBasicAttacks": 1,
+      "issues": []
+    },
+    {
+      "board": "nightmare12",
+      "role": "nightmare",
+      "name": "夢魘",
+      "scenario": "only remaining wolf",
+      "expectedCanAttack": true,
+      "actor": "nightmare",
+      "ordinary": [
+        "nightmare"
+      ],
+      "selectable": true,
+      "submitted": true,
+      "actualBasicAttacks": 1,
+      "issues": []
+    },
+    {
+      "board": "nightmare12",
+      "role": "wolf",
+      "name": "狼人",
+      "scenario": "only remaining wolf",
+      "expectedCanAttack": true,
+      "actor": "wolf",
+      "ordinary": [
+        "wolf"
+      ],
+      "selectable": true,
+      "submitted": true,
+      "actualBasicAttacks": 1,
+      "issues": []
+    },
+    {
+      "board": "classic12",
+      "role": "wolf",
+      "name": "狼人",
+      "scenario": "only remaining wolf",
+      "expectedCanAttack": true,
+      "actor": "wolf",
+      "ordinary": [
+        "wolf"
+      ],
+      "selectable": true,
+      "submitted": true,
+      "actualBasicAttacks": 1,
+      "issues": []
+    },
+    {
+      "board": "classicMixed12",
+      "role": "wolf",
+      "name": "狼人",
+      "scenario": "only remaining wolf",
+      "expectedCanAttack": true,
+      "actor": "wolf",
+      "ordinary": [
+        "wolf"
+      ],
+      "selectable": true,
+      "submitted": true,
+      "actualBasicAttacks": 1,
+      "issues": []
+    },
+    {
+      "board": "blood10",
+      "role": "blood",
+      "name": "血月使者",
+      "scenario": "only remaining wolf",
+      "expectedCanAttack": true,
+      "actor": "blood",
+      "ordinary": [
+        "blood"
+      ],
+      "selectable": true,
+      "submitted": true,
+      "actualBasicAttacks": 1,
+      "issues": []
+    },
+    {
+      "board": "blood10",
+      "role": "wolf",
+      "name": "狼人",
+      "scenario": "only remaining wolf",
+      "expectedCanAttack": true,
+      "actor": "wolf",
+      "ordinary": [
+        "wolf"
+      ],
+      "selectable": true,
+      "submitted": true,
+      "actualBasicAttacks": 1,
+      "issues": []
+    },
+    {
+      "board": "kingGuard10",
+      "role": "king",
+      "name": "黑狼王",
+      "scenario": "only remaining wolf",
+      "expectedCanAttack": true,
+      "actor": "king",
+      "ordinary": [
+        "king"
+      ],
+      "selectable": true,
+      "submitted": true,
+      "actualBasicAttacks": 1,
+      "issues": []
+    },
+    {
+      "board": "kingGuard10",
+      "role": "wolf",
+      "name": "狼人",
+      "scenario": "only remaining wolf",
+      "expectedCanAttack": true,
+      "actor": "wolf",
+      "ordinary": [
+        "wolf"
+      ],
+      "selectable": true,
+      "submitted": true,
+      "actualBasicAttacks": 1,
+      "issues": []
+    },
+    {
+      "board": "kingDream10",
+      "role": "king",
+      "name": "黑狼王",
+      "scenario": "only remaining wolf",
+      "expectedCanAttack": true,
+      "actor": "king",
+      "ordinary": [
+        "king"
+      ],
+      "selectable": true,
+      "submitted": true,
+      "actualBasicAttacks": 1,
+      "issues": []
+    },
+    {
+      "board": "kingDream10",
+      "role": "wolf",
+      "name": "狼人",
+      "scenario": "only remaining wolf",
+      "expectedCanAttack": true,
+      "actor": "wolf",
+      "ordinary": [
+        "wolf"
+      ],
+      "selectable": true,
+      "submitted": true,
+      "actualBasicAttacks": 1,
+      "issues": []
+    },
+    {
+      "board": "blood12",
+      "role": "blood",
+      "name": "血月使者",
+      "scenario": "only remaining wolf",
+      "expectedCanAttack": true,
+      "actor": "blood",
+      "ordinary": [
+        "blood"
+      ],
+      "selectable": true,
+      "submitted": true,
+      "actualBasicAttacks": 1,
+      "issues": []
+    },
+    {
+      "board": "blood12",
+      "role": "wolf",
+      "name": "狼人",
+      "scenario": "only remaining wolf",
+      "expectedCanAttack": true,
+      "actor": "wolf",
+      "ordinary": [
+        "wolf"
+      ],
+      "selectable": true,
+      "submitted": true,
+      "actualBasicAttacks": 1,
+      "issues": []
+    },
+    {
+      "board": "kingGuard12",
+      "role": "king",
+      "name": "黑狼王",
+      "scenario": "only remaining wolf",
+      "expectedCanAttack": true,
+      "actor": "king",
+      "ordinary": [
+        "king"
+      ],
+      "selectable": true,
+      "submitted": true,
+      "actualBasicAttacks": 1,
+      "issues": []
+    },
+    {
+      "board": "kingGuard12",
+      "role": "wolf",
+      "name": "狼人",
+      "scenario": "only remaining wolf",
+      "expectedCanAttack": true,
+      "actor": "wolf",
+      "ordinary": [
+        "wolf"
+      ],
+      "selectable": true,
+      "submitted": true,
+      "actualBasicAttacks": 1,
+      "issues": []
+    },
+    {
+      "board": "kingDream12",
+      "role": "king",
+      "name": "黑狼王",
+      "scenario": "only remaining wolf",
+      "expectedCanAttack": true,
+      "actor": "king",
+      "ordinary": [
+        "king"
+      ],
+      "selectable": true,
+      "submitted": true,
+      "actualBasicAttacks": 1,
+      "issues": []
+    },
+    {
+      "board": "kingDream12",
+      "role": "wolf",
+      "name": "狼人",
+      "scenario": "only remaining wolf",
+      "expectedCanAttack": true,
+      "actor": "wolf",
+      "ordinary": [
+        "wolf"
+      ],
+      "selectable": true,
+      "submitted": true,
+      "actualBasicAttacks": 1,
+      "issues": []
+    },
+    {
+      "board": "gargoyle10",
+      "role": "gargoyle",
+      "name": "覺醒石像鬼",
+      "scenario": "only remaining wolf",
+      "expectedCanAttack": true,
+      "actor": "gargoyle",
+      "ordinary": [
+        "gargoyle"
+      ],
+      "selectable": true,
+      "submitted": true,
+      "actualBasicAttacks": 1,
+      "issues": []
+    },
+    {
+      "board": "gargoyle10",
+      "role": "wolf",
+      "name": "狼人",
+      "scenario": "only remaining wolf",
+      "expectedCanAttack": true,
+      "actor": "wolf",
+      "ordinary": [
+        "wolf"
+      ],
+      "selectable": true,
+      "submitted": true,
+      "actualBasicAttacks": 1,
+      "issues": []
+    },
+    {
+      "board": "gargoyle12",
+      "role": "gargoyle",
+      "name": "覺醒石像鬼",
+      "scenario": "only remaining wolf",
+      "expectedCanAttack": true,
+      "actor": "gargoyle",
+      "ordinary": [
+        "gargoyle"
+      ],
+      "selectable": true,
+      "submitted": true,
+      "actualBasicAttacks": 1,
+      "issues": []
+    },
+    {
+      "board": "gargoyle12",
+      "role": "wolf",
+      "name": "狼人",
+      "scenario": "only remaining wolf",
+      "expectedCanAttack": true,
+      "actor": "wolf",
+      "ordinary": [
+        "wolf"
+      ],
+      "selectable": true,
+      "submitted": true,
+      "actualBasicAttacks": 1,
+      "issues": []
+    },
+    {
+      "board": "evilKnight10",
+      "role": "evilKnight",
+      "name": "惡靈騎士",
+      "scenario": "only remaining wolf",
+      "expectedCanAttack": true,
+      "actor": "evilKnight",
+      "ordinary": [
+        "evilKnight"
+      ],
+      "selectable": true,
+      "submitted": true,
+      "actualBasicAttacks": 1,
+      "issues": []
+    },
+    {
+      "board": "evilKnight10",
+      "role": "wolf",
+      "name": "狼人",
+      "scenario": "only remaining wolf",
+      "expectedCanAttack": true,
+      "actor": "wolf",
+      "ordinary": [
+        "wolf"
+      ],
+      "selectable": true,
+      "submitted": true,
+      "actualBasicAttacks": 1,
+      "issues": []
+    },
+    {
+      "board": "evilKnight12",
+      "role": "evilKnight",
+      "name": "惡靈騎士",
+      "scenario": "only remaining wolf",
+      "expectedCanAttack": true,
+      "actor": "evilKnight",
+      "ordinary": [
+        "evilKnight"
+      ],
+      "selectable": true,
+      "submitted": true,
+      "actualBasicAttacks": 1,
+      "issues": []
+    },
+    {
+      "board": "evilKnight12",
+      "role": "wolf",
+      "name": "狼人",
+      "scenario": "only remaining wolf",
+      "expectedCanAttack": true,
+      "actor": "wolf",
+      "ordinary": [
+        "wolf"
+      ],
+      "selectable": true,
+      "submitted": true,
+      "actualBasicAttacks": 1,
+      "issues": []
+    },
+    {
+      "board": "seedHidden10",
+      "role": "seedWolf",
+      "name": "種狼",
+      "scenario": "only remaining wolf",
+      "expectedCanAttack": true,
+      "actor": "seedWolf",
+      "ordinary": [
+        "seedWolf"
+      ],
+      "selectable": true,
+      "submitted": true,
+      "actualBasicAttacks": 1,
+      "issues": []
+    },
+    {
+      "board": "seedHidden10",
+      "role": "hiddenWolf",
+      "name": "隱狼",
+      "scenario": "only remaining wolf",
+      "expectedCanAttack": false,
+      "actor": null,
+      "ordinary": [],
+      "selectable": false,
+      "submitted": false,
+      "actualBasicAttacks": 0,
+      "issues": [],
+      "goodWin": true
+    },
+    {
+      "board": "seedHidden10",
+      "role": "wolf",
+      "name": "狼人",
+      "scenario": "only remaining wolf",
+      "expectedCanAttack": true,
+      "actor": "wolf",
+      "ordinary": [
+        "wolf"
+      ],
+      "selectable": true,
+      "submitted": true,
+      "actualBasicAttacks": 1,
+      "issues": []
+    },
+    {
+      "board": "seedHidden12",
+      "role": "seedWolf",
+      "name": "種狼",
+      "scenario": "only remaining wolf",
+      "expectedCanAttack": true,
+      "actor": "seedWolf",
+      "ordinary": [
+        "seedWolf"
+      ],
+      "selectable": true,
+      "submitted": true,
+      "actualBasicAttacks": 1,
+      "issues": []
+    },
+    {
+      "board": "seedHidden12",
+      "role": "hiddenWolf",
+      "name": "隱狼",
+      "scenario": "only remaining wolf",
+      "expectedCanAttack": false,
+      "actor": null,
+      "ordinary": [],
+      "selectable": false,
+      "submitted": false,
+      "actualBasicAttacks": 0,
+      "issues": [],
+      "goodWin": true
+    },
+    {
+      "board": "seedHidden12",
+      "role": "wolf",
+      "name": "狼人",
+      "scenario": "only remaining wolf",
+      "expectedCanAttack": true,
+      "actor": "wolf",
+      "ordinary": [
+        "wolf"
+      ],
+      "selectable": true,
+      "submitted": true,
+      "actualBasicAttacks": 1,
+      "issues": []
+    },
+    {
+      "board": "beauty10",
+      "role": "beauty",
+      "name": "狼美人",
+      "scenario": "only remaining wolf",
+      "expectedCanAttack": true,
+      "actor": "beauty",
+      "ordinary": [
+        "beauty"
+      ],
+      "selectable": true,
+      "submitted": true,
+      "actualBasicAttacks": 1,
+      "issues": []
+    },
+    {
+      "board": "beauty10",
+      "role": "wolf",
+      "name": "狼人",
+      "scenario": "only remaining wolf",
+      "expectedCanAttack": true,
+      "actor": "wolf",
+      "ordinary": [
+        "wolf"
+      ],
+      "selectable": true,
+      "submitted": true,
+      "actualBasicAttacks": 1,
+      "issues": []
+    },
+    {
+      "board": "beauty12",
+      "role": "beauty",
+      "name": "狼美人",
+      "scenario": "only remaining wolf",
+      "expectedCanAttack": true,
+      "actor": "beauty",
+      "ordinary": [
+        "beauty"
+      ],
+      "selectable": true,
+      "submitted": true,
+      "actualBasicAttacks": 1,
+      "issues": []
+    },
+    {
+      "board": "beauty12",
+      "role": "wolf",
+      "name": "狼人",
+      "scenario": "only remaining wolf",
+      "expectedCanAttack": true,
+      "actor": "wolf",
+      "ordinary": [
+        "wolf"
+      ],
+      "selectable": true,
+      "submitted": true,
+      "actualBasicAttacks": 1,
+      "issues": []
+    },
+    {
+      "board": "masquerade12",
+      "role": "wolf",
+      "name": "狼人",
+      "scenario": "only remaining wolf",
+      "expectedCanAttack": true,
+      "actor": "wolf",
+      "ordinary": [
+        "wolf"
+      ],
+      "selectable": true,
+      "submitted": true,
+      "actualBasicAttacks": 1,
+      "issues": []
+    },
+    {
+      "board": "masquerade12",
+      "role": "mask",
+      "name": "假面",
+      "scenario": "only remaining wolf",
+      "expectedCanAttack": true,
+      "actor": "mask",
+      "ordinary": [],
+      "selectable": true,
+      "submitted": true,
+      "actualBasicAttacks": 1,
+      "issues": []
+    },
+    {
+      "board": "fragrance10",
+      "role": "fragrance",
+      "name": "尋香魅影",
+      "scenario": "only remaining wolf",
+      "expectedCanAttack": true,
+      "actor": "fragrance",
+      "ordinary": [],
+      "selectable": true,
+      "submitted": true,
+      "actualBasicAttacks": 1,
+      "issues": []
+    },
+    {
+      "board": "fragrance10",
+      "role": "wolf",
+      "name": "狼人",
+      "scenario": "only remaining wolf",
+      "expectedCanAttack": true,
+      "actor": "wolf",
+      "ordinary": [
+        "wolf"
+      ],
+      "selectable": true,
+      "submitted": true,
+      "actualBasicAttacks": 1,
+      "issues": []
+    },
+    {
+      "board": "fragrance12",
+      "role": "fragrance",
+      "name": "尋香魅影",
+      "scenario": "only remaining wolf",
+      "expectedCanAttack": true,
+      "actor": "fragrance",
+      "ordinary": [],
+      "selectable": true,
+      "submitted": true,
+      "actualBasicAttacks": 1,
+      "issues": []
+    },
+    {
+      "board": "fragrance12",
+      "role": "wolf",
+      "name": "狼人",
+      "scenario": "only remaining wolf",
+      "expectedCanAttack": true,
+      "actor": "wolf",
+      "ordinary": [
+        "wolf"
+      ],
+      "selectable": true,
+      "submitted": true,
+      "actualBasicAttacks": 1,
+      "issues": []
+    },
+    {
+      "board": "stoneGargoyle10",
+      "role": "stoneGargoyle",
+      "name": "石像鬼",
+      "scenario": "only remaining wolf",
+      "expectedCanAttack": true,
+      "actor": "stoneGargoyle",
+      "ordinary": [],
+      "selectable": true,
+      "submitted": true,
+      "actualBasicAttacks": 1,
+      "issues": []
+    },
+    {
+      "board": "stoneGargoyle10",
+      "role": "wolf",
+      "name": "狼人",
+      "scenario": "only remaining wolf",
+      "expectedCanAttack": true,
+      "actor": "wolf",
+      "ordinary": [
+        "wolf"
+      ],
+      "selectable": true,
+      "submitted": true,
+      "actualBasicAttacks": 1,
+      "issues": []
+    },
+    {
+      "board": "stoneGargoyle12",
+      "role": "stoneGargoyle",
+      "name": "石像鬼",
+      "scenario": "only remaining wolf",
+      "expectedCanAttack": true,
+      "actor": "stoneGargoyle",
+      "ordinary": [],
+      "selectable": true,
+      "submitted": true,
+      "actualBasicAttacks": 1,
+      "issues": []
+    },
+    {
+      "board": "stoneGargoyle12",
+      "role": "wolf",
+      "name": "狼人",
+      "scenario": "only remaining wolf",
+      "expectedCanAttack": true,
+      "actor": "wolf",
+      "ordinary": [
+        "wolf"
+      ],
+      "selectable": true,
+      "submitted": true,
+      "actualBasicAttacks": 1,
+      "issues": []
+    },
+    {
+      "board": "awakenedBeauty12",
+      "role": "awakenedBeauty",
+      "name": "覺醒狼美人",
+      "scenario": "only remaining wolf",
+      "expectedCanAttack": true,
+      "actor": "awakenedBeauty",
+      "ordinary": [
+        "awakenedBeauty"
+      ],
+      "selectable": true,
+      "submitted": true,
+      "actualBasicAttacks": 1,
+      "issues": []
+    },
+    {
+      "board": "awakenedBeauty12",
+      "role": "wolf",
+      "name": "狼人",
+      "scenario": "only remaining wolf",
+      "expectedCanAttack": true,
+      "actor": "wolf",
+      "ordinary": [
+        "wolf"
+      ],
+      "selectable": true,
+      "submitted": true,
+      "actualBasicAttacks": 1,
+      "issues": []
+    }
+  ]
+}
