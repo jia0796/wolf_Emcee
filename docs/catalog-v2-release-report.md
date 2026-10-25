@@ -2,7 +2,7 @@
 
 ## 範圍與結果
 
-現有 33 個角色的圖鑑列表與翻卡正面換用已製作的新系列插畫。首頁圖鑑、主持圖鑑與線上房間圖鑑共用相同呈現；角色／板子數、技能原文、翻卡與返回流程不變。網站發布狀態見本文最後一節。
+現有 33 個角色的圖鑑列表與翻卡正面換用已製作的新系列插畫。首頁圖鑑、主持圖鑑與線上房間圖鑑共用相同呈現；角色／板子數、技能原文、翻卡與返回流程不變。已部署至原 GitHub Pages 網站；發布與部署後結果見本文最後一節。
 
 - 手機維持三欄，以單一深藍玻璃閱讀層減少村莊背景與多張插畫框的干擾。完整外框直接顯示，沒有再加第二圈裝飾框。
 - 保留名稱與陣營色、點開大圖、正反翻卡、技能／目標原文、背面捲動、外側點擊與 Escape 關閉、鍵盤操作、Reduce Motion，以及回到原主持畫面。
@@ -27,7 +27,7 @@
 
 ## 修改邊界核對
 
-已以 Git 與施工前基準比對：data.js、engine.js、night.js、identity.js、takeover.js、records.js、recap.js、timer.js、online.js、online-state.js、catalog-art.js、全部既有插畫、背景、技能 SVG 均未修改。
+首輪插畫／UI 提交 ff0522d 已以 Git 與施工前基準比對：data.js、engine.js、night.js、identity.js、takeover.js、records.js、recap.js、timer.js、online.js、online-state.js、catalog-art.js、全部既有插畫、背景、技能 SVG 均未修改。
 
 線上發牌卡保留既有 catalog-art.js 映射、卡背與外框；復盤仍使用 ROLE_DATA 原圖。本次不改遊戲機制、存檔 v22、回退、後端、Supabase、Realtime 或 Google Drive 的其他文件。Service Worker 的核心優先／每批兩素材／舊資產復用策略不變。
 
@@ -64,7 +64,7 @@ Node.js v24.21.0，Edge／Playwright 桌面無頭瀏覽器。
 - 施工前完整 SHA：`340313c503c993a0bae849779758cd25944b9acf`。
 - 遠端備份：`backup/pre-catalog-ui-20261025`；push 成功，git ls-remote 回讀指向相同 SHA。
 - 所有既有歷史、素材、備份分支保留。修改只在 feat/eclipse-host-app，不合併 main。
-- 回退採對本輪程式提交執行 git revert，再跑 npm test 及 UI 回歸，推送新提交發布。不要 reset --hard、force push 或刪除存檔。確切提交與指令於發布完成後補入下節。
+- 回退採對本輪程式提交執行 git revert，再跑 npm test 及 UI 回歸，推送新提交發布。不要 reset --hard、force push 或刪除存檔。確切提交與指令見發布節。
 - Drive 的魔術師與規格表保留原 ID，可使用 Drive 版本歷史回復；新增九張不需為網站回退而刪除。
 
 ## 待驗收
@@ -73,4 +73,22 @@ Node.js v24.21.0，Edge／Playwright 桌面無頭瀏覽器。
 
 ## 發布狀態
 
-本機驗收完成，待本輪提交與 GitHub Pages 發布，再補入提交 SHA、Actions 連結與正式站驗證。
+- 正式網址：[WolfCue 狼序](https://jia0796.github.io/wolf_Emcee/)。
+- 程式提交：`ff0522d726c7c2220b60461eddb66c099fab45f8`。
+- [GitHub Pages 部署成功](https://github.com/jia0796/wolf_Emcee/actions/runs/40169346518)；build、規則測試與 deploy 均為 success。另一次 [Host flow tests](https://github.com/jia0796/wolf_Emcee/actions/runs/40169346464) 為 success。
+- 部署後使用 `UI_BASE=https://jia0796.github.io/wolf_Emcee/ node scripts/catalog-v2-ui.mjs`：**107 通過、0 失敗、0 跳過**。重新驗證全部圖鑑行為、66 張正式圖片雜湊與離線翻卡。
+- 正式站 index.html、app.js、catalog-ui.css、catalog-v2.js、sw.js、cache-manifest.js 共 **6 檔**，與上述 Git 提交內容逐位元組 SHA256 相同。
+- 正式站結果：[107 項驗收](catalog-v2-evidence/live-results.json)、[發布檔案雜湊](catalog-v2-evidence/live-file-integrity.json)、[Drive 驗證](catalog-v2-evidence/drive-verification.json)。
+- 正式站截圖：[好人列表](catalog-v2-evidence/live-library-good.png)、[狼人列表](catalog-v2-evidence/live-library-wolves.png)、[魔術師正面](catalog-v2-evidence/live-magician-front.png)、[翻卡背面](catalog-v2-evidence/live-magician-back.png)。
+- README、DESIGN 及本報告已更新；本節記錄 ff0522d 的驗收，後續混血兒標籤補正另見下節。
+
+回退程式提交可執行 `git revert ff0522d726c7c2220b60461eddb66c099fab45f8`，完成 npm test／UI 回歸後再推送。若與本次後續驗收文件提交產生文件衝突，先保留這份歷史報告並把 README／DESIGN 現況標示改回備份版；不要使用 reset 或 force push。另一安全做法是先撤銷這次後續文件提交，再 revert 程式提交。以上只操作 Git 原始碼，不清除使用者存檔或正式資料。
+
+
+## 混血兒分類文字補正
+
+依後續使用者指示，public/data.js 只將 mixed.camp 顯示文字由「民位」改為「好人陣營」；kind=villager、技能原文、榜樣資料、勝負與存檔不改。ROLE_DATA.camp 只供圖鑑背面顯示，與 game.mixed.camp 的實際榜樣陣營無關。快取更新 council-v22-23，刷新後可取得新標籤。本機 npm test **990 通過、0 失敗、0 跳過**；定向驗證 **3 組通過、0 失敗**（全部角色資料只允許此標籤變更，以及 320／390px 翻卡、技能與目標原文、關閉操作）。
+
+首次測試為 989 通過、1 失敗：R16 歷史基準把分類文字也納入整份資料雜湊。已明確斷言新標籤必須為「好人陣營」，只將該欄還原為舊標籤進行歷史雜湊比對；其餘角色欄位與板子規則仍逐一完整核對。重跑完整 990 項後全數通過，沒有降低遊戲規則斷言。
+
+[本機結果](catalog-v2-evidence/mixed-local-results.json) · [混血兒背面截圖](catalog-v2-evidence/mixed-local-390.png)。此補正部署後會再次驗證正式站。

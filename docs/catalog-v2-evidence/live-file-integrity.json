@@ -1,0 +1,44 @@
+{
+  "deployedCommit": "ff0522d726c7c2220b60461eddb66c099fab45f8",
+  "passed": 6,
+  "failed": 0,
+  "byteExact": true,
+  "files": [
+    {
+      "path": "index.html",
+      "sha256": "78d67b48dc5ed2c668167043b4dca30aa9db700927668bb3b39bf8ad848bb4eb",
+      "commitSha256": "78d67b48dc5ed2c668167043b4dca30aa9db700927668bb3b39bf8ad848bb4eb",
+      "matched": true
+    },
+    {
+      "path": "app.js",
+      "sha256": "d117d4196b867ca408a8e1cbe15c08d9f3606845acdea565061022773a4dc78b",
+      "commitSha256": "d117d4196b867ca408a8e1cbe15c08d9f3606845acdea565061022773a4dc78b",
+      "matched": true
+    },
+    {
+      "path": "catalog-ui.css",
+      "sha256": "c919d47ac3dbfcfede3eb1f0b7a79b33a0630cba748551687db82668f0eccdb9",
+      "commitSha256": "c919d47ac3dbfcfede3eb1f0b7a79b33a0630cba748551687db82668f0eccdb9",
+      "matched": true
+    },
+    {
+      "path": "catalog-v2.js",
+      "sha256": "0089d33a6d07a8acf1d7ea54b45c2547fc24477dbedd1a5e4265921879a8d4b7",
+      "commitSha256": "0089d33a6d07a8acf1d7ea54b45c2547fc24477dbedd1a5e4265921879a8d4b7",
+      "matched": true
+    },
+    {
+      "path": "sw.js",
+      "sha256": "11df588411540c8aa843bb40a529cd2962169311a8a212f59c25138e0ac2a670",
+      "commitSha256": "11df588411540c8aa843bb40a529cd2962169311a8a212f59c25138e0ac2a670",
+      "matched": true
+    },
+    {
+      "path": "cache-manifest.js",
+      "sha256": "358fab8443a211200c01d402d09351c70b2c0301198c3287ee81d5cf264ad5de",
+      "commitSha256": "358fab8443a211200c01d402d09351c70b2c0301198c3287ee81d5cf264ad5de",
+      "matched": true
+    }
+  ]
+}

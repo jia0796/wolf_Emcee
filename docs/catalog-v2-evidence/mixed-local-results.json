@@ -1,0 +1,31 @@
+{
+  "base": "http://127.0.0.1:5396/",
+  "passed": 3,
+  "failed": 0,
+  "skipped": 0,
+  "results": [
+    {
+      "scope": "role metadata",
+      "onlyMixedDisplayCampChanged": true
+    },
+    {
+      "viewport": [
+        320,
+        844
+      ],
+      "camp": "好人陣營",
+      "skillAndGoalUnchanged": true,
+      "flipAndClose": true
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "camp": "好人陣營",
+      "skillAndGoalUnchanged": true,
+      "flipAndClose": true
+    }
+  ],
+  "errors": []
+}

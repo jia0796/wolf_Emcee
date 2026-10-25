@@ -5,7 +5,7 @@ export const ROLE_DATA = {
  blood:{name:'血月使者',kind:'wolf',camp:'狼隊陣營',image:'art/blood-moon-messenger-approved.png',canShoot:false,skill:'夜晚與其他狼人共同睜眼並參與狼刀。血月使者在白天自爆後，當晚所有神職將無法使用技能。若血月使者是場上最後一名狼人，且被白天投票放逐，則翻牌並立即獲得最後一刀的機會。若最後一刀成功達成狼人勝利條件，狼人陣營獲勝；否則好人陣營獲勝。',goal:'淘汰好人陣營，協助狼人陣營獲勝。'},
  demon:{name:'獵魔人',kind:'god',camp:'好人陣營',image:'art/demon-hunter-approved.png',canShoot:false,skill:'第一晚不可狩獵。第二晚起，每晚可選擇一名其他玩家進行狩獵，也可以不使用。若目標為狼人，則該狼人於隔天天亮時死亡；若目標為好人，則獵魔人自己於隔天天亮時死亡。獵魔人免疫女巫毒藥。',goal:'找出並解決所有狼人。'},
  idiot:{name:'白痴',kind:'god',camp:'好人陣營',image:'art/idiot-minimal-approved.png',canShoot:false,skill:'白天被投票放逐時，會翻牌公開身分且不會死亡。翻牌後仍可發言，但永久失去投票權，也不能再次被放逐。夜間遭到狼人襲擊或女巫毒殺則正常死亡。',goal:'找出並解決所有狼人。'},
- mixed:{name:'混血兒',kind:'villager',camp:'民位',image:'art/mixed-blood-dual-approved.jpeg',canShoot:false,skill:'第一晚選擇一名其他玩家作為榜樣，整局不得更換，且不會得知榜樣的身分與陣營。混血兒的勝利條件與榜樣所屬陣營相同，但始終視為民位。即使選擇狼人作為榜樣，狼人陣營仍須將混血兒一併淘汰，才算達成屠民條件。',goal:'與榜樣所屬陣營一同獲勝。'},
+ mixed:{name:'混血兒',kind:'villager',camp:'好人陣營',image:'art/mixed-blood-dual-approved.jpeg',canShoot:false,skill:'第一晚選擇一名其他玩家作為榜樣，整局不得更換，且不會得知榜樣的身分與陣營。混血兒的勝利條件與榜樣所屬陣營相同，但始終視為民位。即使選擇狼人作為榜樣，狼人陣營仍須將混血兒一併淘汰，才算達成屠民條件。',goal:'與榜樣所屬陣營一同獲勝。'},
  nightmare:{name:'夢魘',kind:'wolf',camp:'狼隊陣營',image:'art/nightmare-minimal-approved.png',canShoot:false,skill:'夜晚與其他狼人共同睜眼並參與狼刀，可以自爆。每晚可選擇一名其他存活玩家進行恐懼，使其當晚無法使用技能，但不能連續兩晚恐懼同一名玩家。若恐懼到普通狼人，當晚狼隊無法襲擊。',goal:'欺騙好人，帶領狼人陣營取得勝利。'},
  dream:{name:'攝夢人',kind:'god',camp:'好人陣營',image:'art/dream-catcher-minimal-approved.png',canShoot:false,skill:'每晚必須選擇一名其他存活玩家成為夢遊者，使其當晚免疫所有夜間傷害。若連續兩晚攝夢同一名玩家，該玩家將死亡；若攝夢人當晚死亡，夢遊者也會一同死亡。夢遊者不會得知自己被攝夢。',goal:'找出並解決所有狼人。'},
  elder:{name:'狼兄',kind:'wolf',camp:'狼隊陣營',canShoot:false,image:'art/wolf-brother-scar-approved.png',skill:'第一晚與狼弟相認。夜晚與其他狼人共同睜眼並參與狼刀，但不可自爆，也不可自刀。',goal:'欺騙好人，帶領狼人陣營取得勝利。'},
