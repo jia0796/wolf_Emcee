@@ -1,0 +1,56 @@
+{
+  "deployedCommit": "b7dd81f8f7eedf6cb6a6bf619ee7564529143d01",
+  "passed": 8,
+  "failed": 0,
+  "byteExact": true,
+  "files": [
+    {
+      "path": "data.js",
+      "sha256": "09bc1c7fdc0411aedfe64d818bb5aad809e04ca7bdd48cbfe57a976f75c1c5b4",
+      "commitSha256": "09bc1c7fdc0411aedfe64d818bb5aad809e04ca7bdd48cbfe57a976f75c1c5b4",
+      "matched": true
+    },
+    {
+      "path": "app.js",
+      "sha256": "45b8eef8f94fd33145d0573aecd741844b5e4c5d9f4856ea9abddc95c05e2796",
+      "commitSha256": "45b8eef8f94fd33145d0573aecd741844b5e4c5d9f4856ea9abddc95c05e2796",
+      "matched": true
+    },
+    {
+      "path": "recap.js",
+      "sha256": "774508f45d9be15a638903042cecdd55c25ec798bb42e000c1547869d0e115a7",
+      "commitSha256": "774508f45d9be15a638903042cecdd55c25ec798bb42e000c1547869d0e115a7",
+      "matched": true
+    },
+    {
+      "path": "vote-ui.js",
+      "sha256": "a54d6d9f2875656d7beefd7316392b702dd10a7dc983b49834acf9e12466b8ae",
+      "commitSha256": "a54d6d9f2875656d7beefd7316392b702dd10a7dc983b49834acf9e12466b8ae",
+      "matched": true
+    },
+    {
+      "path": "liquid-glass.css",
+      "sha256": "145694f9f365e13aaf3c2050d8cda7221f839b63daf81127fb42337b4a4ebd90",
+      "commitSha256": "145694f9f365e13aaf3c2050d8cda7221f839b63daf81127fb42337b4a4ebd90",
+      "matched": true
+    },
+    {
+      "path": "sw.js",
+      "sha256": "63d50ce0492a5dabcdf982fa881787290e72f8a79d19fc217415805a8b574b3d",
+      "commitSha256": "63d50ce0492a5dabcdf982fa881787290e72f8a79d19fc217415805a8b574b3d",
+      "matched": true
+    },
+    {
+      "path": "catalog-v2.js",
+      "sha256": "0089d33a6d07a8acf1d7ea54b45c2547fc24477dbedd1a5e4265921879a8d4b7",
+      "commitSha256": "0089d33a6d07a8acf1d7ea54b45c2547fc24477dbedd1a5e4265921879a8d4b7",
+      "matched": true
+    },
+    {
+      "path": "cache-manifest.js",
+      "sha256": "358fab8443a211200c01d402d09351c70b2c0301198c3287ee81d5cf264ad5de",
+      "commitSha256": "358fab8443a211200c01d402d09351c70b2c0301198c3287ee81d5cf264ad5de",
+      "matched": true
+    }
+  ]
+}

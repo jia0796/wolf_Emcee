@@ -1,0 +1,151 @@
+{
+  "base": "https://jia0796.github.io/wolf_Emcee/",
+  "passed": 47,
+  "failed": 0,
+  "skipped": 0,
+  "results": [
+    {
+      "name": "new recap art: evilKnight"
+    },
+    {
+      "name": "new recap art: gargoyle"
+    },
+    {
+      "name": "new recap art: gravekeeper"
+    },
+    {
+      "name": "new recap art: blood"
+    },
+    {
+      "name": "new recap art: demon"
+    },
+    {
+      "name": "new recap art: idiot"
+    },
+    {
+      "name": "new recap art: mixed"
+    },
+    {
+      "name": "new recap art: nightmare"
+    },
+    {
+      "name": "new recap art: dream"
+    },
+    {
+      "name": "new recap art: elder"
+    },
+    {
+      "name": "new recap art: younger"
+    },
+    {
+      "name": "new recap art: merchant"
+    },
+    {
+      "name": "new recap art: king"
+    },
+    {
+      "name": "new recap art: wolf"
+    },
+    {
+      "name": "new recap art: seer"
+    },
+    {
+      "name": "new recap art: witch"
+    },
+    {
+      "name": "new recap art: hunter"
+    },
+    {
+      "name": "new recap art: magician"
+    },
+    {
+      "name": "new recap art: villager"
+    },
+    {
+      "name": "new recap art: mechanical"
+    },
+    {
+      "name": "new recap art: medium"
+    },
+    {
+      "name": "new recap art: guard"
+    },
+    {
+      "name": "new recap art: seedWolf"
+    },
+    {
+      "name": "new recap art: hiddenWolf"
+    },
+    {
+      "name": "new recap art: beauty"
+    },
+    {
+      "name": "new recap art: duelist"
+    },
+    {
+      "name": "new recap art: dancer"
+    },
+    {
+      "name": "new recap art: mask"
+    },
+    {
+      "name": "new recap art: fragrance"
+    },
+    {
+      "name": "new recap art: awakenedSeer"
+    },
+    {
+      "name": "new recap art: stoneGargoyle"
+    },
+    {
+      "name": "new recap art: awakenedBeauty"
+    },
+    {
+      "name": "new recap art: awakenedHunter"
+    },
+    {
+      "name": "legacy missing identity stays unknown; takeover and conversion retain original role"
+    },
+    {
+      "name": "recap current/old saved image refresh 320"
+    },
+    {
+      "name": "recap current/old saved image refresh 375"
+    },
+    {
+      "name": "recap current/old saved image refresh 390"
+    },
+    {
+      "name": "recap current/old saved image refresh 430"
+    },
+    {
+      "name": "player shared recap renderer accepts unchanged validated payload"
+    },
+    {
+      "name": "new recap image failure falls back to original snapshot"
+    },
+    {
+      "name": "submit/edit/recount/refresh/recap/undo: exileVote"
+    },
+    {
+      "name": "submit/edit/recount/refresh/recap/undo: sheriffVote"
+    },
+    {
+      "name": "submit/edit/recount/refresh/recap/undo: sheriffRevote"
+    },
+    {
+      "name": "submit/edit/recount/refresh/recap/undo: exileRevote"
+    },
+    {
+      "name": "all abstain keeps disabled next and editable ballots; recap retains no-valid-votes text"
+    },
+    {
+      "name": "manual override hides recap vote details; undo and return to suggested result restores them"
+    },
+    {
+      "name": "offline recap keeps new art and stored events"
+    }
+  ],
+  "errors": [],
+  "realDevices": "待真機驗收"
+}

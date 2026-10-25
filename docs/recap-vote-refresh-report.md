@@ -60,4 +60,15 @@ iPhone Safari、安裝式 iOS PWA、Android、低階裝置、真機動態網址�
 
 ## 部署
 
-本機驗收已完成，提交與正式站驗收結果於本輪發布後補齊。
+- 已部署至 [WolfCue 狼序](https://jia0796.github.io/wolf_Emcee/)。
+- 功能提交：`b7dd81f8f7eedf6cb6a6bf619ee7564529143d01`。
+- [GitHub Pages 發布成功](https://github.com/jia0796/wolf_Emcee/actions/runs/40171112946)；build、規則測試與 deploy 均成功。
+- 部署後 `UI_BASE=https://jia0796.github.io/wolf_Emcee/ node scripts/recap-vote-refresh-ui.mjs`：**47 通過、0 失敗、0 跳過**，包括正式站離線復盤及最新融合版型。
+- 部署後混血兒分類定向驗證：**3 通過、0 失敗、0 跳過**，含 320／390px 正反翻卡、文字與角色資料邊界。
+- 正式站 data.js、app.js、recap.js、vote-ui.js、liquid-glass.css、sw.js、catalog-v2.js、cache-manifest.js 共 **8 檔**與功能提交的 SHA256 逐位元組一致。
+- [正式站結果](recap-vote-refresh-evidence/live-results.json) · [混血兒驗證](recap-vote-refresh-evidence/mixed-live-results.json) · [8 檔雜湊](recap-vote-refresh-evidence/live-file-integrity.json)。
+- 正式站截圖：[復盤事件](recap-vote-refresh-evidence/live-recap-events.png) · [最終身分融合](recap-vote-refresh-evidence/live-recap-identities.png) · [投票完成](recap-vote-refresh-evidence/live-vote-summary.png) · [混血兒分類](recap-vote-refresh-evidence/mixed-live-390.png)。
+- 本節與正式截圖為部署後文件提交，未再改 App；工作分支維持 feat/eclipse-host-app。
+
+只回退本批復盤／投票更新可執行 `git revert b7dd81f8f7eedf6cb6a6bf619ee7564529143d01`，測試後正常推送；混血兒與圖鑑新圖會保留在前一版。如與後續驗收文件衝突，先 revert 最後的文件提交再執行功能 revert。完整回到新圖鑑之前，請以保留的 backup/pre-catalog-ui-20261025 作比對基準逐筆反向撤銷，不使用強制推送。
+
