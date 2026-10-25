@@ -2,17 +2,24 @@
 
 真人法官 PWA，提供固定主持字幕、角色與技能標記、日夜結算、警長／放逐／PK 投票、發言計時、上一步與完整復盤；另有線上發牌（Beta 版）。
 
-[開啟網站](https://jia0796.github.io/wolf_Emcee/) · [現行設計](DESIGN.md) · [詳細規則](docs/current-rules.md) · [本次更新報告](docs/awb-solo-knife-report.md)
+[開啟網站](https://jia0796.github.io/wolf_Emcee/) · [現行設計](DESIGN.md) · [詳細規則](docs/current-rules.md) · [本次更新報告](docs/online-card-v2-report.md)
 
 ## 目前版本與維護原則
 
 - 工作分支：`feat/eclipse-host-app`；不自動合併 main。
 - 傳統主持：**29 款板子、10／12 人、33 個角色**；線上發牌支援其中 **27 款**。
 - 存檔：**v22**，保留舊局相容與完整回退歷史，不補造舊存檔沒有的紀錄。
-- 快取：**council-v22-28**；沿用核心優先、素材每批兩張的漸進快取。
+- 快取：**council-v22-29**；沿用核心優先、素材每批兩張的漸進快取。
 - 規則以最新使用者裁定及 [詳細規格](docs/current-rules.md) 為準；外觀以 [DESIGN.md](DESIGN.md) 為準。歷史報告中的舊配色、版號及測試數不作現行施工要求。
 
 ## 最新更新
+
+### 2026-10-26｜線上角色卡正面同步新版插畫
+
+- 線上翻牌的 33 位角色正面改用 `catalog-v2.js` 的新版完整插畫，與目前圖鑑一致。保留原線上卡片外框、底色、尺寸、職業文字、卡背與翻牌，不把圖鑑布局套到卡片。
+- 根因為前端仍指向舊 `catalog-clear`；已透過 Supabase 唯讀核對發牌入口與 my_role 契約，伺服器回傳職業 ID，沒有插畫網址。未修改 Supabase 資料、Auth、Realtime、Edge Functions 或既有發牌結果。
+- 權限確認成功後才載入角色圖；蓋牌仍清空正面內容，未確認權限維持蓋牌。新圖失敗退回既有原圖，不重複重試。
+- 本機完整測試 **1108 項**、線上卡 UI **39 組**通過；涵蓋全部 33 角色、320／390／430px、原卡樣式、蓋牌、權限拒絕與缺圖 fallback。詳細發布與正式站結果見 [本輪報告](docs/online-card-v2-report.md)。
 
 ### 2026-10-25｜覺醒狼美人單狼可刀修復（已完成、已部署）
 
@@ -108,7 +115,7 @@
 | 復盤 | 勝利陣營與原因、可收合四欄身分回顧、正式死因；完整復盤視窗內以橫列天數切換，固定標題，事件單獨捲動。人物融入玻璃卡，帶刀狀態不顯示復盤卡。 |
 | 線上發牌 Beta | QR／邀請連結、選座、一次性發牌、個人翻牌與圖鑑；主持人自動帶入已確認分配。 |
 | 線上終局 | 活動房間刪除，原入座玩家進相同復盤、只留回首頁；主持頁保留原按鈕。授權復盤保留 24 小時。手動解散不補造復盤。 |
-| 視覺／素材 | 冰藍液態玻璃、米白主按鈕文字、原海邊村莊背景；圖鑑採新系列 33 張插畫與三欄閱讀介面，復盤同步新人物，線上發牌卡保留既有圖源。 |
+| 視覺／素材 | 冰藍液態玻璃、米白主按鈕文字、原海邊村莊背景；圖鑑、復盤與線上卡正面共用新系列 33 張插畫。圖鑑三欄、復盤融合及線上原卡框／卡背各自保留。 |
 | 保存與離線 | localStorage 保存對局，sessionStorage 保存分頁畫面；支援刷新、上一步及傳統主持離線。線上發牌需要網路。 |
 
 ## 支援板子
@@ -145,6 +152,7 @@ npm test
 | 覺醒角色 UI | `node scripts/awb-ui.mjs` |
 | 本次復盤視窗／天數頁籤 UI | `node scripts/recap-identity-days-ui.mjs` |
 | 覺醒狼美人單狼狼刀 UI | `node scripts/awb-solo-knife-ui.mjs` |
+| 線上角色卡新版插畫／隱私狀態 | `node scripts/online-card-art-ui.mjs` |
 | 圖鑑固定工具列／翻卡 | `node scripts/catalog-v2-ui.mjs` |
 | 後端本機測試 | [backend/README.md](backend/README.md)；必須使用本機虛構資料。 |
 
@@ -173,11 +181,11 @@ npm test
 
 ## 驗收、歷史與安全回退
 
-- 最新已執行結果與截圖：[狼刀修復報告](docs/awb-solo-knife-report.md)；[復盤精修報告](docs/recap-tabs-report.md)；[AWB 報告](docs/awb-implementation-report.md)。
+- 最新已執行結果與截圖：[線上卡新版插畫](docs/online-card-v2-report.md)；[狼刀修復報告](docs/awb-solo-knife-report.md)；[復盤精修報告](docs/recap-tabs-report.md)。
 - 線上身分／玩家復盤：[報告](docs/online-host-recap-report.md)；液態玻璃／圖鑑：[報告](docs/liquid-glass-catalog-report.md)。
 - 死亡技能／機通手勢／狼弟：[報告](docs/dsk-mec-bro-report.md)；石像鬼：[報告](docs/sk-gargoyle-report.md)；接刀：[報告](docs/takeover-nightknife-report.md)。
 - 整理前完整 README、各輪發布 SHA／測試數／既有索引保留於 [歷史快照](docs/archive/README-before-recap-cleanup-20261024.md)，不把當時版本當成目前狀態。
-- 本次修改前備份：`backup/pre-awb-solo-knife-20261025` → `72b2fd4ab82e2939ca200a9dae091c281588149d`，已核對遠端；功能提交 `6bf4a1edf08557d3356431b0b906221eca7d80ef`。前輪 `backup/pre-recap-tabs-20261025`、`backup/pre-recap-identity-days-20261025` 與全部功能／精修提交仍保留；各輪報告列出對應 SHA。
+- 本次修改前備份：`backup/pre-online-card-v2-20261026` → `2875b9b485bf904b20ee4b89d86d1ae3b9482c00`，已核對遠端。前輪 `backup/pre-awb-solo-knife-20261025`、`backup/pre-recap-tabs-20261025`、`backup/pre-recap-identity-days-20261025` 與全部功能／精修提交仍保留；各輪報告列出對應 SHA。
 - 先前 `backup/pre-recap-readme-20261024`、`backup/pre-catalog-ui-20261025` 與 AWB 等全部基準備份仍保留，未覆寫。
 - 回退採新 `git revert` 提交與重測，不 reset、force push 或刪除備份；各輪報告列出適用 SHA 與限制。
 - **待真機驗收**：iPhone Safari、iOS PWA、Android、低階裝置、動態網址列、實際安全區與雙指縮放。桌面模擬不代表真機通過。

@@ -1,4 +1,4 @@
-// Approved frame-clear derivatives for the catalog and online card artwork. Recap retains ROLE_DATA originals.
+// Legacy frame-clear derivatives retained for historical assets and missing new-art fallbacks.
 export const CATALOG_CLEAR=Object.freeze({
   awakenedBeauty:'art/catalog/awakenedBeauty-v1.png',
   awakenedHunter:'art/catalog/awakenedHunter-v1.png',

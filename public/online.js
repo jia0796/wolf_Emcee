@@ -1,5 +1,6 @@
 import {createClient,toCanvas} from './online-vendor.js';
 import {catalogImage,catalogFallback} from './catalog-art.js';
+import {libraryImage} from './catalog-v2.js';
 import {recapSnapshot} from './online-state.js';
 import {BOARDS,ROLE_DATA} from './data.js';
 const URL='https://cnseutkrrjkdkpikjcdz.supabase.co';
@@ -173,7 +174,7 @@ export function installOnline({show,onHostReady,onHome,onLibrary,onLibraryClose,
    if(ticket!==roleTicket||document.hidden||library||!active)return;
    if(data.roomId===room&&closed(data.status)){exitRoom();return;}
    const role=ROLE_DATA[data.role];if(!role)throw Error('角色資料尚未同步');
-   const img=document.createElement('img'),title=document.createElement('strong');catalogFallback(img,role.image);img.src=catalogImage(data.role,role.image);img.alt=role.name;title.textContent=role.name;title.className=role.kind;
+   const img=document.createElement('img'),title=document.createElement('strong');catalogFallback(img,role.image);img.src=libraryImage(data.role,catalogImage(data.role,role.image));img.alt=role.name;title.textContent=role.name;title.className=role.kind;
    const front=$('onlineCard').querySelector('.online-card-front');front.replaceChildren(img,title);front.setAttribute('aria-hidden','false');
    $('onlineCard').classList.remove('privacy-covered');$('onlineCard').classList.add('revealed');$('onlineCard').setAttribute('aria-label','點擊蓋牌');
    setTimeout(()=>{if(ticket===roleTicket)animating=false;},350);

@@ -1,4 +1,4 @@
-// Approved 2026-10-25 catalog illustrations. The online deal card keeps its own existing art mapping.
+// Approved catalog illustrations shared by encyclopedia, recap and online card fronts; layouts stay separate.
 export const CATALOG_ART_V2=Object.freeze({
   "evilKnight": {
     "full": "art/catalog-v2/evilKnight-v1.webp",
