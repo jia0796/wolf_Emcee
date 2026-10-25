@@ -78,13 +78,13 @@ async function runBoard(board,{flip=false,reflect=null,nightGun=false,immuneNigh
   }
   assert.equal(await page.locator('#finished').isVisible(),true,'UI did not finish '+board);assert.ok(refresh);
   assert.match(await page.locator('#winnerTitle').textContent(),/獲勝/);if(reflect)assert.equal(await page.locator('#nightRecap img[src="skills/icon-evil-knight-reflect.svg"]').count(),1);
-  assert.equal(await page.locator('.final-identity-card').count(),BOARDS[board].playerCount);assert.equal(await page.locator('#nightRecap details').count(),0);assert.equal(await page.locator('#identityOpen').isVisible(),false);await page.locator('.final-identity-card').last().scrollIntoViewIfNeeded();assert.ok((await page.locator('#nightRecap').innerText()).includes('最終身分回顧'));
+  assert.equal(await page.locator('.final-identity-card').count(),BOARDS[board].playerCount);assert.ok(await page.locator('#nightRecap .recap-day').count()>0);assert.equal(await page.locator('#nightRecap .recap-day[open]').count(),0);assert.equal(await page.locator('#identityOpen').isVisible(),false);await page.locator('.final-identity-card').last().scrollIntoViewIfNeeded();assert.ok((await page.locator('#nightRecap').innerText()).includes('身分回顧'));
   if(infect){assert.equal(await page.locator('#nightRecap img[src="skills/icon-infect.svg"]').count(),1);assert.ok((await page.locator('#nightRecap [data-event=infection] .recap-outcome').textContent()).includes('成功'));}
   if(mechanicalMedium){assert.ok((await page.locator('#nightRecap').textContent()).includes('機械狼'));}
   if(board.startsWith('blood'))assert.equal(await page.locator('#nightRecap [data-event=lastBlade]').count(),1);
   await page.screenshot({path:new URL('council-'+board+'-finished.png',output).pathname.slice(1)});
   if(board==='12')await promoShot(page,'06-recap');
-  const measures=await page.evaluate(()=>({width:innerWidth,scrollWidth:document.documentElement.scrollWidth,buttons:document.querySelector('.finish-actions').getBoundingClientRect().top,recap:document.querySelector('#nightRecap').getBoundingClientRect().bottom}));
+  await page.locator('.recap-day-summary').last().scrollIntoViewIfNeeded();const measures=await page.evaluate(()=>({width:innerWidth,scrollWidth:document.documentElement.scrollWidth,buttons:document.querySelector('.finish-actions').getBoundingClientRect().top,recap:document.querySelector('.recap-day:last-child>summary').getBoundingClientRect().bottom}));
   assert.ok(measures.scrollWidth<=measures.width+1);assert.ok(measures.recap<=measures.buttons);
   await page.getByRole('button',{name:'重新一局',exact:true}).click();await page.locator('#finishConfirm').click();assert.equal(await page.locator('#subtitle').textContent(),'請確認角色身分');assert.equal(await page.locator('.role-name').allTextContents().then(a=>a.every(t=>t==='未辨識'||t==='未使用')),true);
   const result={board,reflect,nightGun,immuneNightGun,passed:true,actions,refresh,rollback:true,restart:true,measures};results.push(result);console.log(JSON.stringify(result));

@@ -2,17 +2,27 @@
 
 真人法官 PWA，提供固定主持字幕、角色與技能標記、日夜結算、警長／放逐／PK 投票、發言計時、上一步與完整復盤；另有線上發牌（Beta 版）。
 
-[開啟網站](https://jia0796.github.io/wolf_Emcee/) · [現行設計](DESIGN.md) · [詳細規則](docs/current-rules.md) · [本次更新報告](docs/recap-vote-refresh-report.md)
+[開啟網站](https://jia0796.github.io/wolf_Emcee/) · [現行設計](DESIGN.md) · [詳細規則](docs/current-rules.md) · [本次更新報告](docs/recap-identity-days-report.md)
 
 ## 目前版本與維護原則
 
 - 工作分支：`feat/eclipse-host-app`；不自動合併 main。
 - 傳統主持：**29 款板子、10／12 人、33 個角色**；線上發牌支援其中 **27 款**。
 - 存檔：**v22**，保留舊局相容與完整回退歷史，不補造舊存檔沒有的紀錄。
-- 快取：**council-v22-24**；沿用核心優先、素材每批兩張的漸進快取。
+- 快取：**council-v22-25**；沿用核心優先、素材每批兩張的漸進快取。
 - 規則以最新使用者裁定及 [詳細規格](docs/current-rules.md) 為準；外觀以 [DESIGN.md](DESIGN.md) 為準。歷史報告中的舊配色、版號及測試數不作現行施工要求。
 
 ## 最新更新
+
+### 2026-10-25｜身分回顧四欄、每日復盤與固定圖鑑工具列
+
+- 頂部只保留「XX陣營獲勝」及勝利原因；身分回顧先於完整復盤顯示，勝利陣營在前，好人內神職先、平民後，各組按座號遞增。
+- 身分回顧是完整展開的玻璃背景區塊，不設獨立捲軸。四欄卡片縮小間距、加長比例；圓框座號、直排職業、頂部存活／死因，角色背景延伸鋪滿全卡。死亡只弱化人物與背景，文字保留清晰。
+- 死因依正式保存的來源顯示；獵魔人區分「獵魔狩獵／狩獵失敗」，覺醒獵人統一「獵人開槍」。守衛或無敵盾＋解藥致死顯示「奶穿」。缺資料標「死因未記錄」，不重算傷害或補造歷史。
+- 完整復盤按「第一天、第二天…」分別展開；同一天保留夜晚／白天順序，左側月亮／太陽代表時段，移除重複的第幾晚／第幾天文字。整個復盤頁一起捲動。
+- 圖鑑標題、返回及陣營切換固定在上方，列表獨立捲動；保留三欄、既有插畫與正反翻卡。
+- [本輪修改、死因表、測試、截圖與回退](docs/recap-identity-days-report.md)。
+
 
 ### 2026-10-25｜新圖鑑插畫與閱讀介面（已完成、已部署）
 
@@ -85,7 +95,8 @@ npm test
 | 完整規則／存檔／壓力測試 | `npm test` |
 | 全站主持 UI 回歸 | `node scripts/ui-regression.mjs` |
 | 覺醒角色 UI | `node scripts/awb-ui.mjs` |
-| 本次巡獵規則／復盤 UI | `node scripts/patrol-rules-ui.mjs` |
+| 本次身分／每日復盤 UI | `node scripts/recap-identity-days-ui.mjs` |
+| 圖鑑固定工具列／翻卡 | `node scripts/catalog-v2-ui.mjs` |
 | 後端本機測試 | [backend/README.md](backend/README.md)；必須使用本機虛構資料。 |
 
 瀏覽器測試需已安裝 Playwright 與瀏覽器；可用 `COUNCIL_PLAYWRIGHT_MODULE` 指定模組。每輪已執行的指令、結果與環境以該輪報告為準，不把腳本存在視為測試通過。
@@ -113,7 +124,7 @@ npm test
 
 ## 驗收、歷史與安全回退
 
-- 最新已執行結果與截圖：[本次報告](docs/recap-rules-readme-report.md)；[AWB 報告](docs/awb-implementation-report.md)。
+- 最新已執行結果與截圖：[本次報告](docs/recap-identity-days-report.md)；[AWB 報告](docs/awb-implementation-report.md)。
 - 線上身分／玩家復盤：[報告](docs/online-host-recap-report.md)；液態玻璃／圖鑑：[報告](docs/liquid-glass-catalog-report.md)。
 - 死亡技能／機通手勢／狼弟：[報告](docs/dsk-mec-bro-report.md)；石像鬼：[報告](docs/sk-gargoyle-report.md)；接刀：[報告](docs/takeover-nightknife-report.md)。
 - 整理前完整 README、各輪發布 SHA／測試數／既有索引保留於 [歷史快照](docs/archive/README-before-recap-cleanup-20261024.md)，不把當時版本當成目前狀態。

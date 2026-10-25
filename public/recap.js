@@ -1,6 +1,7 @@
 import {voteDetails} from './votes.js';
 import {ROLE_DATA} from './data.js';
 import {CATALOG_ART_V2} from './catalog-v2.js';
+import {identityDeathReason} from './recap-deaths.js';
 import {recapNights,personSnapshot} from './records.js';
 import {realWolf,infected,converted} from './identity.js';
 export const SKILL_LABELS={bond:'綁定','wolf-inspect':'狼人查驗',dance:'共舞',mask:'面具',charm:'魅惑',heartbreak:'殉情',duel:'決鬥',vote:'放逐投票','sheriff-badge':'警徽',infect:'感染','wolf-attack':'狼刀',antidote:'解藥',poison:'毒藥',shield:'守護',inspect:'查驗',swap:'交換',gun:'槍',learn:'學習',trade:'交易',fear:'恐懼',sleep:'夢遊','role-model':'榜樣',hunt:'狩獵',transform:'轉化',gravekeeper:'守墓查驗','evil-knight-reflect':'反傷'};
@@ -96,17 +97,30 @@ export function recapTimeline(s){
  if(s.blood?.lastEvent?.executed&&!days.some(e=>e.type==='lastBlade')){let day=sections.find(r=>r.kind==='day'&&r.number===s.night);if(!day){day={kind:'day',number:s.night,events:[]};sections.push(day);}day.events.push(s.blood.lastEvent);}
  return sections;
 }
-export function finalIdentityModel(s){const deaths=s.nightState?.deaths||s.nightResolution?.deaths||[];return ['wolf','good'].map(camp=>({camp,players:s.players.filter(p=>p.active&&(realWolf(s,p)?'wolf':'good')===camp).sort((a,b)=>(camp==='good'?(ROLE_DATA[a.role]?.kind==='god'?0:1)-(ROLE_DATA[b.role]?.kind==='god'?0:1):0)||a.id-b.id).map(p=>{const snap=personSnapshot(s,p.id);snap.alive=p.alive&&!deaths.some(d=>d.id===p.id);if(infected(s,p))snap.name='感染者';if(converted(s,p))snap.name='轉化者';snap.tone=realWolf(s,p)?'wolf':ROLE_DATA[p.role]?.kind;snap.original=infected(s,p)||converted(s,p)?ROLE_DATA[p.role]?.name:null;return snap;})}));}
+export function finalIdentityModel(s){const deaths=s.nightState?.deaths||s.nightResolution?.deaths||[],camps=s.winner==='好人陣營'?['good','wolf']:['wolf','good'];return camps.map(camp=>({camp,players:s.players.filter(p=>p.active&&(realWolf(s,p)?'wolf':'good')===camp).sort((a,b)=>(camp==='good'?(ROLE_DATA[a.role]?.kind==='god'?0:1)-(ROLE_DATA[b.role]?.kind==='god'?0:1):0)||a.id-b.id).map(p=>{const snap=personSnapshot(s,p.id);snap.alive=p.alive&&!deaths.some(d=>d.id===p.id);snap.deathReason=snap.alive?'':identityDeathReason(s,p);if(infected(s,p))snap.name='感染者';if(converted(s,p))snap.name='轉化者';snap.tone=realWolf(s,p)?'wolf':ROLE_DATA[p.role]?.kind;snap.original=infected(s,p)||converted(s,p)?ROLE_DATA[p.role]?.name:null;return snap;})}));}
+export function recapDays(s){const groups=new Map();for(const segment of recapTimeline(s)){if(!groups.has(segment.number))groups.set(segment.number,[]);groups.get(segment.number).push(segment);}return [...groups].sort(([a],[b])=>a-b).map(([number,segments])=>({number,segments}));}
+export function recapDayLabel(number){const digits='零一二三四五六七八九';let text=String(number);if(Number.isInteger(number)&&number>0&&number<100)text=number<10?digits[number]:(number<20?'':digits[Math.floor(number/10)])+'十'+(number%10?digits[number%10]:'');return '第'+text+'天';}
 export function renderRecap(container,s){
  container.replaceChildren();
- const result=el('section','victory recap-victory');result.append(el('h3',null,'遊戲結束'),el('h2',null,s.winner+'獲勝'),el('p',null,'勝利原因：'+(s.winnerReason||'')));container.append(result);
+ const result=el('section','victory recap-victory');result.append(el('h2',null,s.winner+'獲勝'),el('p',null,'勝利原因：'+(s.winnerReason||'')));container.append(result);
+ const final=el('section','final-identities');final.append(el('h3','recap-section-title','身分回顧'));
+ for(const group of finalIdentityModel(s)){
+  final.append(el('h4',null,group.camp==='wolf'?'狼人陣營':'好人陣營'));const grid=el('div','final-identity-grid');grid.dataset.camp=group.camp;
+  for(const p of group.players){
+   const status=p.alive?'存活':p.deathReason,card=el('article','final-identity-card '+p.tone+(p.alive?'':' is-dead')),text=el('div','recap-person '+p.tone),number=el('span','identity-number',p.id);
+   card.dataset.seat=String(p.id);card.style.setProperty('--identity-art','url("'+(CATALOG_ART_V2[p.role]?.full||ROLE_DATA[p.role]?.image)+'")');card.setAttribute('aria-label',p.id+'號，'+p.name+'，'+(p.alive?'存活':'死亡：'+status)+(p.original?'，原職：'+p.original:''));number.setAttribute('aria-label',p.id+'號');
+   text.append(el('strong','identity-name',p.name),el('span','identity-status',status));if(p.original)text.append(el('span','identity-original','原職：'+p.original));card.append(portrait(p),number,text);grid.append(card);
+  }final.append(grid);
+ }container.append(final);
  if(s.legacyRecap||!s.recapVersion)container.append(el('p','small','舊版存檔僅顯示實際保存的事件；缺少的白天與身分快照不補造。'));
- for(const segment of recapTimeline(s)){
-  const section=el('section','recap-segment '+segment.kind),title=el('h3','recap-section-title','第'+segment.number+(segment.kind==='night'?'晚':'天'));section.append(title);
-  for(const event of segment.events){section.append(eventCard(event));const superseded=event.type==='exilePK'&&segment.events.some(e=>e!==event&&['exile','idiot'].includes(e.type)&&e.voteRounds?.some(r=>event.voteRounds?.some(first=>first.key===r.key)));if(!superseded){const details=voteDetails(event.voteRounds);if(details)section.append(details);}}
-  if(segment.kind==='night'){const r=segment.record,result=el('article','night-result');result.append(el('h4',null,'當晚結果'),el('p',null,r.settled?(r.deaths.length?'死亡：'+[...r.deaths].sort((a,b)=>a.id-b.id).map(d=>d.id+'號').join('、'):'平安夜'):'本晚尚未結算'));section.append(result);}
-  container.append(section);
- }
- const final=el('section','final-identities');final.append(el('h3','recap-section-title','最終身分回顧'));
- for(const group of finalIdentityModel(s)){final.append(el('h4',null,group.camp==='wolf'?'狼人陣營':'好人陣營'));const grid=el('div','final-identity-grid');for(const p of group.players){const card=el('article','final-identity-card '+p.tone),text=personText(p);text.append(el('span','identity-status',p.alive?'存活':'出局'));if(p.original)text.append(el('span','identity-original','原職：'+p.original));card.append(portrait(p),text);grid.append(card);}final.append(grid);}container.append(final);
+ const days=el('div','recap-days');
+ for(const day of recapDays(s)){
+  const disclosure=el('details','recap-day'),summary=el('summary','recap-day-summary',recapDayLabel(day.number)),body=el('div','recap-day-body');disclosure.dataset.day=String(day.number);disclosure.append(summary,body);
+  for(const segment of day.segments){
+   const section=el('section','recap-segment '+segment.kind);section.setAttribute('aria-label',segment.kind==='night'?'夜晚':'白天');
+   for(const event of segment.events){section.append(eventCard(event));const superseded=event.type==='exilePK'&&segment.events.some(e=>e!==event&&['exile','idiot'].includes(e.type)&&e.voteRounds?.some(r=>event.voteRounds?.some(first=>first.key===r.key)));if(!superseded){const details=voteDetails(event.voteRounds);if(details)section.append(details);}}
+   if(segment.kind==='night'){const r=segment.record,result=el('article','night-result');result.append(el('h4',null,'當晚結果'),el('p',null,r.settled?(r.deaths.length?'死亡：'+[...r.deaths].sort((a,b)=>a.id-b.id).map(d=>d.id+'號').join('、'):'平安夜'):'本晚尚未結算'));section.append(result);}
+   body.append(section);
+  }days.append(disclosure);
+ }container.append(days);
 }

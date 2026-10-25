@@ -1,0 +1,31 @@
+/* Identity overview and day disclosures; all rules stay inside the finished screen. */
+#finished{overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;scroll-padding-block:12px 100px}
+#finished .night-recap{flex:none;min-height:auto;overflow:visible}
+html.wolfcue-glass #finished .final-identities{padding:12px 6px 8px;margin:0 0 16px;border:1px solid var(--v-line);border-radius:22px;background:var(--v-sheen),rgb(13 32 46 / .78);box-shadow:var(--v-edge);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+#finished .final-identities>.recap-section-title{margin:0 4px 10px}
+#finished .final-identities>h4{margin:12px 4px 8px;font-size:14px;line-height:1.5}
+#finished .final-identity-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:4px}
+html.wolfcue-glass #finished .final-identity-card{position:relative;display:block;height:clamp(172px,43vw,252px);min-height:172px;padding:0;overflow:hidden;isolation:isolate}
+html.wolfcue-glass #finished .final-identity-card::before{content:'';position:absolute;inset:-8px;background-image:var(--identity-art);background-size:cover;background-position:center;filter:blur(6px) brightness(.74) saturate(.85);pointer-events:none;z-index:-1}
+html.wolfcue-glass #finished .final-identity-card::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgb(6 19 30 / .74),transparent 36%,transparent 80%,rgb(6 19 30 / .25)),linear-gradient(to right,rgb(6 19 30 / .65),transparent 35%);pointer-events:none;z-index:1}
+html.wolfcue-glass #finished .final-identity-card>.recap-image{position:absolute;inset:0;align-self:auto;width:100%;height:100%;margin:0;display:block;mask-image:radial-gradient(ellipse 85% 80% at 58% 52%,#000 40%,transparent 100%);-webkit-mask-image:radial-gradient(ellipse 85% 80% at 58% 52%,#000 40%,transparent 100%);pointer-events:none;z-index:0}
+#finished .final-identity-card .recap-fused-art{width:100%;height:100%;min-height:0;max-height:none;aspect-ratio:auto}
+#finished .final-identity-card .recap-person{display:contents;text-align:left}
+#finished .identity-number{position:absolute;z-index:2;top:5px;left:5px;width:23px;height:23px;display:grid;place-items:center;border:1px solid var(--v-line);border-radius:50%;background:rgb(18 42 59 / .82);color:var(--v-ink);font-size:12px;line-height:1;font-variant-numeric:tabular-nums;box-shadow:inset 0 1px 0 rgb(244 248 249 / .18)}
+#finished .identity-name{position:absolute;z-index:2;top:35px;left:5px;max-height:calc(100% - 40px);writing-mode:vertical-rl;text-orientation:upright;font-size:clamp(11px,2.8vw,15px);font-weight:650;line-height:1.4;letter-spacing:.025em;text-shadow:0 1px 3px #071923,0 0 5px #071923}
+#finished .identity-status{position:absolute;z-index:2;top:7px;left:30px;right:3px;color:var(--v-ink);font-size:clamp(12px,2.8vw,13px);line-height:1.4;text-align:center;overflow-wrap:anywhere;text-shadow:0 1px 3px #071923}
+#finished .identity-original{position:absolute;z-index:2;left:24px;right:4px;bottom:5px;color:var(--v-ink);font-size:10.5px;line-height:1.4;text-align:right;overflow-wrap:anywhere;text-shadow:0 1px 3px #071923}
+html.wolfcue-glass #finished .final-identity-card.is-dead{background:linear-gradient(rgb(4 13 21 / .4),rgb(4 13 21 / .4)),var(--v-sheen),rgb(20 44 60 / .65);border-color:rgb(178 219 229 / .22)}
+#finished .final-identity-card.is-dead>.recap-image{filter:brightness(.52) saturate(.3)}
+html.wolfcue-glass #finished .final-identity-card.is-dead::before{filter:blur(6px) brightness(.38) saturate(.2)}
+#finished .recap-days{min-width:0}
+html.wolfcue-glass #finished .recap-day{margin:10px 0;padding:0;background:var(--v-sheen),rgb(18 42 59 / .65);border:1px solid var(--v-line);border-radius:18px;box-shadow:var(--v-edge);overflow:hidden}
+#finished .recap-day-summary{display:flex;align-items:center;gap:12px;min-height:48px;padding:12px 14px;color:var(--v-ink);font-size:16px;font-weight:650;line-height:1.5;list-style:none;cursor:pointer;touch-action:manipulation}
+#finished .recap-day-summary::-webkit-details-marker{display:none}
+#finished .recap-day-summary::after{content:'';width:7px;height:7px;margin-left:auto;border-right:2px solid var(--v-ink);border-bottom:2px solid var(--v-ink);transform:rotate(45deg);flex-shrink:0}
+#finished .recap-day[open]>.recap-day-summary::after{transform:rotate(225deg)}
+#finished .recap-day-summary:focus-visible{outline:2px solid var(--v-ink);outline-offset:-4px;border-radius:16px}
+#finished .recap-day-body{padding:0 8px 12px}
+#finished .recap-day-body>.recap-segment:last-child{margin-bottom:0}
+#finished .recap-day-body>.recap-segment:last-child::before{bottom:20px}
+@media(max-width:360px){#finished .final-identity-grid{gap:4px}#finished .identity-number{left:4px;top:5px;width:21px;height:21px;font-size:11px}#finished .identity-status{left:26px;right:2px}#finished .identity-name{left:4px}#finished .recap-day-body{padding:0 5px 10px}}

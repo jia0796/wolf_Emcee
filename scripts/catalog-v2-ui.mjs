@@ -49,19 +49,21 @@ async function cardCheck(p,id){
 try{
  for(const [width,height]of [[320,568],[375,667],[390,844],[430,932],[390,480],[844,390],[768,1024],[1440,900]]){
   const {c,p}=await open({width,height});
+  const pinned=await p.locator('.catalog-toolbar').boundingBox();
   const cols=await p.locator('#roleLibrary').evaluate(e=>getComputedStyle(e).gridTemplateColumns.split(' ').length);assert.equal(cols,3);
   let count=0;
   for(const camp of ['#libraryWolves','#libraryGood']){
    await p.locator(camp).click();const ids=await p.locator('#roleLibrary .role-card').evaluateAll(es=>es.map(e=>e.dataset.role));count+=ids.length;
    for(const id of width===320||width===390&&height===844?ids:[ids[0],ids.at(-1)])await cardCheck(p,id);
-   if(width===390&&height===844){await p.locator('#encyclopedia').evaluate(e=>e.scrollTop=0);await shot(p,camp==='#libraryWolves'?'library-wolves':'library-good');}
+   assert.deepEqual(await p.locator('.catalog-toolbar').boundingBox(),pinned);assert.ok(await p.locator('#libraryReturn').isVisible());
+   if(width===390&&height===844){await shot(p,camp==='#libraryWolves'?'fixed-wolves-bottom':'fixed-good-bottom');await p.locator('#encyclopedia .catalog-scroll').evaluate(e=>e.scrollTop=0);await shot(p,camp==='#libraryWolves'?'library-wolves':'library-good');}
   }
   assert.equal(count,33);assert.ok(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));
   if(width===390&&height===844){
    await p.locator('#roleLibrary [data-role="magician"]').click();await p.locator('#previewFront img').evaluate(i=>i.decode());await shot(p,'magician-front');await p.locator('#previewCard').click();await shot(p,'magician-back');await p.keyboard.press('Escape');
   }
   await p.locator('#libraryReturn').click();assert.equal(await p.locator('body').getAttribute('data-screen'),'home');
-  results.push({viewport:[width,height],threeColumns:true,returnHome:true});await c.close();
+  results.push({viewport:[width,height],threeColumns:true,toolbarPinned:true,returnHome:true});await c.close();
  }
  {
   const {c,p}=await open({width:320,height:568},{large:true});await p.locator('#libraryWolves').click();await cardCheck(p,'awakenedBeauty');
