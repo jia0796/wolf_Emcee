@@ -56,8 +56,9 @@ iPhone Safari、安裝式 iOS PWA、Android、低階裝置、真實手指橫滑�
 - 修改前完整 SHA：`3d0089e9ef5a15d07cd6ea8190ca58b933b82e0d`。
 - 已推送並重新核對遠端：`backup/pre-recap-tabs-20261025` 指向上述 SHA。
 - 本輪功能提交：`961eeb6b9c3ee370cac90e2bc5fa3f0f8b09a721`。
+- 核准精修與加高提交：`8dd05669aa087c26c54ce8bcc57f3b507e690d81`。
 - 所有舊備份完整保留；不改 main、不強制推送、不重置歷史。
-- 使用 `git revert 961eeb6b9c3ee370cac90e2bc5fa3f0f8b09a721` 建立回退提交，執行 npm test／UI 後正常 push 重新部署。若後續報告提交影響 README 套用，可先回退報告提交，再回退功能提交。不可用 reset 或刪存檔處理。
+- 只撤回精修：`git revert 8dd05669aa087c26c54ce8bcc57f3b507e690d81`。完整撤回本輪：先回退精修，再 `git revert 961eeb6b9c3ee370cac90e2bc5fa3f0f8b09a721`，執行 npm test／UI 後正常 push 重新部署。若後續報告提交影響 README 套用，可先回退報告提交。不可用 reset 或刪存檔處理。
 
 ## 部署
 
@@ -65,4 +66,15 @@ iPhone Safari、安裝式 iOS PWA、Android、低階裝置、真實手指橫滑�
 
 [GitHub 主持測試 40196638841](https://github.com/jia0796/wolf_Emcee/actions/runs/40196638841) 亦已成功。本輪只更新指定分支，main、Google Drive 與 Supabase 均未修改。
 
-初版正式站完整重跑同一 UI 腳本：13 組通過、0 失敗、0 跳過；[原始結果](recap-tabs-evidence/live-961eeb6-results.json)。細線玻璃與加高精修版獨立發布，正式站結果於完成後補入。
+初版正式站完整重跑同一 UI 腳本：13 組通過、0 失敗、0 跳過；[原始結果](recap-tabs-evidence/live-961eeb6-results.json)。細線玻璃與加高精修版獨立發布，最終結果如下。
+
+核准精修提交已由 [Pages 40197682246](https://github.com/jia0796/wolf_Emcee/actions/runs/40197682246) 發布成功（台北時間 2026-10-25 21:27 觸發）；[主持測試 40197682349](https://github.com/jia0796/wolf_Emcee/actions/runs/40197682349) 成功。
+
+
+## 最終正式站驗證
+
+- 精修版 `UI_BASE=https://jia0796.github.io/wolf_Emcee/ node scripts/recap-identity-days-ui.mjs`：**13 組通過、0 失敗、0 跳過**。包含加高後的視窗尺寸、輕量日期、固定標題、四種票型色彩、身分收合、舊局、鍵盤、離線及巡獵兩卡。
+- 八個正式檔案與 `8dd05669aa087c26c54ce8bcc57f3b507e690d81` 的 SHA-256／位元組完全一致：index.html、app.js、recap.js、recap-ui.css、sw.js、votes.js、recap-deaths.js、catalog-ui.css。
+- [正式站原始結果](recap-tabs-evidence/live-results.json) · [最終檔案雜湊](recap-tabs-evidence/live-integrity.json) · [初版檔案雜湊](recap-tabs-evidence/initial-live-integrity.json)。
+- 正式站截圖：[加高視窗](recap-tabs-evidence/live-window.png) · [投票紀錄](recap-tabs-evidence/live-votes.png) · [橫滑至最後一天](recap-tabs-evidence/live-days.png) · [巡獵與替死分卡](recap-tabs-evidence/live-patrol.png)。均為獨立瀏覽器的虛構對局。
+- README 已補齊本輪兩次成功部署，連同先前核對的紀錄共 18 次；目前規格以細線分頁與加高精修為準。測試結果及文件以獨立後續提交保存，不再變更已驗證的 App 程式。

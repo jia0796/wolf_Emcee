@@ -1,0 +1,54 @@
+{
+  "commit": "8dd05669aa087c26c54ce8bcc57f3b507e690d81",
+  "base": "https://jia0796.github.io/wolf_Emcee/",
+  "files": [
+    {
+      "file": "index.html",
+      "expected": "a81e77922ef1c58dfe28a436a5a5f84748f45c357dddafab813dfb7ef0a223de",
+      "deployed": "a81e77922ef1c58dfe28a436a5a5f84748f45c357dddafab813dfb7ef0a223de",
+      "match": true
+    },
+    {
+      "file": "app.js",
+      "expected": "cfa87275e348fe04c61f9f9685254ebc6b25f9c56e46e7157384e9c61665f34f",
+      "deployed": "cfa87275e348fe04c61f9f9685254ebc6b25f9c56e46e7157384e9c61665f34f",
+      "match": true
+    },
+    {
+      "file": "recap.js",
+      "expected": "5e54851f554cc61a7a6a643118a308e8a1f000bf6bbd33c9d9e651334c3c01ee",
+      "deployed": "5e54851f554cc61a7a6a643118a308e8a1f000bf6bbd33c9d9e651334c3c01ee",
+      "match": true
+    },
+    {
+      "file": "recap-ui.css",
+      "expected": "d20025cdf98be83f932b3dd02e0cc3a69e697d5c3cff9eed23e7d653033c5853",
+      "deployed": "d20025cdf98be83f932b3dd02e0cc3a69e697d5c3cff9eed23e7d653033c5853",
+      "match": true
+    },
+    {
+      "file": "sw.js",
+      "expected": "37f363f1131d209020fee3cf4e31ffeb930320cf184a097c69216ed9a6307f9e",
+      "deployed": "37f363f1131d209020fee3cf4e31ffeb930320cf184a097c69216ed9a6307f9e",
+      "match": true
+    },
+    {
+      "file": "votes.js",
+      "expected": "69bcb0c6bef91f9b4c7e3ec22b6d4db15ba1cfca312227792eea1898ef833ed3",
+      "deployed": "69bcb0c6bef91f9b4c7e3ec22b6d4db15ba1cfca312227792eea1898ef833ed3",
+      "match": true
+    },
+    {
+      "file": "recap-deaths.js",
+      "expected": "b2a645cf58639e39f1596502681617ba6a53cd0d78776e4e603f84d58b63f5ee",
+      "deployed": "b2a645cf58639e39f1596502681617ba6a53cd0d78776e4e603f84d58b63f5ee",
+      "match": true
+    },
+    {
+      "file": "catalog-ui.css",
+      "expected": "582444c8952040af6e00712886e76fe372c6d1ec914d7b23c0a1b6a10daef62d",
+      "deployed": "582444c8952040af6e00712886e76fe372c6d1ec914d7b23c0a1b6a10daef62d",
+      "match": true
+    }
+  ]
+}

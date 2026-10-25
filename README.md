@@ -21,7 +21,7 @@
 - 身分回顧可點標題收合，預設展開；四欄、勝方在前、死因與人物融合維持不變。
 - 復盤警長／放逐／PK 投票紀錄改用冰藍／深藍玻璃及白色系文字，最高票移除舊紫色填色；不改票權、結果或編輯介面。
 - 覺醒獵人命中覺醒狼美人並觸發替死時，依保存的相遇座號及替死快照分成「獵人 → 覺醒狼美人」及「覺醒狼美人替死 → XX號」兩卡。實際死者、結算、回退及存檔不改；舊局缺資料不補造。
-- 本輪本機完整測試 **1041／0 失敗／0 跳過**；復盤 UI **13 組**、全站 UI **39 組（29 板）**通過。部署後結果另見本輪報告，真機待驗收。
+- 功能版本機完整測試 **1041／0 失敗／0 跳過**、全站 UI **39 組（29 板）**通過；精修後復盤 UI **13 組**重跑通過。精修版正式站 **13 組**通過、8 個發布檔案雜湊一致；[報告與截圖](docs/recap-tabs-report.md)。真機待驗收。
 - [實作、測試、截圖、部署及回退報告](docs/recap-tabs-report.md)。前輪「每天分別展開」已由本輪同列頁籤取代。
 
 ### 2026-10-25｜身分回顧四欄、每日復盤與固定圖鑑工具列（已完成、已部署）
@@ -63,11 +63,12 @@
 
 ## 近期部署紀錄（已核對並補齊）
 
-以下核對 2026-10-21～25 本分支近期的 17 次成功 Pages 發布，時間為台北時間；每列為實際發布的提交，包含先前未集中記錄的項目。歷史樣式已明列取代關係，不作現行設計指示。各輪測試數仍以各自報告為準，不視為本輪重測。
+以下核對 2026-10-21～25 本分支近期的 18 次成功 Pages 發布，時間為台北時間；每列為實際發布的提交，包含先前未集中記錄的項目。歷史樣式已明列取代關係，不作現行設計指示。各輪測試數仍以各自報告為準，不視為本輪重測。
 
 | 發布時間 | 更新內容與目前狀態 | 發布提交 | Pages |
 | --- | --- | --- | --- |
-| 2026-10-25 21:13 | 完整復盤固定視窗／橫列天數、票型配色、身分收合、巡獵替死兩卡（現行） | [`961eeb6`](https://github.com/jia0796/wolf_Emcee/commit/961eeb6b9c3ee370cac90e2bc5fa3f0f8b09a721) | [成功](https://github.com/jia0796/wolf_Emcee/actions/runs/40196638842) |
+| 2026-10-25 21:27 | 核准細線分頁、液態玻璃精修、減少套框、加高完整復盤視窗（現行） | [`8dd0566`](https://github.com/jia0796/wolf_Emcee/commit/8dd05669aa087c26c54ce8bcc57f3b507e690d81) | [成功](https://github.com/jia0796/wolf_Emcee/actions/runs/40197682246) |
+| 2026-10-25 21:13 | 完整復盤固定視窗／橫列天數、票型配色、身分收合、巡獵替死兩卡；初版外觀已精修 | [`961eeb6`](https://github.com/jia0796/wolf_Emcee/commit/961eeb6b9c3ee370cac90e2bc5fa3f0f8b09a721) | [成功](https://github.com/jia0796/wolf_Emcee/actions/runs/40196638842) |
 | 2026-10-25 20:32 | 身分四欄、死因與圖鑑固定工具列；每日收合已由本輪橫列天數取代 | [`7b2451a`](https://github.com/jia0796/wolf_Emcee/commit/7b2451aea77ce6508b76f0d726e3fb5112583004) | [成功](https://github.com/jia0796/wolf_Emcee/actions/runs/40193578038) |
 | 2026-10-25 14:59 | 新插畫同步復盤、投票完成提示精簡；兩欄身分樣式已由本輪四欄取代 | [`b7dd81f`](https://github.com/jia0796/wolf_Emcee/commit/b7dd81f8f7eedf6cb6a6bf619ee7564529143d01) | [成功](https://github.com/jia0796/wolf_Emcee/actions/runs/40171112946) |
 | 2026-10-25 14:43 | 混血兒圖鑑分類顯示「好人陣營」 | [`5ea393e`](https://github.com/jia0796/wolf_Emcee/commit/5ea393ec12d98444344993ae399982066e77e332) | [成功](https://github.com/jia0796/wolf_Emcee/actions/runs/40170085763) |
@@ -132,7 +133,7 @@ npm test
 | 完整規則／存檔／壓力測試 | `npm test` |
 | 全站主持 UI 回歸 | `node scripts/ui-regression.mjs` |
 | 覺醒角色 UI | `node scripts/awb-ui.mjs` |
-| 本次身分／每日復盤 UI | `node scripts/recap-identity-days-ui.mjs` |
+| 本次復盤視窗／天數頁籤 UI | `node scripts/recap-identity-days-ui.mjs` |
 | 圖鑑固定工具列／翻卡 | `node scripts/catalog-v2-ui.mjs` |
 | 後端本機測試 | [backend/README.md](backend/README.md)；必須使用本機虛構資料。 |
 
@@ -165,7 +166,7 @@ npm test
 - 線上身分／玩家復盤：[報告](docs/online-host-recap-report.md)；液態玻璃／圖鑑：[報告](docs/liquid-glass-catalog-report.md)。
 - 死亡技能／機通手勢／狼弟：[報告](docs/dsk-mec-bro-report.md)；石像鬼：[報告](docs/sk-gargoyle-report.md)；接刀：[報告](docs/takeover-nightknife-report.md)。
 - 整理前完整 README、各輪發布 SHA／測試數／既有索引保留於 [歷史快照](docs/archive/README-before-recap-cleanup-20261024.md)，不把當時版本當成目前狀態。
-- 本次修改前備份：`backup/pre-recap-tabs-20261025` → `3d0089e9ef5a15d07cd6ea8190ca58b933b82e0d`，已核對遠端；功能提交 `961eeb6b9c3ee370cac90e2bc5fa3f0f8b09a721`。前輪 `backup/pre-recap-identity-days-20261025` 與功能提交 `7b2451aea77ce6508b76f0d726e3fb5112583004` 仍保留。
+- 本次修改前備份：`backup/pre-recap-tabs-20261025` → `3d0089e9ef5a15d07cd6ea8190ca58b933b82e0d`，已核對遠端；功能提交 `961eeb6b9c3ee370cac90e2bc5fa3f0f8b09a721`、精修提交 `8dd05669aa087c26c54ce8bcc57f3b507e690d81`。前輪 `backup/pre-recap-identity-days-20261025` 與功能提交 `7b2451aea77ce6508b76f0d726e3fb5112583004` 仍保留。
 - 先前 `backup/pre-recap-readme-20261024`、`backup/pre-catalog-ui-20261025` 與 AWB 等全部基準備份仍保留，未覆寫。
 - 回退採新 `git revert` 提交與重測，不 reset、force push 或刪除備份；各輪報告列出適用 SHA 與限制。
 - **待真機驗收**：iPhone Safari、iOS PWA、Android、低階裝置、動態網址列、實際安全區與雙指縮放。桌面模擬不代表真機通過。

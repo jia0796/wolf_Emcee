@@ -1,0 +1,133 @@
+{
+  "base": "https://jia0796.github.io/wolf_Emcee/",
+  "passed": 13,
+  "failed": 0,
+  "skipped": 0,
+  "results": [
+    {
+      "name": "four-column identity collapse, fixed header, horizontal day tabs, four ballot palettes and immutable save",
+      "width": 320,
+      "height": 568,
+      "icons": [
+        {
+          "events": "none",
+          "image": "radial-gradient(circle at 70% 30%, rgba(0, 0, 0, 0) 42%, rgb(178, 219, 229) 46%)"
+        },
+        {
+          "events": "none",
+          "image": "none"
+        }
+      ]
+    },
+    {
+      "name": "four-column identity collapse, fixed header, horizontal day tabs, four ballot palettes and immutable save",
+      "width": 375,
+      "height": 667,
+      "icons": [
+        {
+          "events": "none",
+          "image": "radial-gradient(circle at 70% 30%, rgba(0, 0, 0, 0) 42%, rgb(178, 219, 229) 46%)"
+        },
+        {
+          "events": "none",
+          "image": "none"
+        }
+      ]
+    },
+    {
+      "name": "four-column identity collapse, fixed header, horizontal day tabs, four ballot palettes and immutable save",
+      "width": 390,
+      "height": 844,
+      "icons": [
+        {
+          "events": "none",
+          "image": "radial-gradient(circle at 70% 30%, rgba(0, 0, 0, 0) 42%, rgb(178, 219, 229) 46%)"
+        },
+        {
+          "events": "none",
+          "image": "none"
+        }
+      ]
+    },
+    {
+      "name": "four-column identity collapse, fixed header, horizontal day tabs, four ballot palettes and immutable save",
+      "width": 430,
+      "height": 932,
+      "icons": [
+        {
+          "events": "none",
+          "image": "radial-gradient(circle at 70% 30%, rgba(0, 0, 0, 0) 42%, rgb(178, 219, 229) 46%)"
+        },
+        {
+          "events": "none",
+          "image": "none"
+        }
+      ]
+    },
+    {
+      "name": "four-column identity collapse, fixed header, horizontal day tabs, four ballot palettes and immutable save",
+      "width": 844,
+      "height": 390,
+      "icons": [
+        {
+          "events": "none",
+          "image": "radial-gradient(circle at 70% 30%, rgba(0, 0, 0, 0) 42%, rgb(178, 219, 229) 46%)"
+        },
+        {
+          "events": "none",
+          "image": "none"
+        }
+      ]
+    },
+    {
+      "name": "four-column identity collapse, fixed header, horizontal day tabs, four ballot palettes and immutable save",
+      "width": 768,
+      "height": 1024,
+      "icons": [
+        {
+          "events": "none",
+          "image": "radial-gradient(circle at 70% 30%, rgba(0, 0, 0, 0) 42%, rgb(178, 219, 229) 46%)"
+        },
+        {
+          "events": "none",
+          "image": "none"
+        }
+      ]
+    },
+    {
+      "name": "four-column identity collapse, fixed header, horizontal day tabs, four ballot palettes and immutable save",
+      "width": 1440,
+      "height": 900,
+      "icons": [
+        {
+          "events": "none",
+          "image": "radial-gradient(circle at 70% 30%, rgba(0, 0, 0, 0) 42%, rgb(178, 219, 229) 46%)"
+        },
+        {
+          "events": "none",
+          "image": "none"
+        }
+      ]
+    },
+    {
+      "name": "wolf winner first, legacy gaps, missing reason and arrow/Home/End tabs"
+    },
+    {
+      "name": "150 percent root font and reduced motion"
+    },
+    {
+      "name": "offline restart loads new death module, four-column style, day tabs and events"
+    },
+    {
+      "name": "twelve saved days stay on one row, swipe overflow and last day directly clickable"
+    },
+    {
+      "name": "empty history does not fabricate a day"
+    },
+    {
+      "name": "real day patrol renders hunter -> beauty and beauty -> substitute in separate cards"
+    }
+  ],
+  "errors": [],
+  "realDevices": "待真機驗收"
+}
