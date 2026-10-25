@@ -1,0 +1,54 @@
+{
+  "commit": "673ca6e9bfd6c64b59747d4f8c30b3acfc92ad1a",
+  "base": "https://jia0796.github.io/wolf_Emcee/",
+  "files": [
+    {
+      "file": "online.js",
+      "expected": "7b7b64dec86a3d066b2aee00c3bb8ac2e9a01be502bf28036f29697a7f85f234",
+      "deployed": "7b7b64dec86a3d066b2aee00c3bb8ac2e9a01be502bf28036f29697a7f85f234",
+      "match": true
+    },
+    {
+      "file": "catalog-v2.js",
+      "expected": "287beaa65f61c0b5d4951a3563809733d004da24b0278e7c44a500aac9c20ab4",
+      "deployed": "287beaa65f61c0b5d4951a3563809733d004da24b0278e7c44a500aac9c20ab4",
+      "match": true
+    },
+    {
+      "file": "catalog-art.js",
+      "expected": "d6e42a51ba8b7085a83034e68bd6900537baeb30bca15b017d2556f1f70e4130",
+      "deployed": "d6e42a51ba8b7085a83034e68bd6900537baeb30bca15b017d2556f1f70e4130",
+      "match": true
+    },
+    {
+      "file": "sw.js",
+      "expected": "bfa2170263e722916a81ae5421948b8c629ea4bc2e77824ef74c4ae11cb97fd6",
+      "deployed": "bfa2170263e722916a81ae5421948b8c629ea4bc2e77824ef74c4ae11cb97fd6",
+      "match": true
+    },
+    {
+      "file": "online.css",
+      "expected": "962d4346dbad66694c0abb9bddaea748907898ce37dbb530af8b9c3482026f80",
+      "deployed": "962d4346dbad66694c0abb9bddaea748907898ce37dbb530af8b9c3482026f80",
+      "match": true
+    },
+    {
+      "file": "app.js",
+      "expected": "cfa87275e348fe04c61f9f9685254ebc6b25f9c56e46e7157384e9c61665f34f",
+      "deployed": "cfa87275e348fe04c61f9f9685254ebc6b25f9c56e46e7157384e9c61665f34f",
+      "match": true
+    },
+    {
+      "file": "art/catalog-v2/awakenedBeauty-v1.webp",
+      "expected": "591842d9e36026f4bf9a2caa2c0e707c44869ecd24121a241220c24e808bc673",
+      "deployed": "591842d9e36026f4bf9a2caa2c0e707c44869ecd24121a241220c24e808bc673",
+      "match": true
+    },
+    {
+      "file": "art/catalog-v2/awakenedHunter-v1.webp",
+      "expected": "9c6b6bdabe815a6306ff0886c4157b6b6d9ee4d2cd8ad52f62c30fd93166ab21",
+      "deployed": "9c6b6bdabe815a6306ff0886c4157b6b6d9ee4d2cd8ad52f62c30fd93166ab21",
+      "match": true
+    }
+  ]
+}

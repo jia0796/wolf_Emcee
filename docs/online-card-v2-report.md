@@ -49,8 +49,19 @@ iPhone Safari、安裝式 iOS PWA、Android、低階裝置仍為 **待真機驗�
 
 - 修改前完整 SHA：`2875b9b485bf904b20ee4b89d86d1ae3b9482c00`。
 - 遠端備份：`backup/pre-online-card-v2-20261026`，已重新核對指向相同 SHA，既有所有備份保留。
-- 使用本輪功能提交的 git revert 建立回退提交，重測後正常推送部署；不 reset、不 force push、不清除房間或玩家資料。發布後補上完整功能 SHA。
+- 功能提交：`673ca6e9bfd6c64b59747d4f8c30b3acfc92ad1a`。使用 `git revert 673ca6e9bfd6c64b59747d4f8c30b3acfc92ad1a` 建立回退提交，重測後正常推送部署；不 reset、不 force push、不清除房間或玩家資料。後續報告提交若造成 README 套用衝突，可先回退該報告提交。
 
 ## 部署
 
-本機檢查完成後發布，正式站的同一套 39 組 UI、檔案雜湊及發布紀錄於完成後補入。
+已發布至 [WolfCue](https://jia0796.github.io/wolf_Emcee/)。台北時間 2026-10-26 00:16 觸發的 [Pages 40210924534](https://github.com/jia0796/wolf_Emcee/actions/runs/40210924534) 已成功；[GitHub 主持測試 40210924528](https://github.com/jia0796/wolf_Emcee/actions/runs/40210924528) 亦成功。
+
+正式站 online.js、catalog-v2.js、catalog-art.js、sw.js、online.css、app.js 與兩張覺醒插畫，共八個檔案已逐位元組及 SHA-256 核對與發布提交一致。同一套正式站 UI 已完整執行，結果如下。
+
+
+部署後以 `UI_BASE=https://jia0796.github.io/wolf_Emcee/ node scripts/online-card-art-ui.mjs` 執行：**39 組通過、0 失敗、0 跳過**，包括全 33 角色、原卡樣式、三種寬度、蓋牌／權限拒絕及新圖失敗 fallback。此為正式前端搭配隔離測試 adapter，不宣稱重做真人發牌。
+
+[正式站原始結果](online-card-v2-evidence/live-results.json) · [八個檔案及插畫雜湊](online-card-v2-evidence/live-integrity.json)。
+
+正式站截圖：[原卡背](online-card-v2-evidence/live-back.png) · [新版預言家](online-card-v2-evidence/live-seer.png) · [新版覺醒狼美人](online-card-v2-evidence/live-awakenedBeauty.png) · [新版覺醒獵人](online-card-v2-evidence/live-awakenedHunter.png)。截圖使用虛構授權資料。
+
+README 已補入本輪發布，近期核對紀錄共 20 次；目前圖鑑、復盤與線上卡正面共用新版插畫。最後文件及證據以獨立提交保存，不再改動已驗證的 App。

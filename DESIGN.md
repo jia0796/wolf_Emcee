@@ -1,5 +1,5 @@
 ---
-version: "2026-10-25"
+version: "2026-10-26"
 name: "狼序 WolfCue — 液態玻璃"
 description: "已核准預覽的正式視覺規格；保留原背景、幾何尺寸與遊戲操作。"
 colors:

@@ -14,12 +14,12 @@
 
 ## 最新更新
 
-### 2026-10-26｜線上角色卡正面同步新版插畫
+### 2026-10-26｜線上角色卡正面同步新版插畫（已完成、已部署）
 
 - 線上翻牌的 33 位角色正面改用 `catalog-v2.js` 的新版完整插畫，與目前圖鑑一致。保留原線上卡片外框、底色、尺寸、職業文字、卡背與翻牌，不把圖鑑布局套到卡片。
 - 根因為前端仍指向舊 `catalog-clear`；已透過 Supabase 唯讀核對發牌入口與 my_role 契約，伺服器回傳職業 ID，沒有插畫網址。未修改 Supabase 資料、Auth、Realtime、Edge Functions 或既有發牌結果。
 - 權限確認成功後才載入角色圖；蓋牌仍清空正面內容，未確認權限維持蓋牌。新圖失敗退回既有原圖，不重複重試。
-- 本機完整測試 **1108 項**、線上卡 UI **39 組**通過；涵蓋全部 33 角色、320／390／430px、原卡樣式、蓋牌、權限拒絕與缺圖 fallback。詳細發布與正式站結果見 [本輪報告](docs/online-card-v2-report.md)。
+- 本機完整測試 **1108 項**、線上卡 UI **39 組**通過；涵蓋全部 33 角色、320／390／430px、原卡樣式、蓋牌、權限拒絕與缺圖 fallback。正式站同樣 **39 組**通過，八個檔案／插畫雜湊一致；[本輪報告與截圖](docs/online-card-v2-report.md)。
 
 ### 2026-10-25｜覺醒狼美人單狼可刀修復（已完成、已部署）
 
@@ -79,10 +79,11 @@
 
 ## 近期部署紀錄（已核對並補齊）
 
-以下核對 2026-10-21～25 本分支近期的 19 次成功 Pages 發布，時間為台北時間；每列為實際發布的提交，包含先前未集中記錄的項目。歷史樣式已明列取代關係，不作現行設計指示。各輪測試數仍以各自報告為準，不視為本輪重測。
+以下核對 2026-10-21～26 本分支近期的 20 次成功 Pages 發布，時間為台北時間；每列為實際發布的提交，包含先前未集中記錄的項目。歷史樣式已明列取代關係，不作現行設計指示。各輪測試數仍以各自報告為準，不視為本輪重測。
 
 | 發布時間 | 更新內容與目前狀態 | 發布提交 | Pages |
 | --- | --- | --- | --- |
+| 2026-10-26 00:16 | 線上角色卡正面改用新版 33 張圖鑑插畫；原卡框、卡背及權限確認保留 | [`673ca6e`](https://github.com/jia0796/wolf_Emcee/commit/673ca6e9bfd6c64b59747d4f8c30b3acfc92ad1a) | [成功](https://github.com/jia0796/wolf_Emcee/actions/runs/40210924534) |
 | 2026-10-25 22:04 | 覺醒狼美人參與基本狼刀、只剩自己仍可刀；29 板狼刀定向核對 | [`6bf4a1e`](https://github.com/jia0796/wolf_Emcee/commit/6bf4a1edf08557d3356431b0b906221eca7d80ef) | [成功](https://github.com/jia0796/wolf_Emcee/actions/runs/40200531579) |
 | 2026-10-25 21:27 | 核准細線分頁、液態玻璃精修、減少套框、加高完整復盤視窗（現行） | [`8dd0566`](https://github.com/jia0796/wolf_Emcee/commit/8dd05669aa087c26c54ce8bcc57f3b507e690d81) | [成功](https://github.com/jia0796/wolf_Emcee/actions/runs/40197682246) |
 | 2026-10-25 21:13 | 完整復盤固定視窗／橫列天數、票型配色、身分收合、巡獵替死兩卡；初版外觀已精修 | [`961eeb6`](https://github.com/jia0796/wolf_Emcee/commit/961eeb6b9c3ee370cac90e2bc5fa3f0f8b09a721) | [成功](https://github.com/jia0796/wolf_Emcee/actions/runs/40196638842) |
@@ -185,7 +186,7 @@ npm test
 - 線上身分／玩家復盤：[報告](docs/online-host-recap-report.md)；液態玻璃／圖鑑：[報告](docs/liquid-glass-catalog-report.md)。
 - 死亡技能／機通手勢／狼弟：[報告](docs/dsk-mec-bro-report.md)；石像鬼：[報告](docs/sk-gargoyle-report.md)；接刀：[報告](docs/takeover-nightknife-report.md)。
 - 整理前完整 README、各輪發布 SHA／測試數／既有索引保留於 [歷史快照](docs/archive/README-before-recap-cleanup-20261024.md)，不把當時版本當成目前狀態。
-- 本次修改前備份：`backup/pre-online-card-v2-20261026` → `2875b9b485bf904b20ee4b89d86d1ae3b9482c00`，已核對遠端。前輪 `backup/pre-awb-solo-knife-20261025`、`backup/pre-recap-tabs-20261025`、`backup/pre-recap-identity-days-20261025` 與全部功能／精修提交仍保留；各輪報告列出對應 SHA。
+- 本次修改前備份：`backup/pre-online-card-v2-20261026` → `2875b9b485bf904b20ee4b89d86d1ae3b9482c00`，已核對遠端；功能提交 `673ca6e9bfd6c64b59747d4f8c30b3acfc92ad1a`。前輪 `backup/pre-awb-solo-knife-20261025`、`backup/pre-recap-tabs-20261025`、`backup/pre-recap-identity-days-20261025` 與全部功能／精修提交仍保留；各輪報告列出對應 SHA。
 - 先前 `backup/pre-recap-readme-20261024`、`backup/pre-catalog-ui-20261025` 與 AWB 等全部基準備份仍保留，未覆寫。
 - 回退採新 `git revert` 提交與重測，不 reset、force push 或刪除備份；各輪報告列出適用 SHA 與限制。
 - **待真機驗收**：iPhone Safari、iOS PWA、Android、低階裝置、動態網址列、實際安全區與雙指縮放。桌面模擬不代表真機通過。
