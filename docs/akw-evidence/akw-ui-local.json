@@ -1,0 +1,56 @@
+{
+  "passed": 12,
+  "failed": 0,
+  "errors": [],
+  "results": [
+    {
+      "name": "gift, inherited name, refresh and layout 320x568",
+      "passed": true
+    },
+    {
+      "name": "gift, inherited name, refresh and layout 375x667",
+      "passed": true
+    },
+    {
+      "name": "gift, inherited name, refresh and layout 390x844",
+      "passed": true
+    },
+    {
+      "name": "gift, inherited name, refresh and layout 430x932",
+      "passed": true
+    },
+    {
+      "name": "gift, inherited name, refresh and layout 844x390",
+      "passed": true
+    },
+    {
+      "name": "gift, inherited name, refresh and layout 1024x768",
+      "passed": true
+    },
+    {
+      "name": "self/target helpers, strict complete ballots, forward missing navigation, cancellation, manual mismatch",
+      "passed": true
+    },
+    {
+      "name": "red wolf gun, explicit first skip, second claw still allowed and no fake skipped event",
+      "passed": true
+    },
+    {
+      "name": "single poison recap, O/X, modal bounds, Escape and focus 320x568",
+      "passed": true
+    },
+    {
+      "name": "single poison recap, O/X, modal bounds, Escape and focus 390x844",
+      "passed": true
+    },
+    {
+      "name": "single poison recap, O/X, modal bounds, Escape and focus 844x390",
+      "passed": true
+    },
+    {
+      "name": "failed storage rolls back gift commit and history",
+      "passed": true
+    }
+  ],
+  "realDevices": "待真機驗收"
+}

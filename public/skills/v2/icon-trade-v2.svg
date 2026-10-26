@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-labelledby="wc-trade-title">
+  <title id="wc-trade-title">黑市商人交易</title>
+  <defs>
+    <linearGradient id="wc-trade-bg" x1="12" y1="8" x2="51" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#49412C" />
+      <stop offset=".46" stop-color="#302B23" />
+      <stop offset="1" stop-color="#211F24" />
+    </linearGradient>
+    <linearGradient id="wc-trade-edge" x1="12" y1="8" x2="51" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F8E2A9" />
+      <stop offset=".46" stop-color="#F3C96C" />
+      <stop offset="1" stop-color="#B99A51" />
+    </linearGradient>
+    <linearGradient id="wc-trade-ink" x1="12" y1="8" x2="51" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFF0B8" />
+      <stop offset=".46" stop-color="#E9C66E" />
+      <stop offset="1" stop-color="#A77C38" />
+    </linearGradient>
+    <linearGradient id="wc-trade-form" x1="12" y1="8" x2="51" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F4DEA1" />
+      <stop offset=".46" stop-color="#CCA85A" />
+      <stop offset="1" stop-color="#927039" />
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="56" height="56" rx="13" fill="url(#wc-trade-bg)" stroke="url(#wc-trade-edge)" stroke-width="3.1" />
+  <path d="M10 18V16A6 6 0 0 1 16 10H43" fill="none" stroke="#FFF0CE" stroke-opacity=".18" stroke-width="1.2" stroke-linecap="round" />
+  <circle cx="34" cy="22.5" r="8.5" fill="url(#wc-trade-form)" stroke="url(#wc-trade-ink)" stroke-width="2.6" />
+  <path d="M34 18L38 22.5L34 27L30 22.5Z" fill="#FFF0CE" />
+  <path d="M28 21Q28.5 17.5 32 17" fill="none" stroke="#FFF0CE" stroke-opacity=".5" stroke-width="1.2" stroke-linecap="round" />
+  <path d="M20 36L26 32.8H35Q39 32.8 39 36.5H43L48 33.5Q51 32 51.5 35Q51.5 36.8 49 39L39 46H27L20 42Z" fill="url(#wc-trade-form)" stroke="url(#wc-trade-ink)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M29 37H39" fill="none" stroke="#FFF0CE" stroke-width="2.2" stroke-linecap="round" />
+  <path d="M13 34H20V48H13Z" fill="url(#wc-trade-form)" stroke="url(#wc-trade-ink)" stroke-width="2.5" stroke-linejoin="round" />
+</svg>

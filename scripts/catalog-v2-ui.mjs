@@ -58,7 +58,7 @@ try{
    assert.deepEqual(await p.locator('.catalog-toolbar').boundingBox(),pinned);assert.ok(await p.locator('#libraryReturn').isVisible());
    if(width===390&&height===844){await shot(p,camp==='#libraryWolves'?'fixed-wolves-bottom':'fixed-good-bottom');await p.locator('#encyclopedia .catalog-scroll').evaluate(e=>e.scrollTop=0);await shot(p,camp==='#libraryWolves'?'library-wolves':'library-good');}
   }
-  assert.equal(count,33);assert.ok(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));
+  assert.equal(count,35);assert.ok(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));
   if(width===390&&height===844){
    await p.locator('#roleLibrary [data-role="magician"]').click();await p.locator('#previewFront img').evaluate(i=>i.decode());await shot(p,'magician-front');await p.locator('#previewCard').click();await shot(p,'magician-back');await p.keyboard.press('Escape');
   }

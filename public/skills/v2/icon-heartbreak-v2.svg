@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-labelledby="wc-heartbreak-title">
+  <title id="wc-heartbreak-title">狼美人殉情</title>
+  <defs>
+    <linearGradient id="wc-heartbreak-bg" x1="12" y1="8" x2="51" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#422631" />
+      <stop offset=".46" stop-color="#2C1E2B" />
+      <stop offset="1" stop-color="#1B1825" />
+    </linearGradient>
+    <linearGradient id="wc-heartbreak-edge" x1="12" y1="8" x2="51" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F5A0AB" />
+      <stop offset=".46" stop-color="#EE7B8D" />
+      <stop offset="1" stop-color="#D2667E" />
+    </linearGradient>
+    <linearGradient id="wc-heartbreak-ink" x1="12" y1="8" x2="51" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F6B5C1" />
+      <stop offset=".46" stop-color="#E77F97" />
+      <stop offset="1" stop-color="#BE526F" />
+    </linearGradient>
+    <linearGradient id="wc-heartbreak-form" x1="12" y1="8" x2="51" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#E9859D" />
+      <stop offset=".46" stop-color="#B44F70" />
+      <stop offset="1" stop-color="#71334F" />
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="56" height="56" rx="13" fill="url(#wc-heartbreak-bg)" stroke="url(#wc-heartbreak-edge)" stroke-width="3.1" />
+  <path d="M10 18V16A6 6 0 0 1 16 10H43" fill="none" stroke="#FFD5DE" stroke-opacity=".18" stroke-width="1.2" stroke-linecap="round" />
+  <path d="M29.7 47 C25.4 43.4 16.8 36.2 16.8 28.4 C16.8 22.7 20.7 19.2 25.4 19.2 C28.2 19.2 30.2 20.8 31.3 23.1 L28.4 31.7 L33.1 34.8 L29.7 47 Z" fill="url(#wc-heartbreak-form)" stroke="url(#wc-heartbreak-ink)" stroke-width="2.8" stroke-linejoin="round" />
+  <path d="M34.5 21.5 C35.6 20.1 37.2 19.2 39.2 19.2 C44 19.2 47.2 22.7 47.2 28.4 C47.2 36.2 38.2 43.8 34 47.2 L36.3 34.3 L31.2 31.3 L34.5 21.5 Z" fill="url(#wc-heartbreak-form)" stroke="url(#wc-heartbreak-ink)" stroke-width="2.8" stroke-linejoin="round" />
+</svg>

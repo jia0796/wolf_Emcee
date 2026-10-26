@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-labelledby="wc-evil-knight-reflect-title">
+  <title id="wc-evil-knight-reflect-title">惡靈騎士反傷</title>
+  <defs>
+    <linearGradient id="wc-evil-knight-reflect-bg" x1="12" y1="8" x2="51" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#422631" />
+      <stop offset=".46" stop-color="#2C1E2B" />
+      <stop offset="1" stop-color="#1B1825" />
+    </linearGradient>
+    <linearGradient id="wc-evil-knight-reflect-edge" x1="12" y1="8" x2="51" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F5A0AB" />
+      <stop offset=".46" stop-color="#EE7B8D" />
+      <stop offset="1" stop-color="#D2667E" />
+    </linearGradient>
+    <linearGradient id="wc-evil-knight-reflect-ink" x1="12" y1="8" x2="51" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F6B5C1" />
+      <stop offset=".46" stop-color="#E77F97" />
+      <stop offset="1" stop-color="#BE526F" />
+    </linearGradient>
+    <linearGradient id="wc-evil-knight-reflect-form" x1="12" y1="8" x2="51" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#E9859D" />
+      <stop offset=".46" stop-color="#B44F70" />
+      <stop offset="1" stop-color="#71334F" />
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="56" height="56" rx="13" fill="url(#wc-evil-knight-reflect-bg)" stroke="url(#wc-evil-knight-reflect-edge)" stroke-width="3.1" />
+  <path d="M10 18V16A6 6 0 0 1 16 10H43" fill="none" stroke="#FFD5DE" stroke-opacity=".18" stroke-width="1.2" stroke-linecap="round" />
+  <path d="M31 15L42 21V31Q42 40 31 47Q21 40 21 31V21Z" fill="url(#wc-evil-knight-reflect-form)" stroke="url(#wc-evil-knight-reflect-ink)" stroke-width="2.7" stroke-linejoin="round" />
+  <path d="M36.5 20C52 20 54 41 39 43H15" fill="none" stroke="#FFD5DE" stroke-width="3.3" stroke-linecap="round" />
+  <path d="M21 37L14 43L21 49" fill="none" stroke="url(#wc-evil-knight-reflect-ink)" stroke-width="3.3" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M25 24V30" fill="none" stroke="#FFD5DE" stroke-opacity=".45" stroke-width="1.2" stroke-linecap="round" />
+</svg>

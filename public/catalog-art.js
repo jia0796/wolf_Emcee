@@ -1,5 +1,7 @@
 // Legacy frame-clear derivatives retained for historical assets and missing new-art fallbacks.
 export const CATALOG_CLEAR=Object.freeze({
+  awakenedKing:'art/catalog/awakenedKing-v1.png',
+  awakenedWitch:'art/catalog/awakenedWitch-v1.png',
   awakenedBeauty:'art/catalog/awakenedBeauty-v1.png',
   awakenedHunter:'art/catalog/awakenedHunter-v1.png',
   "evilKnight": "art/catalog-clear/evilKnight-v1.png",

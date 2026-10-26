@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-labelledby="wc-sleep-title">
+  <title id="wc-sleep-title">攝夢人攝夢</title>
+  <defs>
+    <linearGradient id="wc-sleep-bg" x1="12" y1="8" x2="51" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2A405A" />
+      <stop offset=".46" stop-color="#1D2E43" />
+      <stop offset="1" stop-color="#152130" />
+    </linearGradient>
+    <linearGradient id="wc-sleep-edge" x1="12" y1="8" x2="51" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#B7DCFB" />
+      <stop offset=".46" stop-color="#79B8FA" />
+      <stop offset="1" stop-color="#568FCC" />
+    </linearGradient>
+    <linearGradient id="wc-sleep-ink" x1="12" y1="8" x2="51" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#D0E6FF" />
+      <stop offset=".46" stop-color="#8BBDF2" />
+      <stop offset="1" stop-color="#6696CF" />
+    </linearGradient>
+    <linearGradient id="wc-sleep-form" x1="12" y1="8" x2="51" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#67A6E0" />
+      <stop offset=".46" stop-color="#426EA6" />
+      <stop offset="1" stop-color="#2D476F" />
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="56" height="56" rx="13" fill="url(#wc-sleep-bg)" stroke="url(#wc-sleep-edge)" stroke-width="3.1" />
+  <path d="M10 18V16A6 6 0 0 1 16 10H43" fill="none" stroke="#DFEEFC" stroke-opacity=".18" stroke-width="1.2" stroke-linecap="round" />
+  <path d="M15.4 38 H31 L15.4 50 H31" fill="none" stroke="url(#wc-sleep-ink)" stroke-width="3.9" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M26.4 25 H40 L26.4 35 H40" fill="none" stroke="url(#wc-sleep-ink)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M40 15 H50 L40 22 H50" fill="none" stroke="url(#wc-sleep-ink)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" />
+</svg>

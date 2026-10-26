@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-labelledby="wc-learn-title">
+  <title id="wc-learn-title">機械狼學習</title>
+  <defs>
+    <linearGradient id="wc-learn-bg" x1="12" y1="8" x2="51" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#3B3050" />
+      <stop offset=".46" stop-color="#292138" />
+      <stop offset="1" stop-color="#1C1A2B" />
+    </linearGradient>
+    <linearGradient id="wc-learn-edge" x1="12" y1="8" x2="51" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#D9C2FB" />
+      <stop offset=".46" stop-color="#BDA5F7" />
+      <stop offset="1" stop-color="#9476C7" />
+    </linearGradient>
+    <linearGradient id="wc-learn-ink" x1="12" y1="8" x2="51" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#E2CFFB" />
+      <stop offset=".46" stop-color="#BCA0EB" />
+      <stop offset="1" stop-color="#9A77CE" />
+    </linearGradient>
+    <linearGradient id="wc-learn-form" x1="12" y1="8" x2="51" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#9672C0" />
+      <stop offset=".46" stop-color="#674887" />
+      <stop offset="1" stop-color="#433352" />
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="56" height="56" rx="13" fill="url(#wc-learn-bg)" stroke="url(#wc-learn-edge)" stroke-width="3.1" />
+  <path d="M10 18V16A6 6 0 0 1 16 10H43" fill="none" stroke="#EADDF9" stroke-opacity=".18" stroke-width="1.2" stroke-linecap="round" />
+  <path d="M14 19Q24 17 32 23Q40 17 50 19V45Q40 43 32 49Q24 43 14 45Z" fill="url(#wc-learn-form)" stroke="url(#wc-learn-ink)" stroke-width="2.9" stroke-linejoin="round" />
+  <path d="M32 23V48" fill="none" stroke="#EADDF9" stroke-width="2.4" stroke-linecap="round" />
+  <path d="M19 27Q23 26.5 27 29M37 29Q41 26.5 45 27" fill="none" stroke="#EADDF9" stroke-opacity=".85" stroke-width="2" stroke-linecap="round" />
+  <path d="M19 34Q23 33.5 27 36M37 36Q41 33.5 45 34" fill="none" stroke="url(#wc-learn-ink)" stroke-width="1.8" stroke-linecap="round" />
+</svg>

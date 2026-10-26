@@ -1,4 +1,5 @@
 import {specialFlow,takeoverOwner} from './takeover.js';
+import {isAkw} from './akw.js';
 import {savedVoteNotes} from './votes.js';
 import {converted,convertedName,graveResult,nativeAllowed,infected,infectionName,realWolf} from './identity.js';
 import {ROLE_DATA} from './data.js';
@@ -31,6 +32,7 @@ export function recordStage(s,stage,order){
  const map=id=>mapTarget(s,id);
  const apparent=id=>role(id)==='mechanical'?(s.mechanical.role||'mechanical'):role(id);
  const add=(key,actorRole,skill,targets,opts={})=>{
+  if(isAkw(s)&&actorRole==='witch')actorRole='awakenedWitch';
   if((!targets.length&&!opts.allowEmpty)||!targets.every(Boolean))return;
   const actors=opts.actors||[actor(actorRole)];if(!actors[0])return;
   const owner=s.players.find(p=>p.id===actors[0]);if(infected(s,owner))opts={...opts,displayName:infectionName(s,owner),tone:'wolf'};
@@ -56,7 +58,7 @@ export function recordStage(s,stage,order){
  if(stage==='attack'&&n.attack&&n.attackMode!=='infect'){const actors=specialFlow(s)&&n.basicSubmitted&&n.basicActors.length?[...n.basicActors]:ordinaryWolves(s).map(p=>p.id);if(!actors.length&&basicActor(s))actors.push(basicActor(s).id);add('basic','wolf','wolf-attack',[n.attack],{actors,...(basicActor(s)?.role==='mask'?{takeoverNight:s.masquerade.takeoverNight}:{}),portraitRole:ordinaryWolves(s).some(p=>p.role==='wolf')?'wolf':basicActor(s)?.role,...(converted(s,basicActor(s))?{displayName:convertedName(s,basicActor(s)),tone:'wolf'}:{})});}
  if(stage==='revenge'&&n.revenge)add('revenge','younger','wolf-attack',[n.revenge],{unmapped:true});
  if(stage==='antidote'&&n.antidote===true)add('antidote','witch','antidote',[n.attack]);
- if(stage==='poison'&&n.poison===true&&n.poisonTarget)add('poison','witch','poison',[n.poisonTarget]);
+ if(stage==='poison'&&!isAkw(s)&&n.poison===true&&n.poisonTarget)add('poison','witch','poison',[n.poisonTarget]);
  if(stage==='inspect'&&n.inspect)add('inspect','seer','inspect',[n.inspect],{result:inspectedWolf(s,map(n.inspect))?'狼人':'好人'});
  if(stage==='guardTarget'&&n.guard)add('guard','guard','shield',[n.guard],{unmapped:true});
  if(stage==='stoneInspect'&&n.stoneResult)add('stoneInspect','stoneGargoyle','wolf-inspect',[n.stoneResult.target],{unmapped:true,result:ROLE_DATA[n.stoneResult.role]?.name,inspectedRole:n.stoneResult.role});

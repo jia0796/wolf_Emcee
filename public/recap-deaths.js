@@ -44,12 +44,12 @@ export function identityDeathReason(s,p){
   if(death.source==='reflection')return '毒藥反彈';
   if(death.source==='luckyPoison'||death.skillSource==='lucky')return '幸運兒潑毒';
   if(death.source==='learnedPoison'||death.sourceRole==='mechanical')return '機械狼毒';
-  return death.source==='witch'||death.sourceRole==='witch'?'女巫潑毒':UNKNOWN;
+  return death.source==='witch'||['witch','awakenedWitch'].includes(death.sourceRole)?'女巫潑毒':UNKNOWN;
  }
  if(death.cause==='shot'){
   if(death.skillSource==='lucky')return '幸運兒開槍';
   if(death.sourceRole==='mechanical')return '機械狼槍';
-  if(death.sourceRole==='king')return '狼王開槍';
+  if(death.sourceRole==='king'||death.sourceRole==='awakenedKing'||death.skillSource==='claw')return '狼王開槍';
   return ['hunter','awakenedHunter'].includes(death.sourceRole)?'獵人開槍':UNKNOWN;
  }
  if(death.cause==='heartbreak'){

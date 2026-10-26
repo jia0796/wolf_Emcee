@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-labelledby="wc-transform-title">
+  <title id="wc-transform-title">覺醒石像鬼轉化</title>
+  <defs>
+    <linearGradient id="wc-transform-bg" x1="12" y1="8" x2="51" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#422631" />
+      <stop offset=".46" stop-color="#2C1E2B" />
+      <stop offset="1" stop-color="#1B1825" />
+    </linearGradient>
+    <linearGradient id="wc-transform-edge" x1="12" y1="8" x2="51" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F5A0AB" />
+      <stop offset=".46" stop-color="#EE7B8D" />
+      <stop offset="1" stop-color="#D2667E" />
+    </linearGradient>
+    <linearGradient id="wc-transform-ink" x1="12" y1="8" x2="51" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F6B5C1" />
+      <stop offset=".46" stop-color="#E77F97" />
+      <stop offset="1" stop-color="#BE526F" />
+    </linearGradient>
+    <linearGradient id="wc-transform-form" x1="12" y1="8" x2="51" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#E9859D" />
+      <stop offset=".46" stop-color="#B44F70" />
+      <stop offset="1" stop-color="#71334F" />
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="56" height="56" rx="13" fill="url(#wc-transform-bg)" stroke="url(#wc-transform-edge)" stroke-width="3.1" />
+  <path d="M10 18V16A6 6 0 0 1 16 10H43" fill="none" stroke="#FFD5DE" stroke-opacity=".18" stroke-width="1.2" stroke-linecap="round" />
+  <path d="M15 26C18 16 30 12 41 17" fill="none" stroke="url(#wc-transform-ink)" stroke-width="3.1" stroke-linecap="round" />
+  <path d="M39 12L46 19L36 21" fill="none" stroke="url(#wc-transform-ink)" stroke-width="3.1" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M49 38C46 48 34 52 23 47" fill="none" stroke="url(#wc-transform-ink)" stroke-width="3.1" stroke-linecap="round" />
+  <path d="M25 52L18 45L28 43" fill="none" stroke="url(#wc-transform-ink)" stroke-width="3.1" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M24 26L22 21L30 25H34L42 21L40 26L43 33L37 41H27L21 33Z" fill="url(#wc-transform-form)" stroke="url(#wc-transform-ink)" stroke-width="2" stroke-linejoin="round" />
+  <path d="M27 31L30 33M37 31L34 33" fill="none" stroke="#FFD5DE" stroke-width="2" stroke-linecap="round" />
+  <path d="M32 26L30 30L33 35L31 40" fill="none" stroke="url(#wc-transform-ink)" stroke-opacity=".65" stroke-width="1.3" stroke-linejoin="round" />
+</svg>

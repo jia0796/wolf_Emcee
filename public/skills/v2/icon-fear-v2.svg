@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-labelledby="wc-fear-title">
+  <title id="wc-fear-title">夢魘恐懼</title>
+  <defs>
+    <linearGradient id="wc-fear-bg" x1="12" y1="8" x2="51" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#422631" />
+      <stop offset=".46" stop-color="#2C1E2B" />
+      <stop offset="1" stop-color="#1B1825" />
+    </linearGradient>
+    <linearGradient id="wc-fear-edge" x1="12" y1="8" x2="51" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F5A0AB" />
+      <stop offset=".46" stop-color="#EE7B8D" />
+      <stop offset="1" stop-color="#D2667E" />
+    </linearGradient>
+    <linearGradient id="wc-fear-ink" x1="12" y1="8" x2="51" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F6B5C1" />
+      <stop offset=".46" stop-color="#E77F97" />
+      <stop offset="1" stop-color="#BE526F" />
+    </linearGradient>
+    <linearGradient id="wc-fear-form" x1="12" y1="8" x2="51" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#E9859D" />
+      <stop offset=".46" stop-color="#B44F70" />
+      <stop offset="1" stop-color="#71334F" />
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="56" height="56" rx="13" fill="url(#wc-fear-bg)" stroke="url(#wc-fear-edge)" stroke-width="3.1" />
+  <path d="M10 18V16A6 6 0 0 1 16 10H43" fill="none" stroke="#FFD5DE" stroke-opacity=".18" stroke-width="1.2" stroke-linecap="round" />
+  <path d="M32 13C23 13 18 20 18 30C18 41 25 48 32 49C39 48 46 41 46 30C46 20 41 13 32 13Z" fill="url(#wc-fear-form)" stroke="url(#wc-fear-ink)" stroke-width="2.5" />
+  <ellipse cx="26.7" cy="26.9" rx="2.8" ry="4" fill="#FFE8EB" />
+  <ellipse cx="37.3" cy="26.9" rx="2.8" ry="4" fill="#FFE8EB" />
+  <ellipse cx="32" cy="39" rx="4.3" ry="7.1" fill="#3B1C2B" />
+  <path d="M20 34L15.5 27Q14.2 25.3 12.8 26.6Q11.8 27.8 12.7 29.7L16.4 38.7L18.5 47.8Q21 51 24 48L23 40Z" fill="url(#wc-fear-ink)" stroke="#DB90A5" stroke-width="1.5" stroke-linejoin="round" />
+  <path d="M44 34L48.5 27Q49.8 25.3 51.2 26.6Q52.2 27.8 51.3 29.7L47.6 38.7L45.5 47.8Q43 51 40 48L41 40Z" fill="url(#wc-fear-ink)" stroke="#DB90A5" stroke-width="1.5" stroke-linejoin="round" />
+</svg>

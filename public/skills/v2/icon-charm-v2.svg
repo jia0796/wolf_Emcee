@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-labelledby="wc-charm-title">
+  <title id="wc-charm-title">狼美人魅惑</title>
+  <defs>
+    <linearGradient id="wc-charm-bg" x1="12" y1="8" x2="51" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#422631" />
+      <stop offset=".46" stop-color="#2C1E2B" />
+      <stop offset="1" stop-color="#1B1825" />
+    </linearGradient>
+    <linearGradient id="wc-charm-edge" x1="12" y1="8" x2="51" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F5A0AB" />
+      <stop offset=".46" stop-color="#EE7B8D" />
+      <stop offset="1" stop-color="#D2667E" />
+    </linearGradient>
+    <linearGradient id="wc-charm-ink" x1="12" y1="8" x2="51" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F6B5C1" />
+      <stop offset=".46" stop-color="#E77F97" />
+      <stop offset="1" stop-color="#BE526F" />
+    </linearGradient>
+    <linearGradient id="wc-charm-form" x1="12" y1="8" x2="51" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#E9859D" />
+      <stop offset=".46" stop-color="#B44F70" />
+      <stop offset="1" stop-color="#71334F" />
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="56" height="56" rx="13" fill="url(#wc-charm-bg)" stroke="url(#wc-charm-edge)" stroke-width="3.1" />
+  <path d="M10 18V16A6 6 0 0 1 16 10H43" fill="none" stroke="#FFD5DE" stroke-opacity=".18" stroke-width="1.2" stroke-linecap="round" />
+  <path d="M32 48 C27.7 44.5 17.6 36.8 17.6 28.9 C17.6 23.4 21.2 19.7 26 19.7 C29 19.7 31.2 21.2 32 23.4 C32.8 21.2 35 19.7 38 19.7 C42.8 19.7 46.4 23.4 46.4 28.9 C46.4 36.8 36.3 44.5 32 48 Z" fill="url(#wc-charm-form)" stroke="url(#wc-charm-ink)" stroke-width="2.8" stroke-linejoin="round" />
+  <path d="M23.1 30.2 C22.5 26.5 24.8 24.1 27.7 24.1" fill="none" stroke="#FFD5DE" stroke-width="2.5" stroke-linecap="round" />
+  <path d="M47.4 13.8 L49.1 18.4 L53.7 20.1 L49.1 21.8 L47.4 26.4 L45.7 21.8 L41.1 20.1 L45.7 18.4 Z" fill="url(#wc-charm-ink)" />
+</svg>

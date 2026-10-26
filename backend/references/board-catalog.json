@@ -1115,6 +1115,51 @@
         "awakenedHunter"
       ],
       "catalogHash": "2ad4285d7dad6647cab8122b0be5d6d1ba75b240f0da0f9046c910f9fc3d7e27"
+    },
+    {
+      "id": "awakenedKingWitch12",
+      "name": "12人 覺醒黑狼王 / 覺醒女巫",
+      "capacity": 12,
+      "roles": {
+        "awakenedKing": 1,
+        "wolf": 3,
+        "awakenedWitch": 1,
+        "seer": 1,
+        "guard": 1,
+        "hunter": 1,
+        "villager": 4
+      },
+      "defaults": {
+        "sheriff": true,
+        "selfRescue": false,
+        "victory": "edge",
+        "swallow": true
+      },
+      "adjustable": [
+        "sheriff",
+        "selfRescue",
+        "victory",
+        "swallow"
+      ],
+      "firstNightOrder": [
+        "guard",
+        "wolves",
+        "akwKing",
+        "akwWitch",
+        "seer",
+        "hunter",
+        "akwAssistants"
+      ],
+      "nightOrder": [
+        "guard",
+        "wolves",
+        "akwKing",
+        "akwWitch",
+        "seer",
+        "hunter",
+        "akwAssistants"
+      ],
+      "catalogHash": "6bdd990146c8000f2337ba4771ac66771ebfa2816203ef942786a088054795bb"
     }
   ],
   "roles": {
@@ -1277,6 +1322,16 @@
       "name": "覺醒獵人",
       "kind": "god",
       "image": "art/catalog/awakenedHunter-v1.png"
+    },
+    "awakenedKing": {
+      "name": "覺醒黑狼王",
+      "kind": "wolf",
+      "image": "art/catalog/awakenedKing-v1.png"
+    },
+    "awakenedWitch": {
+      "name": "覺醒女巫",
+      "kind": "god",
+      "image": "art/catalog/awakenedWitch-v1.png"
     }
   },
   "additions": [
@@ -1285,6 +1340,12 @@
       "specCommit": "5a14fb8d947499388cd5787673b7cef66aa29692",
       "catalogHash": "2ad4285d7dad6647cab8122b0be5d6d1ba75b240f0da0f9046c910f9fc3d7e27",
       "note": "Append-only AWB catalogue; preceding 26 records and hashes preserved"
+    },
+    {
+      "boardId": "awakenedKingWitch12",
+      "specCommit": "6e369159df420b9831bb4f29b236328ec94aa875",
+      "catalogHash": "6bdd990146c8000f2337ba4771ac66771ebfa2816203ef942786a088054795bb",
+      "note": "Append-only AKW catalogue; prior 27 rows and hashes preserved"
     }
   ]
 }

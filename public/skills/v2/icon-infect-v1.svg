@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-labelledby="wc-infect-title">
+  <title id="wc-infect-title">種狼感染</title>
+  <defs>
+    <linearGradient id="wc-infect-bg" x1="12" y1="8" x2="51" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#422631" />
+      <stop offset=".46" stop-color="#2C1E2B" />
+      <stop offset="1" stop-color="#1B1825" />
+    </linearGradient>
+    <linearGradient id="wc-infect-edge" x1="12" y1="8" x2="51" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F5A0AB" />
+      <stop offset=".46" stop-color="#EE7B8D" />
+      <stop offset="1" stop-color="#D2667E" />
+    </linearGradient>
+    <linearGradient id="wc-infect-ink" x1="12" y1="8" x2="51" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F6B5C1" />
+      <stop offset=".46" stop-color="#E77F97" />
+      <stop offset="1" stop-color="#BE526F" />
+    </linearGradient>
+    <linearGradient id="wc-infect-form" x1="12" y1="8" x2="51" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#E9859D" />
+      <stop offset=".46" stop-color="#B44F70" />
+      <stop offset="1" stop-color="#71334F" />
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="56" height="56" rx="13" fill="url(#wc-infect-bg)" stroke="url(#wc-infect-edge)" stroke-width="3.1" />
+  <path d="M10 18V16A6 6 0 0 1 16 10H43" fill="none" stroke="#FFD5DE" stroke-opacity=".18" stroke-width="1.2" stroke-linecap="round" />
+  <path d="M32 15V20M32 44V49M15 32H20M44 32H49M20 20L24 24M40 40L44 44M20 44L24 40M40 24L44 20" fill="none" stroke="url(#wc-infect-ink)" stroke-width="3.2" stroke-linecap="round" />
+  <path d="M28 14H36M28 50H36M14 28V36M50 28V36" fill="none" stroke="url(#wc-infect-ink)" stroke-width="2.6" stroke-linecap="round" />
+  <circle cx="32" cy="32" r="12.5" fill="url(#wc-infect-form)" stroke="url(#wc-infect-ink)" stroke-width="3" />
+  <path d="M26 25C29 23 32 25 31 28C30 31 25 32 24 29Q23 27 26 25Z" fill="#FFD5DE" fill-opacity=".9" />
+  <path d="M36 32C40 31 41 35 38 38C35 41 32 38 33 35Q33 33 36 32Z" fill="url(#wc-infect-ink)" />
+  <path d="M34 24Q38 25 40 29" fill="none" stroke="#FFD5DE" stroke-opacity=".5" stroke-width="1.3" stroke-linecap="round" />
+</svg>

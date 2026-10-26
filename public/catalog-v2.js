@@ -1,5 +1,7 @@
 // Approved catalog illustrations shared by encyclopedia, recap and online card fronts; layouts stay separate.
 export const CATALOG_ART_V2=Object.freeze({
+  "awakenedWitch": {"full": "art/catalog-v2/awakenedWitch-v1.webp", "thumbnail": "art/catalog-v2/awakenedWitch-thumb-v1.webp"},
+  "awakenedKing": {"full": "art/catalog-v2/awakenedKing-v1.webp", "thumbnail": "art/catalog-v2/awakenedKing-thumb-v1.webp"},
   "evilKnight": {
     "full": "art/catalog-v2/evilKnight-v1.webp",
     "thumbnail": "art/catalog-v2/evilKnight-thumb-v1.webp"

@@ -427,5 +427,31 @@
     "thumbnail": "art/catalog-v2/awakenedHunter-thumb-v1.webp",
     "thumbnailBytes": 132010,
     "thumbnailSha256": "fd0995fed64f5bdebc61da2cf8754a3b9aaffed05ddc0963ea5fb141b9c52048"
+  },
+  {
+    "id": "awakenedKing",
+    "name": "覺醒黑狼王",
+    "sourceName": "覺醒黑狼王.png",
+    "sourceSha256": "c334889bf4957a3882cbf311aa59c9fe17477d1ec226858dad900be1e33764d7",
+    "original": "art/catalog/awakenedKing-v1.png",
+    "full": "art/catalog-v2/awakenedKing-v1.webp",
+    "fullBytes": 563682,
+    "fullSha256": "be3b1c3b88a0a207ff5469d53fe4e07bb3bad7512a986309d5e9fbe427b09973",
+    "thumbnail": "art/catalog-v2/awakenedKing-thumb-v1.webp",
+    "thumbnailBytes": 119788,
+    "thumbnailSha256": "b2cce58ac516e75aa0ba1c1ac25cc3d47a0e492b6e4faa962c46aabd05edbba4"
+  },
+  {
+    "id": "awakenedWitch",
+    "name": "覺醒女巫",
+    "sourceName": "覺醒女巫.png",
+    "sourceSha256": "49a22812e5d04b59afd3cc1bae0f22d0cba4f498b37ac556dbc49e51749c3b81",
+    "original": "art/catalog/awakenedWitch-v1.png",
+    "full": "art/catalog-v2/awakenedWitch-v1.webp",
+    "fullBytes": 572218,
+    "fullSha256": "3f3a14deb0b8f80c03e282d1d0ad42724b62671e3d43ebc7b7450aebc77400df",
+    "thumbnail": "art/catalog-v2/awakenedWitch-thumb-v1.webp",
+    "thumbnailBytes": 120476,
+    "thumbnailSha256": "bfef48fae4d778846a9dc928668eb8b22b90cec5de274c207696644146ca5333"
   }
 ]

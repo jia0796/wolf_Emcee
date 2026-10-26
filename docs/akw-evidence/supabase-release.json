@@ -1,0 +1,31 @@
+{
+  "project": "wolfcue-online",
+  "projectId": "cnseutkrrjkdkpikjcdz",
+  "migration": "20261026072534_awakened_king_witch_board",
+  "verified": {
+    "boards": 28,
+    "oldBoardsPreserved": 27,
+    "added": {
+      "id": "awakenedKingWitch12",
+      "capacity": 12,
+      "roles": [
+        "awakenedKing",
+        "wolf",
+        "wolf",
+        "wolf",
+        "awakenedWitch",
+        "seer",
+        "guard",
+        "hunter",
+        "villager",
+        "villager",
+        "villager",
+        "villager"
+      ],
+      "catalog_hash": "6bdd990146c8000f2337ba4771ac66771ebfa2816203ef942786a088054795bb"
+    }
+  },
+  "advisorsUnchanged": true,
+  "changedExistingRooms": false,
+  "changedEdgeFunctions": false
+}

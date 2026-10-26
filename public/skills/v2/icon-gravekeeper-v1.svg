@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-labelledby="wc-gravekeeper-title">
+  <title id="wc-gravekeeper-title">守墓人墓碑</title>
+  <defs>
+    <linearGradient id="wc-gravekeeper-bg" x1="12" y1="8" x2="51" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#49412C" />
+      <stop offset=".46" stop-color="#302B23" />
+      <stop offset="1" stop-color="#211F24" />
+    </linearGradient>
+    <linearGradient id="wc-gravekeeper-edge" x1="12" y1="8" x2="51" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F8E2A9" />
+      <stop offset=".46" stop-color="#F3C96C" />
+      <stop offset="1" stop-color="#B99A51" />
+    </linearGradient>
+    <linearGradient id="wc-gravekeeper-ink" x1="12" y1="8" x2="51" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFF0B8" />
+      <stop offset=".46" stop-color="#E9C66E" />
+      <stop offset="1" stop-color="#A77C38" />
+    </linearGradient>
+    <linearGradient id="wc-gravekeeper-form" x1="12" y1="8" x2="51" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F4DEA1" />
+      <stop offset=".46" stop-color="#CCA85A" />
+      <stop offset="1" stop-color="#927039" />
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="56" height="56" rx="13" fill="url(#wc-gravekeeper-bg)" stroke="url(#wc-gravekeeper-edge)" stroke-width="3.1" />
+  <path d="M10 18V16A6 6 0 0 1 16 10H43" fill="none" stroke="#FFF0CE" stroke-opacity=".18" stroke-width="1.2" stroke-linecap="round" />
+  <path d="M21 48V26C21 18 26 14 32 14S43 18 43 26V48Z" fill="url(#wc-gravekeeper-form)" stroke="url(#wc-gravekeeper-ink)" stroke-width="3" stroke-linejoin="round" />
+  <path d="M32 24V38M27 29H37" fill="none" stroke="#FFF0CE" stroke-width="3.1" stroke-linecap="round" />
+  <path d="M18 49H46" fill="none" stroke="url(#wc-gravekeeper-ink)" stroke-width="3.2" stroke-linecap="round" />
+  <path d="M24 25C24 20.5 27 17.5 31 17.5" fill="none" stroke="#FFF0CE" stroke-opacity=".4" stroke-width="1.2" stroke-linecap="round" />
+</svg>

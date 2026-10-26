@@ -1,6 +1,8 @@
 # WolfCue 線上發牌後端
 
-本目錄保存 Supabase migration、Edge Functions、27 款線上板子快照及本機安全測試。前端位於 `../public/online.js`。發牌確認後，只有經驗證的該房主持人可取得完整座號／角色表，自動填入原主持畫面；玩家在正式終局前仍只可取得自己的角色。離線主持目前有 29 款板子。2026-10-24 追加 `awakenedBeauty12`（覺醒狼美人／覺醒獵人），其獨立目錄 hash 見 references/board-catalog.json；原 26 筆配置與 hash 保留。
+本目錄保存 Supabase migration、Edge Functions、28 款線上板子快照及本機安全測試。前端位於 `../public/online.js`。發牌確認後，只有經驗證的該房主持人可取得完整座號／角色表，自動填入原主持畫面；玩家在正式終局前仍只可取得自己的角色。離線主持目前有 30 款板子。2026-10-24 追加 `awakenedBeauty12`（覺醒狼美人／覺醒獵人），其獨立目錄 hash 見 references/board-catalog.json；原 26 筆配置與 hash 保留。
+
+2026-10-26 追加 `awakenedKingWitch12`（覺醒黑狼王／覺醒女巫），只新增一筆目錄，不改前 27 筆角色組成、既有房間或發牌結果。新板與安全測試見 [本輪報告](../docs/akw-release-report.md)。
 
 ## 本機測試
 

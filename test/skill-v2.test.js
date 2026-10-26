@@ -1,0 +1,20 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFile} from 'node:fs/promises';
+import {createHash} from 'node:crypto';
+import {SKILL_ART_V2,skillArtSource,applySkillArt,resolveSkillArt,eventSkillArt,markerSkillArt,operationSkillArt} from '../public/skill-art.js';
+import {createGame} from '../public/engine.js';
+import {ROLE_DATA} from '../public/data.js';
+
+test('28 approved SVGs match their source hashes, have valid local references and no raster or scripts',async()=>{
+ const manifest=JSON.parse(await readFile(new URL('../docs/skill-v2-assets.json',import.meta.url),'utf8'));
+ assert.equal(manifest.length,28);assert.equal(Object.keys(SKILL_ART_V2).length,28);
+ for(const row of manifest){const source=await readFile(new URL('../'+row.path,import.meta.url),'utf8');assert.equal(createHash('sha256').update(source).digest('hex'),row.sha256);assert.equal(skillArtSource(row.skill),row.path.replace('public/',''));assert.match(source,/viewBox="0 0 64 64"/);assert.doesNotMatch(source,/<(?:image|script|foreignObject)\b/);const ids=[...source.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);for(const ref of source.matchAll(/url\(#([^)]*)\)/g))assert.ok(ids.includes(ref[1]),row.skill+' '+ref[1]);}
+});
+for(const [role,result]of [['seer','inspect'],['medium','inspect'],['awakenedSeer','inspect'],['mechanical','wolf-inspect'],['mask','wolf-inspect'],['stoneGargoyle','wolf-inspect']])test('inspection color follows actor '+role+', independent of result',()=>{for(const target of ['好人','狼人'])assert.equal(eventSkillArt({skill:'inspect',actorRole:role,result:target}),result);});
+for(const [role,source,result]of [['hunter','native','gun'],['awakenedHunter','native','gun'],['king','native','wolf-gun'],['mechanical','native','wolf-gun'],['awakenedKing','claw','wolf-gun'],['wolf','claw','wolf-gun'],['mechanical','lucky','gun']])test('gun presentation '+role+'/'+source,()=>{assert.equal(eventSkillArt({skill:'gun',actorRole:role,skillSource:source}),result);});
+test('event snapshot camp is authoritative, saved records and target identities never mutate',()=>{const e={skill:'inspect',actorRole:'seer',actorSnapshots:[{role:'seer',camp:'wolf'}],targetSnapshots:[{role:'villager'}]};const before=structuredClone(e);assert.equal(eventSkillArt(e),'wolf-inspect');assert.deepEqual(e,before);});
+test('dedicated blades only replace matching events, ordinary mechanical attack remains ordinary',()=>{assert.equal(eventSkillArt({skill:'wolf-attack',key:'revenge'}),'revenge-blade');assert.equal(eventSkillArt({skill:'wolf-attack',type:'lastBlade'}),'blood-blade');assert.equal(eventSkillArt({skill:'wolf-attack',actorRole:'blood',key:'basic'}),'wolf-attack');assert.equal(eventSkillArt({skill:'wolf-attack',key:'extraAttack',actorRole:'mechanical'}),'wolf-attack');});
+test('live operation and raw seat marks share color without altering stored marker metadata',()=>{const s=createGame('mechanical12');s.players[0].role='mechanical';s.step='mechanicalSkill';s.operation='mechanicalInspect';const m={key:'mechanicalInspect',type:'inspect',id:9,sequence:7};assert.equal(operationSkillArt('inspect',s),'wolf-inspect');assert.equal(markerSkillArt(m,s),'wolf-inspect');assert.deepEqual(m,{key:'mechanicalInspect',type:'inspect',id:9,sequence:7});});
+test('missing SVG falls back to its legacy asset once; old badge and vote retain their originals',()=>{const image={src:null,onerror:null};applySkillArt(image,'wolf-gun');assert.equal(image.src,'skills/v2/icon-wolf-gun-v1.svg');image.onerror();assert.equal(image.src,'skills/icon-gun.svg');assert.equal(image.onerror,null);for(const skill of ['vote','sheriff-badge'])assert.equal(skillArtSource(skill),'skills/icon-'+skill+'.svg');});
+test('new catalog copy is verbatim user approved and both new artworks are independently mapped',async()=>{const text=JSON.parse(await readFile(new URL('../docs/akw-catalog-copy.json',import.meta.url),'utf8'));for(const role of Object.keys(text))assert.equal(ROLE_DATA[role].skill,text[role]);assert.notEqual(ROLE_DATA.awakenedKing.image,ROLE_DATA.king.image);assert.notEqual(ROLE_DATA.awakenedWitch.image,ROLE_DATA.witch.image);});

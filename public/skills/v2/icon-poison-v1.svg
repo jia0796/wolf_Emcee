@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-labelledby="wc-poison-title">
+  <title id="wc-poison-title">毒藥</title>
+  <defs>
+    <linearGradient id="wc-poison-bg" x1="8" y1="5" x2="51" y2="60" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#392E50"/><stop offset=".43" stop-color="#281F3B"/><stop offset="1" stop-color="#191828"/>
+    </linearGradient>
+    <linearGradient id="wc-poison-edge" x1="12" y1="4" x2="53" y2="60" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#D6B6FF"/><stop offset=".46" stop-color="#BB91F8"/><stop offset="1" stop-color="#956BC9"/>
+    </linearGradient>
+    <linearGradient id="wc-poison-glass" x1="23" y1="24" x2="43" y2="48" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#9276B5" stop-opacity=".48"/><stop offset="1" stop-color="#423354" stop-opacity=".7"/>
+    </linearGradient>
+    <linearGradient id="wc-poison-liquid" x1="25" y1="34" x2="39" y2="49" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#A47BD8"/><stop offset="1" stop-color="#7045A3"/>
+    </linearGradient>
+    <linearGradient id="wc-poison-cap" x1="27" y1="16" x2="37" y2="23" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#D7C1EE"/><stop offset=".5" stop-color="#AE90CD"/><stop offset="1" stop-color="#79618E"/>
+    </linearGradient>
+    <clipPath id="wc-poison-bottle-clip">
+      <path d="M27 23H37L44 32V46Q44 49 41 49H23Q20 49 20 46V32Z"/>
+    </clipPath>
+  </defs>
+  <rect x="4" y="4" width="56" height="56" rx="13" fill="url(#wc-poison-bg)" stroke="url(#wc-poison-edge)" stroke-width="3.1"/>
+  <path d="M10 18V16A6 6 0 0 1 16 10H43" fill="none" stroke="#E3D4F3" stroke-opacity=".18" stroke-width="1.2" stroke-linecap="round"/>
+  <path d="M27 23H37L44 32V46Q44 49 41 49H23Q20 49 20 46V32Z" fill="url(#wc-poison-glass)"/>
+  <path d="M19 36Q25 33 32 36Q39 39 45 35V50H19Z" fill="url(#wc-poison-liquid)" clip-path="url(#wc-poison-bottle-clip)"/>
+  <path d="M27 23H37L44 32V46Q44 49 41 49H23Q20 49 20 46V32Z" fill="none" stroke="#C8A5F6" stroke-width="3.2" stroke-linejoin="round"/>
+  <path d="M27 17H37V23H27Z" fill="url(#wc-poison-cap)" stroke="#C8A5F6" stroke-width="2.6" stroke-linejoin="round"/>
+  <path d="M28.5 18.4H35.5" fill="none" stroke="#E2E7F0" stroke-opacity=".72" stroke-width="1.15" stroke-linecap="round"/>
+  <path d="M25 35C25 30.7 27.8 28.7 32 28.7S39 30.7 39 35L37.2 39H35.5V43H28.5V39H26.8Z" fill="#E5D6F8" stroke="#CBB0ED" stroke-width="1.4" stroke-linejoin="round"/>
+  <circle cx="29.1" cy="34.6" r="1.85" fill="#342240"/>
+  <circle cx="34.9" cy="34.6" r="1.85" fill="#342240"/>
+  <path d="M32 36.3L33.1 38.1H30.9Z" fill="#4B315C"/>
+  <path d="M30.8 40V42.5M33.2 40V42.5" fill="none" stroke="#513565" stroke-width="1.15" stroke-linecap="round"/>
+  <path d="M23 33.4V39.5" fill="none" stroke="#E3D6F4" stroke-opacity=".45" stroke-width="1.2" stroke-linecap="round"/>
+</svg>

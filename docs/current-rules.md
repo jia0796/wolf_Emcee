@@ -2,6 +2,7 @@
 
 本文件由原 README 的已完成規格整理而來。現行功能概況、總數、最新驗收與回退入口以 [README](../README.md) 為準，外觀以 [DESIGN](../DESIGN.md) 為準。章內歷次提交／測試數屬當輪證據，不是目前總數；歷史施工權限文字不代表尚未完成。原始全文保留於 [整理前快照](archive/README-before-recap-cleanup-20261024.md)。
 
+- [覺醒黑狼王／覺醒女巫（含後續裁定）](akw-spec.md)
 - [覺醒狼美人／覺醒獵人](#awb)
 - [死亡技能、機通手勢、狼弟房規](#death-skills)
 - [主持計時器與投票操作](#host-controls)

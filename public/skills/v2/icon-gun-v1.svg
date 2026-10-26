@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-labelledby="wc-gun-title">
+  <title id="wc-gun-title">開槍</title>
+  <defs>
+    <linearGradient id="wc-gun-bg" x1="8" y1="5" x2="51" y2="60" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#49412C"/><stop offset=".43" stop-color="#302B23"/><stop offset="1" stop-color="#211F24"/>
+    </linearGradient>
+    <linearGradient id="wc-gun-edge" x1="12" y1="4" x2="53" y2="60" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F8E2A9"/><stop offset=".46" stop-color="#F3C96C"/><stop offset="1" stop-color="#B99A51"/>
+    </linearGradient>
+    <linearGradient id="wc-gun-metal" x1="28" y1="25" x2="44" y2="35" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF0B8"/><stop offset=".48" stop-color="#E9C66E"/><stop offset="1" stop-color="#A77C38"/>
+    </linearGradient>
+    <linearGradient id="wc-gun-stock" x1="13" y1="29" x2="25" y2="39" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#D7AC5B"/><stop offset=".5" stop-color="#AA813B"/><stop offset="1" stop-color="#6D542E"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="56" height="56" rx="13" fill="url(#wc-gun-bg)" stroke="url(#wc-gun-edge)" stroke-width="3.1"/>
+  <path d="M10 18V16A6 6 0 0 1 16 10H43" fill="none" stroke="#F7E8BD" stroke-opacity=".18" stroke-width="1.2" stroke-linecap="round"/>
+  <g transform="rotate(-24 32 32)" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M28 26.5H50.5V31H28Z" fill="url(#wc-gun-metal)" stroke="#F3D48F" stroke-width="2.1"/>
+    <path d="M49 25.3H52V32H49Z" fill="#D5AE5F" stroke="#F6DDA0" stroke-width="1.7"/>
+    <path d="M11 29H17L24 31H28L25 36H21L17 34L15.8 40H10Z" fill="url(#wc-gun-stock)" stroke="#E9C77E" stroke-width="2.3"/>
+    <path d="M26 26H35V33.4H29L25 37H22V32Z" fill="url(#wc-gun-metal)" stroke="#F0D18B" stroke-width="2"/>
+    <path d="M34 32H44L42 35H35Z" fill="#AA813B" stroke="#DDB76B" stroke-width="1.5"/>
+    <path d="M28.3 34.6Q28.8 40.5 33.7 40Q37.2 39.4 37.6 34" fill="none" stroke="#E9C77E" stroke-width="2.1"/>
+    <path d="M32.9 34.1L31.8 37" fill="none" stroke="#E9C77E" stroke-width="1.6"/>
+    <path d="M26.2 25.7V22.5H29.3V25.6" fill="none" stroke="#E8C477" stroke-width="2"/>
+    <path d="M14 31V35.8" fill="none" stroke="#F7DF9A" stroke-opacity=".5" stroke-width="1.1"/>
+    <path d="M36.5 27.6H47" fill="none" stroke="#E8EEDE" stroke-opacity=".72" stroke-width="1.1"/>
+  </g>
+  <path d="M52.5 14.5L55 11.8M55.4 18.8L58 18.2" fill="none" stroke="#F9E6AB" stroke-width="1.8" stroke-linecap="round"/>
+</svg>

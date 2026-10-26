@@ -1,0 +1,198 @@
+[
+  {
+    "skill": "wolf-attack",
+    "name": "狼刀",
+    "path": "public/skills/v2/icon-wolf-attack-v2.svg",
+    "sha256": "72e0d27a3fb55f3f3110d5d6bc32e5be084f512a325a300a567c41c51823df6b",
+    "driveURL": "https://drive.google.com/file/d/1b0x0S39uL_ZNpNaT54Bz-W0A3FnUOllz/view?usp=drivesdk"
+  },
+  {
+    "skill": "antidote",
+    "name": "解藥",
+    "path": "public/skills/v2/icon-antidote-v1.svg",
+    "sha256": "affe427508f9b9b06f726461639dba07da85f02a49278a38dc718a8694534ddb",
+    "driveURL": "https://drive.google.com/file/d/1jweOeOQrKhNJvqoMfak94q-zoosSU-PS/view?usp=drivesdk"
+  },
+  {
+    "skill": "poison",
+    "name": "毒藥",
+    "path": "public/skills/v2/icon-poison-v1.svg",
+    "sha256": "865b389bcd9af4e69e224f658efbefd9d5a1679c17f8539806c17fbac0793d80",
+    "driveURL": "https://drive.google.com/file/d/1LhlRcHfYC9Abt1VN51-CKUsvHnZqBO3p/view?usp=drivesdk"
+  },
+  {
+    "skill": "inspect",
+    "name": "好人查驗",
+    "path": "public/skills/v2/icon-inspect-v1.svg",
+    "sha256": "9c656300c303055a41f0567242400bbfa8dfdb7491d353bed56c22433009b9c0",
+    "driveURL": "https://drive.google.com/file/d/1PKcFIe57FV004tcaNhtG2_rXLuEX5wyi/view?usp=drivesdk"
+  },
+  {
+    "skill": "wolf-inspect",
+    "name": "狼人查驗",
+    "path": "public/skills/v2/icon-wolf-inspect-v2.svg",
+    "sha256": "fa7c2463033075a0d60d6b639a03e9c19e8977b5bb5dff7a33be425a366f27ce",
+    "driveURL": "https://drive.google.com/file/d/11IUp2806bI8npYMwR2pxFyqqjli7XMCL/view?usp=drivesdk"
+  },
+  {
+    "skill": "gun",
+    "name": "開槍",
+    "path": "public/skills/v2/icon-gun-v1.svg",
+    "sha256": "c571d42f205fc9a7e20091171bf63f0f59fb99a83220b900a4b0da5f21467ccf",
+    "driveURL": "https://drive.google.com/file/d/1rZ2NNZQ_nRDB5b5yuf_NGKDfe5fHWfIc/view?usp=drivesdk"
+  },
+  {
+    "skill": "wolf-gun",
+    "name": "狼人開槍",
+    "path": "public/skills/v2/icon-wolf-gun-v1.svg",
+    "sha256": "08840fc591e5644dfcf38103829a6b5dcbaaeac58e749cdca9c5307aebc2a86b",
+    "driveURL": "https://drive.google.com/file/d/1zWuWzck76uVzzx1KRe8GCygcgJVL_i-9/view?usp=drivesdk"
+  },
+  {
+    "skill": "role-model",
+    "name": "榜樣",
+    "path": "public/skills/v2/icon-role-model-v1.svg",
+    "sha256": "381eb8a6083a1d52a9948def4510e363c5574214951b11a656d17924b4bee684",
+    "driveURL": "https://drive.google.com/file/d/12mJVoIVDR5dYdroWcLyBartA0klh3KZj/view?usp=drivesdk"
+  },
+  {
+    "skill": "charm",
+    "name": "魅惑",
+    "path": "public/skills/v2/icon-charm-v2.svg",
+    "sha256": "95b0571237790cb07392e3832b47d00aad05bec812a1e99653c9d0cc8c11471a",
+    "driveURL": "https://drive.google.com/file/d/1_CTKcKm1i6gBzMtrAoQEE49KyMwDamsW/view?usp=drivesdk"
+  },
+  {
+    "skill": "heartbreak",
+    "name": "殉情",
+    "path": "public/skills/v2/icon-heartbreak-v2.svg",
+    "sha256": "2e820e1c2781f95d4b78558022748599f551e689323d0842d10b2dc78c985257",
+    "driveURL": "https://drive.google.com/file/d/1eXaPr9J5ZRrsJ---4r5b1yM-fLlnSWsh/view?usp=drivesdk"
+  },
+  {
+    "skill": "duel",
+    "name": "決鬥",
+    "path": "public/skills/v2/icon-duel-v1.svg",
+    "sha256": "24fa164e94e23946aab8750f3dc77d9a65c0ad356c0b7b1e0fccdeb8bbde4c5d",
+    "driveURL": "https://drive.google.com/file/d/1EpmiZBh2JUlDFttvtaoeDTdFN9MzV8d3/view?usp=drivesdk"
+  },
+  {
+    "skill": "swap",
+    "name": "交換",
+    "path": "public/skills/v2/icon-swap-v1.svg",
+    "sha256": "5f83f64248219fe2e6f5b370196ae2d4813f70ee9b49f213676e9bd4f1d18242",
+    "driveURL": "https://drive.google.com/file/d/1WJMCjp9ffUHRy2tNoHRz1jgpf0XNDnnJ/view?usp=drivesdk"
+  },
+  {
+    "skill": "shield",
+    "name": "守衛盾",
+    "path": "public/skills/v2/icon-shield-v1.svg",
+    "sha256": "a8a310761c31f3807c079c7c7cac123d1f1f8b60a9703ebde3a6b65d93bba1e6",
+    "driveURL": "https://drive.google.com/file/d/1uu9_VIocEvFGXGmXsZvT188cvtvlcmYy/view?usp=drivesdk"
+  },
+  {
+    "skill": "sleep",
+    "name": "攝夢 Z z z",
+    "path": "public/skills/v2/icon-sleep-v1.svg",
+    "sha256": "ca1d55c5e0125cadaad734814103617427cf3b4ed46420ebcadbc218558372b0",
+    "driveURL": "https://drive.google.com/file/d/1TI2lV_x0x0kn9o_w7G6rpzdVB2k-4962/view?usp=drivesdk"
+  },
+  {
+    "skill": "gravekeeper",
+    "name": "守墓人墓碑",
+    "path": "public/skills/v2/icon-gravekeeper-v1.svg",
+    "sha256": "577cd7c40890dd2de127ca83fcfe4429d4ecc3c3078d0b59370ab96dd86eac19",
+    "driveURL": "https://drive.google.com/file/d/1ymwUHBij3UnUZOfDAqNhGFSvzdiTpqvV/view?usp=drivesdk"
+  },
+  {
+    "skill": "evil-knight-reflect",
+    "name": "惡靈騎士反傷",
+    "path": "public/skills/v2/icon-evil-knight-reflect-v1.svg",
+    "sha256": "8cf3204aad731ac802bb6046913494a7d9b5d2d421273392941791fb8f3b87a9",
+    "driveURL": "https://drive.google.com/file/d/1sPMcx-xpekxKe8RI7QeM1ZQJnBRbdqf7/view?usp=drivesdk"
+  },
+  {
+    "skill": "hunt",
+    "name": "獵魔人狩獵",
+    "path": "public/skills/v2/icon-hunt-v1.svg",
+    "sha256": "bbe7aa68750abecbc1c792f42a969ed3f403bc9c0d93711df63eccb103e091a0",
+    "driveURL": "https://drive.google.com/file/d/1YopPM_N7Cnw3bq4wXaa4yO6F5yw7LM1O/view?usp=drivesdk"
+  },
+  {
+    "skill": "fear",
+    "name": "夢魘恐懼",
+    "path": "public/skills/v2/icon-fear-v2.svg",
+    "sha256": "87acae21640d689f2d97523f319c266d7f2e45877e09ae2d293b53b70f00f54b",
+    "driveURL": "https://drive.google.com/file/d/1KMxgFm29ZGKpNyUTRN_zepPiva1VhSeI/view?usp=drivesdk"
+  },
+  {
+    "skill": "learn",
+    "name": "機械狼學習",
+    "path": "public/skills/v2/icon-learn-v1.svg",
+    "sha256": "0468828c15bf46ea53924e12f92bd7fc2730be236bc91dd53637696383ad0318",
+    "driveURL": "https://drive.google.com/file/d/1xCcTZR-rOKNUbQVqmqlhxpIkp3ufc-kS/view?usp=drivesdk"
+  },
+  {
+    "skill": "blood-blade",
+    "name": "血月使者屠邊刀",
+    "path": "public/skills/v2/icon-blood-blade-v2.svg",
+    "sha256": "b2f4fb5fefc6301e7d4b636cebde180bccb7549bcb7f96a06eb1a3dee441e157",
+    "driveURL": "https://drive.google.com/file/d/1JIHPKgkJ0-ShEDsNyMxDjWCSnwXq-Z93/view?usp=drivesdk"
+  },
+  {
+    "skill": "revenge-blade",
+    "name": "狼弟復仇刀",
+    "path": "public/skills/v2/icon-revenge-blade-v1.svg",
+    "sha256": "634a7e58ba8e264b361de0a274ea154af8e86f0737250757d860a7d67946b302",
+    "driveURL": "https://drive.google.com/file/d/1LvWOoWBRXfy6vlLfO0gclmyebjaAn0nS/view?usp=drivesdk"
+  },
+  {
+    "skill": "transform",
+    "name": "覺醒石像鬼轉化",
+    "path": "public/skills/v2/icon-transform-v1.svg",
+    "sha256": "a2ddc70b8b08352e178afdb0703d204e13a3c75bff1870119e901195260d58cf",
+    "driveURL": "https://drive.google.com/file/d/1hhG1NT6KyvAUitO2lGgaJf0WGCV4EgQq/view?usp=drivesdk"
+  },
+  {
+    "skill": "infect",
+    "name": "種狼感染",
+    "path": "public/skills/v2/icon-infect-v1.svg",
+    "sha256": "084fa7f393c97e51518cd277f8c655f11480db37180acedb2b2fc81d2f667cb0",
+    "driveURL": "https://drive.google.com/file/d/1cV6TilB2RdCnwmWdjZ_UZn5BW079lSKZ/view?usp=drivesdk"
+  },
+  {
+    "skill": "trade",
+    "name": "黑市商人交易",
+    "path": "public/skills/v2/icon-trade-v2.svg",
+    "sha256": "51437d740a3b9bebd089dc5d19fd93e35420c2c2078cac7387c7f19eb326fbdb",
+    "driveURL": "https://drive.google.com/file/d/1AQ2344XYkTSk1HQwsjoJE-w9tebxJP9m/view?usp=drivesdk"
+  },
+  {
+    "skill": "mask",
+    "name": "假面的面具",
+    "path": "public/skills/v2/icon-mask-v1.svg",
+    "sha256": "0dc2ae4a33159a1152c09e6186037e880379ad263e5f213a86358f73cdeac346",
+    "driveURL": "https://drive.google.com/file/d/1NHbgi0YMu9UqXIH3OOHwC3QKtoWzWxgn/view?usp=drivesdk"
+  },
+  {
+    "skill": "dance",
+    "name": "舞者共舞",
+    "path": "public/skills/v2/icon-dance-v1.svg",
+    "sha256": "173f507cb3f7a76a708cbfd54606aae7501ddd5051603661ff900b8f091c10b4",
+    "driveURL": "https://drive.google.com/file/d/1H2qqI2EGR_XbLYKBjFIN3ysDssrYOQEI/view?usp=drivesdk"
+  },
+  {
+    "skill": "bond",
+    "name": "魅影綁定",
+    "path": "public/skills/v2/icon-bond-v1.svg",
+    "sha256": "0ddddac031b7fea912fd05ad099198af060fe1f99dd6fb7a258d38010b928aa0",
+    "driveURL": "https://drive.google.com/file/d/19S1-_FrbnsV8rk3QLy1C9pfmUSkVoF6B/view?usp=drivesdk"
+  },
+  {
+    "skill": "wolf-king-bestow",
+    "name": "覺醒狼王親傳",
+    "path": "public/skills/v2/icon-wolf-king-bestow-v1.svg",
+    "sha256": "ca8cc271ceeff3e367c764b244fbd8af7fbb166bb0fc17b0e43de5c30c4c2676",
+    "driveURL": "https://drive.google.com/file/d/1Gw_kB9AbD54yp7ERCNfOkLwc_KLByByt/view?usp=drivesdk"
+  }
+]

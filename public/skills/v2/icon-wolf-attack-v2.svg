@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-labelledby="wc-knife-title">
+  <title id="wc-knife-title">狼刀</title>
+  <defs>
+    <linearGradient id="wc-knife-glass" x1="8" y1="5" x2="51" y2="60" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#422631"/>
+      <stop offset=".42" stop-color="#2C1E2B"/>
+      <stop offset="1" stop-color="#1B1825"/>
+    </linearGradient>
+    <linearGradient id="wc-knife-edge" x1="12" y1="4" x2="53" y2="60" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F5A0AB" stop-opacity="1"/>
+      <stop offset=".46" stop-color="#EE7B8D" stop-opacity="1"/>
+      <stop offset="1" stop-color="#D2667E" stop-opacity="1"/>
+    </linearGradient>
+    <linearGradient id="wc-knife-red" x1="25" y1="12" x2="38" y2="39" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFD7D9"/>
+      <stop offset=".32" stop-color="#EB8397"/>
+      <stop offset=".73" stop-color="#D6506F"/>
+      <stop offset="1" stop-color="#A72B4B"/>
+    </linearGradient>
+    <linearGradient id="wc-knife-metal" x1="22" y1="37" x2="39" y2="54" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F6B5BA"/>
+      <stop offset=".4" stop-color="#CD6B80"/>
+      <stop offset="1" stop-color="#854253"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="56" height="56" rx="13" fill="url(#wc-knife-glass)" stroke="url(#wc-knife-edge)" stroke-width="3.1"/>
+  <path d="M10 18V16A6 6 0 0 1 16 10H43" fill="none" stroke="#F3CBD0" stroke-opacity=".18" stroke-width="1.2" stroke-linecap="round"/>
+  <path d="M32 11L41 27L36.2 36.6H27.8L23 27Z" fill="url(#wc-knife-red)" stroke="#EB8397" stroke-width="2.8" stroke-linejoin="round"/>
+  <path d="M32 12.6V35.4H28.7L24.6 27Z" fill="#FFB8C3" fill-opacity=".35"/>
+  <path d="M32 16V33" fill="none" stroke="#FFF4EF" stroke-opacity=".82" stroke-width="1.25" stroke-linecap="round"/>
+  <path d="M21.5 38.4L24.2 41H39.8L42.5 38.4" fill="none" stroke="url(#wc-knife-metal)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M28.4 41H35.6V50L32 53L28.4 50Z" fill="#39212C" stroke="url(#wc-knife-metal)" stroke-width="2.4" stroke-linejoin="round"/>
+  <path d="M29.5 44.4H34.5M29.5 47.5H34.5" fill="none" stroke="#E0A1AE" stroke-width="2" stroke-linecap="round"/>
+  <path d="M28.5 41H35.5" fill="none" stroke="#B9D5D9" stroke-opacity=".65" stroke-width="1.1" stroke-linecap="round"/>
+</svg>

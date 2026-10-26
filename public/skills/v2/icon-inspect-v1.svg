@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-labelledby="wc-inspect-title">
+  <title id="wc-inspect-title">好人查驗</title>
+  <defs>
+    <linearGradient id="wc-inspect-bg" x1="8" y1="5" x2="51" y2="60" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#49412C"/><stop offset=".43" stop-color="#302B23"/><stop offset="1" stop-color="#211F24"/>
+    </linearGradient>
+    <linearGradient id="wc-inspect-edge" x1="12" y1="4" x2="53" y2="60" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F8E2A9"/><stop offset=".46" stop-color="#F3C96C"/><stop offset="1" stop-color="#B99A51"/>
+    </linearGradient>
+    <linearGradient id="wc-inspect-eye" x1="21" y1="22" x2="44" y2="42" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6A5830" stop-opacity=".65"/><stop offset="1" stop-color="#352C24" stop-opacity=".8"/>
+    </linearGradient>
+    <linearGradient id="wc-inspect-iris" x1="28" y1="26" x2="36" y2="38" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFE8A1"/><stop offset=".5" stop-color="#EDC96E"/><stop offset="1" stop-color="#BC9645"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="56" height="56" rx="13" fill="url(#wc-inspect-bg)" stroke="url(#wc-inspect-edge)" stroke-width="3.1"/>
+  <path d="M10 18V16A6 6 0 0 1 16 10H43" fill="none" stroke="#F7E8BD" stroke-opacity=".18" stroke-width="1.2" stroke-linecap="round"/>
+  <path d="M14.8 32Q32 13.5 49.2 32Q32 50.5 14.8 32Z" fill="url(#wc-inspect-eye)" stroke="#F0D28D" stroke-width="3.4" stroke-linejoin="round"/>
+  <circle cx="32" cy="32" r="6.6" fill="url(#wc-inspect-iris)" stroke="#F6D993" stroke-width="2.2"/>
+  <circle cx="32" cy="32" r="3.1" fill="#3B3022"/>
+  <circle cx="33.8" cy="29.7" r="1.6" fill="#FFF5D9"/>
+  <path d="M20 29.4Q23 26.7 26.2 25.7" fill="none" stroke="#F9E9B7" stroke-opacity=".55" stroke-width="1.2" stroke-linecap="round"/>
+</svg>

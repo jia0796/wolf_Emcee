@@ -8,7 +8,7 @@ import {CATALOG_CLEAR,catalogImage} from '../public/catalog-art.js';
 
 test('new catalog covers the existing roles exactly and preserves original and legacy clear art',async()=>{
  const manifest=JSON.parse(await readFile(new URL('../docs/catalog-v2-assets.json',import.meta.url)));
- assert.equal(manifest.length,33);
+ assert.equal(manifest.length,35);
  assert.deepEqual(Object.keys(CATALOG_ART_V2).sort(),Object.keys(ROLE_DATA).sort());
  for(const row of manifest){
   assert.equal(ROLE_DATA[row.id].image,row.original);

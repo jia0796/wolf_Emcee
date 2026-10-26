@@ -1,0 +1,35 @@
+{
+  "environment": "local loopback Docker Supabase only",
+  "existingBoardRowsPreserved": 27,
+  "totalBoards": 28,
+  "applied": "20261026072534",
+  "preExistingLocalHistory": [
+    {
+      "version": "20261020134928",
+      "name": "online_dealing_draft"
+    },
+    {
+      "version": "20261020142406",
+      "name": "expiry_schedule"
+    },
+    {
+      "version": "20261020143021",
+      "name": "deployment_hardening"
+    },
+    {
+      "version": "20261021110926",
+      "name": "room_dissolve_delete"
+    },
+    {
+      "version": "20261024082212",
+      "name": "host_roles_player_recap"
+    },
+    {
+      "version": "20261024095338",
+      "name": "awakened_beauty_board"
+    }
+  ],
+  "cloudModified": false,
+  "initialLocalVersion": "20261026065601",
+  "versionAlignedWithCloud": true
+}

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-labelledby="wc-antidote-title">
+  <title id="wc-antidote-title">解藥</title>
+  <defs>
+    <linearGradient id="wc-antidote-bg" x1="8" y1="5" x2="51" y2="60" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#264A3C"/><stop offset=".43" stop-color="#192F2A"/><stop offset="1" stop-color="#121F24"/>
+    </linearGradient>
+    <linearGradient id="wc-antidote-edge" x1="12" y1="4" x2="53" y2="60" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#A4EAC2"/><stop offset=".46" stop-color="#71D7A3"/><stop offset="1" stop-color="#4AAE80"/>
+    </linearGradient>
+    <linearGradient id="wc-antidote-glass" x1="23" y1="24" x2="43" y2="48" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#5E9F83" stop-opacity=".48"/><stop offset="1" stop-color="#203F35" stop-opacity=".7"/>
+    </linearGradient>
+    <linearGradient id="wc-antidote-liquid" x1="25" y1="34" x2="39" y2="49" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#65CA98"/><stop offset="1" stop-color="#278C61"/>
+    </linearGradient>
+    <linearGradient id="wc-antidote-cap" x1="27" y1="16" x2="37" y2="23" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#B0E5C5"/><stop offset=".5" stop-color="#76B995"/><stop offset="1" stop-color="#47795F"/>
+    </linearGradient>
+    <clipPath id="wc-antidote-bottle-clip">
+      <path d="M27 23H37L39.7 28.5Q44 33 44 39V44Q44 49 39 49H25Q20 49 20 44V39Q20 33 24.3 28.5Z"/>
+    </clipPath>
+  </defs>
+  <rect x="4" y="4" width="56" height="56" rx="13" fill="url(#wc-antidote-bg)" stroke="url(#wc-antidote-edge)" stroke-width="3.1"/>
+  <path d="M10 18V16A6 6 0 0 1 16 10H43" fill="none" stroke="#C2F0D5" stroke-opacity=".18" stroke-width="1.2" stroke-linecap="round"/>
+  <path d="M27 23H37L39.7 28.5Q44 33 44 39V44Q44 49 39 49H25Q20 49 20 44V39Q20 33 24.3 28.5Z" fill="url(#wc-antidote-glass)"/>
+  <path d="M19 35Q25 32 32 35Q39 38 45 34V50H19Z" fill="url(#wc-antidote-liquid)" clip-path="url(#wc-antidote-bottle-clip)"/>
+  <path d="M27 23H37L39.7 28.5Q44 33 44 39V44Q44 49 39 49H25Q20 49 20 44V39Q20 33 24.3 28.5Z" fill="none" stroke="#8CE3B1" stroke-width="3.2" stroke-linejoin="round"/>
+  <path d="M27 17H37V23H27Z" fill="url(#wc-antidote-cap)" stroke="#8CE3B1" stroke-width="2.6" stroke-linejoin="round"/>
+  <path d="M28.5 18.4H35.5" fill="none" stroke="#E3EBD8" stroke-opacity=".72" stroke-width="1.15" stroke-linecap="round"/>
+  <path d="M32 33V43M27 38H37" fill="none" stroke="#D2F6DD" stroke-width="3.8" stroke-linecap="round"/>
+  <path d="M24 33.2Q22.8 36 22.8 39.5" fill="none" stroke="#C8F2D9" stroke-opacity=".5" stroke-width="1.2" stroke-linecap="round"/>
+</svg>

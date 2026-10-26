@@ -30,6 +30,6 @@ test('UI54 recap removes redundant learning and destruction words only; data and
  assert.equal(outcomeLabel({type:'badge',rawTargets:[],result:'撕毀警徽'}),'');assert.equal(outcomeLabel({type:'badge',rawTargets:[3],result:'移交警徽'}),'移交警徽');assert.equal(outcomeLabel({skill:'inspect',result:'女巫'}),'女巫');
 });
 test('UI54 all 28 thumbnail derivatives and unchanged approved originals match recorded hashes',async()=>{
- const manifest=JSON.parse(await readFile(new URL('../docs/ui54-thumbnails.json',import.meta.url),'utf8'));assert.equal(manifest.length,Object.keys(ROLE_DATA).filter(id=>!['fragrance','awakenedSeer','stoneGargoyle','awakenedBeauty','awakenedHunter'].includes(id)).length);
+ const manifest=JSON.parse(await readFile(new URL('../docs/ui54-thumbnails.json',import.meta.url),'utf8'));assert.equal(manifest.length,Object.keys(ROLE_DATA).filter(id=>!['fragrance','awakenedSeer','stoneGargoyle','awakenedBeauty','awakenedHunter','awakenedKing','awakenedWitch'].includes(id)).length);
  for(const a of manifest){assert.equal(ROLE_DATA[a.id].thumbnail,a.thumbnail);for(const [path,hash] of [[a.image,a.originalSha256],[a.thumbnail,a.thumbnailSha256]])assert.equal(createHash('sha256').update(await readFile(new URL('../public/'+path,import.meta.url))).digest('hex'),hash);}
 });

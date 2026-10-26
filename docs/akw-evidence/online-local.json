@@ -1,0 +1,33 @@
+{
+  "environment": "local frontend + local Supabase",
+  "passed": 21,
+  "checks": [
+    "new board creates an authoritative twelve-seat room",
+    "twelve independent synthetic players fill all seats",
+    "player wait screen recovers its own seat",
+    "host receives all twelve committed roles and original confirm phase",
+    "four wolves four gods four villagers match the approved board exactly",
+    "recover preserves original deal",
+    "deal retry never reshuffles",
+    "all players get only their own committed role",
+    "dealt player initially sees only card back",
+    "awakenedKing shows the approved current full artwork",
+    "awakenedKing library entry clears the private face",
+    "awakenedKing codex text exactly matches approved copy",
+    "awakenedKing returns to covered role",
+    "awakenedWitch shows the approved current full artwork",
+    "awakenedWitch library entry clears the private face",
+    "awakenedWitch codex text exactly matches approved copy",
+    "awakenedWitch returns to covered role",
+    "formal end removes active room",
+    "seated player reaches identical recap with only Home",
+    "every seated player retrieves the same final recap",
+    "no browser exceptions"
+  ],
+  "errors": [],
+  "ended": true,
+  "cleanup": "active room removed",
+  "complete": true,
+  "recap": "Synthetic empty-history transport fixture, not a simulated real match",
+  "realDevices": "待真機驗收"
+}

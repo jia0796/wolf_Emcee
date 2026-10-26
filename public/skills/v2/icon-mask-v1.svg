@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-labelledby="wc-mask-title">
+  <title id="wc-mask-title">假面的面具</title>
+  <defs>
+    <linearGradient id="wc-mask-bg" x1="12" y1="8" x2="51" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#422631" />
+      <stop offset=".46" stop-color="#2C1E2B" />
+      <stop offset="1" stop-color="#1B1825" />
+    </linearGradient>
+    <linearGradient id="wc-mask-edge" x1="12" y1="8" x2="51" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F5A0AB" />
+      <stop offset=".46" stop-color="#EE7B8D" />
+      <stop offset="1" stop-color="#D2667E" />
+    </linearGradient>
+    <linearGradient id="wc-mask-ink" x1="12" y1="8" x2="51" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F6B5C1" />
+      <stop offset=".46" stop-color="#E77F97" />
+      <stop offset="1" stop-color="#BE526F" />
+    </linearGradient>
+    <linearGradient id="wc-mask-form" x1="12" y1="8" x2="51" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#E9859D" />
+      <stop offset=".46" stop-color="#B44F70" />
+      <stop offset="1" stop-color="#71334F" />
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="56" height="56" rx="13" fill="url(#wc-mask-bg)" stroke="url(#wc-mask-edge)" stroke-width="3.1" />
+  <path d="M10 18V16A6 6 0 0 1 16 10H43" fill="none" stroke="#FFD5DE" stroke-opacity=".18" stroke-width="1.2" stroke-linecap="round" />
+  <path d="M14 22Q23 18 32 25Q41 18 50 22L47 35Q45 43 37 42L32 38L27 42Q19 43 17 35Z" fill="url(#wc-mask-form)" stroke="url(#wc-mask-ink)" stroke-width="3" stroke-linejoin="round" />
+  <path d="M20 29Q25 26 29 32Q25 36 21 33ZM44 29Q39 26 35 32Q39 36 43 33Z" fill="#271C29" stroke="#FFD5DE" stroke-width="1.7" stroke-linejoin="round" />
+  <path d="M32 28V36" fill="none" stroke="url(#wc-mask-ink)" stroke-width="1.8" stroke-linecap="round" />
+  <path d="M18 24Q23 22 27 25" fill="none" stroke="#FFD5DE" stroke-opacity=".45" stroke-width="1.2" stroke-linecap="round" />
+</svg>

@@ -1,6 +1,6 @@
 {
   "environment": "local Supabase Auth/Postgres RPC",
-  "passed": 12,
+  "passed": 14,
   "results": [
     {
       "name": "10: only owner receives complete committed seats, including on recover",
@@ -24,6 +24,14 @@
     },
     {
       "name": "awakenedBeauty12: formal end deletes active room data while every seated player gets identical recap",
+      "passed": true
+    },
+    {
+      "name": "awakenedKingWitch12: only owner receives complete committed seats, including on recover",
+      "passed": true
+    },
+    {
+      "name": "awakenedKingWitch12: formal end deletes active room data while every seated player gets identical recap",
       "passed": true
     },
     {

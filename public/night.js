@@ -1,4 +1,5 @@
 import {isAwb,substituteBatch} from './awakening.js';
+import {isAkw,akwPoisonEffective} from './akw.js';
 import {specialFlow,originalKnifeActors,takeoverOwner} from './takeover.js';
 import {fragranceActor,bindingBatch} from './fragrance.js';
 import {maskActor,danceInfo} from './masquerade.js';
@@ -11,7 +12,7 @@ export const eligibleVoters=s=>s.players.filter(p=>p.active&&p.alive&&!(p.role==
 export const eligibleExileTarget=(s,p)=>!!p?.active&&p.alive&&!(p.role==='idiot'&&s.idiot?.exileBanned);
 export function mixedResult(s){const m=s.mixed;if(!m?.chosen||!s.winner)return null;return {seat:m.seat,target:m.target,targetRole:m.targetRole,camp:m.camp,won:m.camp===s.winner};}
 const liveRole=(s,role)=>s.players.find(p=>p.alive&&p.role===role&&nativeAllowed(s,p));
-export const ordinaryWolves=s=>s.players.filter(p=>p.alive&&(['wolf','king','elder','nightmare','blood','gargoyle','evilKnight','seedWolf','beauty','awakenedBeauty'].includes(p.role)||(infected(s,p)&&s.night>s.infection.usedNight||!specialFlow(s)&&converted(s,p)&&s.gargoyle.joinNight!=null&&s.night>=s.gargoyle.joinNight||(p.role==='younger'&&s.brothers?.joinNight!=null&&s.night>=s.brothers.joinNight))));
+export const ordinaryWolves=s=>s.players.filter(p=>p.alive&&(['wolf','king','elder','nightmare','blood','gargoyle','evilKnight','seedWolf','beauty','awakenedBeauty','awakenedKing'].includes(p.role)||(infected(s,p)&&s.night>s.infection.usedNight||!specialFlow(s)&&converted(s,p)&&s.gargoyle.joinNight!=null&&s.night>=s.gargoyle.joinNight||(p.role==='younger'&&s.brothers?.joinNight!=null&&s.night>=s.brothers.joinNight))));
 export const revengeAvailable=s=>!!liveRole(s,'younger')&&s.brothers?.revengeNight===s.night&&!s.brothers.revengeUsed;
 export const revengeRecorded=s=>!!liveRole(s,'younger')&&s.brothers?.revengeNight===s.night&&(revengeAvailable(s)||s.brothers.revengeUsedNight===s.night);
 export const canTrade=s=>!!liveRole(s,'merchant')&&!s.merchant?.used;
@@ -94,8 +95,8 @@ export function settleNight(s,{phase='all'}={}){
  const wolfIds=new Set(dead.keys());
  for(const id of dance.deaths){const d={id,cause:'dance',sourceActor:s.players.find(p=>p.role==='dancer')?.id,sourceRole:'dancer',source:'dance'};events.push({...d,blocked:null});if(s.players.find(p=>p.id===id)?.alive&&!dead.has(id))dead.set(id,d);}
  const poisons=[];
- const witch=s.players.find(p=>p.role==='witch');
- if(n.poison===true&&n.poisonTarget&&witch&&!feared(s,witch.id)&&nativeAllowed(s,witch))poisons.push({id:map(n.poisonTarget),cause:'poison',sourceActor:witch.id,sourceRole:'witch',source:'witch'});
+ const witch=s.players.find(p=>p.role===(isAkw(s)?'awakenedWitch':'witch'));
+ if((isAkw(s)?akwPoisonEffective(s):n.poison===true)&&n.poisonTarget&&witch&&!feared(s,witch.id)&&nativeAllowed(s,witch))poisons.push({id:map(n.poisonTarget),cause:'poison',sourceActor:witch.id,sourceRole:witch.role,source:'witch'});
  if(ability==='mechanicalPoison'&&n.mechanicalPoison)poisons.push({id:n.mechanicalPoison,cause:'poison',sourceActor:mechanical.id,sourceRole:'mechanical',source:'learnedPoison'});
  if(luckyAbility(s)==='poison'&&n.luckyPoison)poisons.push({id:map(n.luckyPoison),cause:'poison',sourceActor:s.lucky.seat,sourceRole:s.players.find(p=>p.id===s.lucky.seat).role,source:'luckyPoison'});
  for(const poison of poisons){

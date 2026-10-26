@@ -4,9 +4,10 @@ import {CATALOG_ART_V2} from './catalog-v2.js';
 import {identityDeathReason} from './recap-deaths.js';
 import {recapNights,personSnapshot} from './records.js';
 import {realWolf,infected,converted} from './identity.js';
-export const SKILL_LABELS={bond:'綁定','wolf-inspect':'狼人查驗',dance:'共舞',mask:'面具',charm:'魅惑',heartbreak:'殉情',duel:'決鬥',vote:'放逐投票','sheriff-badge':'警徽',infect:'感染','wolf-attack':'狼刀',antidote:'解藥',poison:'毒藥',shield:'守護',inspect:'查驗',swap:'交換',gun:'槍',learn:'學習',trade:'交易',fear:'恐懼',sleep:'夢遊','role-model':'榜樣',hunt:'狩獵',transform:'轉化',gravekeeper:'守墓查驗','evil-knight-reflect':'反傷'};
+import {applySkillArt,eventSkillArt} from './skill-art.js';
+export const SKILL_LABELS={bond:'綁定','wolf-inspect':'狼人查驗',dance:'共舞',mask:'面具',charm:'魅惑',heartbreak:'殉情',duel:'決鬥',vote:'放逐投票','sheriff-badge':'警徽',infect:'感染','wolf-attack':'狼刀',antidote:'解藥',poison:'毒藥',shield:'守護',inspect:'查驗',swap:'交換',gun:'槍',learn:'學習',trade:'交易',fear:'恐懼',sleep:'夢遊','role-model':'榜樣',hunt:'狩獵',transform:'轉化',gravekeeper:'守墓查驗','evil-knight-reflect':'反傷','wolf-gun':'狼人開槍','blood-blade':'屠邊刀','revenge-blade':'復仇刀','wolf-king-bestow':'親傳'};
 const el=(tag,cls,text)=>{const node=document.createElement(tag);if(cls)node.className=cls;if(text!=null)node.textContent=text;return node;};
-export function skillIcon(skill){const icon=el('img','skill-icon');icon.src='skills/icon-'+skill+'.svg';icon.alt=SKILL_LABELS[skill];return icon;}
+export function skillIcon(skill){const icon=el('img','skill-icon');applySkillArt(icon,skill);icon.alt=SKILL_LABELS[skill]||'技能';return icon;}
 export function cardModel(event){
  const lucky=event.displayRole==='lucky',r=ROLE_DATA[event.portraitRole||event.actorRole];
  const target=event.skill==='swap'?event.rawTargets.map(id=>id+'號').join(' ↔ '):event.rawTargets.map((id,i)=>id===event.effectiveTargets[i]?id+'號':id+'號 → '+event.effectiveTargets[i]+'號').join('、');
@@ -78,7 +79,7 @@ export function eventCard(e){
  let left=actorModel(e);const vote=['sheriff','exile'].includes(e.type);
  if(vote)left={name:e.type==='sheriff'?'警長競選':'放逐投票',image:e.type==='sheriff'?'art/recap-sheriff.png':'art/recap-vote.png',tone:'neutral'};
  card.append(portrait(left),personText(left,{noNumber:vote||e.key==='basic'&&!['fragrance','stoneGargoyle'].includes(e.actorRole)}));
- const center=el('div','recap-effect'),label=outcomeLabel(e);if(label&&!vote)center.append(el('span','recap-outcome',label));if(e.key==='extraAttack')center.append(el('span','recap-outcome','額外狼刀'));if(e.skill){const icon=skillIcon(e.key==='maskInspect'?'wolf-inspect':e.skill);if(e.type==='awakenedSubstitute'||e.key?.startsWith('awakenedSubstitute:'))icon.alt='替死';if(e.key==='awakenedPatrol')icon.alt='巡獵';center.append(icon);}else center.append(el('span','recap-arrow','→'));card.append(center);
+ const center=el('div','recap-effect'),label=e.key==='akwPoison'&&e.proposal?(e.proposal.verdict?'成功':'失敗'):outcomeLabel(e);if(label&&!vote)center.append(el('span','recap-outcome',label));if(e.key==='extraAttack')center.append(el('span','recap-outcome','額外狼刀'));if(e.skill){const icon=skillIcon(e.key==='maskInspect'?'wolf-inspect':eventSkillArt(e));if(e.type==='awakenedSubstitute'||e.key?.startsWith('awakenedSubstitute:'))icon.alt='替死';if(e.key==='awakenedPatrol')icon.alt='巡獵';center.append(icon);}else center.append(el('span','recap-arrow','→'));card.append(center);
  if(e.key==='awakenedPatrol'&&!e.rawTargets.length){card.append(el('span','recap-no-target','不巡獵'));return card;}
  if(e.key==='stoneKnifeState'){card.append(el('span','recap-no-target','帶刀狀態'));return card;}
  if(e.key==='maskAssign'&&!e.rawTargets.length){card.append(el('strong','recap-no-target',e.unsettled?'未結算（遊戲已結束）':'空過'));return card;}
@@ -89,6 +90,7 @@ export function eventCard(e){
   const people=el('div','recap-double-targets');targets.forEach((_,i)=>{const p=knownPerson(e,false,i),row=el('div','recap-target-row');row.append(personText(p),portrait(p));people.append(row);});card.append(people);
  }else{const p=knownPerson(e,false);card.append(personText(p),portrait(p));}
  if(e.rawTargets?.some((id,i)=>id!==e.effectiveTargets?.[i])){const raw=e.rawTargets.map((id,i)=>id+'號 → '+e.effectiveTargets[i]+'號').join('、');card.append(el('p','recap-mapping','原始 → 實際：'+raw));}
+ if(e.key==='akwPoison'&&e.proposal){const proposal=e.proposal;card.classList.add('akw-poison-card');const helpers=el('p','akw-helper-list','協助者：'+proposal.helpers.map(id=>id+'號').join('、'));card.append(helpers);if(proposal.ballots){const ballots=el('div','akw-recap-ballots');ballots.setAttribute('aria-label','協助者表決');for(const id of proposal.ballots.voters){const yes=proposal.ballots.ballots[id]===1,line=el('span',yes?'agree':'disagree',id+'號 → '+(yes?'O':'X'));line.setAttribute('aria-label',id+'號'+(yes?'同意':'不同意'));ballots.append(line);}card.append(ballots);}}
  return card;
 }
 // A patrol's stored target is the actual victim. For display, a paired saved
@@ -111,7 +113,7 @@ let recapViewId=0;
 export function renderRecap(container,s){
  container.replaceChildren();
  const result=el('section','victory recap-victory');result.append(el('h2',null,s.winner+'獲勝'),el('p',null,'勝利原因：'+(s.winnerReason||'')));container.append(result);
- const final=el('details','final-identities');final.open=true;final.append(el('summary','recap-section-title','身分回顧'));
+ const final=el('section','final-identities');final.append(el('h3','recap-section-title','身分回顧'));
  for(const group of finalIdentityModel(s)){
   final.append(el('h4',null,group.camp==='wolf'?'狼人陣營':'好人陣營'));const grid=el('div','final-identity-grid');grid.dataset.camp=group.camp;
   for(const p of group.players){
@@ -136,5 +138,7 @@ export function renderRecap(container,s){
   }days.append(panel);
  }
  if(entries.length)selectDay(0);else{tabs.hidden=true;days.append(el('p','recap-empty','尚無可顯示的復盤紀錄。'));}
- container.append(window);
+ const open=el('button','recap-open primary','完整復盤'),dialog=el('dialog','recap-dialog'),close=el('button','recap-close','×');
+ open.type='button';open.setAttribute('aria-haspopup','dialog');dialog.setAttribute('aria-labelledby',title.id);close.type='button';close.setAttribute('aria-label','關閉完整復盤');header.prepend(close);dialog.append(window);container.append(open,dialog);
+ open.onclick=()=>dialog.showModal();close.onclick=()=>dialog.close();dialog.addEventListener('close',()=>{if(open.isConnected)open.focus();});dialog.addEventListener('click',e=>{if(e.target!==dialog)return;const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();});
 }

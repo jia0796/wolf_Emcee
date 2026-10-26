@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-labelledby="wc-wolf-inspect-title">
+  <title id="wc-wolf-inspect-title">狼人查驗</title>
+  <defs>
+    <linearGradient id="wc-wolf-inspect-bg" x1="8" y1="5" x2="51" y2="60" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#422631"/><stop offset=".43" stop-color="#2C1E2B"/><stop offset="1" stop-color="#1B1825"/>
+    </linearGradient>
+    <linearGradient id="wc-wolf-inspect-edge" x1="12" y1="4" x2="53" y2="60" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F5A0AB"/><stop offset=".46" stop-color="#EE7B8D"/><stop offset="1" stop-color="#D2667E"/>
+    </linearGradient>
+    <linearGradient id="wc-wolf-inspect-eye" x1="21" y1="23" x2="44" y2="42" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#703A49" stop-opacity=".72"/><stop offset="1" stop-color="#3A202E" stop-opacity=".85"/>
+    </linearGradient>
+    <linearGradient id="wc-wolf-inspect-pupil" x1="30" y1="25" x2="34" y2="39" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFCFD5"/><stop offset=".43" stop-color="#EC879D"/><stop offset="1" stop-color="#BC3E60"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="56" height="56" rx="13" fill="url(#wc-wolf-inspect-bg)" stroke="url(#wc-wolf-inspect-edge)" stroke-width="3.1"/>
+  <path d="M10 18V16A6 6 0 0 1 16 10H43" fill="none" stroke="#F3CBD0" stroke-opacity=".18" stroke-width="1.2" stroke-linecap="round"/>
+  <path d="M13.6 32Q22.3 21.4 32 21.4Q41.7 21.4 50.4 32Q41.7 42.6 32 42.6Q22.3 42.6 13.6 32Z" fill="url(#wc-wolf-inspect-eye)" stroke="#ED8C9F" stroke-width="3.1" stroke-linejoin="round"/>
+  <circle cx="32" cy="32" r="7.2" fill="#2B1B28" stroke="#EDABBA" stroke-width="2"/>
+  <path d="M32 25.3L35.3 32L32 38.7L28.7 32Z" fill="url(#wc-wolf-inspect-pupil)"/>
+  <path d="M32 28.7V35.6" fill="none" stroke="#FFF0EB" stroke-opacity=".7" stroke-width="1.1" stroke-linecap="round"/>
+</svg>
