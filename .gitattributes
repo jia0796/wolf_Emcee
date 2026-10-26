@@ -1,2 +1,3 @@
 # Approved Drive SVG files must retain their original bytes, including CRLF.
 public/skills/*.svg -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+public/skills/v2/*.svg -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
