@@ -69,7 +69,7 @@ const livingRole = (s,role) => s.players.some(p=>p.alive && (role==='wolves' ? w
 export function upgradeGame(saved) {
   if(saved?.step==='skill'){saved=clone(saved);restoreDeathPage(saved);}
   if (![1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22].includes(saved?.version) || saved.players?.length!==12 || !Array.isArray(saved.history)) throw new Error('Invalid saved game');
-  if(saved.version===22){const s=clone(saved);if(isAkw(s))s.akw??=akwState();if(pendingBondAnnouncement(s))syncMarks(s);return s;}
+  if(saved.version===22){const s=clone(saved);if(isAkw(s))s.akw??=akwState();restoreDeathPage(s);if(pendingBondAnnouncement(s))syncMarks(s);return s;}
   const preserveOld=s=>{s.version=22;s.takeover??=takeoverState(false);s.nightAction={...blankNight(),...s.nightAction};return s;};
   if(saved.version===21){const s=preserveOld(clone(saved));s.history=s.history.map(preserveOld);if(pendingBondAnnouncement(s))syncMarks(s);return s;}
   const mergeVote=s=>{if(s.version<20)migrateVoteNotes(s);s.version=22;s.takeover??=takeoverState(false);s.fragrance={...fragranceState(),...s.fragrance};s.nightAction={...blankNight(),...s.nightAction};if(s.step==='voteIntro'){s.step='exileVote';s.votePool=s.players.filter(p=>eligibleExileTarget(s,p)).map(p=>p.id);}return s;};
@@ -445,7 +445,7 @@ export function roleName(s,p){const short={witch:'巫',medium:'通',hunter:'獵'
 export function roleResult(s,id,trueRole=false){const p=player(s,id);if(!p?.active)return null;return p.role==='mechanical'&&!trueRole?(s.mechanical.role||p.role):p.role||'villager';}
 export function restartGame(s){return createGame(s.boardId,{...s.rules,victory:'edge'});}
 // Legacy snapshots keep their original history; only the active page is adapted.
-function restoreDeathPage(s){if(s.step==='skill'&&s.queue?.[0])s.step=hasLastWords(s,s.queue[0])?'lastWords':'eliminated';}
+function restoreDeathPage(s){if(s.step==='skill'&&s.queue?.[0])s.step=hasLastWords(s,s.queue[0])?'lastWords':'eliminated';if(isAkw(s)&&s.akw&&['lastWords','eliminated','skill'].includes(s.step)&&clawAllowed(s,s.queue?.[0]))s.operation='claw';}
 export const isPatrol=s=>deathSkill(s)&&player(s,s.queue[0]?.id)?.role==='awakenedHunter';
 export const deathSkill=s=>['lastWords','eliminated','skill'].includes(s.step)&&gunSources(s,s.queue[0]).length>0;
 export function gunSources(s,d){
@@ -696,7 +696,7 @@ export function next(s) {
     }
     deathSteps(s);
   } else if(['lastWords','eliminated','skill'].includes(step)&&!deathSkill(s)) {s.queue[0].noticeDone=true;deathSteps(s);}
-  else if(isAkw(s)&&deathSkill(s)&&s.operation==='claw'){
+  else if(isAkw(s)&&deathSkill(s)&&(s.operation||gunSources(s,s.queue[0])[0])==='claw'){
     const actor=s.queue[0],target=s.choice==='skip'?null:s.action[0];actor.noticeDone=true;
     if(!consumeClaw(s,actor,target)){previous(s);return false;}
     if(!clawAllowed(s,actor))s.queue.shift();

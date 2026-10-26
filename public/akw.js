@@ -72,7 +72,7 @@ export function confirmPoisonDecision(s){
 export const akwPoisonEffective=s=>currentProposal(s)?.verdict===true;
 export function clawAllowed(s,d){
  if(!isAkw(s)||!d||s.winner||clawRemaining(s,d.id)<1)return false;
- if(d.cause!=='exile'&&!(d.cause==='attack'&&d.context==='night'&&(!d.source||d.source==='basic')))return false;
+ if(!['exile','shot'].includes(d.cause)&&!(d.cause==='attack'&&d.context==='night'&&(!d.source||d.source==='basic')))return false;
  // The common batch de-duplicates deaths; effective poison still vetoes a claw.
  if(d.context==='night'){
   const evidence=[...(s.nightResolution?.events||[]),...(s.nightState?.batches||[]).flatMap(b=>b.events||[])];
