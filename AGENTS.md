@@ -14,4 +14,4 @@
 - Service Worker CORE 優先，素材每批兩個漸進下載；不阻擋主持，保留舊資產。現行 cache council-v22-31。
 - Supabase 只在明確授權範圍修改；不改既有發牌結果。測試用本機虛構資料，禁止洩露登入 token／管理金鑰。新板目錄追加，舊目錄不重建。
 - 執行 npm test 與相關現有 UI／後端測試，保留最終結果檔。中斷／超時不算通過；iPhone Safari／PWA、Android、低階裝置未實測須標待真機驗收。
-- 發布、測試、回退基準及限制記錄到 docs/akw-release-report.md 與 README；舊接手指南保留在 docs/archive/AGENTS-before-akw-20261026.md。
+- 發布、測試、回退基準及限制記錄到本輪報告與 README；最新為 docs/wolf-gun-chain-report.md（前輪為 docs/akw-release-report.md）；舊接手指南保留在 docs/archive/AGENTS-before-akw-20261026.md。

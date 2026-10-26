@@ -1,0 +1,66 @@
+{
+  "base": "https://jia0796.github.io/wolf_Emcee/",
+  "passed": 14,
+  "failed": 0,
+  "skipped": 0,
+  "results": [
+    {
+      "name": "screenshot old-save recovery, retained shot, refresh, undo and explicit skip 320x568",
+      "passed": true
+    },
+    {
+      "name": "screenshot old-save recovery, retained shot, refresh, undo and explicit skip 375x667",
+      "passed": true
+    },
+    {
+      "name": "screenshot old-save recovery, retained shot, refresh, undo and explicit skip 390x844",
+      "passed": true
+    },
+    {
+      "name": "screenshot old-save recovery, retained shot, refresh, undo and explicit skip 430x932",
+      "passed": true
+    },
+    {
+      "name": "screenshot old-save recovery, retained shot, refresh, undo and explicit skip 844x390",
+      "passed": true
+    },
+    {
+      "name": "screenshot old-save recovery, retained shot, refresh, undo and explicit skip 1024x768",
+      "passed": true
+    },
+    {
+      "name": "hunter -> awakened king -> inherited wolf -> target chain, exactly one charge each",
+      "passed": true
+    },
+    {
+      "name": "12 ordinary black king chains, refreshes and rolls back using original native gun",
+      "passed": true
+    },
+    {
+      "name": "kingGuard12 ordinary black king chains, refreshes and rolls back using original native gun",
+      "passed": true
+    },
+    {
+      "name": "kingDream12 ordinary black king chains, refreshes and rolls back using original native gun",
+      "passed": true
+    },
+    {
+      "name": "empty still disallows awakened gun",
+      "passed": true
+    },
+    {
+      "name": "poison still disallows awakened gun",
+      "passed": true
+    },
+    {
+      "name": "selfDestruct still disallows awakened gun",
+      "passed": true
+    },
+    {
+      "name": "formal terminal victory stops the chain without spending or inventing a shot",
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "realDevices": "待真機驗收"
+}

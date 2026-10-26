@@ -1,0 +1,23 @@
+{
+  "commit": "0738fd17e298bfe67e2ec3e5dc10e3dd56afbec5",
+  "published": [
+    {
+      "path": "akw.js",
+      "sha256": "01c0f5b536cc526c3f1cdcf9f471aaadc9aa0c56bb631e197ae3f98b08d3e544"
+    },
+    {
+      "path": "engine.js",
+      "sha256": "1618a4bc2cf6852175b125b936fb453f00a2fd0695257b9223ae97683b86c818"
+    },
+    {
+      "path": "data.js",
+      "sha256": "d9104d8d2fb00722c0bd412b23470800b154ad738875c19ad558b00a9feed693"
+    },
+    {
+      "path": "sw.js",
+      "sha256": "a52bffacffe583f6881c632b5d7f5c03a9dc98ac5a6142d06708783d9c15a86c"
+    }
+  ],
+  "originalSVGsUnchanged": 26,
+  "passed": true
+}

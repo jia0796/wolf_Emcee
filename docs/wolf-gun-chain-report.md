@@ -24,8 +24,9 @@
 
 - 開工基準：`2e2171020a9435c2fc866d176e43e08135961f7a`，工作樹乾淨。
 - 遠端 `backup/pre-wolf-gun-chain-20261026` 已建立、推送並核對指向該 SHA；其他所有備份保留。
-- 功能提交及 Pages 執行：發布後補記。
-- 回退使用新的 `git revert` 提交及完整重測，不 reset／force push；尚在待開槍頁的對局應先完成或保存，再回退至舊規則，否則舊版會再次拒絕此槍殺來源。
+- 功能提交：`0738fd17e298bfe67e2ec3e5dc10e3dd56afbec5`。
+- [Pages run 40304368662](https://github.com/jia0796/wolf_Emcee/actions/runs/40304368662) 完整規則測試及發布成功。
+- 回退使用新的 `git revert 0738fd17e298bfe67e2ec3e5dc10e3dd56afbec5` 提交及完整重測，不 reset／force push；尚在待開槍頁的對局應先完成或保存，再回退至舊規則，否則舊版會再次拒絕此槍殺來源。
 
 ## 本機測試
 
@@ -48,6 +49,28 @@
 
 ## 發布後驗證
 
-待 Pages 成功後，完整重跑正式站槍殺 UI、原 AKW UI、離線及 npm test，核對發布雜湊，再補記此節。
+網站：[WolfCue 狼序](https://jia0796.github.io/wolf_Emcee/)。已發布 `0738fd17e298bfe67e2ec3e5dc10e3dd56afbec5`；[Pages 成功紀錄](https://github.com/jia0796/wolf_Emcee/actions/runs/40304368662)。
+
+| 部署後實際測試 | 通過 | 失敗 | 跳過 | 證據 |
+|---|---:|---:|---:|---|
+| `npm test` | 1178 | 0 | 0 | [結果](wolf-gun-chain-evidence/npm-postdeploy.json) |
+| 正式站槍殺接續 UI | 14 組 | 0 | 0 | [結果](wolf-gun-chain-evidence/chain-ui-live.json)；包含截圖相同配置、舊局刷新／回退、普通黑狼王三板 |
+| 正式站原 AKW UI | 13 組 | 0 | 0 | [結果](wolf-gun-chain-evidence/akw-ui-live.json) |
+| 真實 SW v22-31 離線 | 3 組 | 0 | 0 | [結果](wolf-gun-chain-evidence/offline-ui-live.json)；新板模組、親傳、回退及原圖鑑離線 |
+| 四個發布檔案 SHA256 | 4 | 0 | 0 | [雜湊](wolf-gun-chain-evidence/release-hashes.json)；`akw.js`、`engine.js`、`data.js`、`sw.js` 與本機一致 |
+| 原技能 SVG 位元組核對 | 26 | 0 | 0 | 同上；全部未修改 |
+
+所有本輪測試都有完整最終結果檔，無未完成或逾時項目列為通過。本次未修改後端，未重新執行 Supabase 後端整合或操作真人房間。
+
+### 正式站截圖（隔離的虛構局）
+
+與使用者第 3 天配置相同的 1 號覺醒黑狼王：顯示「剩餘 1 次」、恢復開槍與不開槍。
+
+![剩餘一槍](wolf-gun-chain-evidence/retained-shot-live.png)
+
+普通黑狼王被獵人槍殺後，原生一槍同樣可用：
+
+![普通黑狼王接續開槍](wolf-gun-chain-evidence/ordinary-king-live.png)
+
 
 **待真機驗收**：iPhone Safari、iOS PWA、Android、低階裝置、真實安全區與縮放。桌面模擬不代表真機通過。
