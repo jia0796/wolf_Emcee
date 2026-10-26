@@ -1,0 +1,11 @@
+{
+  "environment": "Node 24 on Windows, rerun after successful Pages deployment",
+  "command": "npm test",
+  "counts": {
+    "tests": 1154,
+    "pass": 1154,
+    "fail": 0,
+    "skipped": 0
+  },
+  "realDevices": "待真機驗收"
+}

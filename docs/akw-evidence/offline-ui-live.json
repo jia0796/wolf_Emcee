@@ -1,0 +1,12 @@
+{
+  "base": "https://jia0796.github.io/wolf_Emcee/",
+  "passed": 3,
+  "failed": 0,
+  "checks": [
+    "actual deployed SW caches the three new modules and approved AKW media without blocking home",
+    "offline refresh, immediate gift confirmation and full undo work with saved new-board state",
+    "both approved new role images and verbatim descriptions remain available offline"
+  ],
+  "errors": [],
+  "realDevices": "待真機驗收"
+}

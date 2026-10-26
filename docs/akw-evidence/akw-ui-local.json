@@ -1,5 +1,5 @@
 {
-  "passed": 12,
+  "passed": 13,
   "failed": 0,
   "errors": [],
   "results": [
@@ -45,6 +45,10 @@
     },
     {
       "name": "single poison recap, O/X, modal bounds, Escape and focus 844x390",
+      "passed": true
+    },
+    {
+      "name": "successful poison keeps same icon and saved unanimous blue ballots",
       "passed": true
     },
     {

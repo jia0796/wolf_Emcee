@@ -1,0 +1,1282 @@
+{
+  "baseline": "6e369159df420b9831bb4f29b236328ec94aa875",
+  "originalSkills": 26,
+  "originalArt": 189,
+  "originals": [
+    {
+      "path": "public/art/backgrounds/host-day.png",
+      "sha256": "67e471501c6db58889cf1850ad6cd84eebfb204ca3db2c801ef543fbb23678f3",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/backgrounds/host-night.png",
+      "sha256": "4f06f805be0552605f8802df4148e31eb45fbd7a10e3edf0558ca5b3ad5222b3",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/backgrounds/lobby-shared.png",
+      "sha256": "6699db53e978d46013b758a87163f28f4ccd8140344f43c07cb1162138ca4688",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/backgrounds/online-coastal-v2.png",
+      "sha256": "df5f0bc983acf002e76a167eedf1ea5a88f0f2989286581d5eb2500e47fd8563",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/backgrounds/online-plaza-v3.png",
+      "sha256": "17b43325dbe3eeb7cd9298249b6c61326d87cc187009700103b2cbb7275fd035",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/backgrounds/online-plaza-v4.png",
+      "sha256": "b3b788d401d192311cf45dcff438c409ab1b5bec670048fa99627186c342c75f",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/backgrounds/shared.png",
+      "sha256": "c38604bb53ee8b26dd604c9458884a0fe99daf5e83111b948a970569f146cc38",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/black-market-merchant-approved.png",
+      "sha256": "981112b5fc6af776ca8966158307bf8af7c3abf111034548ecffdbd80b1451d0",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/black-wolf-king-minimal-approved.png",
+      "sha256": "b0e24705ccf2ed1846f4f94a3a73947896af5344cd17626e06eb385ab8eee358",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/blood-moon-messenger-approved.png",
+      "sha256": "4fd1920ade7640ec363326fac49e547a5f31c13ac69a0aca547a498dcda59613",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-clear/awakenedSeer-v1.png",
+      "sha256": "6fedcf31342a4324a42e7ab47de1955adb839b0cbf572d28a99c4207cfb8348e",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-clear/beauty-v1.png",
+      "sha256": "068737dadf509e76327f46bddf424589fc52839c44bcc18278969f7495a94f27",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-clear/blood-v1.png",
+      "sha256": "699a4a43d85ffc83e7018bff14bca88811136184e8d89a2fc87dc3ae5ea96ff2",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-clear/dancer-v1.png",
+      "sha256": "61a54b4f5cf82fde7636e70fbf41dfaaaff565cb8d3d5db18d815f883eeac16b",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-clear/demon-v1.png",
+      "sha256": "d34070093cfd409fad3d7dd47b6cc2bcc8e05c5c170ea507c39eb30b682019eb",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-clear/dream-v1.png",
+      "sha256": "b473b04e632484b79b4ddf71655f8b3f11f286c1a7e566f2a1bd83f12526cb78",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-clear/duelist-v1.png",
+      "sha256": "1a73e35f14baf756981f4b5186082f0918bc00417847f7d3ff0f7a6d1800ed96",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-clear/elder-v1.png",
+      "sha256": "699a5f498f3c428467608560367276e3eba7c3afa95bd6f527980c8bb4a20671",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-clear/evilKnight-v1.png",
+      "sha256": "72a8c56eab689d84694774d517edc99fdb6a9b1637c60353ea512af0703044f5",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-clear/fragrance-v1.png",
+      "sha256": "0bb35c1b7203ba85db6ba92278093d50cbc56fe501cefbd34e85b603f8358210",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-clear/gargoyle-v1.png",
+      "sha256": "847e6bd2fa07ae9c43b6592e6880726d61f2dca7b98ca182c09aebdb39ba2cd2",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-clear/gravekeeper-v1.png",
+      "sha256": "5deb2aab7eed1224d5f2d786beaf6183c484aa91ded84af776fb813458ff4c06",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-clear/guard-v1.png",
+      "sha256": "11c0aa36c89d6d5c8866ebfdcd4993e8fa063b8c8a569b5d5e997923c580b89e",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-clear/hiddenWolf-v1.png",
+      "sha256": "06fcd5081c11fd946c8fbba09903de0387f8d64f1731104d819e48e963606b85",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-clear/hunter-v2.png",
+      "sha256": "d52d14f9f15da5426896f481c84f5c35a7c141c0a491b5e74b92ceb49543b4c6",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-clear/idiot-v1.png",
+      "sha256": "058f6eab9e69e002bc15b02ff36369a6eace98315acb879ffc1c852d52c49058",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-clear/king-v1.png",
+      "sha256": "31e1d0e2e96387277f4860848e0708e95c06e310129d623c2f894ea767bcdc99",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-clear/magician-v1.png",
+      "sha256": "3ac2e556b8bc820bf8a36ec024ce3b5290cc026c138f2d80ed532c6047dffbbb",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-clear/mask-v1.png",
+      "sha256": "6a9aad45eecdd40e396483e6ec5d52fff3c22fe7aa1d15c1d4a2c7bdb3dda040",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-clear/mechanical-v1.png",
+      "sha256": "53d3f6938277341a0fe11b5cf08d0deecd265c5d8d61c9102b2fc0fa49fd97d6",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-clear/medium-v1.png",
+      "sha256": "33a0cd14b3b17a611d75f68bb085a50b30133fcf78eeb0f30ba1449479ea136e",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-clear/merchant-v1.png",
+      "sha256": "b0a5f51d63c355db289d1dcf51453d6cca793b035f22a0c3f8407d286b6a8d4c",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-clear/mixed-v1.png",
+      "sha256": "9d10a5a9711ebc16624d23b4479957510d82557df50493cd5520f7d7d6796aec",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-clear/nightmare-v1.png",
+      "sha256": "0a63870d1d148e25756cccff0f16f24ba346e318ad732c5c884cb06edd26b729",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-clear/seedWolf-v1.png",
+      "sha256": "855a3572bc0dbe9ec1b0e2061b320b52cffd7b07faf40d20843f2627147e2835",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-clear/seer-v1.png",
+      "sha256": "533e54f8b8cc96cb2e46067336e58d0c959f4bd3a4918c60cad46487c02b9889",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-clear/stoneGargoyle-v1.png",
+      "sha256": "b80c465a9ca7622ef4f2d4331ebe24899948dcd4cfcf3b9522d189f09857587a",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-clear/villager-v2.png",
+      "sha256": "af7ec5e6803a663015a36ac135bc4d4dd33ad8ea4e07322ec1798dfd38f85588",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-clear/witch-v1.png",
+      "sha256": "9400c6a44832f0205f889d9f4249afda7d6991ede62bb159a45b1edc59f62d83",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-clear/wolf-v1.png",
+      "sha256": "20bc3323eb6ec651a417c00bbabce268df318eb5f4b5851dfc2470664cc68b24",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-clear/younger-v1.png",
+      "sha256": "2ac8965af72525d9d7c7664fa80b774340525e256380db02ba48305d560e5dcc",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-v2/awakenedBeauty-thumb-v1.webp",
+      "sha256": "9ca342a8f074ed8372e326ef4e8a5b8b5f4f9d49807cd3d7b8bbfaba873af6bb",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-v2/awakenedBeauty-v1.webp",
+      "sha256": "591842d9e36026f4bf9a2caa2c0e707c44869ecd24121a241220c24e808bc673",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-v2/awakenedHunter-thumb-v1.webp",
+      "sha256": "fd0995fed64f5bdebc61da2cf8754a3b9aaffed05ddc0963ea5fb141b9c52048",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-v2/awakenedHunter-v1.webp",
+      "sha256": "9c6b6bdabe815a6306ff0886c4157b6b6d9ee4d2cd8ad52f62c30fd93166ab21",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-v2/awakenedSeer-thumb-v1.webp",
+      "sha256": "19902d60349ef74a4164e8c0d770a88dbbfee811934fa70d170e45119959c619",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-v2/awakenedSeer-v1.webp",
+      "sha256": "f4346c9ca77ea80b4d7bb2932f5aa9c2e3c1d8a885afa3a199ceb83a46bcbee0",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-v2/beauty-thumb-v1.webp",
+      "sha256": "ba6363ef48c220f40b4eba7206934155eaf0b005b7632da7b1560c527a669e93",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-v2/beauty-v1.webp",
+      "sha256": "8ed2738141dd6b42c368e86dd652bb4d9aec47ac0977edb99931b49cbc5d6860",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-v2/blood-thumb-v1.webp",
+      "sha256": "593185c59c807d036fab1d9ba9eb656a0f6122764df12a78fa2de39f14ff0748",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-v2/blood-v1.webp",
+      "sha256": "4e95b7c9f6b37ae7fb9894a3dac242465d02dd1688b6397e63a6ca3bdefc07d7",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-v2/dancer-thumb-v1.webp",
+      "sha256": "f41b9009d50a2af7913a2284596df666fda19a2f906ea91462d8758251f455e4",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-v2/dancer-v1.webp",
+      "sha256": "74cd23c19f05e0c2b78b137e11787c3a5ca183ccc244b0c450405aa7843796f7",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-v2/demon-thumb-v1.webp",
+      "sha256": "ba47394e342b730b348480c4497fd10f8f1c525b6d7ea766b7faf11546794331",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-v2/demon-v1.webp",
+      "sha256": "2bab10b42e2244fabde61719742194c67b723a1efba3805da8c3761d07de192e",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-v2/dream-thumb-v1.webp",
+      "sha256": "dc5e8e86da4fddd6cf0af7f196be5eddc9d262c883ed6d1e696bb7a7066afc1f",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-v2/dream-v1.webp",
+      "sha256": "66ead0df78c0abf87cbc925877facf043f3bd0e4d2d08213e3db7aa696a6f450",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-v2/duelist-thumb-v1.webp",
+      "sha256": "adc855650a74e7922a7595be7513c962468c40e31376f10adaefc4f0eb0cc038",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-v2/duelist-v1.webp",
+      "sha256": "e1dd14f119ded908df2798474ff08877ea101e067a9de313af275fb90fe880b9",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-v2/elder-thumb-v1.webp",
+      "sha256": "9d435e105e6c1d1420d01194b9dd6177b867c1659061881063ee25d1cef18713",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-v2/elder-v1.webp",
+      "sha256": "1a25ab21bab7de6de4b1098178a58fc45bcbdd47c581ecbd9d35abb0bbb75514",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-v2/evilKnight-thumb-v1.webp",
+      "sha256": "c37251680bfbdc0ef14eee56288e2351a419c57b85b4b1b8b85171bf8a064d96",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-v2/evilKnight-v1.webp",
+      "sha256": "3e03fffda5c073f342e68ab00da14e43f4662431f4eab8f85c7fd3365c9fbd77",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-v2/fragrance-thumb-v1.webp",
+      "sha256": "539857cfe5581c461b42cab7eefaed82e6447fe419b6a1aef1e350546bb467c2",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-v2/fragrance-v1.webp",
+      "sha256": "66fc910a94081dd1c6bb7c2d893d16fc0b8a3d2979c581848a6dd612aab1fd5b",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-v2/gargoyle-thumb-v1.webp",
+      "sha256": "0becc68b1bd9545d301a0ba243aac22ed589b396fc0e2037acb10a112a852f1c",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-v2/gargoyle-v1.webp",
+      "sha256": "29924f2d28d2fa81ad1b8b8a6acb0f7c3c5ce0beef9e54f718b0341731dc0dfa",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-v2/gravekeeper-thumb-v1.webp",
+      "sha256": "550c6abef075bae18c6649005758bc91b51e5586cd76eba37bc972b95ae1f960",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-v2/gravekeeper-v1.webp",
+      "sha256": "b1e766140c5f1e354b348748dccfacaf49aa39493d3bc93068b8adfc8178acba",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-v2/guard-thumb-v1.webp",
+      "sha256": "00e4a1c7b0e09a91916335cbc852b2997da9f25eedb554700178f200c722b753",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-v2/guard-v1.webp",
+      "sha256": "59492ff3596fd00468933863f1a6d1735f91bb791734de157816eecb317687aa",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-v2/hiddenWolf-thumb-v1.webp",
+      "sha256": "a808eff403f650d6c535885c52cdbb4fe2089793d112145e3dfa4b3a20fd943b",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-v2/hiddenWolf-v1.webp",
+      "sha256": "364273ae4d40933d9cd21bd65273978f3b4ed0eba23453abe53dce90ba574c5b",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-v2/hunter-thumb-v1.webp",
+      "sha256": "760a31cca639c2917cd25aa9bc566a22e66ecf420049d4b8155841de6b8b75eb",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-v2/hunter-v1.webp",
+      "sha256": "e9fe9216b86316420f9853025aa02365f6ba7c51496509dd781bb2586256304c",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-v2/idiot-thumb-v1.webp",
+      "sha256": "7b6e764138beabee5183ff7f14a9fcd8e7fa50d5dea373d1dd49d70a0d49c0b6",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-v2/idiot-v1.webp",
+      "sha256": "cb2be034314d4be4121b7934cc6215c098134e63ad9fddce9d0e3c79b8f48801",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-v2/king-thumb-v1.webp",
+      "sha256": "64cc49a7a0462ef3755e0da3d957c7e3ff17430c848f8f2fc7a0b460d44b45a3",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-v2/king-v1.webp",
+      "sha256": "6859f1487af8e2cfa4bd7e34d75679a5f1d2469c83d322b87054215a94cfaaa7",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-v2/magician-thumb-v1.webp",
+      "sha256": "a32973547cf53c87f71787e1a48053de6f5de82a0f1658c87b72deed85f31af6",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-v2/magician-v1.webp",
+      "sha256": "d87e88ce43309852bc5c757338ceb4883eec96544e9e74fef9654cc6de8065ae",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-v2/mask-thumb-v1.webp",
+      "sha256": "4bbcbb323fff79c441752b848be2ed19626519925db9bbc75d0466e650870c10",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-v2/mask-v1.webp",
+      "sha256": "10775fc44c0db9c63281225b7840622a0384167406b1d9130f939f95d3b4e65d",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-v2/mechanical-thumb-v1.webp",
+      "sha256": "d160918613409d1e636d11e96611e2fa1374ff879d537bf54b5b29dc00785e8d",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-v2/mechanical-v1.webp",
+      "sha256": "f5b4b2f1e17b4131b2df6f4250d5c0a04fe6d863efbae030f306c19d1a5192f0",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-v2/medium-thumb-v1.webp",
+      "sha256": "a8fbd4a903c9caed96238bf62792355afad1a797b60334e4faee145a34283156",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-v2/medium-v1.webp",
+      "sha256": "a9f003d2b865b795b16bb5190c0642d21e67be0ee82b14b4c7378ee6b24099af",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-v2/merchant-thumb-v1.webp",
+      "sha256": "10448fc3bd445c4cd424f472cbc1adcf8b0632de1e02b41de4ba506720bdba19",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-v2/merchant-v1.webp",
+      "sha256": "f901fedaf978b227f5ee4f3342faf6416ffc89fff6aa0d30d24370e950ac0f6a",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-v2/mixed-thumb-v1.webp",
+      "sha256": "42011cfe9696fc7a2ba19f2a2d04af7197bf0261c2125a65b2a2a1189469787e",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-v2/mixed-v1.webp",
+      "sha256": "495de98325c0a38cd7d1121e1985dbb5ae242ebc43922e997aef1218e2144d74",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-v2/nightmare-thumb-v1.webp",
+      "sha256": "e9058e6d8adabb67f1b78dd2c6615580e99a0d62f6f97ee60c71ff8c6458cdf6",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-v2/nightmare-v1.webp",
+      "sha256": "5746346eaff0df803e34d8395c958bab285d048db28ad54ef385be031cb9f205",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-v2/seedWolf-thumb-v1.webp",
+      "sha256": "8f1b1643b6b11ff95ec2a930e51f5cf93a60d05dc53adc9e3661feda818cf59b",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-v2/seedWolf-v1.webp",
+      "sha256": "dfb879b6debcb39337721e8d85f3f0d9f493f3a8a1e11e58431dd37c440ace7d",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-v2/seer-thumb-v1.webp",
+      "sha256": "d8848e29fb32ca5a5fd731c4231b60fdbeba86de73d4eb6e58f6f5d18b680062",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-v2/seer-v1.webp",
+      "sha256": "26d3a6f468364364d9fbdc16a109691811089399a739e12c9fa58116d81607d1",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-v2/stoneGargoyle-thumb-v1.webp",
+      "sha256": "0738d7f3f25000b03b602b1d91a882b5941179fbbd82b276925b847b68b1a8ea",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-v2/stoneGargoyle-v1.webp",
+      "sha256": "82ac3a2ad62f15a21c36acba65d1ae341fa18d0976e8c3b0629011e17b7aba19",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-v2/villager-thumb-v1.webp",
+      "sha256": "83566a5d6993e807de58512757fa6fa3f331f2dae60b584b1f4038fd71bf7453",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-v2/villager-v1.webp",
+      "sha256": "4f4b69b0d8b4aeeff32a8a75de8eca1aeeabafa921f17e69ec8696f81ca1a738",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-v2/witch-thumb-v1.webp",
+      "sha256": "64f84e24a906739ee1902d2add767d32b678e66ffd9b10191e2692dfc512e80f",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-v2/witch-v1.webp",
+      "sha256": "cdd456c44d29293531c8f85c546a4b5e07a829d9581d20e611ed73f24629a665",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-v2/wolf-thumb-v1.webp",
+      "sha256": "7818d776e718f9c1b05e28f207274d0b2ee9faebe44ba08d93167b569bf41f71",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-v2/wolf-v1.webp",
+      "sha256": "113a4a60d040d5fe0d1b2704e48b02411d4a90b2a058ac1ee5b67eb6535ed73c",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-v2/younger-thumb-v1.webp",
+      "sha256": "877831cbd17b3d157f691bfb935ee6e339393746d86a8b4731b454b77e591356",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog-v2/younger-v1.webp",
+      "sha256": "3ce90739e55ed47740ae17b15707763010f441ee92d5c8ffbc1e0f2249536fef",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog/awakenedBeauty-v1.png",
+      "sha256": "c0dc6a4354b16725978f97acad5617cfe1801656efb51d40bf01aecd70329f69",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog/awakenedHunter-v1.png",
+      "sha256": "cae59326f072bceced4a36277c90900a95e6755d790c54726c9aca543b579a12",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog/awakenedSeer.png",
+      "sha256": "81e9b72cbfa849a90b933d68a01577a9137221ff89a384cc6b2e2533096167a1",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog/beauty.png",
+      "sha256": "46d92b1b05a9a403b421af2c5308cc29ffae519d55467510462084d8c084689c",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog/dancer.png",
+      "sha256": "2d31372e01a6be4811d0d5e35f91252f60b287f14b56444c3ed91627c80d32fb",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog/dream.png",
+      "sha256": "22889833ef1474b279c10424b916560dfc78ce4c5e8958dd8ef08182f308be45",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog/duelist.png",
+      "sha256": "f41c24156559c4cd7141b890f9ec8738811bf1a0909f61996c06572f83d1fe41",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog/elder.png",
+      "sha256": "08bf943e5a641441efed93f3cee5493abe8e643b19050739fd477afa9a8bd8e9",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog/evilKnight.png",
+      "sha256": "fa377d661797cb24b21551e39d6a2fc875645c878aff38cc65f60c271f468987",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog/fragrance.png",
+      "sha256": "a0cd2ce7ed591e7c015ed57305875d4de3b21d18063973a03ea64f94fe91f9c2",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog/gargoyle-v04.png",
+      "sha256": "77c1f2be5ffff350a9c2fb3a195932e7db33a8c67e3947946eea1a0aa89232be",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog/gargoyle.png",
+      "sha256": "f01fb20ae9e4a55475586757a816f5d6ccfd7b051151231f5732c9f1db821c90",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog/gravekeeper.png",
+      "sha256": "aa53d52ea68a3456b1bdc51d5e1a73d421df1f35c9b7fce16f2181a60a5c6fe2",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog/guard.png",
+      "sha256": "beddccba82356521986d4fc9c64b4afec8b1cb2ec2a87d127b37cd784e5c9c3d",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog/hiddenWolf.png",
+      "sha256": "a7d9eba161798bb76887163b9ab5d0f099d627246cdaadb1e6375d29f93fbe9b",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog/hunter.png",
+      "sha256": "380c5d50da1caeaf2cd8e06c652703eeb0d9d80600d438a942d7251f263d4531",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog/idiot.png",
+      "sha256": "c5e057141ffaef5081519802bdc2aa4eb7678022a3b922b8e91f502e27095082",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog/king.png",
+      "sha256": "1a146cfc290437b6562384b7f6a302c5d92a3d8dc17402b6dfb4b3d1671d2d7d",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog/magician.png",
+      "sha256": "09476f9f4162332849aac1bc9964a7754eae9b2240e43d1c5be4079eac821b91",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog/mask.png",
+      "sha256": "ac57ebbf80d04fd9b2d9bfb6b5297a9d5abbcefb4aa46658e93b0f334c94cc93",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog/mechanical.png",
+      "sha256": "a4649059659bd1d0487a8c69ceae6707c03a61fdd3267de71e6c61560c86c904",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog/medium.png",
+      "sha256": "a948bd3dd482a60173716e84d2727c9a9dbd853c23148ecd5f7c5e63091d4420",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog/merchant.png",
+      "sha256": "a2e3c4a8fa62b0ccaab2a857169fe559a62d011504ec5cf93e4fdfc5f8015e63",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog/nightmare.png",
+      "sha256": "6b70c48600bf891db6922d4dd6ad7cc82921d1f693cc549eca5ddb3e5716bc12",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog/seedWolf.png",
+      "sha256": "9fbf4844d82d4aea0678a561194e5177bbee63f1e94c40574d3ff8dc433e6712",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog/seer.png",
+      "sha256": "75658b0d38140bdc21ea6a6dd80a68a6e701b4e37c16b82c591f6eea7b6f4e3b",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog/stoneGargoyle-crouch-v3.png",
+      "sha256": "e9b95bde9a96ac40ee23603cc3cb998c262e84592c5487a97ae7871e19f15872",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog/villager.png",
+      "sha256": "f549d8d8432e8c9a034ad3b65bfe5b93b9dbce476623654db0fa5e7d40750d01",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog/witch.png",
+      "sha256": "071a3354e04dc7eec4af81fa2d7878f971a78f773c60194b61db75609b90c326",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog/wolf.png",
+      "sha256": "1233c4f4d5f42afe72a5824a55b4538af976d4ba4aca51b21c25b9b410c36f7a",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/catalog/younger.png",
+      "sha256": "7a087916cbfdc2341615813cb9553057a55bc7d9b558539873b03c6a7ed2923c",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/council-background.svg",
+      "sha256": "16bde41df5d706a65ec57f2bbe5a75cedcb93d92fda97ec29f1740756b1df086",
+      "svgLineEndingsNormalized": true
+    },
+    {
+      "path": "public/art/demon-hunter-approved.png",
+      "sha256": "3a43ac0a933717f76600f10da290f2ee313f489856a4b2c538b941d13050462d",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/dream-catcher-minimal-approved.png",
+      "sha256": "00d20cc9f0a93e0010fb5f072d2f05fa6d77d938a75f94ccfa3cda15d24fb61c",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/guard-minimal-approved.png",
+      "sha256": "e874961c48043d292311e661bcf20ac40eafe3f52a468f4e24c9e99a9e81502a",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/home-background.svg",
+      "sha256": "15a5acb4d6608ede2d7c5fe4f4eb956a39b3dd749b8135395d92c07453cdb443",
+      "svgLineEndingsNormalized": true
+    },
+    {
+      "path": "public/art/hunter-minimal-approved.png",
+      "sha256": "7b5878158b1068aac612554217d58d9256fc50ca7cc0656fd1b38132cfe91ad5",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/idiot-minimal-approved.png",
+      "sha256": "add2c3eecd69b1dab7fb49b2ad91eadcdd806ffeed91200018704986d03baa9c",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/magician-minimal-approved.png",
+      "sha256": "f7ce51ce7c6f932938dcd56ad7ab8281fbaa47698b572b2a6b6101b7359af19d",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/mechanical-wolf-minimal-approved.png",
+      "sha256": "ab7e583b5d072dd3895c07d3c16d29b14343bd9c811ffa51d1eaf1311be6e4f0",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/medium-minimal-approved.png",
+      "sha256": "57ab6c68e609ec8b401ed03f89c8d03014132aa355428e1b1405f4332a3bccfd",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/mixed-blood-dual-approved.jpeg",
+      "sha256": "289f669684cc946b465902d637d71e04d5bd75ed3b4265607a6d5bdf129f95b9",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/moon-eclipse-sheriff-badge.svg",
+      "sha256": "126ccf378a9a7c2381334078fffb2ab40d738262828f0524e342ce05145629af",
+      "svgLineEndingsNormalized": true
+    },
+    {
+      "path": "public/art/nightmare-minimal-approved.png",
+      "sha256": "adccb48d21eae55aa644ed707138cc82805154eaab571f35b429dd2d03c2e7a0",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/recap-sheriff.png",
+      "sha256": "d7a71fa7bc635ab3f61b774b9973ef74c59dc1999009355df1e752ed677ddb48",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/recap-vote.png",
+      "sha256": "87e2987704055423868814b70d7d52f0d789c23f631c0869b09398642e3cda2c",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/seer-minimal-approved.png",
+      "sha256": "9dece1363d58e2a57d77de3f243588eefc9d051563c7e8bd2f57cd4d5da92807",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/thumbs/awakenedSeer.webp",
+      "sha256": "30665e8c5d1ee72083af5f572846413f3e388a286b289f227a32273c824614dd",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/thumbs/beauty.webp",
+      "sha256": "eee8cf7e932e6d30e49efc798c3df5400ddf992956ca908112da27ca3c730695",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/thumbs/blood.webp",
+      "sha256": "3fba9b8014101a88e42b0f3bc71c1239151b832323f3ab109667e03a2abca9d3",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/thumbs/dancer.webp",
+      "sha256": "7f9069661c9477a8184115e11cd11063a28cab74f1795e507f6ec3b62b0f363a",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/thumbs/demon.webp",
+      "sha256": "d888c321d6bfd574f86e04343a8426150c4b234c6bfe0080267a7d99435713a3",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/thumbs/dream.webp",
+      "sha256": "050d14b33e89e2fbcd900b61e57d3a5d078a725253ae009ebf8ba57cfa5b0afa",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/thumbs/duelist.webp",
+      "sha256": "9adbb1473390f50b0147384ef5cf06872f38b00499b09f203dc925b9763a6f00",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/thumbs/elder.webp",
+      "sha256": "2d44b0e10655b81f4c35ecea81b73d3f94a466657f925583f2a07f9f308b53b7",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/thumbs/evilKnight.webp",
+      "sha256": "53b0db8e3ed27f7adaf222c44b64d248419696ca5d3c30b477a06ad646d72c97",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/thumbs/fragrance.webp",
+      "sha256": "7b71a0c6223fda54536dc912b69752ef6d88fbb4e8797da9c35504cd3a33f5d0",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/thumbs/gargoyle.webp",
+      "sha256": "13460907c0b1da6a9286b61d2cd25becc3c42d16ca57b3097b9f049cbde5dc35",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/thumbs/gravekeeper.webp",
+      "sha256": "692b05d8e98103569e4d7943edc0e249b4da5cdb07ce759a91da2b8989f42b7f",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/thumbs/guard.webp",
+      "sha256": "df92a14757b89f646fa3b4229f2cdf1f3c5edfb61d8eef9fc038ea94be8d6fed",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/thumbs/hiddenWolf.webp",
+      "sha256": "c18a453ae2f7379c56fb668a89191ca66d476f2fc9aeaa37dbf9b1b79026eb60",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/thumbs/hunter.webp",
+      "sha256": "c86a8366f6ccd6721ef6c118e01effbd3af1e0b444643f29cab6846dcb08b5a7",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/thumbs/idiot.webp",
+      "sha256": "d60e94bab554a61c79097bb8950e00f5911956d260523b4d35f27396d6b38802",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/thumbs/king.webp",
+      "sha256": "7b12c3d64ed8144fdbb8ebfa4cd86e1ee7f50c4fc34e2f7ed923cb89867a5a71",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/thumbs/magician.webp",
+      "sha256": "c0f2830a3e62cb64f1ede3c330dd9e3a767b0fcfab4269a6bbaa4d7f4556ea37",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/thumbs/mask.webp",
+      "sha256": "79f4f730c7f72f46e03a4ca2b3c2e67c4f76b627d92d8622e3ccae94d2d8f074",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/thumbs/mechanical.webp",
+      "sha256": "3fd858a890aa04021a1c87c99c331cac3b3f4d5d7a443e50334b87977bbc0e3d",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/thumbs/medium.webp",
+      "sha256": "2dc52091b6666ce73a63428678a7b37cec4a6e68faa60e703570c003515c4afc",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/thumbs/merchant.webp",
+      "sha256": "3e2b5ea075aafd5035be050569180d9f73436880a0bbd5608c38b1fee3309629",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/thumbs/mixed.webp",
+      "sha256": "4f1c12193e784f6481673d2a597c3a17f0df788b350c16389e2007a67b661781",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/thumbs/nightmare.webp",
+      "sha256": "e00277f296efe93f93c6708f5739f2f60bcb6b0624500fcbb357ec7a10bcfd6a",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/thumbs/seedWolf.webp",
+      "sha256": "e1d1c0f6337c988879ea272bec1acf319ae5fe198069b771c642c531e746bda0",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/thumbs/seer.webp",
+      "sha256": "79cf57247e55c27ca010a388097bd168ac07b8e444ad4ae76c2301f15e223e0c",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/thumbs/villager.webp",
+      "sha256": "b5ce3fed82771c84424ade9dde8fbce1c355b8e7ce15e1b842a31da586a07db6",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/thumbs/witch.webp",
+      "sha256": "af866a0e6a997e62175cf3706e593f9735df813e1ebd01255cff7d4ec8cdb701",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/thumbs/wolf.webp",
+      "sha256": "bab1a8025fab56626a4291546724abbe9e5ed0a013fc5db45537a38084a793d5",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/thumbs/younger.webp",
+      "sha256": "56429b5d15967729afb3b241b84ba52266562cc329e99b809105f1a70367f3a7",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/villager-minimal-approved.png",
+      "sha256": "7ef5da03435fe501dd1a8edc4d4ce8cc34ac17b90a736d0c79e6e49437f8f2e3",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/werewolf-minimal-approved.png",
+      "sha256": "b28aec8df9358851df3ce89c600a1abba4f336f2380139cdd752c02fe724cbf1",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/witch-minimal-approved.png",
+      "sha256": "edf989440bd8417c8c35885304b7ef22df4fccb3ac36d12ff64d3cc18f77605e",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/wolf-brother-scar-approved.png",
+      "sha256": "6561190b0599db7741351d9b49fad529b6758688eaf89596a807a00fffe88287",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/art/wolf-younger-brother-approved.png",
+      "sha256": "75bd2e1ae2c29bffabc12485696c6fea5061f4ba34976da392e9e1a6116d5fbd",
+      "svgLineEndingsNormalized": false
+    },
+    {
+      "path": "public/skills/icon-antidote.svg",
+      "sha256": "56881638a36c1ec98ed480f2da0a617f83dbe03e5228c9db081ad4a4e4630a07",
+      "svgLineEndingsNormalized": true
+    },
+    {
+      "path": "public/skills/icon-bond.svg",
+      "sha256": "f48b96a26db32838df12bb77430e2b80ffb34b84e4fc086d8342cb31dde03b37",
+      "svgLineEndingsNormalized": true
+    },
+    {
+      "path": "public/skills/icon-charm.svg",
+      "sha256": "5aff4c715517e3ae64a315bfd1e9aa0e95708f7900da6568e0900b8336baba5e",
+      "svgLineEndingsNormalized": true
+    },
+    {
+      "path": "public/skills/icon-dance.svg",
+      "sha256": "cf771203ca8c984ff8daa29108f3c320099e08d3655c1e635a1f06585f70021a",
+      "svgLineEndingsNormalized": true
+    },
+    {
+      "path": "public/skills/icon-duel.svg",
+      "sha256": "eec5cc1cff7608e97c27848b2e9321308e5cfc208576a1cada7727c8d2a02b5c",
+      "svgLineEndingsNormalized": true
+    },
+    {
+      "path": "public/skills/icon-evil-knight-reflect.svg",
+      "sha256": "9782a05d4e2bebd77e9df869abd227a7b3a8d2b48ae2eef02c106bc8bfec418c",
+      "svgLineEndingsNormalized": true
+    },
+    {
+      "path": "public/skills/icon-fear.svg",
+      "sha256": "ebb15653f0eaa8c423ea8605021c9964abf6887c7b9ac2b167ee0a90cf477fbf",
+      "svgLineEndingsNormalized": true
+    },
+    {
+      "path": "public/skills/icon-gravekeeper.svg",
+      "sha256": "27cb6baa1c862ebc7b6e79445fc341c2a06c25221b744a73c295612aff64ae60",
+      "svgLineEndingsNormalized": true
+    },
+    {
+      "path": "public/skills/icon-gun.svg",
+      "sha256": "467e2fdae180ed82d6db550c097aea3a4d5a29d09e60e46cdfe56910b2d2302d",
+      "svgLineEndingsNormalized": true
+    },
+    {
+      "path": "public/skills/icon-heartbreak.svg",
+      "sha256": "97233180381368c9168cbbd1c2e5a4af66fa455bfe3acf62bd3485c125f0140d",
+      "svgLineEndingsNormalized": true
+    },
+    {
+      "path": "public/skills/icon-hunt.svg",
+      "sha256": "29f37aad71a83abaf77fe94181e6624b6331ec77434d6fb14cb11f5d2c3d46cf",
+      "svgLineEndingsNormalized": true
+    },
+    {
+      "path": "public/skills/icon-infect.svg",
+      "sha256": "60d7fc7418ecfe1dd698d2f6634ff8cbddd101bb36df7e5c2e3ad211f07ce2ee",
+      "svgLineEndingsNormalized": true
+    },
+    {
+      "path": "public/skills/icon-inspect.svg",
+      "sha256": "c19df40007f6656a4072df354e5536c3824308b5962f32cd7e34866910f8dfb8",
+      "svgLineEndingsNormalized": true
+    },
+    {
+      "path": "public/skills/icon-learn.svg",
+      "sha256": "435061ebdd7f76518603a38c47540a98bf7074299e16d3b927e065ea8ffc6a7b",
+      "svgLineEndingsNormalized": true
+    },
+    {
+      "path": "public/skills/icon-mask.svg",
+      "sha256": "624a852658acdfbafd0df28ac577435126613191d6e1bd3724389ce178fc2e68",
+      "svgLineEndingsNormalized": true
+    },
+    {
+      "path": "public/skills/icon-poison.svg",
+      "sha256": "0671a137fdf9269b607331f6643a77f58051f57048d7bdc1e457e561642d79d2",
+      "svgLineEndingsNormalized": true
+    },
+    {
+      "path": "public/skills/icon-role-model.svg",
+      "sha256": "4a9a8851e05c4c9c7ddd5ddeb3d68d03a787599f14a2807fce2ef607adab1469",
+      "svgLineEndingsNormalized": true
+    },
+    {
+      "path": "public/skills/icon-sheriff-badge.svg",
+      "sha256": "f1629595c84c4e459ad5e96dc4c6b4070796a2798410148e381f3bce05d23068",
+      "svgLineEndingsNormalized": true
+    },
+    {
+      "path": "public/skills/icon-shield.svg",
+      "sha256": "fb78c16062432e25a3a013f3a51680f208bd007eacf77c96e9d69a4366f34902",
+      "svgLineEndingsNormalized": true
+    },
+    {
+      "path": "public/skills/icon-sleep.svg",
+      "sha256": "8f8e79c723396401cd35867fb2e22abfb8f40cec06e24a733d3132a4a2ac60dd",
+      "svgLineEndingsNormalized": true
+    },
+    {
+      "path": "public/skills/icon-swap.svg",
+      "sha256": "cc8c12d39adb71d4c03fe1204008f0ed55008e8d59320c704e19647ff2a9b710",
+      "svgLineEndingsNormalized": true
+    },
+    {
+      "path": "public/skills/icon-trade.svg",
+      "sha256": "92e749fb55070ec49010358ee64701ac9dd93f1e3f9c6e380ec7381773c7925f",
+      "svgLineEndingsNormalized": true
+    },
+    {
+      "path": "public/skills/icon-transform.svg",
+      "sha256": "555098208df997fb16ff4885f3d834abc9391e225cbdc9412827ee83c8749887",
+      "svgLineEndingsNormalized": true
+    },
+    {
+      "path": "public/skills/icon-vote.svg",
+      "sha256": "13cb4fba33d60ad8c6c747b3bcc84b19177ad9398066f0f8755cd8b3b6995fc7",
+      "svgLineEndingsNormalized": true
+    },
+    {
+      "path": "public/skills/icon-wolf-attack.svg",
+      "sha256": "613d844185591de9499771448ecb999f164a35961a4df91e345a8749bb7ec4be",
+      "svgLineEndingsNormalized": true
+    },
+    {
+      "path": "public/skills/icon-wolf-inspect.svg",
+      "sha256": "ba4cf9f6be94e69fcfad26aeb8434daa7a086d342d03f7981a4fe3d5b1d1de96",
+      "svgLineEndingsNormalized": true
+    }
+  ],
+  "published": [
+    {
+      "path": "public/akw-ui.js",
+      "sha256": "a38b8043fe3d326b5bbc8c4f0aa7a5eb37db069d7bd8c5becb5f9f0b9f142f64"
+    },
+    {
+      "path": "public/akw.js",
+      "sha256": "5a03fc5198d3ca838458f1abaf5f3cf8fd4ec5dab3c2aff94ad2277e76c0afd9"
+    },
+    {
+      "path": "public/app.js",
+      "sha256": "63debb81ca4f331ca476b637c29e612629e9bd3e843f8a1b5ddb972c1172eb4b"
+    },
+    {
+      "path": "public/art/catalog-v2/awakenedKing-thumb-v1.webp",
+      "sha256": "b2cce58ac516e75aa0ba1c1ac25cc3d47a0e492b6e4faa962c46aabd05edbba4"
+    },
+    {
+      "path": "public/art/catalog-v2/awakenedKing-v1.webp",
+      "sha256": "be3b1c3b88a0a207ff5469d53fe4e07bb3bad7512a986309d5e9fbe427b09973"
+    },
+    {
+      "path": "public/art/catalog-v2/awakenedWitch-thumb-v1.webp",
+      "sha256": "bfef48fae4d778846a9dc928668eb8b22b90cec5de274c207696644146ca5333"
+    },
+    {
+      "path": "public/art/catalog-v2/awakenedWitch-v1.webp",
+      "sha256": "3f3a14deb0b8f80c03e282d1d0ad42724b62671e3d43ebc7b7450aebc77400df"
+    },
+    {
+      "path": "public/art/catalog/awakenedKing-v1.png",
+      "sha256": "c334889bf4957a3882cbf311aa59c9fe17477d1ec226858dad900be1e33764d7"
+    },
+    {
+      "path": "public/art/catalog/awakenedWitch-v1.png",
+      "sha256": "49a22812e5d04b59afd3cc1bae0f22d0cba4f498b37ac556dbc49e51749c3b81"
+    },
+    {
+      "path": "public/cache-manifest.js",
+      "sha256": "dce021b17100ccef54cdc7056386a1877492d7e7b84f0bdfe976c488c19b3817"
+    },
+    {
+      "path": "public/catalog-art.js",
+      "sha256": "949070e00c541f9e1a387d336f6fa2fbf6b91e8722196e5506e94466c8ad757e"
+    },
+    {
+      "path": "public/catalog-v2.js",
+      "sha256": "3e55e241032ad2d7c41010843951b0710fd0151365b1e24bced8b8f95eef435d"
+    },
+    {
+      "path": "public/data.js",
+      "sha256": "b61227ac9f002e3af1b61d69e0909b228479c93537f38615ab9e4a41dd842244"
+    },
+    {
+      "path": "public/engine.js",
+      "sha256": "023b1eb3af585a7f96e3d539fbd096ee8aec9ba81e6960057d78998388bffc43"
+    },
+    {
+      "path": "public/night.js",
+      "sha256": "841b369ee89488c7ea468f744d77f330996f8886ef04d60b8c0f2dd6ed2e092e"
+    },
+    {
+      "path": "public/recap-deaths.js",
+      "sha256": "e0ab99f497cf47f424050d902b1254c27bc61f89c26fd01f7d2cc792051ec271"
+    },
+    {
+      "path": "public/recap-ui.css",
+      "sha256": "f230f5384d48c52fd186082a28e79c41ece3719887308aa899a2dea45a09b06d"
+    },
+    {
+      "path": "public/recap.js",
+      "sha256": "01e49d8cf943abe34dce2d7e78e3848e1c53a39ee734d732f9da19ccb029bffb"
+    },
+    {
+      "path": "public/records.js",
+      "sha256": "feb2ba85cfb1b9f99dc7c39d6dfb707f3ef052aa8d70ef836674562d01126cb7"
+    },
+    {
+      "path": "public/skill-art.js",
+      "sha256": "4522ee0d81132f5940d8103d6ce00e151c1531fe6277f0df4044c0dda5290d8f"
+    },
+    {
+      "path": "public/skills/v2/icon-antidote-v1.svg",
+      "sha256": "affe427508f9b9b06f726461639dba07da85f02a49278a38dc718a8694534ddb"
+    },
+    {
+      "path": "public/skills/v2/icon-blood-blade-v2.svg",
+      "sha256": "b2f4fb5fefc6301e7d4b636cebde180bccb7549bcb7f96a06eb1a3dee441e157"
+    },
+    {
+      "path": "public/skills/v2/icon-bond-v1.svg",
+      "sha256": "0ddddac031b7fea912fd05ad099198af060fe1f99dd6fb7a258d38010b928aa0"
+    },
+    {
+      "path": "public/skills/v2/icon-charm-v2.svg",
+      "sha256": "95b0571237790cb07392e3832b47d00aad05bec812a1e99653c9d0cc8c11471a"
+    },
+    {
+      "path": "public/skills/v2/icon-dance-v1.svg",
+      "sha256": "173f507cb3f7a76a708cbfd54606aae7501ddd5051603661ff900b8f091c10b4"
+    },
+    {
+      "path": "public/skills/v2/icon-duel-v1.svg",
+      "sha256": "24fa164e94e23946aab8750f3dc77d9a65c0ad356c0b7b1e0fccdeb8bbde4c5d"
+    },
+    {
+      "path": "public/skills/v2/icon-evil-knight-reflect-v1.svg",
+      "sha256": "8cf3204aad731ac802bb6046913494a7d9b5d2d421273392941791fb8f3b87a9"
+    },
+    {
+      "path": "public/skills/v2/icon-fear-v2.svg",
+      "sha256": "87acae21640d689f2d97523f319c266d7f2e45877e09ae2d293b53b70f00f54b"
+    },
+    {
+      "path": "public/skills/v2/icon-gravekeeper-v1.svg",
+      "sha256": "577cd7c40890dd2de127ca83fcfe4429d4ecc3c3078d0b59370ab96dd86eac19"
+    },
+    {
+      "path": "public/skills/v2/icon-gun-v1.svg",
+      "sha256": "c571d42f205fc9a7e20091171bf63f0f59fb99a83220b900a4b0da5f21467ccf"
+    },
+    {
+      "path": "public/skills/v2/icon-heartbreak-v2.svg",
+      "sha256": "2e820e1c2781f95d4b78558022748599f551e689323d0842d10b2dc78c985257"
+    },
+    {
+      "path": "public/skills/v2/icon-hunt-v1.svg",
+      "sha256": "bbe7aa68750abecbc1c792f42a969ed3f403bc9c0d93711df63eccb103e091a0"
+    },
+    {
+      "path": "public/skills/v2/icon-infect-v1.svg",
+      "sha256": "084fa7f393c97e51518cd277f8c655f11480db37180acedb2b2fc81d2f667cb0"
+    },
+    {
+      "path": "public/skills/v2/icon-inspect-v1.svg",
+      "sha256": "9c656300c303055a41f0567242400bbfa8dfdb7491d353bed56c22433009b9c0"
+    },
+    {
+      "path": "public/skills/v2/icon-learn-v1.svg",
+      "sha256": "0468828c15bf46ea53924e12f92bd7fc2730be236bc91dd53637696383ad0318"
+    },
+    {
+      "path": "public/skills/v2/icon-mask-v1.svg",
+      "sha256": "0dc2ae4a33159a1152c09e6186037e880379ad263e5f213a86358f73cdeac346"
+    },
+    {
+      "path": "public/skills/v2/icon-poison-v1.svg",
+      "sha256": "865b389bcd9af4e69e224f658efbefd9d5a1679c17f8539806c17fbac0793d80"
+    },
+    {
+      "path": "public/skills/v2/icon-revenge-blade-v1.svg",
+      "sha256": "634a7e58ba8e264b361de0a274ea154af8e86f0737250757d860a7d67946b302"
+    },
+    {
+      "path": "public/skills/v2/icon-role-model-v1.svg",
+      "sha256": "381eb8a6083a1d52a9948def4510e363c5574214951b11a656d17924b4bee684"
+    },
+    {
+      "path": "public/skills/v2/icon-shield-v1.svg",
+      "sha256": "a8a310761c31f3807c079c7c7cac123d1f1f8b60a9703ebde3a6b65d93bba1e6"
+    },
+    {
+      "path": "public/skills/v2/icon-sleep-v1.svg",
+      "sha256": "ca1d55c5e0125cadaad734814103617427cf3b4ed46420ebcadbc218558372b0"
+    },
+    {
+      "path": "public/skills/v2/icon-swap-v1.svg",
+      "sha256": "5f83f64248219fe2e6f5b370196ae2d4813f70ee9b49f213676e9bd4f1d18242"
+    },
+    {
+      "path": "public/skills/v2/icon-trade-v2.svg",
+      "sha256": "51437d740a3b9bebd089dc5d19fd93e35420c2c2078cac7387c7f19eb326fbdb"
+    },
+    {
+      "path": "public/skills/v2/icon-transform-v1.svg",
+      "sha256": "a2ddc70b8b08352e178afdb0703d204e13a3c75bff1870119e901195260d58cf"
+    },
+    {
+      "path": "public/skills/v2/icon-wolf-attack-v2.svg",
+      "sha256": "72e0d27a3fb55f3f3110d5d6bc32e5be084f512a325a300a567c41c51823df6b"
+    },
+    {
+      "path": "public/skills/v2/icon-wolf-gun-v1.svg",
+      "sha256": "08840fc591e5644dfcf38103829a6b5dcbaaeac58e749cdca9c5307aebc2a86b"
+    },
+    {
+      "path": "public/skills/v2/icon-wolf-inspect-v2.svg",
+      "sha256": "fa7c2463033075a0d60d6b639a03e9c19e8977b5bb5dff7a33be425a366f27ce"
+    },
+    {
+      "path": "public/skills/v2/icon-wolf-king-bestow-v1.svg",
+      "sha256": "ca8cc271ceeff3e367c764b244fbd8af7fbb166bb0fc17b0e43de5c30c4c2676"
+    },
+    {
+      "path": "public/sw.js",
+      "sha256": "f164ec226a0309f4d649eb6e985c7fe07719f269dbe5c3ee0f0274d1605b7a2d"
+    }
+  ],
+  "liveVerified": true,
+  "passed": true
+}

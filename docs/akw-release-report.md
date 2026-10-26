@@ -1,6 +1,6 @@
 # WolfCue｜第二版技能圖示與 AKW 新板更新報告
 
-日期：2026-10-26。工作分支 `feat/eclipse-host-app`。本文件依實際執行結果維護；正式站驗證完成前不將部署標為完成。
+日期：2026-10-26。工作分支 `feat/eclipse-host-app`。本文件依實際執行結果維護；網站與新板 Supabase 目錄已部署，正式站測試結果見最後一節。
 
 ## 完成範圍
 
@@ -21,7 +21,9 @@
 - 遠端備份：`backup/pre-skill-v2-awakened-20261026` → 上述原始 SHA，推送後已核對。
 - 正式規格提交及第二備份：`6e369159df420b9831bb4f29b236328ec94aa875`；`backup/pre-akw-spec-20261026` 指向該 SHA，已核對遠端。
 - 原分支、全部備份與歷史保留；未合併 main、未 force push、未 reset。
-- 功能提交／Pages 執行／正式站驗證：待本輪發布後填入下節。
+- 功能提交：`519441ef59ae2359dfb415cf214788c3dc195a07`。
+- SVG 跨平台位元組保護修正：`6296ca75160fc03cb6b4d06bd5c13edd5b546291`，為實際 Pages 發布版本。
+- [Pages 發布成功](https://github.com/jia0796/wolf_Emcee/actions/runs/40286756367)；首次 run 40286513162 在測試階段失敗，未部署。
 
 ## 測試結果（部署前）
 
@@ -32,7 +34,7 @@
 | backend `npm run test:integration` | 45 | 0 | 0 | 實際本機 Auth／PG／REST／Edge／私有 Realtime；含 28 板目錄及新板全員角色隔離／終局 |
 | backend `node scripts/local-cli.mjs dbtest` | 10 | 0 | 0 | pgTAP：RLS、GRANT、EXECUTE、固定 search_path、28 板 |
 | `node scripts/ui-regression.mjs` | 40 組 | 0 | 0 | 30 板真實點擊完整主持流程；圖鑑／警上／回退／重開／離線 89 資產等 |
-| `node scripts/akw-ui.mjs` | 12 組 | 0 | 0 | 親傳、助手自選、完整表決、第一槍跳過、失敗保存回滾、復盤視窗與 O／X |
+| `node scripts/akw-ui.mjs` | 13 組 | 0 | 0 | 親傳、助手自選、完整表決、第一槍跳過、失敗保存回滾、復盤視窗與 O／X |
 | `node scripts/recap-identity-days-ui.mjs` | 13 組 | 0 | 0 | 320／375／390／430／橫向／平板／桌面、固定頁籤、舊局、離線、巡獵替死兩卡 |
 | `node scripts/catalog-v2-ui.mjs` | 111 組 | 0 | 0 | 35 角色、大圖／縮圖／正反翻卡／無障礙／缺圖 fallback |
 | `node scripts/online-card-art-ui.mjs` | 41 組 | 0 | 0 | 35 角色正面、卡背、蓋牌、權限拒絕與 fallback；API 為攔截的虛構房間 |
@@ -61,6 +63,9 @@
 - 首次十二玩家 UI 測試用 5304 來源，遭既有 CORS 拒絕；測試改回正式允許的 localhost:5173，未放寬 CORS，完整重跑後通過。
 - 素材核對最初將 Windows checkout 的 CRLF 與 Git LF 直接比較而誤報；現只對文字型 SVG 正規化換行，二進位原圖仍逐 byte SHA256 核對。未改動原圖或原 SVG。
 
+- 首次 GitHub Actions 因 `.gitattributes` 的原始 SVG 規則未涵蓋 `skills/v2/`，Git 自動轉換換行使新 SVG 雜湊不符。已追加相同的 byte-preservation 規則，28 個暫存區 SVG 逐檔與核准 SHA256 相同；修正 run 的完整測試與部署均成功，保留失敗及修正提交，不重寫歷史。
+- 正式站新板／復盤 UI 首次以整頁 load／networkidle 等待，在多瀏覽器同時載圖時逾時；這些輪次沒有列為通過。已改成 DOM／畫面就緒與圖片解碼，保留原功能斷言，再分開從頭完整重跑。
+
 ## 主要檔案
 
 | 範圍 | 檔案 |
@@ -82,11 +87,42 @@
 
 ## 安全回退
 
-1. 先保存現在對局並停止建立此新板。以新的 `git revert` 回退本輪功能提交，重跑測試後再發布；不得 reset／force push 或覆寫備份。
+1. 先保存現在對局並停止建立此新板。以新的 `git revert --no-commit 6296ca75160fc03cb6b4d06bd5c13edd5b546291 519441ef59ae2359dfb415cf214788c3dc195a07` 反向套用後建立一筆回退提交，處理後續文件差異、重跑測試再發布；不得 reset／force push 或覆寫備份。
 2. 舊 App 不認識新板存檔；新板進行中應先完成本局，避免將 v22 的新角色存檔交給舊版本。原 29 板資料及存檔未遷改。
 3. Supabase 目錄為追加式，可先保留不使用的新板，舊 App 不會列出它；既有房間仍按原目錄快照發牌。不應為回退刪除進行中房間或角色資料。
 4. 如確定新板已無活動房間，才以另一次經審查 migration 移除該單筆目錄；不逆轉其他六次 migration、不刪歷史紀錄。Google Drive 原素材與所有備份分支保留。
 
 ## 正式站驗證
 
-待 Pages 發布完成後補記執行連結、提交、發布檔案雜湊、正式站 UI 與十二玩家新板測試結果。未完成前不列為通過。
+發布網址：[WolfCue 狼序](https://jia0796.github.io/wolf_Emcee/)。Pages 成功 run [40286756367](https://github.com/jia0796/wolf_Emcee/actions/runs/40286756367)，發布程式版本 `6296ca75160fc03cb6b4d06bd5c13edd5b546291`；GitHub Actions 的完整 npm test 通過後才發布。
+
+| 部署後實際執行 | 通過 | 失敗 | 跳過 | 證據 |
+|---|---:|---:|---:|---|
+| 再跑根目錄 `npm test` | 1154 | 0 | 0 | [結果](akw-evidence/npm-postdeploy.json) |
+| 正式站 `scripts/akw-ui.mjs` | 13 組 | 0 | 0 | [結果](akw-evidence/akw-ui-live.json)；親傳／草稿／狼槍／成功失敗及保存回滾 |
+| 正式站 `scripts/recap-identity-days-ui.mjs` | 13 組 | 0 | 0 | [結果](akw-evidence/recap-ui-live.json)；七種 viewport、四種投票、離線、歷史缺漏、巡獵替死 |
+| 正式站 `scripts/catalog-v2-ui.mjs` | 111 組 | 0 | 0 | [結果](akw-evidence/catalog-ui-live.json)；35 角色／翻牌／素材與 fallback |
+| 正式站 `scripts/online-card-art-ui.mjs` | 41 組 | 0 | 0 | [結果](akw-evidence/cards-ui-live.json)；35 角色 API 攔截的私有卡 UI |
+| backend `AKW_LIVE=1 node scripts/akw-online-smoke.mjs` | 21 組 | 0 | 0 | [結果](akw-evidence/online-live.json)；真實 Supabase 專屬測試房、12 身分及全員同一復盤 |
+| 正式站 `scripts/akw-offline-ui.mjs` | 3 組 | 0 | 0 | [結果](akw-evidence/offline-ui-live.json)；真實 SW／斷網／新角色插畫與親傳回退 |
+| `CHECK_LIVE=1 node scripts/akw-release-check.mjs` | 49 個發布檔 | 0 | 0 | [SHA256](akw-evidence/release-hashes.json)；與本機逐檔相同，JS／CSS 僅正規化換行 |
+
+終局後已在資料庫唯讀核對本輪測試房：rooms／room_access／room_seats／player_roles／deal_transactions 都為 0；唯一暫存復盤按既有 24 小時規則保留後清理。未讀取或操作其他真人房間。匿名測試身分不含真人資料，未執行無關的 Auth 帳號清除。
+
+兩次新板 UI 逾時及第一次復盤／離線測試未列為通過；調整讀取條件後從頭完成上述最終結果檔。未刪除／弱化投票、傷害、角色資格或回退斷言。手機 Safari／PWA 真機仍待驗收。
+
+### 正式站截圖（虛構測試局）
+
+調毒失敗，仍保留毒藥圖示，O／X 同為冰藍：
+
+![正式站失敗調毒](akw-evidence/poison-result-live.png)
+
+調毒成功，上方明確標示成功：
+
+![正式站成功調毒](akw-evidence/poison-success-live.png)
+
+線上發牌新角色正面，保留原有卡片外觀：
+
+![覺醒黑狼王正面](akw-evidence/king-card-live.png)
+
+![覺醒女巫正面](akw-evidence/witch-card-live.png)
