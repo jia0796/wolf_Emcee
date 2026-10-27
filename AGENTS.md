@@ -9,9 +9,9 @@
 - 新板專用狀態與表決在 akw.js／akw-ui.js，優先複用原死亡佇列、setBallot／tallyVotes、逐人自動前進、保存與回退。
 - 親傳當晚生效且每爪獨立選擇；被槍殺可接續狼槍；普通黑狼王維持原生連鎖槍。有效毒殺、自爆及正式終局仍禁止狼槍。女巫可自選協助者；調毒機會不足不能提交，不消耗次數。
 - 背景、按鍵尺寸／行距、兩欄座位與原角色素材不任意重設。26 原 SVG 保留；顯示層使用另存 public/skills/v2 的核准 28 SVG，映射見 skill-art.js。
-- 圖鑑、線上卡及復盤共用 catalog-v2.js 新插畫。原事件身分快照不可依最終角色改寫；缺圖退回原素材一次。
+- 圖鑑、線上卡及復盤共用 catalog-v2.js 新插畫。最新七角色映射為 v2 路徑，來源核對見 docs/catalog-source-audit.json；不能改回舊 v1。原事件身分快照不可依最終角色改寫；缺圖退回原素材一次。
 - 身分回顧不收合，完整復盤由下方長條按鈕開獨立 dialog，橫列天數固定，事件內捲動。
-- Service Worker CORE 優先，素材每批兩個漸進下載；不阻擋主持，保留舊資產。現行 cache council-v22-31。
+- Service Worker CORE 優先，素材每批兩個漸進下載；不阻擋主持，保留舊資產。現行 cache council-v22-32。
 - Supabase 只在明確授權範圍修改；不改既有發牌結果。測試用本機虛構資料，禁止洩露登入 token／管理金鑰。新板目錄追加，舊目錄不重建。
 - 執行 npm test 與相關現有 UI／後端測試，保留最終結果檔。中斷／超時不算通過；iPhone Safari／PWA、Android、低階裝置未實測須標待真機驗收。
-- 發布、測試、回退基準及限制記錄到本輪報告與 README；最新為 docs/wolf-gun-chain-report.md（前輪為 docs/akw-release-report.md）；舊接手指南保留在 docs/archive/AGENTS-before-akw-20261026.md。
+- 發布、測試、回退基準及限制記錄到本輪報告與 README；最新為 docs/helper-art-sync-report.md（前輪為 docs/wolf-gun-chain-report.md）；舊接手指南保留在 docs/archive/AGENTS-before-akw-20261026.md。

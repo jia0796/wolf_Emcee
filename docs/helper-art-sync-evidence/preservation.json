@@ -1,0 +1,20 @@
+{
+  "originalSkillSvg": {
+    "checked": 26,
+    "changed": []
+  },
+  "previousCurrentWebp": {
+    "checked": 70,
+    "changed": []
+  },
+  "originalCatalogPng": {
+    "checked": 35,
+    "changed": []
+  },
+  "gameLogic": {
+    "checked": 9,
+    "changed": []
+  },
+  "newAssetBytes": 4571712,
+  "baseline": "d2165a7ff78515d4f3f4d0a6a8eec19e4c7fdcc8"
+}

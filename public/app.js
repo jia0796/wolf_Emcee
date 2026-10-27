@@ -1,4 +1,4 @@
-import {isAkw,akwNight,currentProposal,clawRemaining,giftCandidates,akwPotionBlocked,poisonVoteMismatch} from './akw.js';
+import {isAkw,akwNight,currentProposal,clawRemaining,giftCandidates,helpersNeeded,akwPotionBlocked,poisonVoteMismatch} from './akw.js';
 import {createAkwBallotDialog} from './akw-ui.js';
 import {charmAvailable,charmHint,patrolPlan} from './awakening.js';
 import {isPatrol} from './engine.js';
@@ -94,7 +94,7 @@ function hintText(){
   if(game.step==='akwWitch')return game.rolesConfirmed?PURE:'點選覺醒女巫本人；再次點選可取消';
   if(game.step==='akwKing'||game.step==='akwKingClose'||game.step==='akwWitchClose'||game.step==='akwAssistantsClose')return PURE;
   if(game.step==='akwGift'){const king=game.players.find(p=>p.role==='awakenedKing');return !king?.alive?PURE:clawRemaining(game,king.id)<1?'技能已使用':'剩餘 '+clawRemaining(game,king.id)+' 次親傳；選擇普通狼人，或本晚不親傳';}
-  if(game.step==='akwHelpers')return game.nightAction.poison===true?(akwPotionBlocked(game,'poison')||''):'';
+  if(game.step==='akwHelpers')return game.nightAction.poison===true?(akwPotionBlocked(game,'poison')||'請選擇 '+helpersNeeded(game)+' 位協助者，可選自己；每人整局限協助一次'):'本晚未使用毒藥，按下一步';
   if(game.step==='akwAssistants'||game.step==='akwDecision')return p?'毒殺目標：'+p.target+'號':'';
   if(deathSkill(game)&&game.operation==='claw')return '狼槍：剩餘 '+clawRemaining(game,game.queue[0].id)+' 次；每次選擇開槍或不開槍';
  }

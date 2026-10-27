@@ -1,0 +1,73 @@
+{
+  "base": "http://127.0.0.1:5399/",
+  "passed": 13,
+  "failed": 0,
+  "skipped": 0,
+  "results": [
+    {
+      "mode": 0,
+      "hint": "請選擇 1 位協助者，可選自己；每人整局限協助一次",
+      "nextGatingPreserved": true
+    },
+    {
+      "mode": 1,
+      "hint": "請選擇 2 位協助者，可選自己；每人整局限協助一次",
+      "nextGatingPreserved": true
+    },
+    {
+      "mode": 2,
+      "hint": "請選擇 3 位協助者，可選自己；每人整局限協助一次",
+      "nextGatingPreserved": true
+    },
+    {
+      "mode": "skip",
+      "hint": "本晚未使用毒藥，按下一步",
+      "nextGatingPreserved": true
+    },
+    {
+      "mode": "insufficient",
+      "hint": "符合資格的協助者人數不足",
+      "nextGatingPreserved": true
+    },
+    {
+      "guardApprovedArt": true
+    },
+    {
+      "role": "guard",
+      "recapActorAndTargetArt": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "role": "gravekeeper",
+      "recapActorAndTargetArt": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "role": "demon",
+      "recapActorAndTargetArt": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "role": "mechanical",
+      "recapActorAndTargetArt": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "role": "seedWolf",
+      "recapActorAndTargetArt": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "role": "dancer",
+      "recapActorAndTargetArt": true,
+      "snapshotUnchanged": true
+    },
+    {
+      "role": "mask",
+      "recapActorAndTargetArt": true,
+      "snapshotUnchanged": true
+    }
+  ],
+  "errors": [],
+  "scope": "Synthetic local browser fixtures; no cloud room or gameplay modifications"
+}

@@ -1,0 +1,42 @@
+{
+  "base": "http://127.0.0.1:5400/",
+  "passed": 8,
+  "failed": 0,
+  "skipped": 0,
+  "results": [
+    {
+      "cacheName": "council-v22-32",
+      "verifiedCachedAssets": 14
+    },
+    {
+      "role": "gravekeeper",
+      "offlineCurrentArtAndFlip": true
+    },
+    {
+      "role": "demon",
+      "offlineCurrentArtAndFlip": true
+    },
+    {
+      "role": "mechanical",
+      "offlineCurrentArtAndFlip": true
+    },
+    {
+      "role": "guard",
+      "offlineCurrentArtAndFlip": true
+    },
+    {
+      "role": "seedWolf",
+      "offlineCurrentArtAndFlip": true
+    },
+    {
+      "role": "dancer",
+      "offlineCurrentArtAndFlip": true
+    },
+    {
+      "role": "mask",
+      "offlineCurrentArtAndFlip": true
+    }
+  ],
+  "errors": [],
+  "realDevices": "待真機驗收"
+}

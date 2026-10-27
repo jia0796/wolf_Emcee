@@ -11,16 +11,16 @@ export const CATALOG_ART_V2=Object.freeze({
     "thumbnail": "art/catalog-v2/gargoyle-thumb-v1.webp"
   },
   "gravekeeper": {
-    "full": "art/catalog-v2/gravekeeper-v1.webp",
-    "thumbnail": "art/catalog-v2/gravekeeper-thumb-v1.webp"
+    "full": "art/catalog-v2/gravekeeper-v2.webp",
+    "thumbnail": "art/catalog-v2/gravekeeper-thumb-v2.webp"
   },
   "blood": {
     "full": "art/catalog-v2/blood-v1.webp",
     "thumbnail": "art/catalog-v2/blood-thumb-v1.webp"
   },
   "demon": {
-    "full": "art/catalog-v2/demon-v1.webp",
-    "thumbnail": "art/catalog-v2/demon-thumb-v1.webp"
+    "full": "art/catalog-v2/demon-v2.webp",
+    "thumbnail": "art/catalog-v2/demon-thumb-v2.webp"
   },
   "idiot": {
     "full": "art/catalog-v2/idiot-v1.webp",
@@ -79,20 +79,20 @@ export const CATALOG_ART_V2=Object.freeze({
     "thumbnail": "art/catalog-v2/villager-thumb-v1.webp"
   },
   "mechanical": {
-    "full": "art/catalog-v2/mechanical-v1.webp",
-    "thumbnail": "art/catalog-v2/mechanical-thumb-v1.webp"
+    "full": "art/catalog-v2/mechanical-v2.webp",
+    "thumbnail": "art/catalog-v2/mechanical-thumb-v2.webp"
   },
   "medium": {
     "full": "art/catalog-v2/medium-v1.webp",
     "thumbnail": "art/catalog-v2/medium-thumb-v1.webp"
   },
   "guard": {
-    "full": "art/catalog-v2/guard-v1.webp",
-    "thumbnail": "art/catalog-v2/guard-thumb-v1.webp"
+    "full": "art/catalog-v2/guard-v2.webp",
+    "thumbnail": "art/catalog-v2/guard-thumb-v2.webp"
   },
   "seedWolf": {
-    "full": "art/catalog-v2/seedWolf-v1.webp",
-    "thumbnail": "art/catalog-v2/seedWolf-thumb-v1.webp"
+    "full": "art/catalog-v2/seedWolf-v2.webp",
+    "thumbnail": "art/catalog-v2/seedWolf-thumb-v2.webp"
   },
   "hiddenWolf": {
     "full": "art/catalog-v2/hiddenWolf-v1.webp",
@@ -107,12 +107,12 @@ export const CATALOG_ART_V2=Object.freeze({
     "thumbnail": "art/catalog-v2/duelist-thumb-v1.webp"
   },
   "dancer": {
-    "full": "art/catalog-v2/dancer-v1.webp",
-    "thumbnail": "art/catalog-v2/dancer-thumb-v1.webp"
+    "full": "art/catalog-v2/dancer-v2.webp",
+    "thumbnail": "art/catalog-v2/dancer-thumb-v2.webp"
   },
   "mask": {
-    "full": "art/catalog-v2/mask-v1.webp",
-    "thumbnail": "art/catalog-v2/mask-thumb-v1.webp"
+    "full": "art/catalog-v2/mask-v2.webp",
+    "thumbnail": "art/catalog-v2/mask-thumb-v2.webp"
   },
   "fragrance": {
     "full": "art/catalog-v2/fragrance-v1.webp",

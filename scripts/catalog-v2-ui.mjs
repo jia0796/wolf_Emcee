@@ -90,7 +90,7 @@ try{
  {
   const {c,p}=await open({width:390,height:844});const manifest=JSON.parse(await readFile(new URL('../docs/catalog-v2-assets.json',import.meta.url)));
   for(const row of manifest)for(const key of ['thumbnail','full']){const r=await p.request.get(new URL(row[key],base).href);assert.equal(r.status(),200);assert.equal(createHash('sha256').update(await r.body()).digest('hex'),row[key+'Sha256']);}
-  results.push({servedAssetHashes:66});await c.close();
+  results.push({servedAssetHashes:manifest.length*2});await c.close();
  }
  {
   const {c,p}=await open({width:390,height:844},{sw:'allow'});await p.waitForFunction(()=>navigator.serviceWorker.controller!==null);

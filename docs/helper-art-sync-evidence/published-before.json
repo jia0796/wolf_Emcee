@@ -1,0 +1,51 @@
+[
+  {
+    "id": "gravekeeper",
+    "name": "守墓人",
+    "publishedPath": "art/catalog-v2/gravekeeper-v1.webp",
+    "publishedSha256": "b1e766140c5f1e354b348748dccfacaf49aa39493d3bc93068b8adfc8178acba",
+    "matchesOldAppAsset": true
+  },
+  {
+    "id": "demon",
+    "name": "獵魔人",
+    "publishedPath": "art/catalog-v2/demon-v1.webp",
+    "publishedSha256": "2bab10b42e2244fabde61719742194c67b723a1efba3805da8c3761d07de192e",
+    "matchesOldAppAsset": true
+  },
+  {
+    "id": "mechanical",
+    "name": "機械狼",
+    "publishedPath": "art/catalog-v2/mechanical-v1.webp",
+    "publishedSha256": "f5b4b2f1e17b4131b2df6f4250d5c0a04fe6d863efbae030f306c19d1a5192f0",
+    "matchesOldAppAsset": true
+  },
+  {
+    "id": "guard",
+    "name": "守衛",
+    "publishedPath": "art/catalog-v2/guard-v1.webp",
+    "publishedSha256": "59492ff3596fd00468933863f1a6d1735f91bb791734de157816eecb317687aa",
+    "matchesOldAppAsset": true
+  },
+  {
+    "id": "seedWolf",
+    "name": "種狼",
+    "publishedPath": "art/catalog-v2/seedWolf-v1.webp",
+    "publishedSha256": "dfb879b6debcb39337721e8d85f3f0d9f493f3a8a1e11e58431dd37c440ace7d",
+    "matchesOldAppAsset": true
+  },
+  {
+    "id": "dancer",
+    "name": "舞者",
+    "publishedPath": "art/catalog-v2/dancer-v1.webp",
+    "publishedSha256": "74cd23c19f05e0c2b78b137e11787c3a5ca183ccc244b0c450405aa7843796f7",
+    "matchesOldAppAsset": true
+  },
+  {
+    "id": "mask",
+    "name": "假面",
+    "publishedPath": "art/catalog-v2/mask-v1.webp",
+    "publishedSha256": "10775fc44c0db9c63281225b7840622a0384167406b1d9130f939f95d3b4e65d",
+    "matchesOldAppAsset": true
+  }
+]

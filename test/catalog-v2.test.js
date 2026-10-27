@@ -19,7 +19,7 @@ test('new catalog covers the existing roles exactly and preserves original and l
  }
  assert.equal(libraryImage('unimplemented','fallback'),'fallback');
 });
-test('all 66 catalog assets are real verified WebP files with lightweight list variants',async()=>{
+test('all catalog assets are real verified WebP files with lightweight list variants',async()=>{
  const manifest=JSON.parse(await readFile(new URL('../docs/catalog-v2-assets.json',import.meta.url)));
  for(const row of manifest)for(const key of ['full','thumbnail']){
   const bytes=await readFile(new URL('../public/'+row[key],import.meta.url));
