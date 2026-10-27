@@ -1,0 +1,11 @@
+{
+  "command": "npm test",
+  "environment": "GitHub Actions Ubuntu / Node 22",
+  "runId": 40471552252,
+  "jobId": 122079536245,
+  "tests": 1178,
+  "pass": 1178,
+  "fail": 0,
+  "cancelled": 0,
+  "skipped": 0
+}

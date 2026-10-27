@@ -47,7 +47,23 @@
 
 ## 發布與發布後驗證
 
-本機驗證已完成；待本輪功能提交及 Pages 發布成功後補入實際 SHA、正式站雜湊與部署後結果。
+功能提交：`a0498dd51a68efc6c7ae36ff6671c7a23c6e7f04`。既有工作流程 [Pages run 40471552252](https://github.com/jia0796/wolf_Emcee/actions/runs/40471552252) 的 build 與 deploy 皆成功，網站：[WolfCue 狼序](https://jia0796.github.io/wolf_Emcee/)。[發布證據](helper-art-sync-evidence/deployment.json)；[CI 規則測試 1178／0／0](helper-art-sync-evidence/npm-ci.json)。
+
+正式站 `app.js`、`catalog-v2.js`、`sw.js`、`cache-manifest.js` 及 14 張新 WebP，共 **18 個發布檔案 SHA256 全部相符**；文字檔只正規化換行，圖片逐位元組核對。[正式站雜湊](helper-art-sync-evidence/release-hashes.json)。
+
+以下測試均在 Pages 成功後執行，瀏覽器 `UI_BASE=https://jia0796.github.io/wolf_Emcee/`，按順序完整完成；199 組皆有最終結果檔，沒有中斷／逾時結果列入通過。
+
+| 部署後實際指令 | 通過 | 失敗 | 跳過 | 證據 |
+|---|---:|---:|---:|---|
+| `npm test` | 1178 | 0 | 0 | [結果](helper-art-sync-evidence/npm-postdeploy.json) |
+| `node scripts/catalog-v2-ui.mjs` | 111 組 | 0 | 0 | [結果](helper-art-sync-evidence/catalog-live.json)，含 35 角色大圖／縮圖共 70 個實際 HTTP SHA256 |
+| `node scripts/online-card-art-ui.mjs` | 41 組 | 0 | 0 | [結果](helper-art-sync-evidence/online-live.json) |
+| `node scripts/recap-identity-days-ui.mjs` | 13 組 | 0 | 0 | [結果](helper-art-sync-evidence/recap-live.json) |
+| `node scripts/helper-art-sync-ui.mjs` | 13 組 | 0 | 0 | [結果](helper-art-sync-evidence/hint-art-live.json) |
+| `node scripts/akw-ui.mjs` | 13 組 | 0 | 0 | [結果](helper-art-sync-evidence/akw-live.json) |
+| `node scripts/helper-art-sync-offline.mjs` | 8 組 | 0 | 0 | [結果](helper-art-sync-evidence/offline-live.json)，真實 cache32 的 14 張新圖核對後斷網翻卡 |
+
+正式站確認圖鑑、線上卡正面、復盤都採最新共同映射。測試沒有連線或修改真實房間；角色權限與 API 為隔離的虛構測試替身。原有線上卡外框／卡背、復盤融合及舊身分快照維持原樣。
 
 ## 尚未驗收
 
@@ -59,10 +75,10 @@
 
 施工前乾淨基準 `d2165a7ff78515d4f3f4d0a6a8eec19e4c7fdcc8`。已建立、推送並核對遠端 `backup/pre-akw-helper-hint` 指向相同 SHA；原有全部備份保留。
 
-回退以 `git revert <本輪功能提交>` 建立新提交，重跑測試再發布；不 reset、不 force push、不改存檔。若已發布 cache32，回退時需另提升 SW cache 版本，使已安裝裝置取得回退檔；不能直接沿用已存在的 cache31／32 名稱。原圖及舊 WebP 仍可用，不需刪除使用者紀錄。
+回退以 `git revert a0498dd51a68efc6c7ae36ff6671c7a23c6e7f04` 建立新提交，重跑測試再發布；不 reset、不 force push、不改存檔。若已發布 cache32，回退時需另提升 SW cache 版本，使已安裝裝置取得回退檔；不能直接沿用已存在的 cache31／32 名稱。原圖及舊 WebP 仍可用，不需刪除使用者紀錄。
 
 ## 畫面
 
-![新版守衛](helper-art-sync-evidence/guard-current.png)
+![正式站新版守衛](helper-art-sync-evidence/guard-live.png)
 
-![第二次調毒需要兩位協助者](helper-art-sync-evidence/hint-1.png)
+![正式站第二次調毒需要兩位協助者](helper-art-sync-evidence/hint-live.png)

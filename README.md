@@ -12,11 +12,13 @@
 - 快取：**council-v22-32**；沿用核心優先、素材每批兩張的漸進快取。
 - 規則以最新使用者裁定及 [詳細規格](docs/current-rules.md) 為準；外觀以 [DESIGN.md](DESIGN.md) 為準。歷史報告中的舊配色、版號及測試數不作現行施工要求。
 
-## 最新修正｜協助者提示與七角色素材同步
+## 最新修正｜協助者提示與七角色素材同步（已部署）
 
 - 「請選擇協助者」補上小字幕：使用毒藥時顯示「請選擇 X 位協助者，可選自己；每人整局限協助一次」；X 依本局調毒次數為 1／2／3，不依夜晚編號。未用毒顯示「本晚未使用毒藥，按下一步」。原人數不足提示、合法對象及下一步限制保留。
 - 已逐張核對 Drive 的 35 個現有角色來源：**7 張尚未同步、28 張相符**。更新守衛（核准的無盾版本）、守墓人、獵魔人、機械狼、種狼、舞者、假面的最新調整；來源及 SHA256 見 [素材核對](docs/catalog-source-audit.json)。
 - 圖鑑、線上卡正面、復盤共用新版 `*-v2.webp`，不再沿用這七張舊網址。保留原始 PNG、舊 WebP、原外框／卡背、背景與布局；沒有新增尚未實作的角色。存檔仍為 v22，快取更新為 council-v22-32，漸進下載策略不變。
+- 本機及部署後 `npm test` 均 **1178 通過／0 失敗／0 跳過**，兩輪瀏覽器各 **199 組全通過**；正式站 18 個本輪發布檔案雜湊一致。iPhone Safari／PWA、Android、低階裝置仍待真機驗收。
+- 功能提交 `a0498dd51a68efc6c7ae36ff6671c7a23c6e7f04`；[Pages 發布成功](https://github.com/jia0796/wolf_Emcee/actions/runs/40471552252)。遠端備份 `backup/pre-akw-helper-hint` → `d2165a7ff78515d4f3f4d0a6a8eec19e4c7fdcc8` 已核對。
 - 詳細測試、發布及回退見 [協助者提示與素材同步報告](docs/helper-art-sync-report.md)。本輪不修改 Supabase、Google Drive 或 main。
 
 ## 前輪修正｜2026-10-26 狼槍接續（已部署）
@@ -90,6 +92,8 @@ npm test
 | 覺醒狼美人單狼狼刀 UI | `node scripts/awb-solo-knife-ui.mjs` |
 | 線上角色卡新版插畫／隱私狀態 | `node scripts/online-card-art-ui.mjs` |
 | 圖鑑固定工具列／翻卡 | `node scripts/catalog-v2-ui.mjs` |
+| 協助者小字幕／七角色歷史圖片 | `node scripts/helper-art-sync-ui.mjs` |
+| 七角色新版圖片 SW／離線 | `node scripts/helper-art-sync-offline.mjs` |
 | 後端本機測試 | [backend/README.md](backend/README.md)；必須使用本機虛構資料。 |
 
 瀏覽器測試需已安裝 Playwright 與瀏覽器；可用 `COUNCIL_PLAYWRIGHT_MODULE` 指定模組。每輪已執行的指令、結果與環境以該輪報告為準，不把腳本存在視為測試通過。
