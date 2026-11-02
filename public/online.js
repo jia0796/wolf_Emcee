@@ -30,8 +30,24 @@ export function installOnline({show,onHostReady,onHome,onLibrary,onLibraryClose,
   return navigator.locks?navigator.locks.request('wolfcue-online-auth',run):run();
  }
  async function api(action,body={},roomId=room){
-  const session=await auth();
-  const r=await fetch(URL+'/functions/v1/room',{method:'POST',cache:'no-store',headers:{apikey:KEY,Authorization:'Bearer '+session.access_token,'Content-Type':'application/json'},body:JSON.stringify({action,roomId,body})});
+  const session=await auth(),payload=JSON.stringify({action,roomId,body});
+  const request=s=>fetch(URL+'/functions/v1/room',{method:'POST',cache:'no-store',headers:{apikey:KEY,Authorization:'Bearer '+s.access_token,'Content-Type':'application/json'},body:payload});
+  let r=await request(session);
+  if(r.status===401){
+   cover();
+   // Another tab may already have replaced the rejected session. Never sign it out.
+   const reset=async()=>{
+    const {data:{session:current}}=await client.auth.getSession();if(current?.access_token!==session.access_token)return;
+    const check=await client.auth.getUser();if(check.data?.user)return;
+    // An Auth outage is not proof that this identity was deleted.
+    if(![401,403].includes(check.error?.status))throw Error('登入狀態尚未確認，請檢查網路後重試');
+    await client.auth.signOut({scope:'local'});
+   };
+   if(navigator.locks)await navigator.locks.request('wolfcue-online-auth',reset);else await reset();
+   // Retry the identical operation once, with server-confirmed authentication.
+   // Forbidden rooms/roles (403) never trigger a new identity or a retry.
+   r=await request(await auth());
+  }
   const data=await r.json();if(!r.ok||data.error){const error=Error(data.message||({ROOM_FULL:'房間人數已滿，無法加入',NOT_FULL:'遊玩人數不足，無法發牌'}[data.error])||'操作未確認，請重新同步後再試');error.code=data.error;throw error;}
   return data;
  }

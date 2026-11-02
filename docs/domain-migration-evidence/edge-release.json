@@ -1,0 +1,10 @@
+{
+  "function": "room",
+  "beforeVersion": 3,
+  "afterVersion": 4,
+  "verify_jwt": false,
+  "authentication": "Existing Auth.getUser plus user-scoped RPC unchanged",
+  "oldSourceSha256": "78b5606582b92f1c1cfe4bd273bb8b1c0764ae451c18cfc2f559daa3ed7b16fc",
+  "newSourceSha256": "322b001e1e22793086564dfb5c36de2da3478c1331c640ea590dfa01bd76b031",
+  "diff": "Add exact https://wolfcue.runs-at.dev origin only"
+}

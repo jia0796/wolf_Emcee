@@ -1,0 +1,42 @@
+{
+  "project": "wolfcue-online",
+  "projectRef": "cnseutkrrjkdkpikjcdz",
+  "authorization": "User explicitly confirmed all Auth users and all room/game data deletion in this conversation",
+  "beforeSnapshot": {
+    "users": 116,
+    "sessions": 116,
+    "refresh_tokens": 977,
+    "identities": 0,
+    "mfa_amr_claims": 116,
+    "rooms": 20,
+    "room_access": 64,
+    "room_seats": 238,
+    "room_secrets": 20,
+    "deal_transactions": 3,
+    "player_roles": 34,
+    "finished_recaps": 0,
+    "boards": 28
+  },
+  "afterCommittedDeletion": {
+    "users": 0,
+    "sessions": 0,
+    "refresh_tokens": 0,
+    "identities": 0,
+    "mfa_amr_claims": 0,
+    "rooms": 0,
+    "room_access": 0,
+    "room_seats": 0,
+    "room_secrets": 0,
+    "deal_transactions": 0,
+    "player_roles": 0,
+    "finished_recaps": 0,
+    "boards": 28
+  },
+  "databaseSchemaChanged": false,
+  "userDataExported": false,
+  "note": "Before is an inspection snapshot, not a deletion RETURNING count. Future new signups are separate from the cleared users.",
+  "orphanedRoomBroadcastsDeleted": 69,
+  "orphanedRoomBroadcastsAfter": 0,
+  "laterNewSignupsObserved": 1,
+  "newSignupHandling": "A new anonymous signup appeared after the committed cleanup; it is not an old user and is deliberately retained."
+}

@@ -89,7 +89,7 @@ material-source: "public/liquid-glass.css"
 
 沿用既有開場、日夜及翻卡流程；按鍵材質約 .16 秒回饋，Reduce Motion 停止額外動畫。保留鍵盤、雙指縮放、原生捲動、動態 viewport、安全區及最後一列可點擊。
 
-Service Worker 仍先裝 CORE，再每批兩資產背景快取。`catalog-v2.js`／`catalog-ui.css`／`recap-deaths.js`／`recap-ui.css` 為核心檔；70 張目前使用的 WebP（35 縮圖＋35 大圖）為非阻塞選用資源；另保留七角色的 14 張舊版 WebP，保留舊資產與原有復用策略。存檔版本維持 v22，快取識別更新為 council-v22-32。
+Service Worker 仍先裝 CORE，再每批兩資產背景快取。`catalog-v2.js`／`catalog-ui.css`／`recap-deaths.js`／`recap-ui.css` 為核心檔；70 張目前使用的 WebP（35 縮圖＋35 大圖）為非阻塞選用資源；另保留七角色的 14 張舊版 WebP，保留舊資產與原有復用策略。存檔版本維持 v22，快取識別更新為 council-v22-33。
 
 ## 驗收與發布
 
@@ -111,3 +111,7 @@ Service Worker 仍先裝 CORE，再每批兩資產背景快取。`catalog-v2.js`
 「請選擇協助者」下方使用既有 hint 樣式。已選毒藥時顯示「請選擇 X 位協助者，可選自己；每人整局限協助一次」，X 由 helpersNeeded 計算；未用毒顯示「本晚未使用毒藥，按下一步」。原人數不足／耗盡原因優先，不新增已選進度、不更改選座及下一步資格。
 
 本輪來源核對、測試、發布與回退以 [協助者提示與素材同步報告](docs/helper-art-sync-report.md) 為準。
+
+## 正式網域
+
+正式入口 https://wolfcue.runs-at.dev/；保留目前全部背景、插畫、尺寸與液態玻璃材質。網域切換不重設版面。舊匿名登入失效時先蓋牌，待伺服器重新確認授權；不增加多餘確認流程，不顯示未授權身分。

@@ -1,0 +1,42 @@
+{
+  "passed": 6,
+  "failed": 0,
+  "results": [
+    {
+      "origin": "https://wolfcue.runs-at.dev",
+      "method": "OPTIONS",
+      "status": 204,
+      "allowOrigin": "https://wolfcue.runs-at.dev"
+    },
+    {
+      "origin": "https://wolfcue.runs-at.dev",
+      "method": "POST",
+      "status": 401,
+      "allowOrigin": "https://wolfcue.runs-at.dev"
+    },
+    {
+      "origin": "https://jia0796.github.io",
+      "method": "OPTIONS",
+      "status": 204,
+      "allowOrigin": "https://jia0796.github.io"
+    },
+    {
+      "origin": "https://jia0796.github.io",
+      "method": "POST",
+      "status": 401,
+      "allowOrigin": "https://jia0796.github.io"
+    },
+    {
+      "origin": "https://untrusted.invalid",
+      "method": "OPTIONS",
+      "status": 403,
+      "allowOrigin": null
+    },
+    {
+      "origin": "https://untrusted.invalid",
+      "method": "POST",
+      "status": 403,
+      "allowOrigin": null
+    }
+  ]
+}

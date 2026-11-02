@@ -51,3 +51,9 @@ node scripts/local-cli.mjs dbtest
 遊戲終局由授權主持人的原 App 通知，後端不重新執行狼人殺勝負引擎。主持人若在正式終局前手動丟棄本機對局，已發牌房間不會依兩小時規則清除；這是需另行定稿的房間生命週期限制。
 
 本輪測試、部署及安全回退見 `../docs/online-host-recap-report.md`；最初架構見 `../docs/online-deal-report.md`。真機 Safari／PWA、相機掃碼與低階 Android 尚未驗收。
+
+## 2026-11-02｜正式網域
+
+正式前端為 https://wolfcue.runs-at.dev/。room Edge Function 精確允許新來源、原 GitHub 來源及既有 localhost 來源，不使用萬用 CORS。28 款板子目錄保留；依使用者確認清除現有 Auth 及房間／對局資料，是一次性營運操作，不放進 migration／seed，也不能於重跑部署時再次刪除。部署不包含任何管理金鑰。
+
+新站測試與清除結果見 [移轉報告](../docs/domain-migration-report.md)。原本本機完整整合測試仍需 Docker；本輪來源與認證回歸單測為 `npm test`。十二玩家煙霧測試支援 `AKW_LIVE=1`、`ONLINE_BASE=https://wolfcue.runs-at.dev/`；`ONLINE_OUT` 必須放在儲存庫外，內含測試帳號 ID 供精確清理，不得提交這份 ID 清單。

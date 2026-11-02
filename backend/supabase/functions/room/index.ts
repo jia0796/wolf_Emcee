@@ -13,7 +13,7 @@ const baseHeaders = {
 };
 Deno.serve(async req => {
  const origin=req.headers.get("Origin");
- const origins=new Set(["https://jia0796.github.io","http://localhost:5173","http://127.0.0.1:5173"]);
+ const origins=new Set(["https://wolfcue.runs-at.dev","https://jia0796.github.io","http://localhost:5173","http://127.0.0.1:5173"]);
  const headers={...baseHeaders,...(origin&&origins.has(origin)?{"Access-Control-Allow-Origin":origin}:{})};
  const reply=(status:number,body:unknown)=>new Response(JSON.stringify(body),{status,headers});
  if(origin&&!origins.has(origin))return reply(403,{error:"ORIGIN_NOT_ALLOWED"});

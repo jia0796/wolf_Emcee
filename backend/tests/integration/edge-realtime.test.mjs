@@ -84,7 +84,7 @@ try{
  await run('cleanup accepts verified local service credential; production CORS accepts only approved origin',async()=>{
   const res=await fetch(c.FUNCTIONS_URL+'/cleanup',{method:'POST',headers:{apikey:c.ANON_KEY,Authorization:`Bearer ${c.SERVICE_ROLE_KEY}`}});
   assert.equal(res.status,200);assert.equal(typeof(await res.json()).closed,'number');
-  for(const [origin,status]of [['https://jia0796.github.io',401],['https://untrusted.invalid',403]]){
+  for(const [origin,status]of [['https://wolfcue.runs-at.dev',401],['https://jia0796.github.io',401],['https://untrusted.invalid',403]]){
    const r=await fetch(c.FUNCTIONS_URL+'/room',{method:'POST',headers:{Origin:origin,apikey:c.ANON_KEY}});
    assert.equal(r.status,status);
    // Local gateway may replace CORS headers with '*'; enforce the actual
