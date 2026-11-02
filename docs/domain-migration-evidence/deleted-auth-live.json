@@ -1,0 +1,13 @@
+{
+  "base": "https://wolfcue.runs-at.dev/",
+  "passed": 4,
+  "failed": 0,
+  "complete": true,
+  "createStatuses": [
+    401,
+    200
+  ],
+  "sameRequest": true,
+  "errors": [],
+  "scope": "Real Supabase deletion of a newly self-created synthetic Auth account, separate from the original user wipe. No token or invite persisted."
+}

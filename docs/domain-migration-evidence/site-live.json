@@ -1,0 +1,59 @@
+{
+  "base": "https://wolfcue.runs-at.dev/",
+  "passed": 6,
+  "failed": 0,
+  "results": [
+    {
+      "path": "index.html",
+      "status": 200,
+      "expectedSha256": "a81e77922ef1c58dfe28a436a5a5f84748f45c357dddafab813dfb7ef0a223de",
+      "servedSha256": "a81e77922ef1c58dfe28a436a5a5f84748f45c357dddafab813dfb7ef0a223de",
+      "match": true
+    },
+    {
+      "path": "app.js",
+      "status": 200,
+      "expectedSha256": "c6b1e1c1fcffed899a2aa0fa2ee4f34d594d96dafeb6ff19eb5abd2a2d4b83d4",
+      "servedSha256": "c6b1e1c1fcffed899a2aa0fa2ee4f34d594d96dafeb6ff19eb5abd2a2d4b83d4",
+      "match": true
+    },
+    {
+      "path": "online.js",
+      "status": 200,
+      "expectedSha256": "643da4cfc765fc52940cdd6e6dcb8ab87c28d4ff7946f013d6fab9606ee65841",
+      "servedSha256": "643da4cfc765fc52940cdd6e6dcb8ab87c28d4ff7946f013d6fab9606ee65841",
+      "match": true
+    },
+    {
+      "path": "sw.js",
+      "status": 200,
+      "expectedSha256": "3b0b3ccea3883cd2c4e816454a7588952cf0e587d06915aef3d390ee25996132",
+      "servedSha256": "3b0b3ccea3883cd2c4e816454a7588952cf0e587d06915aef3d390ee25996132",
+      "match": true
+    },
+    {
+      "path": "manifest.webmanifest",
+      "status": 200,
+      "expectedSha256": "7b94cae26cbe2658aa26b09c37c56acb7806f3e9c379af75e675b54d973b8dbe",
+      "servedSha256": "7b94cae26cbe2658aa26b09c37c56acb7806f3e9c379af75e675b54d973b8dbe",
+      "match": true
+    },
+    {
+      "path": "catalog-v2.js",
+      "status": 200,
+      "expectedSha256": "878c8f22b4712b6608e7571c4a1cd9555dab5eb2ced7e722eb3e38802eb38557",
+      "servedSha256": "878c8f22b4712b6608e7571c4a1cd9555dab5eb2ced7e722eb3e38802eb38557",
+      "match": true
+    }
+  ],
+  "oldUrlRedirect": {
+    "status": 301,
+    "location": "https://wolfcue.runs-at.dev/"
+  },
+  "pwa": {
+    "id": "./",
+    "scope": "./",
+    "start_url": "./",
+    "resolvedOrigin": "https://wolfcue.runs-at.dev/"
+  }
+}

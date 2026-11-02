@@ -1,0 +1,8 @@
+{
+  "command": "npm test",
+  "tests": 1178,
+  "pass": 1178,
+  "fail": 0,
+  "cancelled": 0,
+  "skipped": 0
+}

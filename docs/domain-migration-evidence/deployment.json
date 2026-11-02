@@ -1,0 +1,21 @@
+{
+  "sha": "c36b8eda7b298601131117cdc41b0b9cb7fcca46",
+  "id": 41396977382,
+  "url": "https://github.com/jia0796/wolf_Emcee/actions/runs/41396977382",
+  "status": "completed",
+  "conclusion": "success",
+  "jobs": [
+    {
+      "id": 125120301976,
+      "name": "build",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 125120712096,
+      "name": "deploy",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ]
+}

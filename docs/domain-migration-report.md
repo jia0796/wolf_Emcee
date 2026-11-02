@@ -45,7 +45,35 @@
 
 ## 發布與部署後結果
 
-Edge v4 已部署並取回來源核對一致。前端功能提交、Pages 發布及正式新網域連線／離線驗證待本輪完成後補入，尚未執行的項目不列通過。
+- Edge `room` v4 已部署並取回來源核對一致；cleanup 函式、資料庫 schema／政策／排程不變。
+- 功能提交：`c36b8eda7b298601131117cdc41b0b9cb7fcca46`。GitHub Pages [run 41396977382](https://github.com/jia0796/wolf_Emcee/actions/runs/41396977382) 的 build 與 deploy 均成功。[發布證據](domain-migration-evidence/deployment.json)；[CI 1178 項全通過](domain-migration-evidence/npm-ci.json)。
+- 正式新站 `index.html`、app.js、online.js、sw.js、manifest.webmanifest、catalog-v2.js 共 **6 檔 SHA256 一致**；舊網址回應 **301 → 新根目錄**。manifest id／scope／start_url 均解析至新根目錄，沒有沿用 /wolf_Emcee 路徑。[HTTP／雜湊與 PWA 設定](domain-migration-evidence/site-live.json)。
+
+| 部署後實際指令／範圍 | 通過 | 失敗 | 跳過 | 證據 |
+|---|---:|---:|---:|---|
+| 根目錄 `npm test` | 1178 | 0 | 0 | [結果](domain-migration-evidence/npm-postdeploy.json) |
+| backend `npm test` | 10 | 0 | 0 | [結果](domain-migration-evidence/backend-postdeploy.json) |
+| `UI_BASE=https://wolfcue.runs-at.dev/ node scripts/online-auth-recovery-ui.mjs` | 9 組 | 0 | 0 | [結果](domain-migration-evidence/auth-live.json)，隔離 Auth／API 替身 |
+| `UI_BASE=… node scripts/online-card-art-ui.mjs` | 41 組 | 0 | 0 | [結果](domain-migration-evidence/card-live.json)，35 角色、授權失敗、原圖回退 |
+| `UI_BASE=… node scripts/akw-offline-ui.mjs` | 3 組 | 0 | 0 | [結果](domain-migration-evidence/offline-live.json)，真實新域 SW33、離線刷新／操作／回退及圖鑑 |
+| `AKW_LIVE=1 ONLINE_BASE=https://wolfcue.runs-at.dev/ node scripts/akw-online-smoke.mjs`（backend） | 21 組 | 0 | 0 | [結果](domain-migration-evidence/online-live.json)，真實 Supabase／隔離虛構房間 |
+| `node ../output/domain-migration/deleted-auth-live.mjs`（一次性驗證腳本） | 4 組 | 0 | 0 | [結果](domain-migration-evidence/deleted-auth-live.json)，真實測試用戶刪除、同 requestId 恢復、新域 QR、解散 |
+
+以上前端／連線共 **78 組**全部完成，沒有未結束／逾時結果冒充通過。角色圖／原 SVG 與遊戲邏輯的 Git 基準比對：[保留檢查](domain-migration-evidence/preservation.json)。
+
+十二玩家測試使用 13 個自建匿名帳號（主持人＋12 玩家），驗證完整入座、一次性發牌與重試不洗牌、每人僅自己的角色、兩名覺醒角色卡／圖鑑、終局後玩家進相同復盤且只有回首頁。復盤傳輸使用明示的虛構空歷史 fixture，不是重演真人整局，也不新增真實遊戲事件；不把測試當作真人裝置驗收。
+
+另建立一個全新測試帳號後只刪除該測試用戶，保留隔離瀏覽器內的舊登入，實際取得 **401 → 200**；確認新匿名身分、原操作與 requestId 完全相同，且實際解碼 QR 只在記憶體驗證 host=wolfcue.runs-at.dev、path=/。沒有保存 token 或邀請連結。
+
+測完只清理上述自建用戶及兩間測試房的資料／復盤／Broadcast，所有目標核對為 0；15 個目標 ID 中 1 個已於登入失效測試刪除，最後清理其餘測試帳號。原清除後新登入的 **1 個非測試帳號保留**；沒有再次執行全體用戶刪除。最終所有房間／座位／角色／發牌／復盤／房間 Broadcast 均為 0，板子仍 28。[精確測試清理](domain-migration-evidence/test-cleanup.json)。
+
+## 正式新站畫面
+
+![新網域首頁](domain-migration-evidence/home-live.png)
+
+![測試玩家卡背](domain-migration-evidence/player-back-live.png)
+
+![測試玩家終局復盤](domain-migration-evidence/player-recap-live.png)
 
 ## 未驗收／限制
 
@@ -57,4 +85,4 @@ Edge v4 已部署並取回來源核對一致。前端功能提交、Pages 發布
 
 施工前乾淨 HEAD `d8675992ce16c08ad1a977c7f0b9e7f11cac93f0`；已建立並推送唯一遠端 `backup/pre-custom-domain-20261102`，核對指向同一 SHA，所有舊備份保留。
 
-程式可用新的 revert 提交回退，重新測試與發布；若回退至舊域，須另恢復 GitHub Pages 網域設定及保持 DNS 一致，且 SW 使用未用過的新 cache 名。Edge 可從此備份的 room 原始碼重新部署，但 v3 不允許新域，不能在新站使用期間直接回退。**Git 備份不含本次已刪除的用戶／對局資料，程式回退不會恢復它們。**
+程式可用新的 `git revert c36b8eda7b298601131117cdc41b0b9cb7fcca46` 提交回退，重新測試與發布；若回退至舊域，須另恢復 GitHub Pages 網域設定及保持 DNS 一致，且 SW 使用未用過的新 cache 名。Edge 可從此備份的 room 原始碼重新部署，但 v3 不允許新域，不能在新站使用期間直接回退。**Git 備份不含本次已刪除的用戶／對局資料，程式回退不會恢復它們。**

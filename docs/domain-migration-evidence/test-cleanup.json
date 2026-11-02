@@ -1,0 +1,22 @@
+{
+  "testIdsTargeted": 15,
+  "testIdsAlreadyDeletedDuringInvalidSessionTest": 1,
+  "targetAuthRemaining": 0,
+  "targetRoomsRemaining": 0,
+  "targetRecapsRemaining": 0,
+  "targetRoomBroadcastsRemaining": 0,
+  "finalProjectSnapshot": {
+    "authUsers": 1,
+    "authSessions": 1,
+    "rooms": 0,
+    "roomAccess": 0,
+    "roomSeats": 0,
+    "roomSecrets": 0,
+    "dealTransactions": 0,
+    "playerRoles": 0,
+    "finishedRecaps": 0,
+    "roomBroadcasts": 0,
+    "boards": 28
+  },
+  "newVisitorHandling": "The one remaining anonymous user was created after the original wipe and is not a test account; it is retained. No repeated global deletion was used."
+}
