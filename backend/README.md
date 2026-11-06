@@ -29,7 +29,7 @@ node scripts/local-cli.mjs dbtest
 
 ## 權限與資料流
 
-- 八張資料表位於非公開的 `wolfcue_private` schema，全面啟用 RLS。無政策的四張表刻意拒絕直接查詢。新增 finished_recaps 也不授予客戶端直接查詢權限，只能使用經授權的 recap 命令。
+- 資料表位於非公開的 `wolfcue_private` schema，全面啟用 RLS。boards、deal_transactions、room_seats、room_secrets 與兩張短碼相關表刻意拒絕客戶端直接查詢。新增 finished_recaps 也不授予客戶端直接查詢權限，只能使用經授權的 recap 命令。
 - 玩家使用匿名 Auth 帳號（資料庫角色仍為 authenticated），邀請憑證與房號分開。
 - 選座與發牌鎖定房間；座位、使用者及發牌交易都有唯一性約束。換座失敗保留舊座，重試發牌不重新洗牌。
 - `room` Edge Function 使用 `auth.getUser()` 驗證 JWT，再以原使用者權限執行 RPC；不接受客戶端宣稱的角色或主持人身分。
@@ -65,3 +65,5 @@ node scripts/local-cli.mjs dbtest
 Edge `join_code` 呼叫受 Auth 保護的 `wolfcue_join_code`；DB 原子限制每身分 6 次／分鐘、30 次／小時（所有嘗試均計入），未知房／過期回通用錯誤，不公開對照表或邀請憑證。成功只沿原 command 建立成員資格，既有成員可在缺少邀請憑證時恢復加入；非成員不能拿 UUID 加入。刪除房間級聯刪短碼，已發牌的新成員仍拒絕，既有玩家依原身分恢復。
 
 這個限制按 Auth 身分計算，不是 IP／全站分散式防護；匿名註冊的防濫用由既有 Auth 設定處理，沒有自行修改 CAPTCHA／註冊限制。PGlite 執行真實 migration 與 SQL，但 Auth／Realtime 介面替身不能當成完整本機或雲端 Supabase 驗收。雲端已套用 migration 20261106071704、room Edge v5；實際 Auth／Realtime、並發測試結果與未驗收項目見本輪報告。
+
+本次實際共三間測試房。最後一間短碼加入等 3 組通過，私有通知等待 15 秒仍未到達而失敗，其後 6 組未執行。既有 8 秒輪詢備援未移除；不能將本機測試結果當成雲端完整發牌通過。實際問題與精確測試資料清理見 [本輪報告](../docs/room-code-nightorder-report.md)。

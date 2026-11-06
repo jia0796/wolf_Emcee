@@ -1,0 +1,57 @@
+[
+  {
+    "path": "public/akw-ui.js",
+    "sha256": "630a156872f69ccc99895c535b0496246d5d40ebaea8e74da551f7e48dd7d3f6",
+    "matches": true
+  },
+  {
+    "path": "public/app.js",
+    "sha256": "647dda8925aadaa223194b0c1c645a46996c17870c29bb5a06fa7e72933512c3",
+    "matches": true
+  },
+  {
+    "path": "public/data.js",
+    "sha256": "5ededab6942b929c8d7208623082ce33ff82105d15cfd09e66c707903ef78cbb",
+    "matches": true
+  },
+  {
+    "path": "public/engine.js",
+    "sha256": "a26a2ac9f1cc7b10b626e5ce42a1a4ee13b7c9efb638d75ab99cc14047abe663",
+    "matches": true
+  },
+  {
+    "path": "public/index.html",
+    "sha256": "f7ac4b091b657710b79b42e9e02313730fbdcce4585e375936501928892f7091",
+    "matches": true
+  },
+  {
+    "path": "public/join-room.js",
+    "sha256": "b78173e85e9a34818c6b054051b04e82d28463044e0eb6bdab01ad91987ac528",
+    "matches": true
+  },
+  {
+    "path": "public/liquid-glass.css",
+    "sha256": "76351bdec8dfac2a279905a99cb9649bf599789a92ec80c835c9611acfd6134f",
+    "matches": true
+  },
+  {
+    "path": "public/online.css",
+    "sha256": "53d5e2a1c788c74d91d4f49e9b6894652c80e5797da4bd0a403567f96b89c7a7",
+    "matches": true
+  },
+  {
+    "path": "public/online.js",
+    "sha256": "c90b238c3a623e4a0719b1ff55a1ef8299c0dff1073c74cd27e256526f4f8c7a",
+    "matches": true
+  },
+  {
+    "path": "public/recap-ui.css",
+    "sha256": "216cb85241c2cb331c250e703df594b55cef6717db853a633349d061f31ab5ce",
+    "matches": true
+  },
+  {
+    "path": "public/sw.js",
+    "sha256": "d130bf626ef5d3e88610f72a272d8ad6cee6898abaf28a327f21df7ba078e5ac",
+    "matches": true
+  }
+]

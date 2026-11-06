@@ -1,0 +1,24 @@
+{
+  "environment": "https://wolfcue.runs-at.dev/ headless Edge, mocked online transport",
+  "passed": 17,
+  "results": [
+    "Join 320x568: validation/errors/normalization/rejoin/privacy",
+    "Ballot 320x568: gaps, focus, automatic advance, draft/reload, edit, submit and abandon",
+    "Join 390x844: validation/errors/normalization/rejoin/privacy",
+    "Ballot 390x844: gaps, focus, automatic advance, draft/reload, edit, submit and abandon",
+    "Join 430x932: validation/errors/normalization/rejoin/privacy",
+    "Ballot 430x932: gaps, focus, automatic advance, draft/reload, edit, submit and abandon",
+    "Join 844x390: validation/errors/normalization/rejoin/privacy",
+    "Ballot 844x390: gaps, focus, automatic advance, draft/reload, edit, submit and abandon",
+    "Ballot 1 helpers",
+    "Ballot 2 helpers",
+    "ballot storage failure blocks submit/close; retry succeeds",
+    "Legacy caption mechanicalFirstGesture safely restored",
+    "Legacy caption mechanicalHunter safely restored",
+    "Legacy caption mechanicalHunterGesture safely restored",
+    "Legacy caption mechanicalHunterClose safely restored",
+    "AKW setup order labels, no blank stages",
+    "host displays short code while copy preserves UUID invitation link"
+  ],
+  "errors": []
+}

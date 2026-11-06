@@ -1,6 +1,6 @@
 {
   "date": "2026-11-06",
-  "status": "local only; not deployed",
+  "status": "Website and Supabase deployed; live private Realtime acceptance failed",
   "base": "f70cdde48b1af4547ca6676f91cdac43ef13af20",
   "unit": {
     "passed": 1185,
@@ -18,8 +18,37 @@
     "skipped": 0
   },
   "unverified": [
-    "real Supabase Auth/Realtime for short code",
-    "multi-connection PostgreSQL contention",
+    "Private Realtime end-to-end notification: failed 15-second deadline",
+    "Cloud full deal, role isolation, reconnect and short-code rate limits after notification barrier",
+    "10-player real cloud room",
+    "Full local Docker Supabase integration",
     "iOS Safari/PWA and Android devices"
-  ]
+  ],
+  "commit": "195714c49793e0838242484a5ebaa8abe500b6d6",
+  "pagesRun": 42182565423,
+  "deployedBrowser": {
+    "passed": 113,
+    "failed": 0,
+    "skipped": 0
+  },
+  "deployedFilesMatched": 11,
+  "supabase": {
+    "migration": "20261106071704",
+    "edgeVersion": 5
+  },
+  "live": {
+    "roomsCreated": 3,
+    "lastRoom": {
+      "passed": 3,
+      "failed": 1,
+      "notExecuted": 6
+    },
+    "cleanup": {
+      "testAccountsRemoved": 49,
+      "testMessagesRemoved": 51,
+      "originalAccountsRetained": 1,
+      "remainingRooms": 0,
+      "boardsRetained": 28
+    }
+  }
 }
