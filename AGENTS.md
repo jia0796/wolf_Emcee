@@ -11,9 +11,11 @@
 - 背景、按鍵尺寸／行距、兩欄座位與原角色素材不任意重設。26 原 SVG 保留；顯示層使用另存 public/skills/v2 的核准 28 SVG，映射見 skill-art.js。
 - 圖鑑、線上卡及復盤共用 catalog-v2.js 新插畫。最新七角色映射為 v2 路徑，來源核對見 docs/catalog-source-audit.json；不能改回舊 v1。原事件身分快照不可依最終角色改寫；缺圖退回原素材一次。
 - 身分回顧不收合，完整復盤由下方長條按鈕開獨立 dialog，橫列天數固定，事件內捲動。
-- Service Worker CORE 優先，素材每批兩個漸進下載；不阻擋主持，保留舊資產。現行 cache council-v22-33。
+- Service Worker CORE 優先，素材每批兩個漸進下載；不阻擋主持，保留舊資產。現行 cache council-v22-34。
 - Supabase 只在明確授權範圍修改；不改既有發牌結果。測試用本機虛構資料，禁止洩露登入 token／管理金鑰。新板目錄追加，舊目錄不重建。
 - 執行 npm test 與相關現有 UI／後端測試，保留最終結果檔。中斷／超時不算通過；iPhone Safari／PWA、Android、低階裝置未實測須標待真機驗收。
-- 發布、測試、回退基準及限制記錄到本輪報告與 README；最新為 docs/domain-migration-report.md（前輪為 docs/helper-art-sync-report.md）；舊接手指南保留在 docs/archive/AGENTS-before-akw-20261026.md。
+- 發布、測試、回退基準及限制記錄到本輪報告與 README；最新為 docs/room-code-nightorder-report.md（前輪為 docs/domain-migration-report.md）；舊接手指南保留在 docs/archive/AGENTS-before-akw-20261026.md。
 
 - 正式網址為 https://wolfcue.runs-at.dev/；GitHub Pages workflow 保留。room Edge Function 同時允許新網域及原 GitHub 來源。2026-11-02 的用戶／對局資料清除只執行一次，禁止將清除動作加入一般 migration／部署。401 認證恢復僅重試一次且保留原 requestId，403 不換身分。
+
+- 2026-11-06 本輪：加入房間 5 碼、機通移除額外學獵人字幕、AKW 夜序名稱與精簡表決。新裁定在 current-rules.md／akw-spec.md；報告 docs/room-code-nightorder-report.md。cache council-v22-34；前輪雲端刪資料不可重跑。

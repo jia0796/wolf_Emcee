@@ -1,0 +1,70 @@
+{
+  "base": "http://127.0.0.1:5410/",
+  "passed": 9,
+  "failed": 0,
+  "skipped": 0,
+  "results": [
+    {
+      "mode": "recover",
+      "requests": 2,
+      "localSignOut": 1,
+      "anonymousSignIn": 1,
+      "hostSavePreserved": true
+    },
+    {
+      "mode": "other-tab",
+      "requests": 2,
+      "localSignOut": 0,
+      "anonymousSignIn": 0,
+      "hostSavePreserved": true
+    },
+    {
+      "mode": "always401",
+      "requests": 2,
+      "localSignOut": 1,
+      "anonymousSignIn": 1,
+      "hostSavePreserved": true
+    },
+    {
+      "mode": "forbidden",
+      "requests": 1,
+      "localSignOut": 0,
+      "anonymousSignIn": 0,
+      "hostSavePreserved": true
+    },
+    {
+      "mode": "empty",
+      "requests": 1,
+      "localSignOut": 0,
+      "anonymousSignIn": 1,
+      "hostSavePreserved": true
+    },
+    {
+      "mode": "no-locks",
+      "requests": 2,
+      "localSignOut": 1,
+      "anonymousSignIn": 1,
+      "hostSavePreserved": true
+    },
+    {
+      "mode": "auth-outage",
+      "requests": 1,
+      "localSignOut": 0,
+      "anonymousSignIn": 0,
+      "hostSavePreserved": true
+    },
+    {
+      "mode": "valid-session",
+      "requests": 2,
+      "localSignOut": 0,
+      "anonymousSignIn": 0,
+      "hostSavePreserved": true
+    },
+    {
+      "roleRetryRequiresFreshRoomAuthorization": true,
+      "privateCardCleared": true
+    }
+  ],
+  "errors": [],
+  "scope": "Synthetic API/Auth adapters, no cloud writes"
+}

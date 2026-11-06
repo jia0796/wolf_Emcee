@@ -1,0 +1,13 @@
+{
+  "environment": "live Supabase, isolated synthetic accounts and rooms",
+  "passed": 3,
+  "failed": 1,
+  "checks": [
+    "awakenedKingWitch12: create retry retains UUID, original display code and unique short code",
+    "awakenedKingWitch12: raw UUID alone cannot admit outsider",
+    "awakenedKingWitch12: concurrent lowercase short joins plus original invite join"
+  ],
+  "failure": "Error: Private Realtime subscription rejected",
+  "identityCount": 13,
+  "cleanup": "Rooms dissolved and test sessions signed out; precise Auth/recap/message cleanup verified separately"
+}

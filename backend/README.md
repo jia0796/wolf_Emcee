@@ -57,3 +57,11 @@ node scripts/local-cli.mjs dbtest
 正式前端為 https://wolfcue.runs-at.dev/。room Edge Function 精確允許新來源、原 GitHub 來源及既有 localhost 來源，不使用萬用 CORS。28 款板子目錄保留；依使用者確認清除現有 Auth 及房間／對局資料，是一次性營運操作，不放進 migration／seed，也不能於重跑部署時再次刪除。部署不包含任何管理金鑰。
 
 新站測試與清除結果見 [移轉報告](../docs/domain-migration-report.md)。原本本機完整整合測試仍需 Docker；本輪來源與認證回歸單測為 `npm test`。十二玩家煙霧測試支援 `AKW_LIVE=1`、`ONLINE_BASE=https://wolfcue.runs-at.dev/`；`ONLINE_OUT` 必須放在儲存庫外，內含測試帳號 ID 供精確清理，不得提交這份 ID 清單。
+
+## 2026-11-06 短房號（Supabase 已部署）
+
+`20261106071704_short_room_codes.sql` 追加私有 room_join_codes／room_join_attempts。保留 rooms.id／display_code／邀請；snapshot 新增 joinCode。5 碼從 31 字元抽樣並保證英數混合，衝突重試最多 100 次；不截短原 ID。
+
+Edge `join_code` 呼叫受 Auth 保護的 `wolfcue_join_code`；DB 原子限制每身分 6 次／分鐘、30 次／小時（所有嘗試均計入），未知房／過期回通用錯誤，不公開對照表或邀請憑證。成功只沿原 command 建立成員資格，既有成員可在缺少邀請憑證時恢復加入；非成員不能拿 UUID 加入。刪除房間級聯刪短碼，已發牌的新成員仍拒絕，既有玩家依原身分恢復。
+
+這個限制按 Auth 身分計算，不是 IP／全站分散式防護；匿名註冊的防濫用由既有 Auth 設定處理，沒有自行修改 CAPTCHA／註冊限制。PGlite 執行真實 migration 與 SQL，但 Auth／Realtime 介面替身不能當成完整本機或雲端 Supabase 驗收。雲端已套用 migration 20261106071704、room Edge v5；實際 Auth／Realtime、並發測試結果與未驗收項目見本輪報告。

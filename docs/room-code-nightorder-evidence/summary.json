@@ -1,0 +1,25 @@
+{
+  "date": "2026-11-06",
+  "status": "local only; not deployed",
+  "base": "f70cdde48b1af4547ca6676f91cdac43ef13af20",
+  "unit": {
+    "passed": 1185,
+    "failed": 0,
+    "skipped": 0
+  },
+  "backend": {
+    "passed": 30,
+    "failed": 0,
+    "skipped": 0
+  },
+  "browser": {
+    "passed": 113,
+    "failed": 0,
+    "skipped": 0
+  },
+  "unverified": [
+    "real Supabase Auth/Realtime for short code",
+    "multi-connection PostgreSQL contention",
+    "iOS Safari/PWA and Android devices"
+  ]
+}

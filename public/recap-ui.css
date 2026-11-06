@@ -64,6 +64,3 @@ html.wolfcue-glass #finished .recap-dialog .recap-window{width:100%;height:100%;
 #finished .akw-helper-list,#finished .akw-recap-ballots{grid-column:1/-1;position:relative;margin:0;padding:7px 8px;color:var(--v-muted);font-size:12px;line-height:1.7}
 #finished .akw-recap-ballots{display:flex;flex-wrap:wrap;gap:4px 14px;border-top:1px solid var(--v-line)}
 .akw-recap-ballots .agree,.akw-recap-ballots .disagree{color:#B2DBE5}
-#akwBallotDialog [data-voters]{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:14px 0}
-#akwBallotDialog [data-voters] button{min-height:52px;padding:8px 4px;font-size:14px}
-#akwBallotDialog .akw-opinion.agree{color:#DDF4F5}#akwBallotDialog .akw-opinion.disagree{color:#F6C3CC}

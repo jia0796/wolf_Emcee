@@ -48,7 +48,7 @@ function setupBoard(id){
  $('awakenedPatrolRules').hidden=b.id!=='awakenedBeauty12';
  $('brothersRules').hidden=b.id!=='brothers12';$('ruleRevengeInvincible').value=String(b.defaults.revengeInvincible===true);
  $('knightRules').hidden=b.id!=='evilKnight12';$('ruleImmuneNightGun').value=String(b.defaults.immuneNightGun||false);
- $('setupOrder').textContent=(b.firstNightOrder?'第一晚：'+b.firstNightOrder.map(r=>r==='stoneIdentify'?'石像鬼身分確認':r==='mediumIdentify'?'通靈師舉手':r==='wolves'?'狼人':r==='brothers'?'狼兄狼弟':r==='lucky'?'幸運兒':(r==='converted'?'轉化者':ROLES[r])).join(' → ')+'\n第二晚起：':'')+b.nightOrder.map(r=>r==='infectionNotice'?'感染者身分確認':r==='wolves'?'狼人':r==='lucky'?'幸運兒':r==='converted'?'轉化者':ROLES[r]).join(' → ');
+ $('setupOrder').textContent=(b.firstNightOrder?'第一晚：'+b.firstNightOrder.map(r=>r==='stoneIdentify'?'石像鬼身分確認':r==='mediumIdentify'?'通靈師舉手':r==='wolves'?'狼人':r==='brothers'?'狼兄狼弟':r==='lucky'?'幸運兒':(r==='converted'?'轉化者':ROLES[r])).join(' → ')+'\n第二晚起：':'')+b.nightOrder.map(r=>r==='akwKing'?'覺醒黑狼王親傳':r==='akwWitch'?'覺醒女巫':r==='akwAssistants'?'協助者集體表決':r==='infectionNotice'?'感染者身分確認':r==='wolves'?'狼人':r==='lucky'?'幸運兒':r==='converted'?'轉化者':ROLES[r]).join(' → ')+(b.id==='awakenedKingWitch12'?' → 天亮':'');
  $('swallowLabel').textContent=(b.swallowThreshold===2?'雙爆':'單爆')+'吞警徽';
  $('ruleSheriff').value=String(b.defaults.sheriff);$('ruleSelfRescue').value=String(b.defaults.selfRescue);$('ruleSwallow').value=String(b.defaults.swallow);$('idiotRules').hidden=!b.roles.idiot;$('ruleIdiotChase').value=String(b.defaults.idiotChase||false);$('mechanicalRules').hidden=!b.roles.mechanical;$('ruleMechanicalKnife').value=b.defaults.mechanicalKnife||'next';$('ruleReflectPoison').value=String(b.defaults.reflectPoison||false);show('setup');
 }
@@ -336,6 +336,7 @@ $('resetConfirm').onclick=async()=>{
 $('boardsNormal').onclick=()=>{selectedCategory='normal';drawBoards();};$('boardsSpecial').onclick=()=>{selectedCategory='special';drawBoards();};
 $('identityOpen').onclick=()=>{$('identityReview').showModal();$('identityReview').scrollTop=0;};$('identityReview').onclick=e=>{const r=$('identityReview').getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)$('identityReview').close();};
 $('start').onclick=()=>$('hostModeDialog').showModal();
+$('joinRoomOpen').onclick=()=>online.openJoin();
 $('traditionalMode').onclick=()=>{hostMode='traditional';$('hostModeDialog').close();show('counts');};
 $('onlineMode').onclick=()=>{hostMode='online';$('hostModeDialog').close();show('counts');};
 $('hostModeClose').onclick=()=>$('hostModeDialog').close();$('encyclopediaOpen').onclick=()=>library('home');$('hostLibrary').onclick=()=>library('host');

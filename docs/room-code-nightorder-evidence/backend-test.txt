@@ -1,0 +1,43 @@
+
+> test
+> node --test tests/*.test.mjs
+
+✔ private channel refetches authority, ignores stale responses and covers cards on background/cleanup (2.1235ms)
+✔ preflight accepts exact approved origin https://wolfcue.runs-at.dev (14.5717ms)
+✔ preflight accepts exact approved origin https://jia0796.github.io (0.5677ms)
+✔ preflight accepts exact approved origin http://localhost:5173 (0.5634ms)
+✔ preflight accepts exact approved origin http://127.0.0.1:5173 (0.4313ms)
+✔ rejects unapproved origin before authentication https://untrusted.invalid (1.8693ms)
+✔ rejects unapproved origin before authentication https://wolfcue.runs-at.dev.evil.invalid (0.6057ms)
+✔ rejects unapproved origin before authentication http://wolfcue.runs-at.dev (0.491ms)
+✔ rejects unapproved origin before authentication https://other.runs-at.dev (0.4388ms)
+✔ new domain still requires Auth and rejects deleted accounts (0.7856ms)
+✔ short join invokes only authenticated short-code RPC (15.6935ms)
+✔ invalid short join body rejected before RPC null (1.0274ms)
+✔ invalid short join body rejected before RPC [] (0.857ms)
+✔ invalid short join body rejected before RPC {"code":123} (0.8408ms)
+✔ invalid short join body rejected before RPC {"code":"A78B2","inviteToken":"forged"} (0.8373ms)
+✔ invalid short join body rejected before RPC {"code":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"} (0.7264ms)
+✔ caller cannot override code resolution with room ID (0.743ms)
+✔ rate limited RPC maps to HTTP 429 (1.0378ms)
+✔ authentication remains mandatory for code lookup (0.5908ms)
+SQL checks completed: 11 (PGlite; Auth/Realtime adapters stubbed, not hosted Supabase)
+✔ existing room ID, display code, invite and request preserved; short code backfilled (4.9765ms)
+✔ new codes unique, mixed letters/digits; simultaneous creates are idempotent (156.2643ms)
+✔ forced collision retries without overwriting an existing mapping (7.1842ms)
+✔ lowercase and whitespace join; no invitation, host roles or other private roles exposed (11.2824ms)
+✔ original invitation links still work and wrong token is rejected for member (4.7673ms)
+✔ six attempts/minute, thirty/hour, unknown/invalid attempts persist and expiry unlocks (11.5506ms)
+✔ expired/dissolved codes denied, dissolved code mapping removed (11.5305ms)
+✔ 10 seats/deal/privacy/rejoin and new entrants after deal (48.0992ms)
+✔ 12 seats/deal/privacy/rejoin and new entrants after deal (63.0547ms)
+✔ no direct code/rate table reads or helper calls; anonymous and deleted identities rejected (4.0444ms)
+✔ rollback refuses active rooms; after expiry removes only added code structures (12.9016ms)
+ℹ tests 30
+ℹ suites 0
+ℹ pass 30
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1771.0081

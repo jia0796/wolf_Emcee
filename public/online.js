@@ -1,3 +1,4 @@
+import {installJoinRoom} from './join-room.js';
 import {createClient,toCanvas} from './online-vendor.js';
 import {catalogImage,catalogFallback} from './catalog-art.js';
 import {libraryImage} from './catalog-v2.js';
@@ -48,7 +49,7 @@ export function installOnline({show,onHostReady,onHome,onLibrary,onLibraryClose,
    // Forbidden rooms/roles (403) never trigger a new identity or a retry.
    r=await request(await auth());
   }
-  const data=await r.json();if(!r.ok||data.error){const error=Error(data.message||({ROOM_FULL:'房間人數已滿，無法加入',NOT_FULL:'遊玩人數不足，無法發牌'}[data.error])||'操作未確認，請重新同步後再試');error.code=data.error;throw error;}
+  const data=await r.json();if(!r.ok||data.error){const error=Error(data.message||({ROOM_FULL:'房間人數已滿，無法加入',NOT_FULL:'遊玩人數不足，無法發牌'}[data.error])||'操作未確認，請重新同步後再試');error.code=data.error;error.retryAfter=data.retryAfter;throw error;}
   return data;
  }
  function leaveView(){cover();active=false;++seq;clearInterval(interval);if(channel)client.removeChannel(channel);channel=null;library=false;}
@@ -202,7 +203,7 @@ export function installOnline({show,onHostReady,onHome,onLibrary,onLibraryClose,
   try{
    const s=await api(h.roomId?'recover':'create',h.roomId?{}:{boardId:h.boardId,requestId:h.requestId},h.roomId||null);
    room=s.roomId;h={...h,...s};save(HOST,h);notice('');await apply(s);
-   if(active){$('onlineCode').textContent='房號 '+s.roomCode;const canvas=document.querySelector('#onlineQR canvas');await toCanvas(canvas,link(h),{scale:4,margin:4});canvas.style.removeProperty('width');canvas.style.removeProperty('height');canvas.style.setProperty('--online-qr-size',(canvas.width/2)+'px');await subscribe();}
+   if(active){$('onlineCode').textContent='房號 '+(s.joinCode||s.roomCode);const canvas=document.querySelector('#onlineQR canvas');await toCanvas(canvas,link(h),{scale:4,margin:4});canvas.style.removeProperty('width');canvas.style.removeProperty('height');canvas.style.setProperty('--online-qr-size',(canvas.width/2)+'px');await subscribe();}
   }catch(e){if(unavailable(e,h?.roomId))return;notice(e.message);const retry=document.createElement('button');retry.textContent='重新連線';retry.onclick=()=>host(config);$('onlineNotice').append(retry);}
  }
  async function player(id,invite){
@@ -210,11 +211,19 @@ export function installOnline({show,onHostReady,onHome,onLibrary,onLibraryClose,
   $('onlineHome').hidden=false;$('onlineLibrary').hidden=false;
   try{
    const invites=read(INVITES)||{};if(invite){invites[id]=invite;save(INVITES,invites);}
-   const s=await api('join',{inviteToken:invite||invites[id]||''});notice('');await apply(s);if(active)await subscribe();
+   const credential=invite||invites[id];const s=await api('join',credential===true?{}:{inviteToken:credential||''});notice('');await apply(s);if(active)await subscribe();
   }catch(e){if(unavailable(e,id))return;cover();notice(e.message);$('onlineRing').replaceChildren();$('onlineCard').hidden=true;
    if(!e.message.includes('房間人數已滿'))setTimeout(()=>{if(active&&!state&&room===id)player(id,invite);},8000);
   }
  }
+ const joinDialog=installJoinRoom({join:async code=>{
+  const s=await api('join_code',{code},null);
+  if(!s.roomId||!['waiting','dealt'].includes(s.status))throw Error('房間不存在或已關閉，請確認房號');
+  const invites=read(INVITES)||{};invites[s.roomId]??=true;save(INVITES,invites);
+  leaveView();isHost=false;active=true;state=null;room=s.roomId;show('online');notice('');
+  const u=new globalThis.URL(location.href);u.hash='';u.searchParams.set('room',room);history.replaceState(null,'',u);
+  await apply(s);if(active)await subscribe();
+ }});
  async function end(game){
   const h=read(HOST);if(game?.step==='finished'&&h?.started&&h.dealId){try{const pending=read(END);if(pending?.roomId!==h.roomId||pending?.dealId!==h.dealId||!pending.recap)save(END,{roomId:h.roomId,dealId:h.dealId,recap:recapSnapshot(game)});}catch{return;}}
   const pending=read(END);if(!pending||end.running)return;end.running=true;
@@ -230,7 +239,7 @@ export function installOnline({show,onHostReady,onHome,onLibrary,onLibraryClose,
  document.addEventListener('visibilitychange',()=>{cover();++seq;if(!document.hidden){refresh();end();}});
  window.addEventListener('online',()=>{refresh();end();});window.addEventListener('pagehide',cover);
  window.addEventListener('storage',e=>{if(e.key==='wolfcue-online-auth'){cover();refresh();}});
- return {host,end,dissolve,clearPlayerRecap(){endingRoom=null;if(recapRoom)forgetRoom(recapRoom);recapRoom=null;},closeLibrary(){library=false;cover();paint();show('online');refresh();},detach(){const h=read(HOST);if(h?.started)localStorage.removeItem(HOST);},async resume(){
+ return {host,end,dissolve,openJoin:()=>joinDialog.open(),clearPlayerRecap(){endingRoom=null;if(recapRoom)forgetRoom(recapRoom);recapRoom=null;},closeLibrary(){library=false;cover();paint();show('online');refresh();},detach(){const h=read(HOST);if(h?.started)localStorage.removeItem(HOST);},async resume(){
   const hash=new URLSearchParams(location.hash.slice(1)),u=new globalThis.URL(location.href),id=hash.get('room')||u.searchParams.get('room');
   if(id){const invite=hash.get('invite');u.hash='';u.searchParams.set('room',id);history.replaceState(null,'',u);await player(id,invite);return true;}
   const h=read(HOST);if(h&&!h.started){await host(h);return true;}end();return false;

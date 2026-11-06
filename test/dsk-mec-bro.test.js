@@ -35,15 +35,15 @@ test('DSK exile uses existing last words and old skill save/history preserves pe
  let s=ready();s.step='exileVote';s.votePool=s.players.map(p=>p.id);selectSeat(s,id(s,'hunter'));go(s);assert.equal(s.step,'lastWords');assert.equal(canNext(s),false);
  s.step='skill';s.queue[0].noticeDone=true;selectSeat(s,id(s,'wolf'));const snap=structuredClone(s);delete snap.history;s.history.push(snap);const originalHistory=JSON.stringify(s.history);s=reload(s);assert.equal(s.step,'lastWords');assert.equal(JSON.stringify(s.history),originalHistory);assert.equal(canNext(s),true);previous(s);assert.equal(s.step,'lastWords');assert.equal(canNext(s),true);go(s);assert.equal(s.dayEvents.filter(e=>e.type==='shot').length,1);
 });
-for(const learned of [null,'hunter','wolf','medium'])for(const night of [1,2,3,4])test(`MEC fixed captions night ${night}, learned ${learned}`,()=>{
+for(const learned of [null,'hunter','wolf','medium'])for(const night of [1,2,3,4])test(`MEC removed optional captions night ${night}, learned ${learned}`,()=>{
  const s=ready('mechanical12');s.night=night;s.mechanical.role=learned;s.mechanical.night=1;const steps=nightSteps(s);
  const stages=night===1?steps.slice(steps.indexOf('mechanical'),steps.indexOf('mechanicalClose')+1):steps.slice(steps.indexOf('hunterClose')+1,steps.indexOf('dawn'));
- assert.deepEqual(stages.map(step=>subtitle({...s,step})),night===1?['機械狼請睜眼','選擇你要學習的對象','若學獵人，今晚的開槍手勢','機械狼請閉眼']:['機械狼若學獵人請睜眼','今晚的開槍手勢','機械狼請閉眼']);
+ assert.deepEqual(stages.map(step=>subtitle({...s,step})),night===1?['機械狼請睜眼','選擇你要學習的對象','機械狼請閉眼']:[]);
  assert.equal(mechanicalGunGesture(s),learned==='hunter'?'可以開槍':'');s.players[id(s,'mechanical')-1].alive=false;assert.deepEqual(nightSteps(s),steps);assert.equal(mechanicalGunGesture(s),'');
  const ten=ready('mechanical10');ten.night=night;assert.equal(nightSteps(ten).some(k=>k.includes('Gesture')||k.startsWith('mechanicalHunter')),false);
 });
-test('MEC first-night pending learning gesture does not commit learning or register another role',()=>{
- const s=ready('mechanical12');s.step='mechanicalLearn';selectSeat(s,id(s,'hunter'));go(s);assert.equal(s.step,'mechanicalFirstGesture');assert.equal(mechanicalGunGesture(s),'可以開槍');assert.equal(s.mechanical.role,null);assert.equal(s.nightRecords.flatMap(r=>r.events).some(e=>e.key==='learn'),false);assert.equal(mechanicalGunGesture(reload(s)),'可以開槍');go(s);go(s);assert.equal(s.mechanical.role,'hunter');previous(s);assert.equal(s.mechanical.role,null);previous(s);assert.equal(s.step,'mechanicalFirstGesture');
+test('MEC pending learning commits only on close after caption removal',()=>{
+ const s=ready('mechanical12');s.step='mechanicalLearn';selectSeat(s,id(s,'hunter'));go(s);assert.equal(s.step,'mechanicalClose');assert.equal(mechanicalGunGesture(s),'可以開槍');assert.equal(s.mechanical.role,null);assert.equal(s.nightRecords.flatMap(r=>r.events).some(e=>e.key==='learn'),false);assert.equal(mechanicalGunGesture(reload(s)),'可以開槍');go(s);assert.equal(s.mechanical.role,'hunter');previous(s);assert.equal(s.mechanical.role,null);assert.equal(s.step,'mechanicalClose');
  s.nightAction.poison=true;s.nightAction.poisonTarget=id(s,'mechanical');assert.equal(mechanicalGunGesture(s),'不可開槍');
 });
 // Defense fixtures inject protection state without changing the official board or its player roles.
@@ -67,7 +67,7 @@ for(const on of [false,true])for(const protection of ['shield','guard','cure','s
  const fresh={...defense,shieldDamage:[],guardUsed:false,cureUsed:false};assert.equal(attackProtection(s,{...attack,source:'basic'},fresh),protection==='dance'?'danceProtection':protection==='cure'?'antidote':protection);
 });
 
-test('MEC legacy first-night action retains controls with the fixed learning caption',()=>{const s=ready('mechanical12');s.takeover.flow=false;s.step='mechanicalAction';s.operation='learnTarget';assert.equal(subtitle(s),'選擇你要學習的對象');assert.equal(canNext(s),false);selectSeat(s,id(s,'hunter'));go(s);assert.equal(s.step,'mechanicalFirstGesture');assert.equal(mechanicalGunGesture(s),'可以開槍');});
+test('MEC legacy first-night action retains controls with the fixed learning caption',()=>{const s=ready('mechanical12');s.takeover.flow=false;s.step='mechanicalAction';s.operation='learnTarget';assert.equal(subtitle(s),'選擇你要學習的對象');assert.equal(canNext(s),false);selectSeat(s,id(s,'hunter'));go(s);assert.equal(s.step,'mechanicalClose');assert.equal(mechanicalGunGesture(s),'可以開槍');});
 
 test('BRO ON preserves knight immunity in isolated damage projection',()=>{const s={boardId:'brothers12',rules:{revengeInvincible:true},players:[{id:1,role:'evilKnight'}]};assert.equal(attackProtection(s,{id:1,source:'revenge'},{dance:{protected:false,people:[]},shieldDamage:[]}), 'knightImmunity');});
 
